@@ -87,9 +87,27 @@ class GameScene: SKScene {
                 if name == "x_deacceleration_button"
                 {
                     print("deaccelerate")
-                    if racecar.x_acceleration > -1{
+                    if racecar.x_acceleration > -1 {
                         racecar.x_acceleration -= 1
                         print(racecar.x_acceleration)
+                    }
+                }
+                
+                if name == "y_acceleration_button"
+                {
+                    print("accelerate")
+                    if racecar.y_acceleration < 1 {
+                        racecar.y_acceleration += 1
+                        print(racecar.y_acceleration)
+                    }
+                }
+                
+                if name == "y_deacceleration_button"
+                {
+                    print("deaccelerate")
+                    if racecar.y_acceleration > -1 {
+                        racecar.y_acceleration -= 1
+                        print(racecar.y_acceleration)
                     }
                 }
             }
