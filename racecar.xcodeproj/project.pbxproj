@@ -17,6 +17,8 @@
 		1782635F1E80992600EBF212 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1782635D1E80992600EBF212 /* LaunchScreen.storyboard */; };
 		1782636A1E80992600EBF212 /* racecarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178263691E80992600EBF212 /* racecarTests.swift */; };
 		178263751E80992600EBF212 /* racecarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178263741E80992600EBF212 /* racecarUITests.swift */; };
+		178263851E809EF500EBF212 /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178263841E809EF500EBF212 /* Grid.swift */; };
+		178263891E81D58100EBF212 /* Racecar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178263881E81D58100EBF212 /* Racecar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		178263701E80992600EBF212 /* racecarUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = racecarUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		178263741E80992600EBF212 /* racecarUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = racecarUITests.swift; sourceTree = "<group>"; };
 		178263761E80992600EBF212 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		178263841E809EF500EBF212 /* Grid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Grid.swift; path = ../Grid.swift; sourceTree = "<group>"; };
+		178263881E81D58100EBF212 /* Racecar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Racecar.swift; path = ../Racecar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +107,8 @@
 		1782634D1E80992500EBF212 /* racecar */ = {
 			isa = PBXGroup;
 			children = (
+				178263841E809EF500EBF212 /* Grid.swift */,
+				178263881E81D58100EBF212 /* Racecar.swift */,
 				1782634E1E80992500EBF212 /* AppDelegate.swift */,
 				178263501E80992500EBF212 /* GameScene.sks */,
 				178263521E80992500EBF212 /* Actions.sks */,
@@ -275,7 +281,9 @@
 			files = (
 				178263551E80992500EBF212 /* GameScene.swift in Sources */,
 				178263571E80992500EBF212 /* GameViewController.swift in Sources */,
+				178263891E81D58100EBF212 /* Racecar.swift in Sources */,
 				1782634F1E80992500EBF212 /* AppDelegate.swift in Sources */,
+				178263851E809EF500EBF212 /* Grid.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
