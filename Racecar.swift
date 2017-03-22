@@ -21,4 +21,10 @@ class Racecar: SKSpriteNode {
     var x_acceleration = 0
     var y_acceleration = 0
     
+    func apply_acceleration()
+    {
+        x_velocity += x_acceleration
+        y_velocity += y_acceleration
+    }
+    
 }
