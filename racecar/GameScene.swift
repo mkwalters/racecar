@@ -11,12 +11,7 @@ import GameplayKit
 
 class GameScene: SKScene {
     
-    var entities = [GKEntity]()
-    var graphs = [String : GKGraph]()
-    
-    private var lastUpdateTime : TimeInterval = 0
-    private var label : SKLabelNode?
-    private var spinnyNode : SKShapeNode?
+ 
     let x_acceleration_button = SKSpriteNode(color: SKColor.red, size: CGSize(width: 175, height: 88))
     
     let x_deacceleration_button = SKSpriteNode(color: SKColor.blue, size: CGSize(width: 175, height: 88))
@@ -29,30 +24,43 @@ class GameScene: SKScene {
     
     let racecar = Racecar()
     
+    let x_velocity_display = SKLabelNode(text: "placeholder")
+    let y_velocity_display = SKLabelNode(text: "placeholder")
+    
     override func sceneDidLoad() {
         
-        let x_acceleration_button = SKSpriteNode(color: SKColor.red, size: CGSize(width: 125, height: 88))
-        x_acceleration_button.position = CGPoint(x: -self.frame.width / 3, y: -1 * self.frame.height / 2 + 50)
+        let x_acceleration_button = SKSpriteNode(color: SKColor.red, size: CGSize(width: 90, height: 90))
+        x_acceleration_button.position = CGPoint(x: -self.frame.width / 4
+            , y: -1 * self.frame.height / 2 + 50)
         x_acceleration_button.name = "x_acceleration_button"
         
-        let x_deacceleration_button = SKSpriteNode(color: SKColor.blue, size: CGSize(width: 125, height: 88))
-        x_deacceleration_button.position = CGPoint(x: -self.frame.width / 8, y: -1 * self.frame.height / 2 + 50)
+        let x_deacceleration_button = SKSpriteNode(color: SKColor.blue, size: CGSize(width: 90, height: 90))
+        x_deacceleration_button.position = CGPoint(x: -self.frame.width / 12, y: -1 * self.frame.height / 2 + 50)
         x_deacceleration_button.name = "x_deacceleration_button"
         
-        let y_acceleration_button = SKSpriteNode(color: SKColor.red, size: CGSize(width: 125, height: 88))
-        y_acceleration_button.position = CGPoint(x: self.frame.width / 8, y: -1 * self.frame.height / 2 + 50)
+        let y_acceleration_button = SKSpriteNode(color: SKColor.red, size: CGSize(width: 90, height: 90))
+        y_acceleration_button.position = CGPoint(x: self.frame.width / 12, y: -1 * self.frame.height / 2 + 50)
         y_acceleration_button.name = "y_acceleration_button"
         
-        let y_deacceleration_button = SKSpriteNode(color: SKColor.blue, size: CGSize(width: 125, height: 88))
-        y_deacceleration_button.position = CGPoint(x: self.frame.width / 3, y: -1 * self.frame.height / 2 + 50)
+        let y_deacceleration_button = SKSpriteNode(color: SKColor.blue, size: CGSize(width: 90, height: 90))
+        y_deacceleration_button.position = CGPoint(x: self.frame.width / 4, y: -1 * self.frame.height / 2 + 50)
         y_deacceleration_button.name = "y_deacceleration_button"
         
+        let x_velocity_display = SKLabelNode(text: String(racecar.x_velocity + 1))
+        x_velocity_display.fontSize = 65
+        x_velocity_display.position = CGPoint(x: -1 * self.frame.width / 2.5 , y: -1 * self.frame.height / 2 + 50)
+        let y_velocity_display = SKLabelNode(text: "placeholder")
+        y_velocity_display.position = CGPoint(x: self.frame.width / 8, y: -1 * self.frame.height / 2 + 50)
         
+        
+        //x_velocity_display.position = CGPoint(x: frame.midX, y: frame.midY)
         
         self.addChild(x_acceleration_button)
         self.addChild(x_deacceleration_button)
         self.addChild(y_acceleration_button)
         self.addChild(y_deacceleration_button)
+        self.addChild(x_velocity_display)
+        self.addChild(y_velocity_display)
         
         if let grid = Grid(blockSize: 120.0, rows:9, cols:5) {
             grid.position = CGPoint (x:frame.midX, y:frame.midY)
@@ -120,31 +128,9 @@ class GameScene: SKScene {
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         
         
-        for touch in touches {
+        for _ in touches {
             
-//            print("touches ended")
-//            let location = touch.location(in: view)
-//            print(location)
-//            if x_acceleration_button.contains(location) {
-//                print("tapped!")
-//            }
-            
-        
-        
-//        let touch:UITouch = touches.anyObject()! as UITouch
-            
-//            x_acceleration_button.name = "x_acceleration_button"
-//            x_acceleration_button.isUserInteractionEnabled = false
-//            let positionInScene = touch.location(in: self)
-//            let touchedNode = self.atPoint(positionInScene)
-//            
-//            if let name = touchedNode.name
-//            {
-//                if name == "x_acceleration_button"
-//                {
-//                    print("Touched")
-//                }
-//            }
+
         }
     }
     
