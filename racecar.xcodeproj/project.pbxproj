@@ -536,6 +536,7 @@
 				1782637B1E80992600EBF212 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1782637C1E80992600EBF212 /* Build configuration list for PBXNativeTarget "racecarTests" */ = {
 			isa = XCConfigurationList;
@@ -544,6 +545,7 @@
 				1782637E1E80992600EBF212 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1782637F1E80992600EBF212 /* Build configuration list for PBXNativeTarget "racecarUITests" */ = {
 			isa = XCConfigurationList;
@@ -552,6 +554,7 @@
 				178263811E80992600EBF212 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
