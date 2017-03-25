@@ -99,9 +99,9 @@ class GameScene: SKScene {
         y_deacceleration_button.name = "y_deacceleration_button"
         
         
-        let vroom = SKSpriteNode(color: SKColor.red, size: CGSize(width: 90, height: 90))
-        vroom.position = CGPoint(x: 0, y: self.frame.height / 2 - 50)
-        vroom.name = "vroom"
+//        let vroom = SKSpriteNode(color: SKColor.red, size: CGSize(width: 90, height: 90))
+//        vroom.position = CGPoint(x: 0, y: self.frame.height / 2 - 50)
+//        vroom.name = "vroom"
         
         
         self.addChild(x_velocity_display)
@@ -110,7 +110,7 @@ class GameScene: SKScene {
         self.addChild(x_deacceleration_button)
         self.addChild(y_acceleration_button)
         self.addChild(y_deacceleration_button)
-        self.addChild(vroom)
+        //self.addChild(vroom)
 
         
         grid?.position = CGPoint (x:frame.midX, y:frame.midY+50)
@@ -119,6 +119,19 @@ class GameScene: SKScene {
         gamePiece.setScale(0.0625)
         gamePiece.position = (grid?.gridPosition(row:  racecar.y_position, col:  racecar.x_position))!
         gamePiece.zPosition = 20
+        
+        let spawn = SKAction.run({
+            () in
+            self.move()
+        })
+        
+        
+        let delay = SKAction.wait(forDuration: 3.33)
+        
+        let SpawnDelay = SKAction.sequence([spawn, delay])
+        
+        let spawnDelayForever = SKAction.repeatForever(SpawnDelay)
+        self.run(spawnDelayForever)
         
         for obstacle in obstacles {
             
