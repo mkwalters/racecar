@@ -40,6 +40,8 @@ class GameScene: SKScene {
     var obstacles:[(x: Int, y: Int)] = []
 
     var previous_locations:[(x: Int, y: Int)] = []
+    
+    var available_locations:[(x: Int, y: Int)] = []
 
     
 
@@ -54,6 +56,30 @@ class GameScene: SKScene {
                 
             }
         }
+        
+        
+        
+        for i in 0...(rows-1) {
+            
+            for j in 0...(cols-1) {
+                
+                available_locations.append(x: i, y: j)
+                
+            }
+        }
+        
+        var count = available_locations.count - 2
+        
+        while count > 0 {
+            
+            if obstacles.contains(where: { $0 == available_locations[count] }) {
+                available_locations.remove(at: count)
+                count += 1
+            }
+            count -= 1
+            
+        }
+        
         
         x_velocity_display.text = "0"
         x_velocity_display.fontSize = 65
