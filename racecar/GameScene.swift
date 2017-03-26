@@ -39,6 +39,8 @@ class GameScene: SKScene {
     
     var obstacles:[(x: Int, y: Int)] = []
 
+    var previous_locations:[(x: Int, y: Int)] = []
+
     
 
     
@@ -126,7 +128,7 @@ class GameScene: SKScene {
         })
         
         
-        let delay = SKAction.wait(forDuration: 3.33)
+        let delay = SKAction.wait(forDuration: 3.15)
         
         let SpawnDelay = SKAction.sequence([spawn, delay])
         
@@ -154,6 +156,15 @@ class GameScene: SKScene {
     
     
     func move() {
+        
+        previous_locations.append((x: racecar.x_position, y: racecar.y_position))
+        
+        let previous_location_node = SKSpriteNode(color: SKColor.green, size: CGSize(width: 10, height: 10))
+        previous_location_node.position = (grid?.gridPosition(row: racecar.y_position, col: racecar.x_position))!
+        previous_location_node.zPosition = 40
+        
+        grid?.addChild(previous_location_node)
+        
         
         racecar.apply_acceleration()
         
@@ -222,8 +233,6 @@ class GameScene: SKScene {
                         racecar.y_acceleration -= 1
                         print(racecar.y_acceleration)
                     }
-                } else if name == "vroom" {
-                    move()
                 }
             }
         }
@@ -232,8 +241,7 @@ class GameScene: SKScene {
     
     override func update(_ currentTime: TimeInterval) {
         
-        
-        print()
+
         // Called before each frame is rendered
         //x_velocity_display.color = SKColor.red
         if racecar.x_acceleration == 1 {
