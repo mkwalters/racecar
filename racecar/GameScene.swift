@@ -16,6 +16,12 @@ let block_size = CGFloat(35.0)
 
 class GameScene: SKScene {
     
+    
+    let swipeRightRec = UISwipeGestureRecognizer()
+    let swipeLeftRec = UISwipeGestureRecognizer()
+    let swipeUpRec = UISwipeGestureRecognizer()
+    let swipeDownRec = UISwipeGestureRecognizer()
+    
  
     let x_acceleration_button = SKSpriteNode(imageNamed: "right_red")
     
@@ -58,11 +64,48 @@ class GameScene: SKScene {
         shape.lineWidth = 2
         addChild(shape)
     }
+    
+    func swipedRight() {
+        
+        print("Right")
+        
+    }
+    
+    func swipedLeft() {
+        
+        print("Left")
+    }
+    
+    func swipedUp() {
+        
+        print("Up")
+    }
+    
+    func swipedDown() {
+        
+        print("Down")
+    }
 
     
 
     
     override func didMove(to view: SKView) {
+        swipeRightRec.addTarget(self, action: #selector(GameScene.swipedRight) )
+        swipeRightRec.direction = .right
+        self.view!.addGestureRecognizer(swipeRightRec)
+        
+        swipeLeftRec.addTarget(self, action: #selector(GameScene.swipedLeft) )
+        swipeLeftRec.direction = .left
+        self.view!.addGestureRecognizer(swipeLeftRec)
+        
+        
+        swipeUpRec.addTarget(self, action: #selector(GameScene.swipedUp) )
+        swipeUpRec.direction = .up
+        self.view!.addGestureRecognizer(swipeUpRec)
+        
+        swipeDownRec.addTarget(self, action: #selector(GameScene.swipedDown) )
+        swipeDownRec.direction = .down
+        self.view!.addGestureRecognizer(swipeDownRec)
         
 //        let line_path:CGMutablePath = CGMutablePath()
 //        line_path.move(to: CGPoint(x: 0, y: 300))
