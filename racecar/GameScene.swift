@@ -11,6 +11,7 @@ import GameplayKit
 
 let rows = 33
 let cols = 19
+let block_size = CGFloat(35.0)
 
 
 class GameScene: SKScene {
@@ -25,6 +26,7 @@ class GameScene: SKScene {
     
     let y_deacceleration_button = SKSpriteNode(imageNamed: "down_blue")
     
+    
 
     
     let racecar = Racecar(x_pos: 16, y_pos: 20)
@@ -32,7 +34,7 @@ class GameScene: SKScene {
     let x_velocity_display = SKLabelNode()
     let y_velocity_display = SKLabelNode()
     
-    let grid = Grid(blockSize: 35.0, rows:rows, cols:cols)
+    let grid = Grid(blockSize: block_size, rows:rows, cols:cols)
     let gamePiece = SKSpriteNode(imageNamed: "Spaceship")
     let projected_velocity = SKSpriteNode(imageNamed: "red")
     let vroom = SKSpriteNode(imageNamed: "red")
@@ -42,12 +44,41 @@ class GameScene: SKScene {
     var previous_locations:[(x: Int, y: Int)] = []
     
     var available_locations:[(x: Int, y: Int)] = []
+    
+    
+    func draw_line(x1: Int, x2: Int, y1: Int, y2: Int) {
+        let line_path:CGMutablePath = CGMutablePath()
+        line_path.move(to: CGPoint(x: x1, y: y1))
+        line_path.addLine(to: CGPoint(x: x2, y: y2))
+        
+        let shape = SKShapeNode()
+        shape.zPosition = 200000
+        shape.path = line_path
+        shape.strokeColor = SKColor.white
+        shape.lineWidth = 2
+        addChild(shape)
+    }
 
     
 
     
     override func didMove(to view: SKView) {
         
+//        let line_path:CGMutablePath = CGMutablePath()
+//        line_path.move(to: CGPoint(x: 0, y: 300))
+//        line_path.addLine(to: CGPoint(x: 150, y: 450))
+//        
+//        let shape = SKShapeNode()
+//        shape.zPosition = 200000
+//        shape.path = line_path
+//        shape.strokeColor = SKColor.white
+//        shape.lineWidth = 2
+//        addChild(shape)
+        
+        
+        //draw_line(x1: 0, x2: 300, y1: 150, y2: 450)
+        
+
         for i in 6...(rows-6) {
             
             for j in 4...(cols-6) {
@@ -183,6 +214,12 @@ class GameScene: SKScene {
     
     func move() {
         
+        
+        let starting_point = (grid?.gridPosition(row:  racecar.y_position - 1 , col: racecar.x_position))!
+        
+        let starting_x_position = Int(starting_point.x)
+        let starting_y_position = Int(starting_point.y)
+        
         previous_locations.append((x: racecar.x_position, y: racecar.y_position))
         
         let previous_location_node = SKSpriteNode(color: SKColor.green, size: CGSize(width: 10, height: 10))
@@ -196,8 +233,22 @@ class GameScene: SKScene {
         
         racecar.x_position = racecar.x_position + racecar.x_velocity
         racecar.y_position = racecar.y_position - racecar.y_velocity
-
+        
+        
+        let ending_point = (grid?.gridPosition(row:  racecar.y_position - 1 , col: racecar.x_position))!
+        
+        let ending_x_position = Int(ending_point.x)
+        let ending_y_position = Int(ending_point.y)
+        
         gamePiece.position = (grid?.gridPosition(row:  racecar.y_position , col: racecar.x_position))!
+        
+        
+//        print(starting_x_position)
+//        print(starting_y_position)
+//        print(ending_x_position)
+//        print(ending_y_position)
+        
+        draw_line(x1: starting_x_position ,x2: ending_x_position ,y1: starting_y_position + (Int(block_size) / 2),y2: ending_y_position + (Int(block_size) / 2))
         
         
         gamePiece.removeFromParent()
@@ -217,8 +268,6 @@ class GameScene: SKScene {
         
         for touch in touches {
 
-            
-            
             
             let positionInScene = touch.location(in: self)
             let touchedNode = atPoint(positionInScene)
