@@ -111,52 +111,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         shape.lineWidth = 2
         grid?.addChild(shape)
     }
-//    
-//    func swipedRight() {
-//        
-//        print("Right")
-//        
-//        let scroll = SKAction.move(by: CGVector(dx: 240, dy: 0), duration: 0.5)
-//        
-//        grid?.run(scroll)
-//        
-//    }
-//    
-//    func swipedLeft() {
-//        
-//        print("Left")
-//        
-//        let scroll = SKAction.move(by: CGVector(dx: -240, dy: 0), duration: 0.4)
-//        
-//        grid?.run(scroll)
-//    }
-//    
-//    func swipedUp() {
-//        
-//        print("Up")
-//        
-//        
-//        let scroll = SKAction.move(by: CGVector(dx: 0, dy: 200), duration: 0.4)
-//        
-//        grid?.run(scroll)
-//    }
-//    
-//    func swipedDown() {
-//        
-//        print("Down")
-////        grid?.physicsBody?.applyForce(CGVector(dx: 0, dy: 80))
-////        let delay = SKAction.wait(forDuration: 3.15)
-////        grid?.physicsBody?.applyForce(CGVector(dx: 0, dy: -80))
-//        
-//        
-//        let scroll = SKAction.move(by: CGVector(dx: 0, dy: -200), duration: 0.4)
-//        
-//        grid?.run(scroll)
-//    }
 
-    
 
-    
     override func didMove(to view: SKView) {
 
         
@@ -206,17 +162,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         y_velocity_display.fontSize = 65
         y_velocity_display.fontColor = SKColor.white
         
-//        x_velocity_display.position = CGPoint(x: -self.frame.width / 2 + 50, y: -1 * self.frame.height / 2 + 50)
-//        y_velocity_display.position = CGPoint(x: self.frame.width / 12 , y: -1 * self.frame.height / 2 + 50)
-        
-
-        
-//        x_velocity_display.position = CGPoint(x: -self.frame.width / 2 + 50, y: -1 * self.frame.height / 2 + 50)
-//        y_velocity_display.position = CGPoint(x: self.frame.width / 12 , y: -1 * self.frame.height / 2 + 50)
-//        x_acceleration_button.position = CGPoint(x: -self.frame.width / 4, y: -1 * self.frame.height / 2 + 50)
-//        x_deacceleration_button.position = CGPoint(x: -self.frame.width / 12, y: -1 * self.frame.height / 2 + 50)
-//        y_acceleration_button.position = CGPoint(x: self.frame.width / 4, y: -1 * self.frame.height / 2 + 50)
-//        y_deacceleration_button.position = CGPoint(x: self.frame.width / 2 - 75, y: -1 * self.frame.height / 2 + 50)
         
         x_velocity_display.position = CGPoint(x: -self.frame.width / 2 + 50, y: -1 * self.frame.height / 2 + 50)
         y_velocity_display.position = CGPoint(x: -self.frame.width / 4, y: -1 * self.frame.height / 2 + 50)
@@ -258,9 +203,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         //self.addChild(vroom)
 
         
-        grid?.position = CGPoint (x:frame.midX, y:frame.midY+50)
-        grid?.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 64, height: 64))
-        grid?.physicsBody?.affectedByGravity = false
 
         addChild(grid!)
         
