@@ -24,7 +24,7 @@ let cols = 19
 let block_size = CGFloat(35.0)
 
 
-class GameScene: SKScene {
+class GameScene: SKScene, SKPhysicsContactDelegate {
     
     
 //    let swipeRightRec = UISwipeGestureRecognizer()
@@ -84,6 +84,13 @@ class GameScene: SKScene {
         projected_path.path = line_path
         projected_path.strokeColor = SKColor.green
         projected_path.lineWidth = 2
+        
+        projected_path.physicsBody = SKPhysicsBody(edgeChainFrom: line_path)
+        projected_path.physicsBody?.categoryBitMask = physicsCategory.projected_velocity
+        projected_path.physicsBody?.collisionBitMask = physicsCategory.obstacle
+        projected_path.physicsBody?.contactTestBitMask = physicsCategory.obstacle
+        projected_path.physicsBody?.isDynamic = true
+        projected_path.physicsBody?.affectedByGravity = false
         
         
         grid?.addChild(projected_path)
@@ -151,38 +158,13 @@ class GameScene: SKScene {
 
     
     override func didMove(to view: SKView) {
-//        swipeRightRec.addTarget(self, action: #selector(GameScene.swipedRight) )
-//        swipeRightRec.direction = .right
-//        self.view!.addGestureRecognizer(swipeRightRec)
-//        
-//        swipeLeftRec.addTarget(self, action: #selector(GameScene.swipedLeft) )
-//        swipeLeftRec.direction = .left
-//        self.view!.addGestureRecognizer(swipeLeftRec)
-//        
-//        
-//        swipeUpRec.addTarget(self, action: #selector(GameScene.swipedUp) )
-//        swipeUpRec.direction = .up
-//        self.view!.addGestureRecognizer(swipeUpRec)
-//        
-//        swipeDownRec.addTarget(self, action: #selector(GameScene.swipedDown) )
-//        swipeDownRec.direction = .down
-//        self.view!.addGestureRecognizer(swipeDownRec)
-        
-//        let line_path:CGMutablePath = CGMutablePath()
-//        line_path.move(to: CGPoint(x: 0, y: 300))
-//        line_path.addLine(to: CGPoint(x: 150, y: 450))
-//        
-//        let shape = SKShapeNode()
-//        shape.zPosition = 200000
-//        shape.path = line_path
-//        shape.strokeColor = SKColor.white
-//        shape.lineWidth = 2
-//        addChild(shape)
-        
-        
-        //draw_line(x1: 0, x2: 300, y1: 150, y2: 450)
-        //self.physicsWorld.contactDelegate = self
 
+        
+        self.physicsWorld.contactDelegate = self
+
+        
+        
+        
         for i in 6...(rows-6) {
             
             for j in 4...(cols-6) {
