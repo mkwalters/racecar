@@ -262,7 +262,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         timer.size = CGSize(width: 0, height: 30)
         
         
-        let timing = SKAction.resize(toWidth: 2 * self.frame.width, duration: 3.5)
+        let timing = SKAction.resize(toWidth: 2 * self.frame.width, duration: 3.15)
         
         timer.run(timing)
         
