@@ -8,6 +8,16 @@
 
 import SpriteKit
 import GameplayKit
+import CoreGraphics
+
+struct physicsCategory {
+    
+    static let projected_velocity: UInt32 = 0x1 << 1
+    static let obstacle: UInt32 = 0x1 << 2
+    //    static let Ground : UInt32 = 0x1 << 2
+    //    static let Wall : UInt32 = 0x1 << 3
+}
+
 
 let rows = 33
 let cols = 19
@@ -17,11 +27,11 @@ let block_size = CGFloat(35.0)
 class GameScene: SKScene {
     
     
-    let swipeRightRec = UISwipeGestureRecognizer()
-    let swipeLeftRec = UISwipeGestureRecognizer()
-    let swipeUpRec = UISwipeGestureRecognizer()
-    let swipeDownRec = UISwipeGestureRecognizer()
-    
+//    let swipeRightRec = UISwipeGestureRecognizer()
+//    let swipeLeftRec = UISwipeGestureRecognizer()
+//    let swipeUpRec = UISwipeGestureRecognizer()
+//    let swipeDownRec = UISwipeGestureRecognizer()
+//    
  
     let x_acceleration_button = SKSpriteNode(imageNamed: "right_red")
     
@@ -51,6 +61,36 @@ class GameScene: SKScene {
     
     var available_locations:[(x: Int, y: Int)] = []
     
+    let projected_path = SKShapeNode()
+    
+    
+    
+    func draw_projected_path() {
+        
+        
+        projected_path.removeFromParent()
+        
+        let starting_position = grid?.gridPosition(row:  racecar.y_position, col: racecar.x_position)
+        
+        
+        let ending_position = grid?.gridPosition(row:  racecar.y_position - racecar.y_velocity - racecar.y_acceleration, col: racecar.x_position + racecar.x_velocity + racecar.x_acceleration)
+        
+        let line_path:CGMutablePath = CGMutablePath()
+        line_path.move(to: starting_position!)
+        line_path.addLine(to: ending_position!)
+        
+        
+        projected_path.zPosition = 200000
+        projected_path.path = line_path
+        projected_path.strokeColor = SKColor.green
+        projected_path.lineWidth = 2
+        
+        
+        grid?.addChild(projected_path)
+        
+        
+    }
+    
     
     func draw_line(x1: Int, x2: Int, y1: Int, y2: Int) {
         let line_path:CGMutablePath = CGMutablePath()
@@ -62,50 +102,71 @@ class GameScene: SKScene {
         shape.path = line_path
         shape.strokeColor = SKColor.white
         shape.lineWidth = 2
-        addChild(shape)
+        grid?.addChild(shape)
     }
-    
-    func swipedRight() {
-        
-        print("Right")
-        
-    }
-    
-    func swipedLeft() {
-        
-        print("Left")
-    }
-    
-    func swipedUp() {
-        
-        print("Up")
-    }
-    
-    func swipedDown() {
-        
-        print("Down")
-    }
+//    
+//    func swipedRight() {
+//        
+//        print("Right")
+//        
+//        let scroll = SKAction.move(by: CGVector(dx: 240, dy: 0), duration: 0.5)
+//        
+//        grid?.run(scroll)
+//        
+//    }
+//    
+//    func swipedLeft() {
+//        
+//        print("Left")
+//        
+//        let scroll = SKAction.move(by: CGVector(dx: -240, dy: 0), duration: 0.4)
+//        
+//        grid?.run(scroll)
+//    }
+//    
+//    func swipedUp() {
+//        
+//        print("Up")
+//        
+//        
+//        let scroll = SKAction.move(by: CGVector(dx: 0, dy: 200), duration: 0.4)
+//        
+//        grid?.run(scroll)
+//    }
+//    
+//    func swipedDown() {
+//        
+//        print("Down")
+////        grid?.physicsBody?.applyForce(CGVector(dx: 0, dy: 80))
+////        let delay = SKAction.wait(forDuration: 3.15)
+////        grid?.physicsBody?.applyForce(CGVector(dx: 0, dy: -80))
+//        
+//        
+//        let scroll = SKAction.move(by: CGVector(dx: 0, dy: -200), duration: 0.4)
+//        
+//        grid?.run(scroll)
+//    }
 
     
 
     
     override func didMove(to view: SKView) {
-        swipeRightRec.addTarget(self, action: #selector(GameScene.swipedRight) )
-        swipeRightRec.direction = .right
-        self.view!.addGestureRecognizer(swipeRightRec)
-        
-        swipeLeftRec.addTarget(self, action: #selector(GameScene.swipedLeft) )
-        swipeLeftRec.direction = .left
-        self.view!.addGestureRecognizer(swipeLeftRec)
-        
-        
-        swipeUpRec.addTarget(self, action: #selector(GameScene.swipedUp) )
-        swipeUpRec.direction = .up
-        self.view!.addGestureRecognizer(swipeUpRec)
-        
-        swipeDownRec.addTarget(self, action: #selector(GameScene.swipedDown) )
-        swipeDownRec.direction = .down
-        self.view!.addGestureRecognizer(swipeDownRec)
+//        swipeRightRec.addTarget(self, action: #selector(GameScene.swipedRight) )
+//        swipeRightRec.direction = .right
+//        self.view!.addGestureRecognizer(swipeRightRec)
+//        
+//        swipeLeftRec.addTarget(self, action: #selector(GameScene.swipedLeft) )
+//        swipeLeftRec.direction = .left
+//        self.view!.addGestureRecognizer(swipeLeftRec)
+//        
+//        
+//        swipeUpRec.addTarget(self, action: #selector(GameScene.swipedUp) )
+//        swipeUpRec.direction = .up
+//        self.view!.addGestureRecognizer(swipeUpRec)
+//        
+//        swipeDownRec.addTarget(self, action: #selector(GameScene.swipedDown) )
+//        swipeDownRec.direction = .down
+//        self.view!.addGestureRecognizer(swipeDownRec)
         
 //        let line_path:CGMutablePath = CGMutablePath()
 //        line_path.move(to: CGPoint(x: 0, y: 300))
@@ -120,7 +181,7 @@ class GameScene: SKScene {
         
         
         //draw_line(x1: 0, x2: 300, y1: 150, y2: 450)
-        
+        //self.physicsWorld.contactDelegate = self
 
         for i in 6...(rows-6) {
             
@@ -216,11 +277,17 @@ class GameScene: SKScene {
 
         
         grid?.position = CGPoint (x:frame.midX, y:frame.midY+50)
+        grid?.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 64, height: 64))
+        grid?.physicsBody?.affectedByGravity = false
+
         addChild(grid!)
         
         gamePiece.setScale(0.0625)
         gamePiece.position = (grid?.gridPosition(row:  racecar.y_position, col:  racecar.x_position))!
         gamePiece.zPosition = 20
+        
+        
+        grid?.addChild(projected_path)
         
         let spawn = SKAction.run({
             () in
@@ -258,7 +325,8 @@ class GameScene: SKScene {
     func move() {
         
         
-        let starting_point = (grid?.gridPosition(row:  racecar.y_position - 1 , col: racecar.x_position))!
+        let starting_point = (grid?.gridPosition(row:  racecar.y_position , col: racecar.x_position))!
+        
         
         let starting_x_position = Int(starting_point.x)
         let starting_y_position = Int(starting_point.y)
@@ -278,7 +346,7 @@ class GameScene: SKScene {
         racecar.y_position = racecar.y_position - racecar.y_velocity
         
         
-        let ending_point = (grid?.gridPosition(row:  racecar.y_position - 1 , col: racecar.x_position))!
+        let ending_point = (grid?.gridPosition(row:  racecar.y_position  , col: racecar.x_position))!
         
         let ending_x_position = Int(ending_point.x)
         let ending_y_position = Int(ending_point.y)
@@ -291,11 +359,13 @@ class GameScene: SKScene {
 //        print(ending_x_position)
 //        print(ending_y_position)
         
-        draw_line(x1: starting_x_position ,x2: ending_x_position ,y1: starting_y_position + (Int(block_size) / 2),y2: ending_y_position + (Int(block_size) / 2))
+        draw_line(x1: starting_x_position ,x2: ending_x_position ,y1: starting_y_position,y2: ending_y_position)
         
         
         gamePiece.removeFromParent()
         grid?.addChild(gamePiece)
+        
+        draw_projected_path()
         //grid?.addChild(projected_velocity)
         
         
@@ -305,6 +375,7 @@ class GameScene: SKScene {
         
 
     }
+    
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
@@ -321,8 +392,8 @@ class GameScene: SKScene {
 
                     if racecar.x_acceleration < 1 {
                         racecar.x_acceleration += 1
-                        print(racecar.x_acceleration)
-
+                    
+                        draw_projected_path()
                     }
                 }
                 
@@ -331,7 +402,9 @@ class GameScene: SKScene {
                     
                     if racecar.x_acceleration > -1 {
                         racecar.x_acceleration -= 1
-                        print(racecar.x_acceleration)
+                        
+                        draw_projected_path()
+                        
                     }
                 }
                 
@@ -340,7 +413,9 @@ class GameScene: SKScene {
                     
                     if racecar.y_acceleration < 1 {
                         racecar.y_acceleration += 1
-                        print(racecar.y_acceleration)
+                        
+                        draw_projected_path()
+                        
                     }
                 }
                 
@@ -349,14 +424,47 @@ class GameScene: SKScene {
                     
                     if racecar.y_acceleration > -1 {
                         racecar.y_acceleration -= 1
-                        print(racecar.y_acceleration)
+                        
+                        draw_projected_path()
+                        
                     }
                 }
             }
         }
     }
-
     
+
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        for touch: AnyObject in touches {
+            //Get the current position in scene of the touch.
+            let location = touch.location(in: view)
+            //Get the previous position in scene of the touch.
+            let previousLocation = touch.previousLocation(in: view)
+            //Calculate the translation.
+            //let translation = CGPoint((location.x - previousLocation.x), (location.y - previousLocation.y))
+            
+            let x_translation = location.x - previousLocation.x
+            let y_translation = location.y - previousLocation.y
+            //Get the current position in scene of the crossHair.
+            let position = grid?.position
+            // Get the bode touched
+            //var body = self.nodeAtPoint(location)
+            
+            grid?.position = CGPoint(x: ((position?.x)! + x_translation), y: ( (position?.y)! - y_translation) )
+            
+                
+
+                    
+                    //Set the position of the crosshair to its current position plus the translation.
+            //grid?.position = CGPoint(x: ((position?.x)! + x_translation * 2), y: ( (position?.y)! + y_translation * 2) )
+                    //Set the position of the body
+                    //body.position = location
+            
+            }
+    }
+
+
+
     override func update(_ currentTime: TimeInterval) {
         
 
