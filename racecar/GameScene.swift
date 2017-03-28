@@ -63,6 +63,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     let projected_path = SKShapeNode()
     
+    let timer = SKSpriteNode(color: SKColor.blue, size: CGSize(width: 30, height: 30))
+    
     
     
     func draw_projected_path() {
@@ -114,6 +116,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
 
     override func didMove(to view: SKView) {
+        
+        
+        timer.position = CGPoint(x: -self.frame.width / 2 + timer.size.width , y: self.frame.height / 2 - timer.size.height)
+        timer.zPosition = 20000000000
+        
+        addChild(timer)
 
         
         self.physicsWorld.contactDelegate = self
@@ -216,10 +224,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let spawn = SKAction.run({
             () in
             self.move()
+            
         })
         
         
-        let delay = SKAction.wait(forDuration: 3.15)
+        let delay = SKAction.wait(forDuration: 3)
+        
+        
         
         let SpawnDelay = SKAction.sequence([spawn, delay])
         
@@ -241,12 +252,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         grid?.addChild(projected_velocity)
         grid?.addChild(gamePiece)
 
-        
-        
     }
     
     
+    
     func move() {
+        
+        timer.removeAllActions()
+        timer.size = CGSize(width: 0, height: 30)
+        
+        
+        let timing = SKAction.resize(toWidth: 2 * self.frame.width, duration: 3.5)
+        
+        timer.run(timing)
         
         
         let starting_point = (grid?.gridPosition(row:  racecar.y_position , col: racecar.x_position))!
@@ -302,7 +320,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
         
         for touch in touches {
 
@@ -415,7 +432,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         projected_velocity.position = (grid?.gridPosition(row:  racecar.y_position - racecar.y_velocity - racecar.y_acceleration, col: racecar.x_position + racecar.x_velocity + racecar.x_acceleration))!
         
-
+        
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
