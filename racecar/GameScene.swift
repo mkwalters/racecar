@@ -19,8 +19,8 @@ struct physicsCategory {
 }
 
 
-let rows = 33
-let cols = 19
+let rows = 42
+let cols = 32
 let block_size = CGFloat(35.0)
 
 
@@ -45,7 +45,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
 
     
-    let racecar = Racecar(x_pos: 16, y_pos: 20)
+    let racecar = Racecar(x_pos: 29, y_pos: 20)
     
     let x_velocity_display = SKLabelNode()
     let y_velocity_display = SKLabelNode()
@@ -82,10 +82,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         line_path.addLine(to: ending_position!)
         
         
-        projected_path.zPosition = 2000
+        projected_path.zPosition = 200
         projected_path.path = line_path
         projected_path.strokeColor = SKColor.green
         projected_path.lineWidth = 2
+        
+        projected_path.name = "projected_path"
         
         projected_path.physicsBody = SKPhysicsBody(edgeChainFrom: line_path)
         projected_path.physicsBody?.categoryBitMask = physicsCategory.projected_velocity
@@ -108,7 +110,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         line_path.addLine(to: CGPoint(x: x2, y: y2))
         
         let shape = SKShapeNode()
-        shape.zPosition = 2001
+        shape.zPosition = 210
         shape.path = line_path
         shape.strokeColor = SKColor.white
         shape.lineWidth = 2
@@ -129,39 +131,101 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
         
         
-        
-        for i in 6...(rows-6) {
+        //1
+        for j in 20...25{
             
-            for j in 4...(cols-6) {
+            for i in 5...15 {
                 
                 obstacles.append(x: i, y: j)
                 
             }
         }
-        
-        
-        
-        for i in 0...(rows-1) {
+        //2
+        for j in 12...16{
             
-            for j in 0...(cols-1) {
+            for i in 0...11 {
                 
-                available_locations.append(x: i, y: j)
+                obstacles.append(x: i, y: j)
                 
             }
         }
-        
-        var count = available_locations.count - 2
-        
-        while count > 0 {
+        //3
+        for j in 5...8{
             
-            if obstacles.contains(where: { $0 == available_locations[count] }) {
-                available_locations.remove(at: count)
-                count += 1
+            for i in 9...15 {
+                
+                obstacles.append(x: i, y: j)
+                
             }
-            count -= 1
-            
         }
+        //4
         
+        for j in 5...25{
+            
+            for i in 16...24 {
+                
+                obstacles.append(x: i, y: j)
+                
+            }
+        }
+        //5
+        for j in 12...25{
+            
+            for i in 25...30 {
+                
+                obstacles.append(x: i, y: j)
+                
+            }
+        }
+        //6
+        for j in 5...16{
+            
+            for i in 31...38 {
+                
+                obstacles.append(x: i, y: j)
+                
+            }
+        }
+        //7
+        for j in 24...27{
+            
+            for i in 31...38 {
+                
+                obstacles.append(x: i, y: j)
+                
+            }
+        }
+        //8
+        for j in 0...8{
+            
+            for i in 27...28 {
+                
+                obstacles.append(x: i, y: j)
+                
+            }
+        }
+        //9
+        for j in 19...20{
+            
+            for i in 35...41 {
+                
+                obstacles.append(x: i, y: j)
+                
+            }
+        }
+
+//        var count = available_locations.count - 2
+//        
+//        while count > 0 {
+//            
+//            if obstacles.contains(where: { $0 == available_locations[count] }) {
+//                available_locations.remove(at: count)
+//                count += 1
+//            }
+//            count -= 1
+//            
+//        }
+//        
         
         x_velocity_display.text = "0"
         x_velocity_display.fontSize = 65
@@ -171,13 +235,26 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         y_velocity_display.fontSize = 65
         y_velocity_display.fontColor = SKColor.white
         
+        //these z positions should always be the highest
         
         x_velocity_display.position = CGPoint(x: -self.frame.width / 2 + 50, y: -1 * self.frame.height / 2 + 50)
+        x_velocity_display.zPosition = 2000000
+        
         y_velocity_display.position = CGPoint(x: -self.frame.width / 4, y: -1 * self.frame.height / 2 + 50)
+        x_velocity_display.zPosition = 2000000
+        
+        
         x_acceleration_button.position = CGPoint(x: -self.frame.width / 12, y: -1 * self.frame.height / 2 + 50)
+        x_acceleration_button.zPosition = 2000000
+        
         x_deacceleration_button.position = CGPoint(x: self.frame.width / 12 , y: -1 * self.frame.height / 2 + 50)
+        x_deacceleration_button.zPosition = 2000000
+        
         y_acceleration_button.position = CGPoint(x: self.frame.width / 4, y: -1 * self.frame.height / 2 + 50)
+        y_acceleration_button.zPosition = 2000000
+        
         y_deacceleration_button.position = CGPoint(x: self.frame.width / 2 - 75, y: -1 * self.frame.height / 2 + 50)
+        y_deacceleration_button.zPosition = 2000000
         
         
         
@@ -240,7 +317,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         for obstacle in obstacles {
             
-            let current_obstacle = SKSpriteNode(color: SKColor.red, size: CGSize(width: 30, height: 30))
+            let current_obstacle = SKSpriteNode(color: SKColor.purple, size: CGSize(width: 30, height: 30))
             current_obstacle.position = (grid?.gridPosition(row:  obstacle.x, col:  obstacle.y))!
             
             current_obstacle.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 30, height: 30))
@@ -267,9 +344,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
+
         
-            print(contact.bodyA)
-            print(contact.bodyB)
+        
+        
+        print("About to crash!")
+        projected_path.strokeColor = SKColor.red
             
 
         
