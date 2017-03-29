@@ -82,7 +82,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         line_path.addLine(to: ending_position!)
         
         
-        projected_path.zPosition = 200000
+        projected_path.zPosition = 2000
         projected_path.path = line_path
         projected_path.strokeColor = SKColor.green
         projected_path.lineWidth = 2
@@ -93,6 +93,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         projected_path.physicsBody?.contactTestBitMask = physicsCategory.obstacle
         projected_path.physicsBody?.isDynamic = true
         projected_path.physicsBody?.affectedByGravity = false
+        projected_path.physicsBody?.pinned = true
         
         
         grid?.addChild(projected_path)
@@ -107,7 +108,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         line_path.addLine(to: CGPoint(x: x2, y: y2))
         
         let shape = SKShapeNode()
-        shape.zPosition = 200000
+        shape.zPosition = 2001
         shape.path = line_path
         shape.strokeColor = SKColor.white
         shape.lineWidth = 2
@@ -119,7 +120,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         
         timer.position = CGPoint(x: -self.frame.width / 2 + timer.size.width , y: self.frame.height / 2 - timer.size.height)
-        timer.zPosition = 20000000000
+        timer.zPosition = 20000000
         
         addChild(timer)
 
@@ -216,7 +217,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         gamePiece.setScale(0.0625)
         gamePiece.position = (grid?.gridPosition(row:  racecar.y_position, col:  racecar.x_position))!
-        gamePiece.zPosition = 20
+        gamePiece.zPosition = 2002
         
         
         grid?.addChild(projected_path)
@@ -241,6 +242,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             let current_obstacle = SKSpriteNode(color: SKColor.red, size: CGSize(width: 30, height: 30))
             current_obstacle.position = (grid?.gridPosition(row:  obstacle.x, col:  obstacle.y))!
+            
+            current_obstacle.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 30, height: 30))
+            current_obstacle.physicsBody?.categoryBitMask = physicsCategory.obstacle
+            current_obstacle.physicsBody?.collisionBitMask = 0
+            current_obstacle.physicsBody?.contactTestBitMask = physicsCategory.projected_velocity
+            current_obstacle.physicsBody?.isDynamic = true
+            //current_obstacle.physicsBody?.pinned = true
+            
+            current_obstacle.physicsBody?.affectedByGravity = false
+            
+            
             grid?.addChild(current_obstacle)
             
         }
@@ -254,6 +266,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
     }
     
+    func didBegin(_ contact: SKPhysicsContact) {
+        
+            print(contact.bodyA)
+            print(contact.bodyB)
+            
+
+        
+    }
     
     
     func move() {
@@ -391,7 +411,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             // Get the bode touched
             //var body = self.nodeAtPoint(location)
             
-            grid?.position = CGPoint(x: ((position?.x)! + x_translation), y: ( (position?.y)! - y_translation) )
+            grid?.position = CGPoint(x: ((position?.x)! + x_translation * 2), y: ( (position?.y)! - y_translation * 2) )
             
                 
 
