@@ -116,9 +116,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         shape.lineWidth = 2
         grid?.addChild(shape)
     }
+    
+    func handlePinchFrom(_ sender: UIPinchGestureRecognizer) {
+        
+        let pinch = SKAction.scale(by: sender.scale, duration: 0.0)
+        
+        grid?.run(pinch)
+        sender.scale = 1.0
+        
+    }
 
 
     override func didMove(to view: SKView) {
+        
+        
+        let pinchGesture = UIPinchGestureRecognizer(target: self, action: #selector(self.handlePinchFrom(_:)))
+        self.view?.addGestureRecognizer(pinchGesture)
         
         
         timer.position = CGPoint(x: -self.frame.width / 2 + timer.size.width , y: self.frame.height / 2 - timer.size.height)
