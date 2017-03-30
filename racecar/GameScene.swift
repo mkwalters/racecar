@@ -133,6 +133,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let pinchGesture = UIPinchGestureRecognizer(target: self, action: #selector(self.handlePinchFrom(_:)))
         self.view?.addGestureRecognizer(pinchGesture)
         
+        projected_path.strokeColor = SKColor.green
+        
         
         timer.position = CGPoint(x: -self.frame.width / 2 + timer.size.width , y: self.frame.height / 2 - timer.size.height)
         timer.zPosition = 20000000
@@ -304,6 +306,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
 
         addChild(grid!)
+        grid?.position = CGPoint(x: -300, y: 0)
+        
         
         gamePiece.setScale(0.0625)
         gamePiece.position = (grid?.gridPosition(row:  racecar.y_position, col:  racecar.x_position))!
@@ -371,58 +375,74 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func move() {
         
-        timer.removeAllActions()
-        timer.size = CGSize(width: 0, height: 30)
+        if projected_path.strokeColor == SKColor.green {
         
-        
-        let timing = SKAction.resize(toWidth: 2 * self.frame.width, duration: 3.15)
-        
-        timer.run(timing)
-        
-        
-        let starting_point = (grid?.gridPosition(row:  racecar.y_position , col: racecar.x_position))!
-        
-        
-        let starting_x_position = Int(starting_point.x)
-        let starting_y_position = Int(starting_point.y)
-        
-        previous_locations.append((x: racecar.x_position, y: racecar.y_position))
-        
-        let previous_location_node = SKSpriteNode(color: SKColor.green, size: CGSize(width: 10, height: 10))
-        previous_location_node.position = (grid?.gridPosition(row: racecar.y_position, col: racecar.x_position))!
-        previous_location_node.zPosition = 40
-        
-        grid?.addChild(previous_location_node)
-        
-        
-        racecar.apply_acceleration()
-        
-        racecar.x_position = racecar.x_position + racecar.x_velocity
-        racecar.y_position = racecar.y_position - racecar.y_velocity
-        
-        
-        let ending_point = (grid?.gridPosition(row:  racecar.y_position  , col: racecar.x_position))!
-        
-        let ending_x_position = Int(ending_point.x)
-        let ending_y_position = Int(ending_point.y)
-        
-        gamePiece.position = (grid?.gridPosition(row:  racecar.y_position , col: racecar.x_position))!
-        
-        
-//        print(starting_x_position)
-//        print(starting_y_position)
-//        print(ending_x_position)
-//        print(ending_y_position)
-        
-        draw_line(x1: starting_x_position ,x2: ending_x_position ,y1: starting_y_position,y2: ending_y_position)
-        
-        
-        gamePiece.removeFromParent()
-        grid?.addChild(gamePiece)
-        
-        draw_projected_path()
-        //grid?.addChild(projected_velocity)
-        
+            timer.removeAllActions()
+            timer.size = CGSize(width: 0, height: 30)
+            
+            
+            let timing = SKAction.resize(toWidth: 2 * self.frame.width, duration: 3.15)
+            
+            timer.run(timing)
+            
+            
+            let starting_point = (grid?.gridPosition(row:  racecar.y_position , col: racecar.x_position))!
+            
+            
+            let starting_x_position = Int(starting_point.x)
+            let starting_y_position = Int(starting_point.y)
+            
+            previous_locations.append((x: racecar.x_position, y: racecar.y_position))
+            
+            let previous_location_node = SKSpriteNode(color: SKColor.green, size: CGSize(width: 10, height: 10))
+            previous_location_node.position = (grid?.gridPosition(row: racecar.y_position, col: racecar.x_position))!
+            previous_location_node.zPosition = 40
+            
+            grid?.addChild(previous_location_node)
+            
+            
+            racecar.apply_acceleration()
+            
+            racecar.x_position = racecar.x_position + racecar.x_velocity
+            racecar.y_position = racecar.y_position - racecar.y_velocity
+            
+            
+            let ending_point = (grid?.gridPosition(row:  racecar.y_position  , col: racecar.x_position))!
+            
+            let ending_x_position = Int(ending_point.x)
+            let ending_y_position = Int(ending_point.y)
+            
+            gamePiece.position = (grid?.gridPosition(row:  racecar.y_position , col: racecar.x_position))!
+            
+            
+    //        print(starting_x_position)
+    //        print(starting_y_position)
+    //        print(ending_x_position)
+    //        print(ending_y_position)
+            
+            draw_line(x1: starting_x_position ,x2: ending_x_position ,y1: starting_y_position,y2: ending_y_position)
+            
+            
+            gamePiece.removeFromParent()
+            grid?.addChild(gamePiece)
+            
+            draw_projected_path()
+            //grid?.addChild(projected_velocity)
+        } else {
+            
+            let crashed_label = SKLabelNode(text: "Crashed out!")
+            crashed_label.position = CGPoint(x: 0, y: 0)
+            crashed_label.fontSize = 60
+            crashed_label.fontColor = SKColor.yellow
+            
+            addChild(crashed_label)
+            
+            let pauseAction = SKAction.run {
+                self.view?.isPaused = true
+            }
+            self.run(pauseAction)
+            
+        }
         
     }
     
