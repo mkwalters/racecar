@@ -42,7 +42,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     let y_deacceleration_button = SKSpriteNode(imageNamed: "down_blue")
     
-    
+    var gameDifficulty = String()
 
     
     let racecar = Racecar(x_pos: 29, y_pos: 20)
@@ -65,12 +65,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     let timer = SKSpriteNode(color: SKColor.blue, size: CGSize(width: 30, height: 30))
     
+    var time_between_moves = 3
+    
     
     
     func draw_projected_path() {
         
         
         projected_path.removeFromParent()
+        
+        self.backgroundColor = SKColor.black
         
         let starting_position = grid?.gridPosition(row:  racecar.y_position, col: racecar.x_position)
         
@@ -103,6 +107,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
     }
     
+    init(size: CGSize, difficulty: String) {
+        super.init(size: size)
+        gameDifficulty = difficulty
+        
+        if difficulty == "hard"{
+            time_between_moves = 2
+        } else {
+            time_between_moves = 4
+        }
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     
     func draw_line(x1: Int, x2: Int, y1: Int, y2: Int) {
         let line_path:CGMutablePath = CGMutablePath()
@@ -129,6 +148,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
     override func didMove(to view: SKView) {
         
+        self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+        self.size = CGSize(width: 750, height: 1334)
         
         let pinchGesture = UIPinchGestureRecognizer(target: self, action: #selector(self.handlePinchFrom(_:)))
         self.view?.addGestureRecognizer(pinchGesture)
@@ -252,7 +273,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         //these z positions should always be the highest
         
-        x_velocity_display.position = CGPoint(x: -self.frame.width / 2 + 50, y: -1 * self.frame.height / 2 + 50)
+        x_velocity_display.position =  CGPoint(x: -self.frame.width / 2 + 50, y: -1 * self.frame.height / 2 + 50)
         x_velocity_display.zPosition = 2000000
         
         y_velocity_display.position = CGPoint(x: -self.frame.width / 4, y: -1 * self.frame.height / 2 + 50)
@@ -304,9 +325,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         //self.addChild(vroom)
 
         
-
-        addChild(grid!)
         grid?.position = CGPoint(x: -300, y: 0)
+        addChild(grid!)
         
         
         gamePiece.setScale(0.0625)
@@ -323,7 +343,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         })
         
         
-        let delay = SKAction.wait(forDuration: 3)
+        let delay = SKAction.wait(forDuration: TimeInterval(time_between_moves))
         
         
         
@@ -381,7 +401,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             timer.size = CGSize(width: 0, height: 30)
             
             
-            let timing = SKAction.resize(toWidth: 2 * self.frame.width, duration: 3.15)
+            let timing = SKAction.resize(toWidth: 2 * self.frame.width, duration: TimeInterval(time_between_moves))
             
             timer.run(timing)
             
@@ -430,17 +450,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             //grid?.addChild(projected_velocity)
         } else {
             
-            let crashed_label = SKLabelNode(text: "Crashed out!")
-            crashed_label.position = CGPoint(x: 0, y: 0)
-            crashed_label.fontSize = 60
-            crashed_label.fontColor = SKColor.yellow
-            
-            addChild(crashed_label)
-            
-            let pauseAction = SKAction.run {
-                self.view?.isPaused = true
-            }
-            self.run(pauseAction)
+            let reveal = SKTransition.doorsOpenVertical(withDuration: 0.5)
+            let menuScene = MenuScene(size: self.size)
+            self.view?.presentScene(menuScene, transition: reveal)
             
         }
         
