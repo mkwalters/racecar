@@ -51,7 +51,7 @@ class DifficultyScene: SKScene {
         
         if easyButton.contains(touchLocation) {
             let reveal = SKTransition.doorsOpenVertical(withDuration: 0.5)
-            let gameScene = GameScene(size: self.size, difficulty: easyButton.text!)
+            let gameScene = EasyRaceScene(size: self.size, difficulty: easyButton.text!)
             self.view?.presentScene(gameScene, transition: reveal)
         }
         

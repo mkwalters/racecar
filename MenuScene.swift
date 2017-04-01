@@ -20,7 +20,7 @@ class MenuScene: SKScene {
         backgroundColor = SKColor.white
         
         playButton.fontColor = SKColor.black
-        playButton.text = "play"
+        playButton.text = "Grand Prix"
         
         playButton.position = CGPoint(x: size.width / 2, y: size.height / 2)
         

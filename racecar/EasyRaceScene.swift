@@ -1,38 +1,31 @@
 //
-//  GameScene.swift
+//  EasyRaceScene.swift
 //  racecar
 //
-//  Created by Walters Mitch on 3/20/17.
+//  Created by Walters Mitch on 3/31/17.
 //  Copyright © 2017 Mitchell Walters. All rights reserved.
 //
 
+import Foundation
 import SpriteKit
 import GameplayKit
 import CoreGraphics
 
-struct physicsCategory {
-    
-    static let projected_velocity: UInt32 = 0x1 << 1
-    static let obstacle: UInt32 = 0x1 << 2
-    //    static let Ground : UInt32 = 0x1 << 2
-    //    static let Wall : UInt32 = 0x1 << 3
-}
+
+//var rows = 42
+//var cols = 32
+//var block_size = CGFloat(35.0)
 
 
-var rows = 42
-var cols = 32
-var block_size = CGFloat(35.0)
-
-
-class GameScene: SKScene, SKPhysicsContactDelegate {
+class EasyRaceScene: SKScene, SKPhysicsContactDelegate {
     
     
-//    let swipeRightRec = UISwipeGestureRecognizer()
-//    let swipeLeftRec = UISwipeGestureRecognizer()
-//    let swipeUpRec = UISwipeGestureRecognizer()
-//    let swipeDownRec = UISwipeGestureRecognizer()
-//    
- 
+    //    let swipeRightRec = UISwipeGestureRecognizer()
+    //    let swipeLeftRec = UISwipeGestureRecognizer()
+    //    let swipeUpRec = UISwipeGestureRecognizer()
+    //    let swipeDownRec = UISwipeGestureRecognizer()
+    //
+    
     let x_acceleration_button = SKSpriteNode(imageNamed: "right_red")
     
     let x_deacceleration_button = SKSpriteNode(imageNamed: "left_blue")
@@ -43,24 +36,24 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let y_deacceleration_button = SKSpriteNode(imageNamed: "down_blue")
     
     var gameDifficulty = String()
-
     
-    let racecar = Racecar(x_pos: 29, y_pos: 20)
+    
+    let racecar = Racecar(x_pos: 17, y_pos: 35)
     
     let x_velocity_display = SKLabelNode()
     let y_velocity_display = SKLabelNode()
     
-    let grid = Grid(blockSize: CGFloat(35.0), rows:42, cols:32)
+    let grid = Grid(blockSize: block_size, rows:50, cols:20)
     let gamePiece = SKSpriteNode(imageNamed: "Spaceship")
     let opponentGamePiece = SKSpriteNode(imageNamed: "Spaceship")
-
+    
     let projected_velocity = SKSpriteNode(imageNamed: "red")
     let vroom = SKSpriteNode(imageNamed: "red")
     
     var obstacles:[(x: Int, y: Int)] = []
     
     var bot_path:[(x: Int, y: Int)] = []
-
+    
     var previous_locations:[(x: Int, y: Int)] = []
     
     var available_locations:[(x: Int, y: Int)] = []
@@ -201,9 +194,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             (x: 40,y: 26),
             (x: 39,y: 28)
             
-        
-        
-        
+            
+            
+            
         ]
     }
     
@@ -229,8 +222,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         sender.scale = 1.0
         
     }
-
-
+    
+    
     override func didMove(to view: SKView) {
         
         
@@ -252,108 +245,35 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         timer.zPosition = 20000000
         
         addChild(timer)
-
+        
         
         self.physicsWorld.contactDelegate = self
-
         
         
-        //1
-        for j in 20...25{
-            
-            for i in 5...15 {
-                
-                obstacles.append(x: i, y: j)
-                
-            }
-        }
-        //2
-        for j in 12...16{
-            
-            for i in 0...11 {
-                
-                obstacles.append(x: i, y: j)
-                
-            }
-        }
-        //3
-        for j in 5...8{
-            
-            for i in 9...15 {
-                
-                obstacles.append(x: i, y: j)
-                
-            }
-        }
-        //4
         
-        for j in 5...25{
-            
-            for i in 16...24 {
-                
-                obstacles.append(x: i, y: j)
-                
-            }
-        }
-        //5
-        for j in 12...25{
-            
-            for i in 25...30 {
-                
-                obstacles.append(x: i, y: j)
-                
-            }
-        }
-        //6
-        for j in 5...16{
-            
-            for i in 31...38 {
-                
-                obstacles.append(x: i, y: j)
-                
-            }
-        }
-        //7
-        for j in 24...27{
-            
-            for i in 31...38 {
-                
-                obstacles.append(x: i, y: j)
-                
-            }
-        }
-        //8
-        for j in 0...8{
-            
-            for i in 27...28 {
-                
-                obstacles.append(x: i, y: j)
-                
-            }
-        }
-        //9
-        for j in 19...20{
-            
-            for i in 35...41 {
-                
-                obstacles.append(x: i, y: j)
-                
-            }
-        }
-
-//        var count = available_locations.count - 2
-//        
-//        while count > 0 {
-//            
-//            if obstacles.contains(where: { $0 == available_locations[count] }) {
-//                available_locations.remove(at: count)
-//                count += 1
-//            }
-//            count -= 1
-//            
-//        }
-//        
+        //        var count = available_locations.count - 2
+        //
+        //        while count > 0 {
+        //
+        //            if obstacles.contains(where: { $0 == available_locations[count] }) {
+        //                available_locations.remove(at: count)
+        //                count += 1
+        //            }
+        //            count -= 1
+        //
+        //        }
+        //
         
+        
+        
+        for j in 3...14{
+            
+            for i in 5...45 {
+                
+                obstacles.append(x: i, y: j)
+                
+            }
+        }
         x_velocity_display.text = "0"
         x_velocity_display.fontSize = 65
         x_velocity_display.fontColor = SKColor.white
@@ -402,9 +322,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         y_deacceleration_button.name = "y_deacceleration_button"
         
         
-//        let vroom = SKSpriteNode(color: SKColor.red, size: CGSize(width: 90, height: 90))
-//        vroom.position = CGPoint(x: 0, y: self.frame.height / 2 - 50)
-//        vroom.name = "vroom"
+        //        let vroom = SKSpriteNode(color: SKColor.red, size: CGSize(width: 90, height: 90))
+        //        vroom.position = CGPoint(x: 0, y: self.frame.height / 2 - 50)
+        //        vroom.name = "vroom"
         
         
         self.addChild(x_velocity_display)
@@ -414,7 +334,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.addChild(y_acceleration_button)
         self.addChild(y_deacceleration_button)
         //self.addChild(vroom)
-
+        
         
         grid?.position = CGPoint(x: -300, y: 0)
         addChild(grid!)
@@ -431,7 +351,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         
         grid?.addChild(projected_path)
-        grid?.addChild(opponentGamePiece)
+        //grid?.addChild(opponentGamePiece)
         
         let spawn = SKAction.run({
             () in
@@ -474,18 +394,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         grid?.addChild(projected_velocity)
         grid?.addChild(gamePiece)
-
+        
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
-
+        
         
         
         
         print("About to crash!")
         projected_path.strokeColor = SKColor.red
-            
-
+        
+        
         
     }
     
@@ -502,7 +422,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         turn_number += 1
         
         if projected_path.strokeColor == SKColor.green {
-        
+            
             timer.removeAllActions()
             timer.size = CGSize(width: 0, height: 30)
             
@@ -541,10 +461,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             gamePiece.position = (grid?.gridPosition(row:  racecar.y_position , col: racecar.x_position))!
             
             
-    //        print(starting_x_position)
-    //        print(starting_y_position)
-    //        print(ending_x_position)
-    //        print(ending_y_position)
+            //        print(starting_x_position)
+            //        print(starting_y_position)
+            //        print(ending_x_position)
+            //        print(ending_y_position)
             
             draw_line(x1: starting_x_position ,x2: ending_x_position ,y1: starting_y_position,y2: ending_y_position)
             
@@ -567,14 +487,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func sceneDidLoad() {
         
-
+        
     }
     
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
         for touch in touches {
-
+            
             
             let positionInScene = touch.location(in: self)
             let touchedNode = atPoint(positionInScene)
@@ -582,14 +502,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             {
                 if name == "x_acceleration_button"
                 {
-
+                    
                     if racecar.x_acceleration < 1 {
                         racecar.x_acceleration += 1
-                    
+                        
                         draw_projected_path()
                     }
                 }
-                
+                    
                 else if name == "x_deacceleration_button"
                 {
                     
@@ -600,7 +520,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                         
                     }
                 }
-                
+                    
                 else if name == "y_acceleration_button"
                 {
                     
@@ -611,7 +531,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                         
                     }
                 }
-                
+                    
                 else if name == "y_deacceleration_button"
                 {
                     
@@ -626,7 +546,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
-
+    
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch: AnyObject in touches {
             //Get the current position in scene of the touch.
@@ -645,22 +565,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             grid?.position = CGPoint(x: ((position?.x)! + x_translation * 2), y: ( (position?.y)! - y_translation * 2) )
             
-                
-
-                    
-                    //Set the position of the crosshair to its current position plus the translation.
-            //grid?.position = CGPoint(x: ((position?.x)! + x_translation * 2), y: ( (position?.y)! + y_translation * 2) )
-                    //Set the position of the body
-                    //body.position = location
             
-            }
+            
+            
+            //Set the position of the crosshair to its current position plus the translation.
+            //grid?.position = CGPoint(x: ((position?.x)! + x_translation * 2), y: ( (position?.y)! + y_translation * 2) )
+            //Set the position of the body
+            //body.position = location
+            
+        }
     }
-
-
-
+    
+    
+    
     override func update(_ currentTime: TimeInterval) {
         
-
+        
         // Called before each frame is rendered
         //x_velocity_display.color = SKColor.red
         if racecar.x_acceleration == 1 {
@@ -695,5 +615,5 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
         }
     }
-
+    
 }
