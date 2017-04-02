@@ -23,8 +23,15 @@ class EasyRaceScene: Course {
     init() {
         super.init(size: CGSize(), difficulty: "hard")
         grid = Grid(blockSize: CGFloat(35.0), rows: 40, cols: 25)
-        racecar = Racecar(x_pos: 20, y_pos: 22)
-        obstacles = []
+        racecar = Racecar(x_pos: 22, y_pos: 22)
+        for j in 5...20{
+            
+            for i in 5...35 {
+                
+                obstacles.append(x: i, y: j)
+                
+            }
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {
