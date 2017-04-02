@@ -33,12 +33,12 @@ class Course: SKScene, SKPhysicsContactDelegate {
     var gameDifficulty = String()
     
     
-    let racecar = Racecar(x_pos: 29, y_pos: 20)
+    var racecar = Racecar(x_pos: 29, y_pos: 20)
     
     let x_velocity_display = SKLabelNode()
     let y_velocity_display = SKLabelNode()
     
-    let grid = Grid(blockSize: CGFloat(35.0), rows:42, cols:32)
+    var grid = Grid(blockSize: CGFloat(35.0), rows:42, cols:32)
     let gamePiece = SKSpriteNode(imageNamed: "Spaceship")
     let opponentGamePiece = SKSpriteNode(imageNamed: "Spaceship")
     

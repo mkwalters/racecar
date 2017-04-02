@@ -20,4 +20,15 @@ import CoreGraphics
 class EasyRaceScene: Course {
     
     
+    init() {
+        super.init(size: CGSize(), difficulty: "hard")
+        grid = Grid(blockSize: CGFloat(35.0), rows: 40, cols: 25)
+        racecar = Racecar(x_pos: 20, y_pos: 22)
+        obstacles = []
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
 }
