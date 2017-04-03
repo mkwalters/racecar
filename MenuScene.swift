@@ -16,13 +16,16 @@ class MenuScene: SKScene {
     
     override init(size: CGSize) {
         super.init(size: size)
+        self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+        self.size = CGSize(width: 750, height: 1334)
         
-        backgroundColor = SKColor.white
+        backgroundColor = SKColor.black
         
-        playButton.fontColor = SKColor.black
+        playButton.fontColor = SKColor.purple
         playButton.text = "Grand Prix"
+        playButton.fontSize = 100
         
-        playButton.position = CGPoint(x: size.width / 2, y: size.height / 2)
+        playButton.position = CGPoint(x: 0, y: 0)
         
         addChild(playButton)
         

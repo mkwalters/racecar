@@ -61,6 +61,8 @@ class Course: SKScene, SKPhysicsContactDelegate {
     
     var turn_number = 0
     
+    let finish_line = SKShapeNode()
+    
     
     
     
@@ -196,6 +198,9 @@ class Course: SKScene, SKPhysicsContactDelegate {
     }
     
     
+    
+    
+    
     func draw_line(x1: Int, x2: Int, y1: Int, y2: Int) {
         let line_path:CGMutablePath = CGMutablePath()
         line_path.move(to: CGPoint(x: x1, y: y1))
@@ -226,8 +231,18 @@ class Course: SKScene, SKPhysicsContactDelegate {
         self.size = CGSize(width: 750, height: 1334)
         
         
-        build_bot_path()
-        print(bot_path)
+        //build_bot_path()
+        
+//        let line_path:CGMutablePath = CGMutablePath()
+//        line_path.move(to: (grid?.gridPosition(row: 25, col: 19))!)
+//        line_path.addLine(to: (grid?.gridPosition(row: 32, col: 19))!)
+//        
+//        
+//        finish_line.zPosition = 260
+//        finish_line.path = line_path
+//        finish_line.strokeColor = SKColor.yellow
+//        finish_line.lineWidth = 2
+//        grid?.addChild(finish_line)
         
         
         let pinchGesture = UIPinchGestureRecognizer(target: self, action: #selector(self.handlePinchFrom(_:)))
@@ -337,7 +352,7 @@ class Course: SKScene, SKPhysicsContactDelegate {
         
         
         grid?.addChild(projected_path)
-        grid?.addChild(opponentGamePiece)
+        //grid?.addChild(opponentGamePiece)
         
         let spawn = SKAction.run({
             () in

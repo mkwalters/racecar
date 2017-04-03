@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		1718130F1E9073EA002DECED /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1718130E1E9073EA002DECED /* Course.swift */; };
+		171813111E908BE4002DECED /* CupSelectionScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171813101E908BE4002DECED /* CupSelectionScene.swift */; };
+		171813131E9090A9002DECED /* GalileoCourseSelectionScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171813121E9090A9002DECED /* GalileoCourseSelectionScene.swift */; };
+		171813171E90B05C002DECED /* NewtonCourseSelectionScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171813161E90B05C002DECED /* NewtonCourseSelectionScene.swift */; };
+		171813191E920D99002DECED /* EinsteinCourseOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171813181E920D99002DECED /* EinsteinCourseOne.swift */; };
+		1718131B1E920E7B002DECED /* EinsteinCourseSelectionScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1718131A1E920E7B002DECED /* EinsteinCourseSelectionScene.swift */; };
 		1721D26C1E8DD6AC00234D2A /* MyScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1721D26B1E8DD6AC00234D2A /* MyScene.sks */; };
 		1721D2701E8F58DF00234D2A /* EasyRaceScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1721D26F1E8F58DF00234D2A /* EasyRaceScene.swift */; };
 		172AEF2E1E8DB25300154794 /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172AEF2D1E8DB25300154794 /* MenuScene.swift */; };
@@ -44,6 +49,11 @@
 
 /* Begin PBXFileReference section */
 		1718130E1E9073EA002DECED /* Course.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Course.swift; path = ../Course.swift; sourceTree = "<group>"; };
+		171813101E908BE4002DECED /* CupSelectionScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CupSelectionScene.swift; sourceTree = "<group>"; };
+		171813121E9090A9002DECED /* GalileoCourseSelectionScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalileoCourseSelectionScene.swift; sourceTree = "<group>"; };
+		171813161E90B05C002DECED /* NewtonCourseSelectionScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewtonCourseSelectionScene.swift; sourceTree = "<group>"; };
+		171813181E920D99002DECED /* EinsteinCourseOne.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EinsteinCourseOne.swift; sourceTree = "<group>"; };
+		1718131A1E920E7B002DECED /* EinsteinCourseSelectionScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EinsteinCourseSelectionScene.swift; sourceTree = "<group>"; };
 		1721D26B1E8DD6AC00234D2A /* MyScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MyScene.sks; sourceTree = "<group>"; };
 		1721D26F1E8F58DF00234D2A /* EasyRaceScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EasyRaceScene.swift; sourceTree = "<group>"; };
 		172AEF2D1E8DB25300154794 /* MenuScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuScene.swift; path = ../MenuScene.swift; sourceTree = "<group>"; };
@@ -117,6 +127,10 @@
 			children = (
 				1718130E1E9073EA002DECED /* Course.swift */,
 				172AEF311E8DB79100154794 /* DifficultyScene.swift */,
+				171813101E908BE4002DECED /* CupSelectionScene.swift */,
+				171813161E90B05C002DECED /* NewtonCourseSelectionScene.swift */,
+				171813121E9090A9002DECED /* GalileoCourseSelectionScene.swift */,
+				1718131A1E920E7B002DECED /* EinsteinCourseSelectionScene.swift */,
 				172AEF2D1E8DB25300154794 /* MenuScene.swift */,
 				178263841E809EF500EBF212 /* Grid.swift */,
 				1721D26F1E8F58DF00234D2A /* EasyRaceScene.swift */,
@@ -124,6 +138,7 @@
 				1782634E1E80992500EBF212 /* AppDelegate.swift */,
 				178263521E80992500EBF212 /* Actions.sks */,
 				178263541E80992500EBF212 /* GameScene.swift */,
+				171813181E920D99002DECED /* EinsteinCourseOne.swift */,
 				1721D26B1E8DD6AC00234D2A /* MyScene.sks */,
 				178263561E80992500EBF212 /* GameViewController.swift */,
 				178263581E80992500EBF212 /* Main.storyboard */,
@@ -291,7 +306,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				171813171E90B05C002DECED /* NewtonCourseSelectionScene.swift in Sources */,
+				171813191E920D99002DECED /* EinsteinCourseOne.swift in Sources */,
 				1718130F1E9073EA002DECED /* Course.swift in Sources */,
+				171813111E908BE4002DECED /* CupSelectionScene.swift in Sources */,
 				178263551E80992500EBF212 /* GameScene.swift in Sources */,
 				1721D2701E8F58DF00234D2A /* EasyRaceScene.swift in Sources */,
 				178263571E80992500EBF212 /* GameViewController.swift in Sources */,
@@ -299,6 +317,8 @@
 				172AEF321E8DB79100154794 /* DifficultyScene.swift in Sources */,
 				172AEF2E1E8DB25300154794 /* MenuScene.swift in Sources */,
 				1782634F1E80992500EBF212 /* AppDelegate.swift in Sources */,
+				1718131B1E920E7B002DECED /* EinsteinCourseSelectionScene.swift in Sources */,
+				171813131E9090A9002DECED /* GalileoCourseSelectionScene.swift in Sources */,
 				178263851E809EF500EBF212 /* Grid.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

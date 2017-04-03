@@ -1,46 +1,57 @@
 //
-//  DifficultyScene.swift
+//  CupSelection.swift
 //  racecar
 //
-//  Created by Walters Mitch on 3/30/17.
+//  Created by Walters Mitch on 4/1/17.
 //  Copyright © 2017 Mitchell Walters. All rights reserved.
 //
 
 import Foundation
+import Foundation
 import SpriteKit
 
-class DifficultyScene: SKScene {
+class CupSelectionScene: SKScene {
     
     let easyButton = SKLabelNode()
     let hardButton = SKLabelNode()
     let menuButton = SKLabelNode()
+    let backButton = SKLabelNode()
     
     
     override init(size: CGSize) {
         super.init(size: size)
+        
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+        
+        self.size = CGSize(width: 750, height: 1334)
         
         backgroundColor = SKColor.black
         
         easyButton.fontColor = SKColor.purple
-        easyButton.text = "50 CC"
-        easyButton.fontSize = 70
+        easyButton.text = "Galileo's Cup"
+        easyButton.fontSize = 100
         
         hardButton.fontColor = SKColor.purple
-        hardButton.text = "100 C"
-        hardButton.fontSize = 70
+        hardButton.text = "Newton's Cup"
+        hardButton.fontSize = 100
         
         menuButton.fontColor = SKColor.purple
-        menuButton.text = "Main Menu"
-        menuButton.fontSize = 45
+        menuButton.text = "Einstein's Cup"
+        menuButton.fontSize = 100
         
-        easyButton.position = CGPoint(x: 0, y: 200)
-        hardButton.position = CGPoint(x: 0, y: 0)
-        menuButton.position = CGPoint(x: 0, y: -200)
+        backButton.fontColor = SKColor.purple
+        backButton.text = "Back"
+        backButton.fontSize = 100
+        
+        easyButton.position = CGPoint(x: 0, y: 300)
+        hardButton.position = CGPoint(x: 0, y:  150)
+        menuButton.position = CGPoint(x: 0, y:  0)
+        backButton.position = CGPoint(x: 0, y:  -400)
         
         addChild(easyButton)
         addChild(hardButton)
         addChild(menuButton)
+        addChild(backButton)
         
     }
     
@@ -54,23 +65,28 @@ class DifficultyScene: SKScene {
         let touchLocation = touch!.location(in: self)
         
         if easyButton.contains(touchLocation) {
-            let reveal = SKTransition.doorsOpenHorizontal(withDuration: 0.5)
-            let gameScene = CupSelectionScene(size: CGSize(width: 750, height: 1334))
+            let reveal = SKTransition.doorsOpenVertical(withDuration: 0.5)
+            let gameScene = GalileoCourseSelectionScene()
             self.view?.presentScene(gameScene, transition: reveal)
         }
         
         if hardButton.contains(touchLocation) {
-            let reveal = SKTransition.doorsOpenHorizontal(withDuration: 0.5)
-            let gameScene = CupSelectionScene(size: CGSize(width: 750, height: 1334))
+            let reveal = SKTransition.doorsOpenVertical(withDuration: 0.5)
+            let gameScene = NewtonCourseSelectionScene()
             self.view?.presentScene(gameScene, transition: reveal)
         }
         
         if menuButton.contains(touchLocation){
             let reveal = SKTransition.doorsOpenVertical(withDuration: 0.5)
-            let menuScene = MenuScene(size: self.size)
+            let menuScene = EinsteinCourseSelectionScene()
             self.view?.presentScene(menuScene, transition: reveal)
         }
-        
+    
+        if backButton.contains(touchLocation){
+            let reveal = SKTransition.doorsOpenVertical(withDuration: 0.5)
+            let menuScene = DifficultyScene(size: CGSize(width: 750, height: 1334))
+            self.view?.presentScene(menuScene, transition: reveal)
+        }
     }
     
     

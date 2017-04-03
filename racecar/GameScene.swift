@@ -73,7 +73,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var turn_number = 0
     
-    
+    let finish_line = SKShapeNode()
     
     
     
@@ -232,6 +232,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
 
     override func didMove(to view: SKView) {
+        
+        let line_path:CGMutablePath = CGMutablePath()
+        line_path.move(to: (grid?.gridPosition(row: 19, col: 25))!)
+        line_path.addLine(to: (grid?.gridPosition(row: 19, col: 32))!)
+        
+        
+        finish_line.zPosition = 260
+        finish_line.path = line_path
+        finish_line.strokeColor = SKColor.yellow
+        finish_line.lineWidth = 2
+        grid?.addChild(finish_line)
         
         
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
