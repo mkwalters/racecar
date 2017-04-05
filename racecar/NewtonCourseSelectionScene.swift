@@ -56,7 +56,7 @@ class NewtonCourseSelectionScene: SKScene {
         
         if easyButton.contains(touchLocation) {
             let reveal = SKTransition.doorsOpenVertical(withDuration: 0.5)
-            let gameScene = GameScene(size: CGSize(width: 750, height: 1334), difficulty: "hard")
+            let gameScene = NewtonCourseOne()
             self.view?.presentScene(gameScene, transition: reveal)
         }
         

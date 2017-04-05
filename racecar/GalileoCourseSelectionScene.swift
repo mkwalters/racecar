@@ -56,7 +56,7 @@ class GalileoCourseSelectionScene: SKScene {
         
         if easyButton.contains(touchLocation) {
             let reveal = SKTransition.doorsOpenVertical(withDuration: 0.5)
-            let gameScene = EasyRaceScene()
+            let gameScene = GalileoCourseOne()
             self.view?.presentScene(gameScene, transition: reveal)
         }
         
