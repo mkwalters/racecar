@@ -14,6 +14,8 @@ struct physicsCategory {
     
     static let projected_velocity: UInt32 = 0x1 << 1
     static let obstacle: UInt32 = 0x1 << 2
+    static let checkpoint_one: UInt32 = 0x1 << 3
+    
     //    static let Ground : UInt32 = 0x1 << 2
     //    static let Wall : UInt32 = 0x1 << 3
 }
@@ -74,6 +76,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var turn_number = 0
     
     let finish_line = SKShapeNode()
+    
+    var checkpoint_one = SKSpriteNode()
     
     
     
@@ -232,6 +236,30 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
 
     override func didMove(to view: SKView) {
+        
+        
+        self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+        self.size = CGSize(width: 750, height: 1334)
+        
+        
+        checkpoint_one = SKSpriteNode(color: SKColor.red, size: CGSize(width: 200, height: 50))
+        checkpoint_one.position = (grid?.gridPosition(row:  7, col: 18))!
+        checkpoint_one.alpha = 0.0
+        checkpoint_one.name = "checkpoint_one"
+        //checkpoint_one.zPosition = 1
+        
+        checkpoint_one.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 200, height: 50))
+        checkpoint_one.physicsBody?.affectedByGravity = false
+        checkpoint_one.physicsBody?.categoryBitMask = physicsCategory.checkpoint_one
+        checkpoint_one.physicsBody?.collisionBitMask = 0
+        checkpoint_one.physicsBody?.contactTestBitMask = physicsCategory.projected_velocity
+        checkpoint_one.physicsBody?.isDynamic = true
+        //checkpoint_one.strokeColor = SKColor.red
+        
+        grid?.addChild(checkpoint_one)
+        
+        
+        
         
         let line_path:CGMutablePath = CGMutablePath()
         line_path.move(to: (grid?.gridPosition(row: 19, col: 25))!)
@@ -428,6 +456,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
         
         grid?.position = CGPoint(x: -300, y: 0)
+        
+        grid?.zPosition = 10
         addChild(grid!)
         
         
@@ -464,6 +494,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             let current_obstacle = SKSpriteNode(color: SKColor.purple, size: CGSize(width: 30, height: 30))
             current_obstacle.position = (grid?.gridPosition(row:  obstacle.x, col:  obstacle.y))!
+            current_obstacle.name = "obstacle"
             
             current_obstacle.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 30, height: 30))
             current_obstacle.physicsBody?.categoryBitMask = physicsCategory.obstacle
@@ -493,8 +524,26 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         
         
-        print("About to crash!")
-        projected_path.strokeColor = SKColor.red
+        if contact.bodyA.node?.name == "projected_path" {
+            
+            if contact.bodyB.node?.name == "obstacle" {
+                print("about to crash")
+            } else {
+                print("checkpoint_one")
+            }
+            
+        }
+        
+        
+        if contact.bodyB.node?.name == "projected_path" {
+            
+            if contact.bodyA.node?.name == "obstacle" {
+                print("about to crash")
+            } else {
+                print("checkpoint_one")
+            }
+            
+        }
             
 
         

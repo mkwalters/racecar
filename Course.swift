@@ -63,6 +63,8 @@ class Course: SKScene, SKPhysicsContactDelegate {
     
     let finish_line = SKShapeNode()
     
+    var checkpoint_one = SKSpriteNode()
+    
     
     
     
@@ -227,8 +229,6 @@ class Course: SKScene, SKPhysicsContactDelegate {
     override func didMove(to view: SKView) {
         
         
-        self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
-        self.size = CGSize(width: 750, height: 1334)
         
         
         //build_bot_path()
