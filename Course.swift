@@ -69,7 +69,12 @@ class Course: SKScene, SKPhysicsContactDelegate {
     
     var lap_progress = SKLabelNode()
 
+    let pause = SKSpriteNode(imageNamed: "pause_button")
+    
+    var resume = SKLabelNode()
+    var exit = SKLabelNode()
 
+    var paused_game = false
 
     func draw_projected_path() {
         
@@ -320,9 +325,7 @@ class Course: SKScene, SKPhysicsContactDelegate {
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
         self.size = CGSize(width: 750, height: 1334)
         
-        
-        build_bot_path()
-        print(bot_path)
+
         
         
         let pinchGesture = UIPinchGestureRecognizer(target: self, action: #selector(self.handlePinchFrom(_:)))
@@ -333,6 +336,14 @@ class Course: SKScene, SKPhysicsContactDelegate {
         
         timer.position = CGPoint(x: -self.frame.width / 2 + timer.size.width , y: -self.frame.height / 2 + x_acceleration_button.size.height / 2)
         timer.zPosition = 20000000
+        
+        pause.position = CGPoint(x: -self.frame.width /
+            2 + 50, y: self.frame.height / 2 - 50)
+        pause.zPosition = 9999999
+        pause.name = "pause"
+        pause.scale(to: CGSize(width: 100, height: 100))
+        
+        self.addChild(pause)
         
         addChild(timer)
         
@@ -538,7 +549,7 @@ class Course: SKScene, SKPhysicsContactDelegate {
         let SpawnDelay = SKAction.sequence([spawn, delay])
         
         let spawnDelayForever = SKAction.repeatForever(SpawnDelay)
-        self.run(spawnDelayForever)
+        self.run(spawnDelayForever, withKey: "key")
         
         for obstacle in obstacles {
             
@@ -669,7 +680,7 @@ class Course: SKScene, SKPhysicsContactDelegate {
             
             
             let timing = SKAction.resize(toWidth: 2 * self.frame.width, duration: TimeInterval(time_between_moves))
-            
+
             timer.run(timing)
             
             
@@ -741,47 +752,107 @@ class Course: SKScene, SKPhysicsContactDelegate {
             let touchedNode = atPoint(positionInScene)
             if let name = touchedNode.name
             {
-                if name == "x_acceleration_button"
-                {
-                    
-                    if racecar.x_acceleration < 1 {
-                        racecar.x_acceleration += 1
+                if paused_game == false {
+                    if name == "x_acceleration_button"
+                    {
                         
-                        draw_projected_path()
+                        if racecar.x_acceleration < 1 {
+                            racecar.x_acceleration += 1
+                            
+                            draw_projected_path()
+                        }
+                    }
+                        
+                    else if name == "x_deacceleration_button"
+                    {
+                        
+                        if racecar.x_acceleration > -1 {
+                            racecar.x_acceleration -= 1
+                            
+                            draw_projected_path()
+                            
+                        }
+                    }
+                        
+                    else if name == "y_acceleration_button"
+                    {
+                        
+                        if racecar.y_acceleration < 1 {
+                            racecar.y_acceleration += 1
+                            
+                            draw_projected_path()
+                            
+                        }
+                    }
+                        
+                    else if name == "y_deacceleration_button"
+                    {
+                        
+                        if racecar.y_acceleration > -1 {
+                            racecar.y_acceleration -= 1
+                            
+                            draw_projected_path()
+                            
+                        }
                     }
                 }
-                    
-                else if name == "x_deacceleration_button"
+                
+                
+                
+                if name == "pause"
                 {
                     
-                    if racecar.x_acceleration > -1 {
-                        racecar.x_acceleration -= 1
+                    if let action = action(forKey: "key") {
                         
-                        draw_projected_path()
+                        action.speed = 0
+                        timer.isPaused = true
                         
+                        resume = SKLabelNode(text: "Resume")
+                        resume.position = CGPoint(x: 0, y: 200)
+                        resume.fontSize = 200
+                        resume.fontColor = SKColor.red
+                        resume.name = "resume"
+                        resume.zPosition = 999999999
+                        
+                        
+                        exit = SKLabelNode(text: "Exit")
+                        exit.position = CGPoint(x: 0, y: -200)
+                        exit.fontSize = 200
+                        exit.fontColor = SKColor.red
+                        exit.name = "exit"
+                        exit.zPosition = 999999999
+                        
+                        paused_game = true
+                        self.addChild(resume)
+                        self.addChild(exit)
                     }
+                    
                 }
-                    
-                else if name == "y_acceleration_button"
+                
+                if name == "resume"
                 {
                     
-                    if racecar.y_acceleration < 1 {
-                        racecar.y_acceleration += 1
+                    if let action = action(forKey: "key") {
                         
-                        draw_projected_path()
+                        action.speed = 1
+                        timer.isPaused = false
                         
+                        paused_game = false
+                        
+                        
+                        resume.removeFromParent()
+                        exit.removeFromParent()
                     }
+                    
                 }
-                    
-                else if name == "y_deacceleration_button"
+                
+                if name == "exit"
                 {
                     
-                    if racecar.y_acceleration > -1 {
-                        racecar.y_acceleration -= 1
-                        
-                        draw_projected_path()
-                        
-                    }
+                    let reveal = SKTransition.doorsOpenVertical(withDuration: 0.5)
+                    let menuScene = MenuScene(size: self.size)
+                    self.view?.presentScene(menuScene, transition: reveal)
+                    
                 }
             }
         }
