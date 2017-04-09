@@ -75,13 +75,19 @@ class Course: SKScene, SKPhysicsContactDelegate {
     var exit = SKLabelNode()
 
     var paused_game = false
+    
+    
+    var colors = [UIColor]()
+    var color1 = UIColor(red: 255/255, green: 230/255, blue: 109/255, alpha: 1.0)
+    var color2 = UIColor(red: 47/255, green: 48/255, blue: 97/255, alpha: 1.0)
+    var color3 = UIColor(red: 247/255, green: 255/255, blue: 247/255, alpha: 1.0)
 
     func draw_projected_path() {
         
         
         projected_path.removeFromParent()
         
-        self.backgroundColor = SKColor.black
+        self.backgroundColor = UIColor(red: 52/255, green: 52/255, blue: 52/255, alpha: 1.0)
         
         let starting_position = grid?.gridPosition(row:  racecar.y_position, col: racecar.x_position)
         
@@ -226,17 +232,17 @@ class Course: SKScene, SKPhysicsContactDelegate {
 
     func handlePinchFrom(_ sender: UIPinchGestureRecognizer) {
         
-        let pinch = SKAction.scale(by: sender.scale, duration: 0.0)
-        
-        grid?.run(pinch)
-        sender.scale = 1.0
-        
+        if paused_game == false {
+            let pinch = SKAction.scale(by: sender.scale, duration: 0.0)
+            grid?.run(pinch)
+            sender.scale = 1.0
+        }
     }
 
     func draw_checkpoint_one(position: CGPoint) {
         checkpoint_one = SKSpriteNode(color: SKColor.red, size: CGSize(width: 200, height: 50))
         checkpoint_one.position = position
-        //checkpoint_one.alpha = 0.0
+        checkpoint_one.alpha = 0.0
         checkpoint_one.name = "checkpoint_one"
         //checkpoint_one.zPosition = 1
         
@@ -254,7 +260,7 @@ class Course: SKScene, SKPhysicsContactDelegate {
     func draw_checkpoint_two(position: CGPoint) {
         checkpoint_two = SKSpriteNode(color: SKColor.red, size: CGSize(width: 200, height: 50))
         checkpoint_two.position = position
-        //checkpoint_one.alpha = 0.0
+        checkpoint_two.alpha = 0.0
         checkpoint_two.name = "checkpoint_two"
         //checkpoint_one.zPosition = 1
         
@@ -527,13 +533,13 @@ class Course: SKScene, SKPhysicsContactDelegate {
         gamePiece.zPosition = 2002
         
         
-        opponentGamePiece.position = (grid?.gridPosition(row:  racecar.y_position - 1, col:  racecar.x_position))!
-        opponentGamePiece.setScale(0.0625)
-        opponentGamePiece.zPosition = 2002
+//        opponentGamePiece.position = (grid?.gridPosition(row:  racecar.y_position - 1, col:  racecar.x_position))!
+//        opponentGamePiece.setScale(0.0625)
+//        opponentGamePiece.zPosition = 2002
         
         
         grid?.addChild(projected_path)
-        grid?.addChild(opponentGamePiece)
+        //grid?.addChild(opponentGamePiece)
         
         let spawn = SKAction.run({
             () in
@@ -553,7 +559,14 @@ class Course: SKScene, SKPhysicsContactDelegate {
         
         for obstacle in obstacles {
             
-            let current_obstacle = SKSpriteNode(color: SKColor.purple, size: CGSize(width: 30, height: 30))
+
+        
+            colors.append(color1)
+            colors.append(color2)
+            colors.append(color3)
+            
+            let diceRoll = Int(arc4random_uniform(UInt32(colors.count)))
+            let current_obstacle = SKSpriteNode(color: colors[diceRoll], size: CGSize(width: 30, height: 30))
             current_obstacle.position = (grid?.gridPosition(row:  obstacle.x, col:  obstacle.y))!
             current_obstacle.name = "obstacle"
             
@@ -596,7 +609,7 @@ class Course: SKScene, SKPhysicsContactDelegate {
                 print("checkpoint_one")
 //                projected_path.strokeColor = SKColor.red
                 
-                if last_checkpoint == 0 {
+                if last_checkpoint == 0 || last_checkpoint == 2 {
                     last_checkpoint = 1
                     print(last_checkpoint)
                 }
@@ -760,7 +773,9 @@ class Course: SKScene, SKPhysicsContactDelegate {
                             racecar.x_acceleration += 1
                             
                             draw_projected_path()
+                        
                         }
+                    
                     }
                         
                     else if name == "x_deacceleration_button"
@@ -801,30 +816,32 @@ class Course: SKScene, SKPhysicsContactDelegate {
                 
                 if name == "pause"
                 {
+                    if paused_game == false {
                     
-                    if let action = action(forKey: "key") {
-                        
-                        action.speed = 0
-                        timer.isPaused = true
-                        
-                        resume = SKLabelNode(text: "Resume")
-                        resume.position = CGPoint(x: 0, y: 200)
-                        resume.fontSize = 200
-                        resume.fontColor = SKColor.red
-                        resume.name = "resume"
-                        resume.zPosition = 999999999
-                        
-                        
-                        exit = SKLabelNode(text: "Exit")
-                        exit.position = CGPoint(x: 0, y: -200)
-                        exit.fontSize = 200
-                        exit.fontColor = SKColor.red
-                        exit.name = "exit"
-                        exit.zPosition = 999999999
-                        
-                        paused_game = true
-                        self.addChild(resume)
-                        self.addChild(exit)
+                        if let action = action(forKey: "key") {
+                            
+                            action.speed = 0
+                            timer.isPaused = true
+                            
+                            resume = SKLabelNode(text: "Resume")
+                            resume.position = CGPoint(x: 0, y: 200)
+                            resume.fontSize = 200
+                            resume.fontColor = SKColor.red
+                            resume.name = "resume"
+                            resume.zPosition = 999999999
+                            
+                            
+                            exit = SKLabelNode(text: "Exit")
+                            exit.position = CGPoint(x: 0, y: -200)
+                            exit.fontSize = 200
+                            exit.fontColor = SKColor.red
+                            exit.name = "exit"
+                            exit.zPosition = 999999999
+                            
+                            paused_game = true
+                            self.addChild(resume)
+                            self.addChild(exit)
+                        }
                     }
                     
                 }
@@ -849,7 +866,7 @@ class Course: SKScene, SKPhysicsContactDelegate {
                 if name == "exit"
                 {
                     
-                    let reveal = SKTransition.doorsOpenVertical(withDuration: 0.5)
+                    let reveal = SKTransition.doorsOpenHorizontal(withDuration: 0.25)
                     let menuScene = MenuScene(size: self.size)
                     self.view?.presentScene(menuScene, transition: reveal)
                     
@@ -861,21 +878,26 @@ class Course: SKScene, SKPhysicsContactDelegate {
 
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch: AnyObject in touches {
-            //Get the current position in scene of the touch.
-            let location = touch.location(in: view)
-            //Get the previous position in scene of the touch.
-            let previousLocation = touch.previousLocation(in: view)
-            //Calculate the translation.
-            //let translation = CGPoint((location.x - previousLocation.x), (location.y - previousLocation.y))
             
-            let x_translation = location.x - previousLocation.x
-            let y_translation = location.y - previousLocation.y
-            //Get the current position in scene of the crossHair.
-            let position = grid?.position
-            // Get the bode touched
-            //var body = self.nodeAtPoint(location)
             
-            grid?.position = CGPoint(x: ((position?.x)! + x_translation * 2), y: ( (position?.y)! - y_translation * 2) )
+            if paused_game == false {
+                //Get the current position in scene of the touch.
+                let location = touch.location(in: view)
+                //Get the previous position in scene of the touch.
+                let previousLocation = touch.previousLocation(in: view)
+                //Calculate the translation.
+                //let translation = CGPoint((location.x - previousLocation.x), (location.y - previousLocation.y))
+                
+                let x_translation = location.x - previousLocation.x
+                let y_translation = location.y - previousLocation.y
+                //Get the current position in scene of the crossHair.
+                let position = grid?.position
+                // Get the bode touched
+                //var body = self.nodeAtPoint(location)
+                
+                grid?.position = CGPoint(x: ((position?.x)! + x_translation * 2), y: ( (position?.y)! - y_translation * 2) )
+                
+            }
             
             
             
@@ -891,7 +913,6 @@ class Course: SKScene, SKPhysicsContactDelegate {
 
 
     override func update(_ currentTime: TimeInterval) {
-        
         
         // Called before each frame is rendered
         //x_velocity_display.color = SKColor.red

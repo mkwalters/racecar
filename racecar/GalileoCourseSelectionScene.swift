@@ -16,6 +16,10 @@ class GalileoCourseSelectionScene: SKScene {
     let hardButton = SKLabelNode()
     let menuButton = SKLabelNode()
     
+    let course_two = SKLabelNode()
+    let course_three = SKLabelNode()
+    let course_four = SKLabelNode()
+    
     
     override init() {
         super.init(size: CGSize(width: 750, height: 1334))
@@ -26,7 +30,19 @@ class GalileoCourseSelectionScene: SKScene {
         
         easyButton.fontColor = SKColor.purple
         easyButton.text = "Galileo Course #1"
-        easyButton.fontSize = 80
+        easyButton.fontSize = 100
+        
+        course_two.fontColor = SKColor.purple
+        course_two.text = "Galilio Course #2"
+        course_two.fontSize = 100
+        
+        course_three.fontColor = SKColor.purple
+        course_three.text = "Galilio Course #3"
+        course_three.fontSize = 100
+        
+        course_four.fontColor = SKColor.purple
+        course_four.text = "Galilio Course #4"
+        course_four.fontSize = 100
         
         
         hardButton.fontColor = SKColor.purple
@@ -35,14 +51,19 @@ class GalileoCourseSelectionScene: SKScene {
         
 
         
-        easyButton.position = CGPoint(x: size.width / 2, y: size.height / 2)
-        hardButton.position = CGPoint(x: size.width / 2, y: size.height / 4)
-
+        easyButton.position = CGPoint(x: size.width / 2, y:  (2 * size.height) / 3)
+        
+        
+        hardButton.position = CGPoint(x: size.width / 2, y: size.height / 4 - 125)
+        course_two.position = CGPoint(x: size.width / 2, y: size.height / 2)
+        course_three.position = CGPoint(x: size.width / 2, y: size.height / 3)
+        course_four.position = CGPoint(x: size.width / 2, y: size.height / 4)
         
         addChild(easyButton)
         addChild(hardButton)
-
-        
+        addChild(course_two)
+        addChild(course_three)
+        addChild(course_four)
     }
     
     
@@ -55,14 +76,32 @@ class GalileoCourseSelectionScene: SKScene {
         let touchLocation = touch!.location(in: self)
         
         if easyButton.contains(touchLocation) {
-            let reveal = SKTransition.doorsOpenVertical(withDuration: 0.5)
+            let reveal = SKTransition.doorsOpenHorizontal(withDuration: 0.25)
             let gameScene = GalileoCourseOne()
             self.view?.presentScene(gameScene, transition: reveal)
         }
         
         if hardButton.contains(touchLocation){
-            let reveal = SKTransition.doorsOpenVertical(withDuration: 0.5)
+            let reveal = SKTransition.doorsOpenHorizontal(withDuration: 0.25)
             let menuScene = CupSelectionScene(size: CGSize(width: 750, height: 1334))
+            self.view?.presentScene(menuScene, transition: reveal)
+        }
+        
+        if course_two.contains(touchLocation){
+            let reveal = SKTransition.doorsOpenHorizontal(withDuration: 0.25)
+            let menuScene = GalileoCourseTwo()
+            self.view?.presentScene(menuScene, transition: reveal)
+        }
+        
+        if course_three.contains(touchLocation){
+            let reveal = SKTransition.doorsOpenHorizontal(withDuration: 0.25)
+            let menuScene = GalileoCourseThree()
+            self.view?.presentScene(menuScene, transition: reveal)
+        }
+        
+        if course_four.contains(touchLocation){
+            let reveal = SKTransition.doorsOpenHorizontal(withDuration: 0.25)
+            let menuScene = GalileoCourseFour()
             self.view?.presentScene(menuScene, transition: reveal)
         }
         

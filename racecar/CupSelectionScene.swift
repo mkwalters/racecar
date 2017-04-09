@@ -65,25 +65,25 @@ class CupSelectionScene: SKScene {
         let touchLocation = touch!.location(in: self)
         
         if easyButton.contains(touchLocation) {
-            let reveal = SKTransition.doorsOpenVertical(withDuration: 0.5)
+            let reveal = SKTransition.doorsOpenVertical(withDuration: 0.25)
             let gameScene = GalileoCourseSelectionScene()
             self.view?.presentScene(gameScene, transition: reveal)
         }
         
         if hardButton.contains(touchLocation) {
-            let reveal = SKTransition.doorsOpenVertical(withDuration: 0.5)
+            let reveal = SKTransition.doorsOpenVertical(withDuration: 0.25)
             let gameScene = NewtonCourseSelectionScene()
             self.view?.presentScene(gameScene, transition: reveal)
         }
         
         if menuButton.contains(touchLocation){
-            let reveal = SKTransition.doorsOpenVertical(withDuration: 0.5)
+            let reveal = SKTransition.doorsOpenVertical(withDuration: 0.25)
             let menuScene = EinsteinCourseSelectionScene()
             self.view?.presentScene(menuScene, transition: reveal)
         }
     
         if backButton.contains(touchLocation){
-            let reveal = SKTransition.doorsOpenVertical(withDuration: 0.5)
+            let reveal = SKTransition.doorsOpenVertical(withDuration: 0.25)
             let menuScene = DifficultyScene(size: CGSize(width: 750, height: 1334))
             self.view?.presentScene(menuScene, transition: reveal)
         }
