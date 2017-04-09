@@ -12,7 +12,7 @@ import GameplayKit
 import CoreGraphics
 
 
-class NewtonCourseTwo: Course {
+class NewtonCourseThree: Course {
     init() {
         super.init(size: CGSize(), difficulty: "hard")
         grid = Grid(blockSize: CGFloat(35.0), rows: 53, cols: 42)

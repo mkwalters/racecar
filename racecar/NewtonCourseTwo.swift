@@ -29,7 +29,7 @@ var cols = 32
 var block_size = CGFloat(35.0)
 
 
-class NewtonCourseOne: Course {
+class NewtonCourseTwo: Course {
     
     init() {
         super.init(size: CGSize(), difficulty: "hard")

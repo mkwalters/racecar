@@ -246,7 +246,7 @@ class Course: SKScene, SKPhysicsContactDelegate {
     func draw_checkpoint_one(position: CGPoint) {
         checkpoint_one = SKSpriteNode(color: SKColor.red, size: CGSize(width: 200, height: 50))
         checkpoint_one.position = position
-        checkpoint_one.alpha = 0.0
+        //checkpoint_one.alpha = 0.0
         checkpoint_one.name = "checkpoint_one"
         //checkpoint_one.zPosition = 1
         
@@ -264,7 +264,7 @@ class Course: SKScene, SKPhysicsContactDelegate {
     func draw_checkpoint_two(position: CGPoint) {
         checkpoint_two = SKSpriteNode(color: SKColor.red, size: CGSize(width: 200, height: 50))
         checkpoint_two.position = position
-        checkpoint_two.alpha = 0.0
+        //checkpoint_two.alpha = 0.0
         checkpoint_two.name = "checkpoint_two"
         //checkpoint_one.zPosition = 1
         

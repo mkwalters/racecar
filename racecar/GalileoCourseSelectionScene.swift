@@ -101,7 +101,7 @@ class GalileoCourseSelectionScene: SKScene {
         
         if course_four.contains(touchLocation){
             let reveal = SKTransition.doorsOpenHorizontal(withDuration: 0.25)
-            let menuScene = GalileoCourseFour()
+            let menuScene = GalileoCourseOne()
             self.view?.presentScene(menuScene, transition: reveal)
         }
         
