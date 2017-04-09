@@ -128,6 +128,10 @@ class Course: SKScene, SKPhysicsContactDelegate {
         self.draw_finish_line(position: (grid?.gridPosition(row:  19, col: 28))!)
         gameDifficulty = difficulty
         
+        colors.append(color1)
+        colors.append(color2)
+        colors.append(color3)
+        
         if difficulty == "hard"{
             time_between_moves = 2
         } else {
@@ -561,9 +565,7 @@ class Course: SKScene, SKPhysicsContactDelegate {
             
 
         
-            colors.append(color1)
-            colors.append(color2)
-            colors.append(color3)
+            
             
             let diceRoll = Int(arc4random_uniform(UInt32(colors.count)))
             let current_obstacle = SKSpriteNode(color: colors[diceRoll], size: CGSize(width: 30, height: 30))

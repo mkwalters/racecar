@@ -23,6 +23,12 @@ class EinsteinCourseThree: Course {
         self.draw_finish_line(position: (grid?.gridPosition(row:  10, col: 31))!)
         obstacles = []
         
+        colors = [
+            UIColor(red: 233/255, green: 217/255, blue: 133/255, alpha: 1.0),
+            UIColor(red: 116/255, green: 156/255, blue: 117/255, alpha: 1.0),
+            UIColor(red: 93/255, green: 74/255, blue: 102/255, alpha: 1.0)
+        ]
+        
         //1
         for j in 9...13{
             

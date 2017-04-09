@@ -11,8 +11,10 @@
 import SpriteKit
 class MenuScene: SKScene {
     
-    let playButton = SKLabelNode()
+    let GrandPrix = SKLabelNode()
+    let TimeTrials = SKLabelNode()
     
+    let HowToPlay = SKLabelNode()
     
     override init(size: CGSize) {
         super.init(size: size)
@@ -21,13 +23,30 @@ class MenuScene: SKScene {
         
         backgroundColor = SKColor.black
         
-        playButton.fontColor = SKColor.purple
-        playButton.text = "Grand Prix"
-        playButton.fontSize = 100
+        GrandPrix.fontColor = SKColor.purple
+        GrandPrix.text = "Grand Prix"
+        GrandPrix.fontSize = 100
         
-        playButton.position = CGPoint(x: 0, y: 0)
+        GrandPrix.position = CGPoint(x: 0, y: 150)
         
-        addChild(playButton)
+        addChild(GrandPrix)
+        
+        
+        TimeTrials.fontColor = SKColor.purple
+        TimeTrials.text = "Time Trials"
+        TimeTrials.fontSize = 100
+        
+        TimeTrials.position = CGPoint(x: 0, y: 0)
+        
+        addChild(TimeTrials)
+        
+        HowToPlay.fontColor = SKColor.purple
+        HowToPlay.text = "Help"
+        HowToPlay.fontSize = 100
+        
+        HowToPlay.position = CGPoint(x: 0, y: -150)
+        
+        addChild(HowToPlay)
         
         
     }
@@ -41,7 +60,7 @@ class MenuScene: SKScene {
         let touch = touches.first
         let touchLocation = touch!.location(in: self)
         
-        if playButton.contains(touchLocation) {
+        if GrandPrix.contains(touchLocation) {
             
             let reveal = SKTransition.doorsOpenVertical(withDuration: 0.25)
             let difficultyScene = DifficultyScene(size: self.size)
