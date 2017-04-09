@@ -1,8 +1,8 @@
 //
-//  GalileoCourseFour.swift
+//  GalileoCourse.swift
 //  racecar
 //
-//  Created by Walters Mitch on 4/7/17.
+//  Created by Walters Mitch on 4/9/17.
 //  Copyright © 2017 Mitchell Walters. All rights reserved.
 //
 
@@ -10,24 +10,17 @@ import Foundation
 import SpriteKit
 import GameplayKit
 import CoreGraphics
-
-
-//var rows = 42
-//var cols = 32
-//var block_size = CGFloat(35.0)
-
-
-class NewtonCourseOne: Course {
+class GalileoCourseFour: Course {
     
     
     init() {
         super.init(size: CGSize(), difficulty: "hard")
-        grid = Grid(blockSize: CGFloat(35.0), rows: 47, cols: 37)
-        racecar = Racecar(x_pos: 33, y_pos: 15)
+        grid = Grid(blockSize: CGFloat(35.0), rows: 37, cols: 22)
+        racecar = Racecar(x_pos: 19, y_pos: 15)
         
-        self.draw_checkpoint_one(position: (grid?.gridPosition(row:  23, col: 12))!)
-        self.draw_checkpoint_two(position: (grid?.gridPosition(row:  23, col: 24))!)
-        self.draw_finish_line(position: (grid?.gridPosition(row:  14, col: 33))!)
+        self.draw_checkpoint_one(position: (grid?.gridPosition(row:  6, col: 11))!)
+        self.draw_checkpoint_two(position: (grid?.gridPosition(row:  30, col: 11))!)
+        self.draw_finish_line(position: (grid?.gridPosition(row:  14, col: 19))!)
         
         colors = [
             UIColor(red: 72/255, green: 172/255, blue: 240/255, alpha: 1.0),
@@ -38,9 +31,9 @@ class NewtonCourseOne: Course {
         obstacles = []
         
         //1
-        for j in 6...18{
+        for j in 2...8{
             
-            for i in 7...14 {
+            for i in 2...9 {
                 
                 obstacles.append(x: j, y: i)
                 
@@ -48,9 +41,9 @@ class NewtonCourseOne: Course {
         }
         
         //2
-        for j in 6...18{
+        for j in 11...12{
             
-            for i in 23...30 {
+            for i in 6...12{
                 
                 obstacles.append(x: j, y: i)
                 
@@ -58,9 +51,9 @@ class NewtonCourseOne: Course {
         }
         
         //3
-        for j in 28...40{
+        for j in 15...22{
             
-            for i in 7...14 {
+            for i in 2...9{
                 
                 obstacles.append(x: j, y: i)
                 
@@ -68,9 +61,9 @@ class NewtonCourseOne: Course {
         }
         
         //4
-        for j in 28...40{
+        for j in 25...26{
             
-            for i in 23...30 {
+            for i in 6...12{
                 
                 obstacles.append(x: j, y: i)
                 
@@ -78,9 +71,9 @@ class NewtonCourseOne: Course {
         }
         
         //5
-        for j in 15...31{
+        for j in 29...35{
             
-            for i in 15...22 {
+            for i in 2...9{
                 
                 obstacles.append(x: j, y: i)
                 
@@ -88,9 +81,9 @@ class NewtonCourseOne: Course {
         }
         
         //6
-        for j in 23...24{
+        for j in 5...32{
             
-            for i in 1...11 {
+            for i in 13...17 {
                 
                 obstacles.append(x: j, y: i)
                 
@@ -98,9 +91,9 @@ class NewtonCourseOne: Course {
         }
         
         //7
-        for j in 1...10{
+        for j in 0...1{
             
-            for i in 18...19 {
+            for i in 0...22{
                 
                 obstacles.append(x: j, y: i)
                 
@@ -108,60 +101,34 @@ class NewtonCourseOne: Course {
         }
         
         //8
-        for j in 23...24 {
+        for j in 2...35{
             
-            for i in 26...35 {
+            for i in 22...23{
                 
                 obstacles.append(x: j, y: i)
                 
             }
         }
+        
         //9
-        for j in 36...45 {
+        for j in 36...37{
             
-            for i in 18...19 {
+            for i in 0...23{
                 
                 obstacles.append(x: j, y: i)
                 
             }
         }
+        
         //10
-        for j in 0...0 {
+        for j in 2...35{
             
-            for i in 0...36 {
+            for i in 0...1{
                 
                 obstacles.append(x: j, y: i)
                 
             }
         }
-        //11
-        for j in 1...46 {
-            
-            for i in 36...36 {
-                
-                obstacles.append(x: j, y: i)
-                
-            }
-        }
-        //12
-        for j in 46...46 {
-            
-            for i in 0...35 {
-                
-                obstacles.append(x: j, y: i)
-                
-            }
-        }
-        //13
-        for j in 1...45 {
-            
-            for i in 0...0 {
-                
-                obstacles.append(x: j, y: i)
-                
-            }
-        }
-
     }
     
     required init?(coder aDecoder: NSCoder) {

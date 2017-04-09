@@ -12,7 +12,7 @@
 		1706F6A51E97684400FC6B26 /* EinsteinCourseThree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1706F6A41E97684400FC6B26 /* EinsteinCourseThree.swift */; };
 		1706F6A71E981C0A00FC6B26 /* GalileoCourseThree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1706F6A61E981C0A00FC6B26 /* GalileoCourseThree.swift */; };
 		1706F6AB1E9874A900FC6B26 /* NewtonCourseThree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1706F6AA1E9874A900FC6B26 /* NewtonCourseThree.swift */; };
-		1706F6AD1E988B5200FC6B26 /* GalileoCourseFour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1706F6AC1E988B5200FC6B26 /* GalileoCourseFour.swift */; };
+		1706F6AD1E988B5200FC6B26 /* NewtonCourseOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1706F6AC1E988B5200FC6B26 /* NewtonCourseOne.swift */; };
 		1718130F1E9073EA002DECED /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1718130E1E9073EA002DECED /* Course.swift */; };
 		171813111E908BE4002DECED /* CupSelectionScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171813101E908BE4002DECED /* CupSelectionScene.swift */; };
 		171813131E9090A9002DECED /* GalileoCourseSelectionScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171813121E9090A9002DECED /* GalileoCourseSelectionScene.swift */; };
@@ -35,6 +35,7 @@
 		178263851E809EF500EBF212 /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178263841E809EF500EBF212 /* Grid.swift */; };
 		178263891E81D58100EBF212 /* Racecar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178263881E81D58100EBF212 /* Racecar.swift */; };
 		17D265161E9A13990034D691 /* NewtonCourseFour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D265151E9A13990034D691 /* NewtonCourseFour.swift */; };
+		17D265181E9A22470034D691 /* GalileoCourseFour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D265171E9A22470034D691 /* GalileoCourseFour.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,7 +61,7 @@
 		1706F6A41E97684400FC6B26 /* EinsteinCourseThree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EinsteinCourseThree.swift; sourceTree = "<group>"; };
 		1706F6A61E981C0A00FC6B26 /* GalileoCourseThree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalileoCourseThree.swift; sourceTree = "<group>"; };
 		1706F6AA1E9874A900FC6B26 /* NewtonCourseThree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewtonCourseThree.swift; path = ../NewtonCourseThree.swift; sourceTree = "<group>"; };
-		1706F6AC1E988B5200FC6B26 /* GalileoCourseFour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalileoCourseFour.swift; sourceTree = "<group>"; };
+		1706F6AC1E988B5200FC6B26 /* NewtonCourseOne.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewtonCourseOne.swift; sourceTree = "<group>"; };
 		1718130E1E9073EA002DECED /* Course.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Course.swift; path = ../Course.swift; sourceTree = "<group>"; };
 		171813101E908BE4002DECED /* CupSelectionScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CupSelectionScene.swift; sourceTree = "<group>"; };
 		171813121E9090A9002DECED /* GalileoCourseSelectionScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalileoCourseSelectionScene.swift; sourceTree = "<group>"; };
@@ -89,6 +90,7 @@
 		178263841E809EF500EBF212 /* Grid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Grid.swift; path = ../Grid.swift; sourceTree = "<group>"; };
 		178263881E81D58100EBF212 /* Racecar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Racecar.swift; path = ../Racecar.swift; sourceTree = "<group>"; };
 		17D265151E9A13990034D691 /* NewtonCourseFour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewtonCourseFour.swift; sourceTree = "<group>"; };
+		17D265171E9A22470034D691 /* GalileoCourseFour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalileoCourseFour.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,7 +156,8 @@
 				1721D26F1E8F58DF00234D2A /* GalileoCourseOne.swift */,
 				1706F6A21E97119800FC6B26 /* GalileoCourseTwo.swift */,
 				1706F6A61E981C0A00FC6B26 /* GalileoCourseThree.swift */,
-				1706F6AC1E988B5200FC6B26 /* GalileoCourseFour.swift */,
+				17D265171E9A22470034D691 /* GalileoCourseFour.swift */,
+				1706F6AC1E988B5200FC6B26 /* NewtonCourseOne.swift */,
 				178263541E80992500EBF212 /* NewtonCourseTwo.swift */,
 				1706F6AA1E9874A900FC6B26 /* NewtonCourseThree.swift */,
 				17D265151E9A13990034D691 /* NewtonCourseFour.swift */,
@@ -327,7 +330,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1706F6AD1E988B5200FC6B26 /* GalileoCourseFour.swift in Sources */,
+				1706F6AD1E988B5200FC6B26 /* NewtonCourseOne.swift in Sources */,
 				171813171E90B05C002DECED /* NewtonCourseSelectionScene.swift in Sources */,
 				171813191E920D99002DECED /* EinsteinCourseOne.swift in Sources */,
 				17D265161E9A13990034D691 /* NewtonCourseFour.swift in Sources */,
@@ -341,6 +344,7 @@
 				1706F6AB1E9874A900FC6B26 /* NewtonCourseThree.swift in Sources */,
 				178263891E81D58100EBF212 /* Racecar.swift in Sources */,
 				1706F6A31E97119800FC6B26 /* GalileoCourseTwo.swift in Sources */,
+				17D265181E9A22470034D691 /* GalileoCourseFour.swift in Sources */,
 				172AEF321E8DB79100154794 /* DifficultyScene.swift in Sources */,
 				1706F6A51E97684400FC6B26 /* EinsteinCourseThree.swift in Sources */,
 				172AEF2E1E8DB25300154794 /* MenuScene.swift in Sources */,
