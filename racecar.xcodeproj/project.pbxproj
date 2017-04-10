@@ -36,6 +36,8 @@
 		178263891E81D58100EBF212 /* Racecar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178263881E81D58100EBF212 /* Racecar.swift */; };
 		17D265161E9A13990034D691 /* NewtonCourseFour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D265151E9A13990034D691 /* NewtonCourseFour.swift */; };
 		17D265181E9A22470034D691 /* GalileoCourseFour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D265171E9A22470034D691 /* GalileoCourseFour.swift */; };
+		17D265251E9B27E00034D691 /* EinsteinCourseFour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D265241E9B27E00034D691 /* EinsteinCourseFour.swift */; };
+		17D265271E9B30720034D691 /* Tutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D265261E9B30720034D691 /* Tutorial.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +93,8 @@
 		178263881E81D58100EBF212 /* Racecar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Racecar.swift; path = ../Racecar.swift; sourceTree = "<group>"; };
 		17D265151E9A13990034D691 /* NewtonCourseFour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewtonCourseFour.swift; sourceTree = "<group>"; };
 		17D265171E9A22470034D691 /* GalileoCourseFour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalileoCourseFour.swift; sourceTree = "<group>"; };
+		17D265241E9B27E00034D691 /* EinsteinCourseFour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EinsteinCourseFour.swift; path = ../EinsteinCourseFour.swift; sourceTree = "<group>"; };
+		17D265261E9B30720034D691 /* Tutorial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tutorial.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +152,7 @@
 				172AEF311E8DB79100154794 /* DifficultyScene.swift */,
 				171813101E908BE4002DECED /* CupSelectionScene.swift */,
 				1718130E1E9073EA002DECED /* Course.swift */,
+				17D265261E9B30720034D691 /* Tutorial.swift */,
 				178263841E809EF500EBF212 /* Grid.swift */,
 				178263881E81D58100EBF212 /* Racecar.swift */,
 				171813121E9090A9002DECED /* GalileoCourseSelectionScene.swift */,
@@ -164,6 +169,7 @@
 				171813181E920D99002DECED /* EinsteinCourseOne.swift */,
 				1706F6A01E96FB1C00FC6B26 /* EinsteinCourseTwo.swift */,
 				1706F6A41E97684400FC6B26 /* EinsteinCourseThree.swift */,
+				17D265241E9B27E00034D691 /* EinsteinCourseFour.swift */,
 				178263561E80992500EBF212 /* GameViewController.swift */,
 				178263581E80992500EBF212 /* Main.storyboard */,
 				1782635B1E80992600EBF212 /* Assets.xcassets */,
@@ -337,11 +343,13 @@
 				1718130F1E9073EA002DECED /* Course.swift in Sources */,
 				171813111E908BE4002DECED /* CupSelectionScene.swift in Sources */,
 				178263551E80992500EBF212 /* NewtonCourseTwo.swift in Sources */,
+				17D265251E9B27E00034D691 /* EinsteinCourseFour.swift in Sources */,
 				1706F6A11E96FB1D00FC6B26 /* EinsteinCourseTwo.swift in Sources */,
 				1721D2701E8F58DF00234D2A /* GalileoCourseOne.swift in Sources */,
 				1706F6A71E981C0A00FC6B26 /* GalileoCourseThree.swift in Sources */,
 				178263571E80992500EBF212 /* GameViewController.swift in Sources */,
 				1706F6AB1E9874A900FC6B26 /* NewtonCourseThree.swift in Sources */,
+				17D265271E9B30720034D691 /* Tutorial.swift in Sources */,
 				178263891E81D58100EBF212 /* Racecar.swift in Sources */,
 				1706F6A31E97119800FC6B26 /* GalileoCourseTwo.swift in Sources */,
 				17D265181E9A22470034D691 /* GalileoCourseFour.swift in Sources */,

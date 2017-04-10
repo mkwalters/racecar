@@ -7,6 +7,7 @@
 //
 
 import Foundation
+
 import SpriteKit
 
 class EinsteinCourseSelectionScene: SKScene {
@@ -17,6 +18,7 @@ class EinsteinCourseSelectionScene: SKScene {
     
     let course_two = SKLabelNode()
     let course_three = SKLabelNode()
+    let course_four = SKLabelNode()
     
     
     override init() {
@@ -38,25 +40,30 @@ class EinsteinCourseSelectionScene: SKScene {
         course_three.text = "Einstein Course #3"
         course_three.fontSize = 100
         
+        course_four.fontColor = SKColor.purple
+        course_four.text = "Einstein Course #4"
+        course_four.fontSize = 100
+        
         
         hardButton.fontColor = SKColor.purple
         hardButton.text = "Back"
-        hardButton.fontSize = 100
+        hardButton.fontSize = 60
         
         
         
         easyButton.position = CGPoint(x: size.width / 2, y:  (2 * size.height) / 3)
         
         
-        hardButton.position = CGPoint(x: size.width / 2, y: size.height / 4)
+        hardButton.position = CGPoint(x: size.width / 2, y: size.height / 4 - 125)
         course_two.position = CGPoint(x: size.width / 2, y: size.height / 2)
         course_three.position = CGPoint(x: size.width / 2, y: size.height / 3)
+        course_four.position = CGPoint(x: size.width / 2, y: size.height / 4)
         
         addChild(easyButton)
         addChild(hardButton)
         addChild(course_two)
         addChild(course_three)
-        
+        addChild(course_four)
     }
     
     
@@ -86,12 +93,18 @@ class EinsteinCourseSelectionScene: SKScene {
             self.view?.presentScene(menuScene, transition: reveal)
         }
         
-        
         if course_three.contains(touchLocation){
             let reveal = SKTransition.doorsOpenHorizontal(withDuration: 0.25)
             let menuScene = EinsteinCourseThree()
             self.view?.presentScene(menuScene, transition: reveal)
         }
+        
+        if course_four.contains(touchLocation){
+            let reveal = SKTransition.doorsOpenHorizontal(withDuration: 0.25)
+            let menuScene = EinsteinCourseFour()
+            self.view?.presentScene(menuScene, transition: reveal)
+        }
+        
     }
     
     

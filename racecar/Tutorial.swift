@@ -1,18 +1,18 @@
 //
-//  MenuScene.swift
+//  Tutorial.swift
 //  racecar
 //
-//  Created by Walters Mitch on 3/30/17.
+//  Created by Walters Mitch on 4/9/17.
 //  Copyright © 2017 Mitchell Walters. All rights reserved.
-
 //
 
-
+import Foundation
 import SpriteKit
-class MenuScene: SKScene {
+class Tutorial: SKScene {
     
     let GrandPrix = SKLabelNode()
     let TimeTrials = SKLabelNode()
+    let menuButton = SKLabelNode()
     
     let HowToPlay = SKLabelNode()
     
@@ -23,31 +23,20 @@ class MenuScene: SKScene {
         
         backgroundColor = SKColor.black
         
-        GrandPrix.fontColor = SKColor.purple
-        GrandPrix.text = "Grand Prix"
-        GrandPrix.fontSize = 100
-        
-        GrandPrix.position = CGPoint(x: 0, y: 150)
-        
-        addChild(GrandPrix)
-        
         
         TimeTrials.fontColor = SKColor.purple
-        TimeTrials.text = "Time Trials"
-        TimeTrials.fontSize = 100
+        TimeTrials.text = "It's only physics! -Winston"
+        TimeTrials.fontSize = 65
+        
+        menuButton.fontColor = SKColor.purple
+        menuButton.text = "Main Menu"
+        menuButton.fontSize = 40
         
         TimeTrials.position = CGPoint(x: 0, y: 0)
+        menuButton.position = CGPoint(x: 0, y: -200)
         
         addChild(TimeTrials)
-        
-        HowToPlay.fontColor = SKColor.purple
-        HowToPlay.text = "Help"
-        HowToPlay.fontSize = 100
-        
-        HowToPlay.position = CGPoint(x: 0, y: -150)
-        
-        addChild(HowToPlay)
-        
+        addChild(menuButton)
         
     }
     
@@ -68,12 +57,10 @@ class MenuScene: SKScene {
             
         }
         
-        if HowToPlay.contains(touchLocation) {
-            
+        if menuButton.contains(touchLocation){
             let reveal = SKTransition.doorsOpenVertical(withDuration: 0.25)
-            let difficultyScene = Tutorial(size: self.size)
-            self.view?.presentScene(difficultyScene, transition: reveal)
-            
+            let menuScene = MenuScene(size: self.size)
+            self.view?.presentScene(menuScene, transition: reveal)
         }
         
     }

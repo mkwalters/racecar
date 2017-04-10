@@ -53,7 +53,7 @@ class Course: SKScene, SKPhysicsContactDelegate {
 
     let timer = SKSpriteNode(color: SKColor.blue, size: CGSize(width: 30, height: 30))
 
-    var time_between_moves = 3
+    var time_between_moves = CGFloat()
 
     var turn_number = 0
 
@@ -87,8 +87,7 @@ class Course: SKScene, SKPhysicsContactDelegate {
         
         projected_path.removeFromParent()
         
-        self.backgroundColor = UIColor(red: 52/255, green: 52/255, blue: 52/255, alpha: 1.0)
-        
+        self.backgroundColor = SKColor.black
         let starting_position = grid?.gridPosition(row:  racecar.y_position, col: racecar.x_position)
         
         
@@ -133,7 +132,7 @@ class Course: SKScene, SKPhysicsContactDelegate {
         colors.append(color3)
         
         if difficulty == "hard"{
-            time_between_moves = 2
+            time_between_moves = 1.35
         } else {
             time_between_moves = 4
         }
