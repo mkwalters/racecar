@@ -68,7 +68,9 @@ class Course: SKScene, SKPhysicsContactDelegate {
     var laps_completed = 0
     
     var lap_progress = SKLabelNode()
-
+    
+    var original_grid_size = CGSize()
+    
     let pause = SKSpriteNode(imageNamed: "pause_button")
     
     var resume = SKLabelNode()
@@ -143,83 +145,6 @@ class Course: SKScene, SKPhysicsContactDelegate {
     }
 
 
-    func build_bot_path() {
-        
-        bot_path = [
-            (x: 19,y: 28),
-            (x: 17,y: 28),
-            (x: 15,y: 28),
-            (x: 12,y: 28),
-            (x: 10,y: 28),
-            (x: 8,y: 27),
-            (x: 6,y: 27),
-            (x: 4,y: 26),
-            (x: 3,y: 24),
-            (x: 3,y: 21),
-            (x: 4,y: 19),
-            (x: 6,y: 18),
-            (x: 8,y: 18),
-            (x: 10,y: 18),
-            (x: 12,y: 17),
-            (x: 13,y: 15),
-            (x: 14,y: 14),
-            (x: 14,y: 12),
-            (x: 13,y: 10),
-            (x: 13,y: 11),
-            (x: 11,y: 11),
-            (x: 8,y: 11),
-            (x: 6,y: 10),
-            (x: 5,y: 8),
-            (x: 5,y: 6),
-            (x: 6,y: 4),
-            (x: 8,y: 3),
-            (x: 11,y: 3),
-            (x: 14,y: 2),
-            (x: 16,y: 2),
-            (x: 18,y: 2),
-            (x: 21,y: 2),
-            (x: 23,y: 2),
-            (x: 24,y: 3),
-            (x: 25,y: 4),
-            (x: 25,y: 6),
-            (x: 25,y: 8),
-            (x: 26,y: 9),
-            (x: 28,y: 9),
-            (x: 29,y: 9),
-            (x: 29,y: 8),
-            (x: 29,y: 6),
-            (x: 30,y: 4),
-            (x: 32,y: 2),
-            (x: 34,y: 1),
-            (x: 36,y: 1),
-            (x: 38,y: 2),
-            (x: 40,y: 3),
-            (x: 41,y: 4),
-            (x: 41,y: 7),
-            (x: 41,y: 10),
-            (x: 41,y: 13),
-            (x: 41,y: 15),
-            (x: 40,y: 17),
-            (x: 38,y: 18),
-            (x: 36,y: 18),
-            (x: 34,y: 18),
-            (x: 33,y: 29),
-            (x: 33,y: 21),
-            (x: 34,y: 22),
-            (x: 36,y: 22),
-            (x: 38,y: 22),
-            (x: 39,y: 23),
-            (x: 40,y: 24),
-            (x: 40,y: 26),
-            (x: 39,y: 28)
-            
-            
-            
-            
-        ]
-    }
-
-
     func draw_line(x1: Int, x2: Int, y1: Int, y2: Int) {
         let line_path:CGMutablePath = CGMutablePath()
         line_path.move(to: CGPoint(x: x1, y: y1))
@@ -236,9 +161,23 @@ class Course: SKScene, SKPhysicsContactDelegate {
     func handlePinchFrom(_ sender: UIPinchGestureRecognizer) {
         
         if paused_game == false {
-            let pinch = SKAction.scale(by: sender.scale, duration: 0.0)
-            grid?.run(pinch)
-            sender.scale = 1.0
+            
+            if (grid?.size.width)! < 1.5 * original_grid_size.width && (grid?.size.width)! > 0.5 * original_grid_size.width {
+                let pinch = SKAction.scale(by: sender.scale, duration: 0.0)
+                grid?.run(pinch)
+                sender.scale = 1.0
+            } else {
+                
+                if (grid?.size.width)! < 0.5 * original_grid_size.width {
+                    let pinch = SKAction.scale(by: 1.02, duration: 0.0)
+                    grid?.run(pinch)
+                    sender.scale = 1.0
+                } else {
+                    let pinch = SKAction.scale(by: 0.98, duration: 0.0)
+                    grid?.run(pinch)
+                    sender.scale = 1.0
+                }
+            }
         }
     }
 
@@ -529,6 +468,7 @@ class Course: SKScene, SKPhysicsContactDelegate {
         
         grid?.zPosition = 10
         addChild(grid!)
+        original_grid_size = (grid?.size)!
         
         
         gamePiece.setScale(0.0625)
@@ -889,12 +829,31 @@ class Course: SKScene, SKPhysicsContactDelegate {
                 //Calculate the translation.
                 //let translation = CGPoint((location.x - previousLocation.x), (location.y - previousLocation.y))
                 
-                let x_translation = location.x - previousLocation.x
-                let y_translation = location.y - previousLocation.y
+                var x_translation = location.x - previousLocation.x
+                var y_translation = location.y - previousLocation.y
                 //Get the current position in scene of the crossHair.
                 let position = grid?.position
                 // Get the bode touched
                 //var body = self.nodeAtPoint(location)
+                
+                
+                if Int((grid?.position.x)!) > 500 {
+                    x_translation = -1
+                }
+                
+                if Int((grid?.position.x)!) < -500 {
+                    x_translation = 1
+                }
+                
+                if Int((grid?.position.y)!) > 500 {
+                    y_translation = 1
+                }
+                
+                if Int((grid?.position.y)!) < -500 {
+                    y_translation = -1
+                }
+                
+                
                 
                 grid?.position = CGPoint(x: ((position?.x)! + x_translation * 2), y: ( (position?.y)! - y_translation * 2) )
                 
