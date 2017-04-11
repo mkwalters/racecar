@@ -38,6 +38,7 @@
 		17D265181E9A22470034D691 /* GalileoCourseFour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D265171E9A22470034D691 /* GalileoCourseFour.swift */; };
 		17D265251E9B27E00034D691 /* EinsteinCourseFour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D265241E9B27E00034D691 /* EinsteinCourseFour.swift */; };
 		17D265271E9B30720034D691 /* Tutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D265261E9B30720034D691 /* Tutorial.swift */; };
+		17D2652A1E9C9DA80034D691 /* CourseSelectionScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D265291E9C9DA80034D691 /* CourseSelectionScene.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +97,7 @@
 		17D265241E9B27E00034D691 /* EinsteinCourseFour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EinsteinCourseFour.swift; path = ../EinsteinCourseFour.swift; sourceTree = "<group>"; };
 		17D265261E9B30720034D691 /* Tutorial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tutorial.swift; sourceTree = "<group>"; };
 		17D265281E9C67250034D691 /* racecar.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = racecar.entitlements; sourceTree = "<group>"; };
+		17D265291E9C9DA80034D691 /* CourseSelectionScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseSelectionScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +159,7 @@
 				17D265261E9B30720034D691 /* Tutorial.swift */,
 				178263841E809EF500EBF212 /* Grid.swift */,
 				178263881E81D58100EBF212 /* Racecar.swift */,
+				17D265291E9C9DA80034D691 /* CourseSelectionScene.swift */,
 				171813121E9090A9002DECED /* GalileoCourseSelectionScene.swift */,
 				171813161E90B05C002DECED /* NewtonCourseSelectionScene.swift */,
 				1718131A1E920E7B002DECED /* EinsteinCourseSelectionScene.swift */,
@@ -365,6 +368,7 @@
 				172AEF2E1E8DB25300154794 /* MenuScene.swift in Sources */,
 				1782634F1E80992500EBF212 /* AppDelegate.swift in Sources */,
 				1718131B1E920E7B002DECED /* EinsteinCourseSelectionScene.swift in Sources */,
+				17D2652A1E9C9DA80034D691 /* CourseSelectionScene.swift in Sources */,
 				171813131E9090A9002DECED /* GalileoCourseSelectionScene.swift in Sources */,
 				178263851E809EF500EBF212 /* Grid.swift in Sources */,
 			);

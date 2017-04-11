@@ -17,7 +17,7 @@ class NewtonCourseFour: Course {
         super.init(size: CGSize(), difficulty: "hard")
         grid = Grid(blockSize: CGFloat(35.0), rows: 42, cols: 30)
         racecar = Racecar(x_pos: 27, y_pos: 22)
-        
+        self.key = "NewtonCourseFour"
         self.draw_checkpoint_one(position: (grid?.gridPosition(row:  8, col: 10))!)
         self.draw_checkpoint_two(position: (grid?.gridPosition(row:  36, col: 6))!)
         self.draw_finish_line(position: (grid?.gridPosition(row:  21, col: 26))!)

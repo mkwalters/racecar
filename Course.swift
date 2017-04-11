@@ -65,9 +65,13 @@ class Course: SKScene, SKPhysicsContactDelegate {
 
     var last_checkpoint = 0
     
-    var laps_completed = 0
     
-    var lap_progress = SKLabelNode()
+    
+    var number_of_moves = 0
+    
+    var number_of_moves_label = SKLabelNode()
+    
+    var key = "GalileoCourseOne"
     
     var original_grid_size = CGSize()
     
@@ -237,7 +241,7 @@ class Course: SKScene, SKPhysicsContactDelegate {
 
 
     override func didMove(to view: SKView) {
-        
+        //UserDefaults.standard.setValue(420, forKey: "GalileoCourseTwo")
         
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
         self.size = CGSize(width: 750, height: 1334)
@@ -295,11 +299,11 @@ class Course: SKScene, SKPhysicsContactDelegate {
         
         addChild(timer)
         
-        lap_progress.text = String(laps_completed) + "/3"
-        lap_progress.fontSize = 85
-        lap_progress.color = SKColor.yellow
-        lap_progress.position = CGPoint(x: self.frame.width / 2 - 90, y: self.frame.height / 2 - 90)
-        self.addChild(lap_progress)
+        number_of_moves_label.text = String(number_of_moves)
+        number_of_moves_label.fontSize = 85
+        number_of_moves_label.color = SKColor.yellow
+        number_of_moves_label.position = CGPoint(x: self.frame.width / 2 - 90, y: self.frame.height / 2 - 90)
+        self.addChild(number_of_moves_label)
         
         
         self.physicsWorld.contactDelegate = self
@@ -565,11 +569,9 @@ class Course: SKScene, SKPhysicsContactDelegate {
             
             if contact.bodyB.node?.name == "finish_line" {
                 if last_checkpoint == 2 {
-                    laps_completed = laps_completed + 1
                     last_checkpoint = 0
-                    print("laps_completed")
-                    print(laps_completed)
-                    lap_progress.text = String(laps_completed) + "/3"
+                    print("recorded")
+                    UserDefaults.standard.setValue(number_of_moves, forKey: key)
                 }
             }
             
@@ -603,9 +605,8 @@ class Course: SKScene, SKPhysicsContactDelegate {
             if contact.bodyA.node?.name == "finish_line" {
                 if last_checkpoint == 2 {
                     last_checkpoint = 0
-                    laps_completed = laps_completed + 1
-                    print(laps_completed)
-                    lap_progress.text = String(laps_completed) + "/3"
+                    print("recorded")
+                    UserDefaults.standard.setValue(number_of_moves, forKey: key)
                 }
             }
             
@@ -615,17 +616,13 @@ class Course: SKScene, SKPhysicsContactDelegate {
         
     }
 
-    func move_opponent() {
-        if turn_number < bot_path.count {
-            opponentGamePiece.position = (grid?.gridPosition(row:  bot_path[turn_number].x , col: bot_path[turn_number].y))!
-        }
-        
-    }
 
 
     func move() {
         
         turn_number += 1
+        number_of_moves += 1
+        number_of_moves_label.text = String(number_of_moves)
         
         if projected_path.strokeColor == SKColor.green {
             
@@ -676,7 +673,6 @@ class Course: SKScene, SKPhysicsContactDelegate {
             
             
             gamePiece.removeFromParent()
-            move_opponent()
             grid?.addChild(gamePiece)
             
             draw_projected_path()

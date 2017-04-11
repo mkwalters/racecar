@@ -24,7 +24,7 @@ class GalileoCourseOne: Course {
         super.init(size: CGSize(), difficulty: "hard")
         grid = Grid(blockSize: CGFloat(35.0), rows: 40, cols: 25)
         racecar = Racecar(x_pos: 22, y_pos: 22)
-        
+        key = "GalileoCourseOne"
         self.draw_checkpoint_one(position: (grid?.gridPosition(row:  7, col: 2))!)
         self.draw_checkpoint_two(position: (grid?.gridPosition(row:  34, col: 22))!)
         self.draw_finish_line(position: (grid?.gridPosition(row:  19, col: 22))!)

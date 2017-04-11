@@ -17,7 +17,7 @@ class EinsteinCourseThree: Course {
         super.init(size: CGSize(), difficulty: "hard")
         grid = Grid(blockSize: CGFloat(35.0), rows: 38, cols: 38)
         racecar = Racecar(x_pos: 31, y_pos: 11)
-        
+        self.key = "EinsteinCourseThree"
         self.draw_checkpoint_one(position: (grid?.gridPosition(row:  6, col: 6))!)
         self.draw_checkpoint_two(position: (grid?.gridPosition(row:  34, col: 2))!)
         self.draw_finish_line(position: (grid?.gridPosition(row:  10, col: 31))!)
