@@ -95,6 +95,7 @@
 		17D265171E9A22470034D691 /* GalileoCourseFour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalileoCourseFour.swift; sourceTree = "<group>"; };
 		17D265241E9B27E00034D691 /* EinsteinCourseFour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EinsteinCourseFour.swift; path = ../EinsteinCourseFour.swift; sourceTree = "<group>"; };
 		17D265261E9B30720034D691 /* Tutorial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tutorial.swift; sourceTree = "<group>"; };
+		17D265281E9C67250034D691 /* racecar.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = racecar.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +146,7 @@
 		1782634D1E80992500EBF212 /* racecar */ = {
 			isa = PBXGroup;
 			children = (
+				17D265281E9C67250034D691 /* racecar.entitlements */,
 				178263521E80992500EBF212 /* Actions.sks */,
 				1721D26B1E8DD6AC00234D2A /* MyScene.sks */,
 				1782634E1E80992500EBF212 /* AppDelegate.swift */,
@@ -267,6 +269,11 @@
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 7QH98TGAP8;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 					178263641E80992600EBF212 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -511,6 +518,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = racecar/racecar.entitlements;
 				DEVELOPMENT_TEAM = 7QH98TGAP8;
 				INFOPLIST_FILE = racecar/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
@@ -525,6 +533,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = racecar/racecar.entitlements;
 				DEVELOPMENT_TEAM = 7QH98TGAP8;
 				INFOPLIST_FILE = racecar/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
