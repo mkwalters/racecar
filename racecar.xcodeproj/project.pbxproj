@@ -39,6 +39,18 @@
 		17D265251E9B27E00034D691 /* EinsteinCourseFour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D265241E9B27E00034D691 /* EinsteinCourseFour.swift */; };
 		17D265271E9B30720034D691 /* Tutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D265261E9B30720034D691 /* Tutorial.swift */; };
 		17D2652A1E9C9DA80034D691 /* CourseSelectionScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D265291E9C9DA80034D691 /* CourseSelectionScene.swift */; };
+		17D2652C1E9E03A00034D691 /* Bloodrocuted.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 17D2652B1E9E03A00034D691 /* Bloodrocuted.mp3 */; };
+		17D2652E1E9E1E280034D691 /* Awaken.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 17D2652D1E9E1E280034D691 /* Awaken.mp3 */; };
+		17D265301E9E1E320034D691 /* Black Fire Upon Us.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 17D2652F1E9E1E320034D691 /* Black Fire Upon Us.mp3 */; };
+		17D265321E9E1E480034D691 /* Bloodlines.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 17D265311E9E1E480034D691 /* Bloodlines.mp3 */; };
+		17D265341E9E1E9B0034D691 /* Comet Song.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 17D265331E9E1E9B0034D691 /* Comet Song.mp3 */; };
+		17D265361E9E1EBB0034D691 /* Dethharmonic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 17D265351E9E1EBB0034D691 /* Dethharmonic.mp3 */; };
+		17D265381E9E1EC20034D691 /* Deththeme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 17D265371E9E1EC20034D691 /* Deththeme.mp3 */; };
+		17D2653A1E9E1ECD0034D691 /* Fansong.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 17D265391E9E1ECD0034D691 /* Fansong.mp3 */; };
+		17D2653C1E9E1ED20034D691 /* Hatredcopter.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 17D2653B1E9E1ED20034D691 /* Hatredcopter.mp3 */; };
+		17D2653E1E9E1EDE0034D691 /* Murmaider II The Water God.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 17D2653D1E9E1EDE0034D691 /* Murmaider II The Water God.mp3 */; };
+		17D265401E9E1EE60034D691 /* Symmetry.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 17D2653F1E9E1EE60034D691 /* Symmetry.mp3 */; };
+		17D265421E9E1EEC0034D691 /* The Gears.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 17D265411E9E1EEC0034D691 /* The Gears.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +110,18 @@
 		17D265261E9B30720034D691 /* Tutorial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tutorial.swift; sourceTree = "<group>"; };
 		17D265281E9C67250034D691 /* racecar.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = racecar.entitlements; sourceTree = "<group>"; };
 		17D265291E9C9DA80034D691 /* CourseSelectionScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseSelectionScene.swift; sourceTree = "<group>"; };
+		17D2652B1E9E03A00034D691 /* Bloodrocuted.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Bloodrocuted.mp3; sourceTree = "<group>"; };
+		17D2652D1E9E1E280034D691 /* Awaken.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Awaken.mp3; sourceTree = "<group>"; };
+		17D2652F1E9E1E320034D691 /* Black Fire Upon Us.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Black Fire Upon Us.mp3"; sourceTree = "<group>"; };
+		17D265311E9E1E480034D691 /* Bloodlines.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Bloodlines.mp3; sourceTree = "<group>"; };
+		17D265331E9E1E9B0034D691 /* Comet Song.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Comet Song.mp3"; sourceTree = "<group>"; };
+		17D265351E9E1EBB0034D691 /* Dethharmonic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Dethharmonic.mp3; sourceTree = "<group>"; };
+		17D265371E9E1EC20034D691 /* Deththeme.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Deththeme.mp3; sourceTree = "<group>"; };
+		17D265391E9E1ECD0034D691 /* Fansong.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Fansong.mp3; sourceTree = "<group>"; };
+		17D2653B1E9E1ED20034D691 /* Hatredcopter.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Hatredcopter.mp3; sourceTree = "<group>"; };
+		17D2653D1E9E1EDE0034D691 /* Murmaider II The Water God.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Murmaider II The Water God.mp3"; sourceTree = "<group>"; };
+		17D2653F1E9E1EE60034D691 /* Symmetry.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Symmetry.mp3; sourceTree = "<group>"; };
+		17D265411E9E1EEC0034D691 /* The Gears.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "The Gears.mp3"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +200,18 @@
 				1706F6A41E97684400FC6B26 /* EinsteinCourseThree.swift */,
 				17D265241E9B27E00034D691 /* EinsteinCourseFour.swift */,
 				178263561E80992500EBF212 /* GameViewController.swift */,
+				17D2652D1E9E1E280034D691 /* Awaken.mp3 */,
+				17D2652F1E9E1E320034D691 /* Black Fire Upon Us.mp3 */,
+				17D265311E9E1E480034D691 /* Bloodlines.mp3 */,
+				17D2652B1E9E03A00034D691 /* Bloodrocuted.mp3 */,
+				17D265331E9E1E9B0034D691 /* Comet Song.mp3 */,
+				17D265351E9E1EBB0034D691 /* Dethharmonic.mp3 */,
+				17D265371E9E1EC20034D691 /* Deththeme.mp3 */,
+				17D265391E9E1ECD0034D691 /* Fansong.mp3 */,
+				17D2653B1E9E1ED20034D691 /* Hatredcopter.mp3 */,
+				17D2653D1E9E1EDE0034D691 /* Murmaider II The Water God.mp3 */,
+				17D2653F1E9E1EE60034D691 /* Symmetry.mp3 */,
+				17D265411E9E1EEC0034D691 /* The Gears.mp3 */,
 				178263581E80992500EBF212 /* Main.storyboard */,
 				1782635B1E80992600EBF212 /* Assets.xcassets */,
 				1782635D1E80992600EBF212 /* LaunchScreen.storyboard */,
@@ -317,9 +353,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17D2653A1E9E1ECD0034D691 /* Fansong.mp3 in Resources */,
 				1782635A1E80992500EBF212 /* Main.storyboard in Resources */,
+				17D2653E1E9E1EDE0034D691 /* Murmaider II The Water God.mp3 in Resources */,
+				17D265341E9E1E9B0034D691 /* Comet Song.mp3 in Resources */,
+				17D265401E9E1EE60034D691 /* Symmetry.mp3 in Resources */,
+				17D265301E9E1E320034D691 /* Black Fire Upon Us.mp3 in Resources */,
+				17D265361E9E1EBB0034D691 /* Dethharmonic.mp3 in Resources */,
 				1782635C1E80992600EBF212 /* Assets.xcassets in Resources */,
+				17D2652C1E9E03A00034D691 /* Bloodrocuted.mp3 in Resources */,
 				1721D26C1E8DD6AC00234D2A /* MyScene.sks in Resources */,
+				17D265381E9E1EC20034D691 /* Deththeme.mp3 in Resources */,
+				17D265421E9E1EEC0034D691 /* The Gears.mp3 in Resources */,
+				17D2653C1E9E1ED20034D691 /* Hatredcopter.mp3 in Resources */,
+				17D2652E1E9E1E280034D691 /* Awaken.mp3 in Resources */,
+				17D265321E9E1E480034D691 /* Bloodlines.mp3 in Resources */,
 				1782635F1E80992600EBF212 /* LaunchScreen.storyboard in Resources */,
 				178263531E80992500EBF212 /* Actions.sks in Resources */,
 			);

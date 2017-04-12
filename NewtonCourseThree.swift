@@ -15,6 +15,7 @@ import CoreGraphics
 class NewtonCourseThree: Course {
     init() {
         super.init(size: CGSize(), difficulty: "hard")
+        audioooo = SKAudioNode(fileNamed: "Awaken")
         grid = Grid(blockSize: CGFloat(35.0), rows: 53, cols: 42)
         racecar = Racecar(x_pos: 33, y_pos: 22)
         self.key = "NewtonCourseThree"

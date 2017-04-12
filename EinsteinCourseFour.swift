@@ -15,6 +15,7 @@ import CoreGraphics
 class EinsteinCourseFour: Course {
     init() {
         super.init(size: CGSize(), difficulty: "hard")
+        audioooo = SKAudioNode(fileNamed: "The Gears")
         grid = Grid(blockSize: CGFloat(35.0), rows: 51, cols: 38)
         racecar = Racecar(x_pos: 34, y_pos: 41)
         self.key = "EinsteinCourseFour"

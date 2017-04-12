@@ -22,6 +22,7 @@ class GalileoCourseOne: Course {
     
     init() {
         super.init(size: CGSize(), difficulty: "hard")
+        audioooo = SKAudioNode(fileNamed: "Deththeme")
         grid = Grid(blockSize: CGFloat(35.0), rows: 40, cols: 25)
         racecar = Racecar(x_pos: 22, y_pos: 22)
         key = "GalileoCourseOne"

@@ -15,6 +15,7 @@ class GalileoCourseFour: Course {
     
     init() {
         super.init(size: CGSize(), difficulty: "hard")
+        audioooo = SKAudioNode(fileNamed: "Bloodrocuted")
         grid = Grid(blockSize: CGFloat(35.0), rows: 37, cols: 22)
         racecar = Racecar(x_pos: 19, y_pos: 15)
         self.key = "GalileoCourseFour"

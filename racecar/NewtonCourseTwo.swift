@@ -33,6 +33,7 @@ class NewtonCourseTwo: Course {
     
     init() {
         super.init(size: CGSize(), difficulty: "hard")
+        audioooo = SKAudioNode(fileNamed: "Dethharmonic")
         grid = Grid(blockSize: CGFloat(35.0), rows:42, cols:32)
         racecar = Racecar(x_pos: 29, y_pos: 20)
         self.key = "NewtonCourseTwo"

@@ -82,6 +82,7 @@ class Course: SKScene, SKPhysicsContactDelegate {
 
     var paused_game = false
     
+    var audioooo = SKAudioNode(fileNamed: "Bloodrocuted")
     
     var colors = [UIColor]()
     var color1 = UIColor(red: 255/255, green: 230/255, blue: 109/255, alpha: 1.0)
@@ -128,6 +129,7 @@ class Course: SKScene, SKPhysicsContactDelegate {
     init(size: CGSize, difficulty: String) {
         
         super.init(size: size)
+        
         self.draw_checkpoint_one(position: (grid?.gridPosition(row:  7, col: 18))!)
         self.draw_checkpoint_two(position: (grid?.gridPosition(row:  36, col: 30))!)
         self.draw_finish_line(position: (grid?.gridPosition(row:  19, col: 28))!)
@@ -245,8 +247,7 @@ class Course: SKScene, SKPhysicsContactDelegate {
         
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
         self.size = CGSize(width: 750, height: 1334)
-        
-        
+        addChild(audioooo)
         //        checkpoint_one = SKSpriteNode(color: SKColor.red, size: CGSize(width: 200, height: 50))
         //        checkpoint_one.position = (grid?.gridPosition(row:  7, col: 18))!
         //        checkpoint_one.alpha = 0.0
