@@ -25,6 +25,8 @@ class Course: SKScene, SKPhysicsContactDelegate {
     let y_acceleration_button = SKSpriteNode(imageNamed: "up_red")
 
     let y_deacceleration_button = SKSpriteNode(imageNamed: "down_blue")
+    
+    var UIBackground = SKShapeNode(rectOf: CGSize(width: 1334 , height: 150))
 
     var gameDifficulty = String()
 
@@ -64,6 +66,8 @@ class Course: SKScene, SKPhysicsContactDelegate {
     var checkpoint_two = SKSpriteNode()
 
     var last_checkpoint = 0
+    
+    let pause_background = SKShapeNode(rectOf: CGSize(width: 500, height: 1000))
     
     
     
@@ -421,22 +425,7 @@ class Course: SKScene, SKPhysicsContactDelegate {
         x_velocity_display.zPosition = 2000000
         
         y_velocity_display.position = CGPoint(x: -self.frame.width / 4, y: -1 * self.frame.height / 2 + 50)
-        x_velocity_display.zPosition = 2000000
-        
-        
-        x_acceleration_button.position = CGPoint(x: -self.frame.width / 12, y: -1 * self.frame.height / 2 + 50)
-        x_acceleration_button.zPosition = 2000000
-        
-        x_deacceleration_button.position = CGPoint(x: self.frame.width / 12 , y: -1 * self.frame.height / 2 + 50)
-        x_deacceleration_button.zPosition = 2000000
-        
-        y_acceleration_button.position = CGPoint(x: self.frame.width / 4, y: -1 * self.frame.height / 2 + 50)
-        y_acceleration_button.zPosition = 2000000
-        
-        y_deacceleration_button.position = CGPoint(x: self.frame.width / 2 - 75, y: -1 * self.frame.height / 2 + 50)
-        y_deacceleration_button.zPosition = 2000000
-        
-        
+        y_velocity_display.zPosition = 2000000
         
         x_acceleration_button.setScale(0.35)
         //x_acceleration_button.position = CGPoint(x: -self.frame.width / 4, y: -1 * self.frame.height / 2 + 50)
@@ -453,19 +442,42 @@ class Course: SKScene, SKPhysicsContactDelegate {
         y_deacceleration_button.setScale(0.35)
         //y_deacceleration_button.position = CGPoint(x: self.frame.width / 2 - 75, y: -1 * self.frame.height / 2 + 50)
         y_deacceleration_button.name = "y_deacceleration_button"
+
+        UIBackground = SKShapeNode(rectOf: CGSize(width: self.frame.width, height: x_acceleration_button.size.height + timer.size.height * 2))
+        
+        UIBackground.position =  CGPoint(x: 0, y: -1 * self.frame.height / 2 + 70 )
+        UIBackground.fillColor = SKColor.darkGray
+        UIBackground.zPosition = 200000
+        
+        
+        
+        x_acceleration_button.position = CGPoint(x: -self.frame.width / 12, y: -1 * self.frame.height / 2 + 50)
+        x_acceleration_button.zPosition = 2000001
+        
+        x_deacceleration_button.position = CGPoint(x: self.frame.width / 12 , y: -1 * self.frame.height / 2 + 50)
+        x_deacceleration_button.zPosition = 2000001
+        
+        y_acceleration_button.position = CGPoint(x: self.frame.width / 4, y: -1 * self.frame.height / 2 + 50)
+        y_acceleration_button.zPosition = 2000001
+        
+        y_deacceleration_button.position = CGPoint(x: self.frame.width / 2 - 75, y: -1 * self.frame.height / 2 + 50)
+        y_deacceleration_button.zPosition = 2000001
+        
+        
+    
         
         
         //        let vroom = SKSpriteNode(color: SKColor.red, size: CGSize(width: 90, height: 90))
         //        vroom.position = CGPoint(x: 0, y: self.frame.height / 2 - 50)
         //        vroom.name = "vroom"
         
-        
-        self.addChild(x_velocity_display)
-        self.addChild(y_velocity_display)
-        self.addChild(x_acceleration_button)
-        self.addChild(x_deacceleration_button)
-        self.addChild(y_acceleration_button)
-        self.addChild(y_deacceleration_button)
+        addChild(UIBackground)
+        addChild(x_velocity_display)
+        addChild(y_velocity_display)
+        addChild(x_acceleration_button)
+        addChild(x_deacceleration_button)
+        addChild(y_acceleration_button)
+        addChild(y_deacceleration_button)
         //self.addChild(vroom)
         
         
@@ -761,9 +773,15 @@ class Course: SKScene, SKPhysicsContactDelegate {
                             action.speed = 0
                             timer.isPaused = true
                             
+                            pause_background.position = CGPoint(x: 0, y: 0)
+                            pause_background.zPosition = 999999998
+                            pause_background.fillColor = SKColor.black
+                            
+                            
+                            
                             resume = SKLabelNode(text: "Resume")
                             resume.position = CGPoint(x: 0, y: 200)
-                            resume.fontSize = 200
+                            resume.fontSize = 100
                             resume.fontColor = SKColor.red
                             resume.name = "resume"
                             resume.zPosition = 999999999
@@ -771,14 +789,16 @@ class Course: SKScene, SKPhysicsContactDelegate {
                             
                             exit = SKLabelNode(text: "Exit")
                             exit.position = CGPoint(x: 0, y: -200)
-                            exit.fontSize = 200
+                            exit.fontSize = 100
                             exit.fontColor = SKColor.red
                             exit.name = "exit"
                             exit.zPosition = 999999999
                             
                             paused_game = true
-                            self.addChild(resume)
-                            self.addChild(exit)
+                            
+                            self.addChild(pause_background)
+                            pause_background.addChild(resume)
+                            pause_background.addChild(exit)
                         }
                     }
                     
@@ -794,9 +814,9 @@ class Course: SKScene, SKPhysicsContactDelegate {
                         
                         paused_game = false
                         
-                        
-                        resume.removeFromParent()
-                        exit.removeFromParent()
+                        pause_background.removeFromParent()
+//                        resume.removeFromParent()
+//                        exit.removeFromParent()
                     }
                     
                 }
