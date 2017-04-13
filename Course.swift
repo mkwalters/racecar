@@ -82,6 +82,7 @@ class Course: SKScene, SKPhysicsContactDelegate {
     let pause = SKSpriteNode(imageNamed: "pause_button")
     
     var resume = SKLabelNode()
+    var restart = SKLabelNode()
     var exit = SKLabelNode()
 
     var paused_game = false
@@ -786,6 +787,13 @@ class Course: SKScene, SKPhysicsContactDelegate {
                             resume.name = "resume"
                             resume.zPosition = 999999999
                             
+                            restart = SKLabelNode(text: "Restart")
+                            restart.position = CGPoint(x: 0, y: 0)
+                            restart.fontSize = 100
+                            restart.fontColor = SKColor.red
+                            restart.name = "restart"
+                            restart.zPosition = 999999999
+                            
                             
                             exit = SKLabelNode(text: "Exit")
                             exit.position = CGPoint(x: 0, y: -200)
@@ -799,6 +807,8 @@ class Course: SKScene, SKPhysicsContactDelegate {
                             self.addChild(pause_background)
                             pause_background.addChild(resume)
                             pause_background.addChild(exit)
+                            pause_background.addChild(restart)
+                            
                         }
                     }
                     
