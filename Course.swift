@@ -86,6 +86,7 @@ class Course: SKScene, SKPhysicsContactDelegate {
     var exit = SKLabelNode()
 
     var paused_game = false
+    var crossing_finish_line = false
     
     var audioooo = SKAudioNode(fileNamed: "Bloodrocuted")
     
@@ -551,6 +552,38 @@ class Course: SKScene, SKPhysicsContactDelegate {
         grid?.addChild(gamePiece)
         
     }
+    
+    func cross_finish_line() {
+        if last_checkpoint == 2 {
+            last_checkpoint = 0
+            paused_game = true
+            if let action = action(forKey: "key") {
+                
+                action.speed = 0
+                timer.isPaused = true
+            }
+            let ending_background = SKShapeNode(rectOf: CGSize(width: 500, height: 1000))
+            
+            ending_background.position = CGPoint(x: 0, y: 0)
+            ending_background.zPosition = 999999998
+            ending_background.fillColor = SKColor.black
+            
+            self.addChild(ending_background)
+            
+            exit = SKLabelNode(text: "Exit")
+            exit.position = CGPoint(x: 0, y: -200)
+            exit.fontSize = 100
+            exit.fontColor = SKColor.red
+            exit.name = "exit"
+            exit.zPosition = 999999999
+            
+            ending_background.addChild(exit)
+            
+            print("recorded")
+            UserDefaults.standard.setValue(number_of_moves, forKey: key)
+        }
+    }
+
 
     func didBegin(_ contact: SKPhysicsContact) {
         
@@ -582,18 +615,14 @@ class Course: SKScene, SKPhysicsContactDelegate {
             }
             
             if contact.bodyB.node?.name == "finish_line" {
-                if last_checkpoint == 2 {
-                    last_checkpoint = 0
-                    print("recorded")
-                    UserDefaults.standard.setValue(number_of_moves, forKey: key)
-                }
+                crossing_finish_line = true
             }
-            
         }
         
-        
+    
+    
         if contact.bodyB.node?.name == "projected_path" {
-            
+    
             if contact.bodyA.node?.name == "obstacle" {
                 print("about to crash")
                 projected_path.strokeColor = SKColor.red
@@ -617,13 +646,9 @@ class Course: SKScene, SKPhysicsContactDelegate {
             }
             
             if contact.bodyA.node?.name == "finish_line" {
-                if last_checkpoint == 2 {
-                    last_checkpoint = 0
-                    print("recorded")
-                    UserDefaults.standard.setValue(number_of_moves, forKey: key)
-                }
+                
+                crossing_finish_line = true
             }
-            
         }
         
         
@@ -633,6 +658,7 @@ class Course: SKScene, SKPhysicsContactDelegate {
 
 
     func move() {
+        
         
         turn_number += 1
         number_of_moves += 1
@@ -690,6 +716,10 @@ class Course: SKScene, SKPhysicsContactDelegate {
             grid?.addChild(gamePiece)
             
             draw_projected_path()
+            
+            if crossing_finish_line == true {
+                cross_finish_line()
+            }
             //grid?.addChild(projected_velocity)
         } else {
             
