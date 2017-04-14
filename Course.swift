@@ -253,6 +253,7 @@ class Course: SKScene, SKPhysicsContactDelegate {
         
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
         self.size = CGSize(width: 750, height: 1334)
+        crossing_finish_line = false
         addChild(audioooo)
         //        checkpoint_one = SKSpriteNode(color: SKColor.red, size: CGSize(width: 200, height: 50))
         //        checkpoint_one.position = (grid?.gridPosition(row:  7, col: 18))!
@@ -554,6 +555,7 @@ class Course: SKScene, SKPhysicsContactDelegate {
     }
     
     func cross_finish_line() {
+        
         if last_checkpoint == 2 {
             last_checkpoint = 0
             paused_game = true
@@ -570,6 +572,8 @@ class Course: SKScene, SKPhysicsContactDelegate {
             
             self.addChild(ending_background)
             
+            
+            
             exit = SKLabelNode(text: "Exit")
             exit.position = CGPoint(x: 0, y: -200)
             exit.fontSize = 100
@@ -580,8 +584,42 @@ class Course: SKScene, SKPhysicsContactDelegate {
             ending_background.addChild(exit)
             
             print("recorded")
-            UserDefaults.standard.setValue(number_of_moves, forKey: key)
+        
+        
+            if let current_high_score = UserDefaults.standard.value(forKey: key) as? Int {
+                if current_high_score > number_of_moves {
+                    UserDefaults.standard.setValue(number_of_moves, forKey: key)
+                }
+            } else {
+
+                UserDefaults.standard.setValue(number_of_moves, forKey: key)
+
+            }
+        
+            
+            let score = SKLabelNode(text: "Score: " + String(number_of_moves))
+            
+            score.position = CGPoint(x: 0, y: 200)
+            score.fontSize = 100
+            score.fontColor = SKColor.red
+            //score.name = "exit"
+            score.zPosition = 999999999
+            
+            ending_background.addChild(score)
+            
+            let best = UserDefaults.standard.value(forKey: key) as! Int
+            
+            let best_score = SKLabelNode(text: "High Score: " + String(describing: best))
+            
+            best_score.position = CGPoint(x: 0, y: 100)
+            best_score.fontSize = 80
+            best_score.fontColor = SKColor.red
+            //score.name = "exit"
+            best_score.zPosition = 999999999
+            
+            ending_background.addChild(best_score)
         }
+        
     }
 
 
@@ -615,7 +653,10 @@ class Course: SKScene, SKPhysicsContactDelegate {
             }
             
             if contact.bodyB.node?.name == "finish_line" {
-                crossing_finish_line = true
+                if last_checkpoint == 2 {
+                    crossing_finish_line = true
+                }
+                
             }
         }
         
@@ -646,8 +687,10 @@ class Course: SKScene, SKPhysicsContactDelegate {
             }
             
             if contact.bodyA.node?.name == "finish_line" {
+                if last_checkpoint == 2 {
+                    crossing_finish_line = true
+                }
                 
-                crossing_finish_line = true
             }
         }
         

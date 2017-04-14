@@ -15,7 +15,7 @@ import CoreGraphics
 class EinsteinCourseOne: Course {
     init() {
         super.init(size: CGSize(), difficulty: "hard")
-        audioooo = SKAudioNode(fileNamed: "HatredCopter")
+        audioooo = SKAudioNode(fileNamed: "Hatredcopter")
         grid = Grid(blockSize: CGFloat(35.0), rows: 53, cols: 41)
         racecar = Racecar(x_pos: 38, y_pos: 39)
         self.key = "EinsteinCourseOne"

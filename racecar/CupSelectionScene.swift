@@ -25,23 +25,27 @@ class CupSelectionScene: SKScene {
         
         self.size = CGSize(width: 750, height: 1334)
         
-        backgroundColor = SKColor.black
+        backgroundColor = green
         
-        easyButton.fontColor = SKColor.purple
+        easyButton.fontColor = purple
         easyButton.text = "Galileo's Cup"
         easyButton.fontSize = 100
+        easyButton.fontName = "Arcade"
         
-        hardButton.fontColor = SKColor.purple
+        hardButton.fontColor = purple
         hardButton.text = "Newton's Cup"
         hardButton.fontSize = 100
+        hardButton.fontName = "Arcade"
         
-        menuButton.fontColor = SKColor.purple
+        menuButton.fontColor = purple
         menuButton.text = "Einstein's Cup"
         menuButton.fontSize = 100
+        menuButton.fontName = "Arcade"
         
-        backButton.fontColor = SKColor.purple
+        backButton.fontColor = purple
         backButton.text = "Back"
         backButton.fontSize = 100
+        backButton.fontName = "Arcade"
         
         easyButton.position = CGPoint(x: 0, y: 300)
         hardButton.position = CGPoint(x: 0, y:  150)
@@ -84,7 +88,7 @@ class CupSelectionScene: SKScene {
     
         if backButton.contains(touchLocation){
             let reveal = SKTransition.doorsOpenVertical(withDuration: 0.25)
-            let menuScene = DifficultyScene(size: CGSize(width: 750, height: 1334))
+            let menuScene = MenuScene(size: CGSize(width: 750, height: 1334))
             self.view?.presentScene(menuScene, transition: reveal)
         }
     }

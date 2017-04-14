@@ -33,84 +33,94 @@ class CourseSelectionScene: SKScene {
         super.init(size: CGSize(width: 750, height: 1334))
         
         self.size = CGSize(width: 750, height: 1334)
-        backgroundColor = SKColor.black
+        backgroundColor = green
         
         //course one
         
-        easyButton.fontColor = SKColor.purple
+        easyButton.fontColor = purple
         easyButton.text = name + " Course #1"
-        easyButton.fontSize = 50
+        easyButton.fontSize = 70
         
         
         easyButtonHighScore.text = "0"
-        easyButtonHighScore.fontColor = SKColor.purple
+        easyButtonHighScore.fontColor = purple
+        easyButtonHighScore.fontName = "Arcade"
         if let score = UserDefaults.standard.value(forKey: name + "CourseOne") {
             easyButtonHighScore.text = "\(score)"
         }
-        easyButtonHighScore.fontSize = 50
+        easyButtonHighScore.fontSize = 70
         
         
         //course two
         
-        course_two.fontColor = SKColor.purple
+        course_two.fontColor = purple
         course_two.text = name + " Course #2"
-        course_two.fontSize = 50
+        course_two.fontSize = 70
         
         course_two_highscore.text = "0"
-        course_two_highscore.fontColor = SKColor.purple
+        course_two_highscore.fontColor = purple
+        course_two_highscore.fontName = "Arcade"
         if let score = UserDefaults.standard.value(forKey: name + "CourseTwo") {
             course_two_highscore.text = "\(score)"
         }
-        course_two_highscore.fontSize = 50
+        course_two_highscore.fontSize = 70
         
         
         //course_three
         
-        course_three.fontColor = SKColor.purple
+        course_three.fontColor = purple
         course_three.text = name + " Course #3"
-        course_three.fontSize = 50
+        course_three.fontSize = 70
         
         course_three_highscore.text = "0"
-        course_three_highscore.fontColor = SKColor.purple
-        course_three_highscore.fontSize = 50
+        course_three_highscore.fontColor = purple
+        course_three_highscore.fontSize = 70
+        course_three_highscore.fontName = "Arcade"
         if let score = UserDefaults.standard.value(forKey: name + "CourseThree") {
             course_three_highscore.text = "\(score)"
         }
         
         //course four
         
-        course_four.fontColor = SKColor.purple
+        course_four.fontColor = purple
         course_four.text = name + " Course #4"
-        course_four.fontSize = 50
+        course_four.fontSize = 70
         
         course_four_highscore.text = "0"
-        course_four_highscore.fontColor = SKColor.purple
-        course_four_highscore.fontSize = 50
+        course_four_highscore.fontColor = purple
+        course_four_highscore.fontSize = 70
+        course_four_highscore.fontName = "Arcade"
         if let score = UserDefaults.standard.value(forKey: name + "CourseFour") {
             course_four_highscore.text = "\(score)"
         }
         
         
         
-        hardButton.fontColor = SKColor.purple
+        hardButton.fontColor = purple
         hardButton.text = "Back"
-        hardButton.fontSize = 60
+        hardButton.fontSize = 70
         
         
         
         easyButton.position = CGPoint(x: size.width / 2 - 100, y:  size.height / 3 + 400)
         easyButtonHighScore.position = CGPoint(x: size.width - 100, y: size.height / 3 + 400)
-        
+        easyButton.fontName = "Arcade"
         course_two.position = CGPoint(x: size.width / 2 - 100, y: size.height / 3 + 300)
         course_two_highscore.position = CGPoint(x: size.width - 100, y: size.height / 3 + 300)
+        course_two.fontName = "Arcade"
         
         course_three.position = CGPoint(x: size.width / 2 - 100, y: size.height / 3 + 200)
         course_three_highscore.position = CGPoint(x: size.width - 100 , y: size.height / 3 + 200)
         
+        course_three.fontName = "Arcade"
+        
         course_four.position = CGPoint(x: size.width / 2 - 100, y: size.height / 3 + 100)
         course_four_highscore.position = CGPoint(x: size.width - 100, y: size.height / 3 + 100)
         
+        course_four.fontName = "Arcade"
+        
         hardButton.position = CGPoint(x: size.width / 2, y: 150)
+        hardButton.fontName = "Arcade"
         
         addChild(easyButton)
         addChild(easyButtonHighScore)

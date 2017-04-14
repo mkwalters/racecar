@@ -51,6 +51,8 @@
 		17D2653E1E9E1EDE0034D691 /* Murmaider II The Water God.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 17D2653D1E9E1EDE0034D691 /* Murmaider II The Water God.mp3 */; };
 		17D265401E9E1EE60034D691 /* Symmetry.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 17D2653F1E9E1EE60034D691 /* Symmetry.mp3 */; };
 		17D265421E9E1EEC0034D691 /* The Gears.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 17D265411E9E1EEC0034D691 /* The Gears.mp3 */; };
+		17D265481EA04EB80034D691 /* FasterOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17D265471EA04C280034D691 /* FasterOne-Regular.ttf */; };
+		17D2654A1EA083450034D691 /* Arcade.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17D265491EA0833F0034D691 /* Arcade.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -122,6 +124,8 @@
 		17D2653D1E9E1EDE0034D691 /* Murmaider II The Water God.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Murmaider II The Water God.mp3"; sourceTree = "<group>"; };
 		17D2653F1E9E1EE60034D691 /* Symmetry.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Symmetry.mp3; sourceTree = "<group>"; };
 		17D265411E9E1EEC0034D691 /* The Gears.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "The Gears.mp3"; sourceTree = "<group>"; };
+		17D265471EA04C280034D691 /* FasterOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FasterOne-Regular.ttf"; sourceTree = "<group>"; };
+		17D265491EA0833F0034D691 /* Arcade.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Arcade.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +180,8 @@
 				178263521E80992500EBF212 /* Actions.sks */,
 				1721D26B1E8DD6AC00234D2A /* MyScene.sks */,
 				1782634E1E80992500EBF212 /* AppDelegate.swift */,
+				17D265471EA04C280034D691 /* FasterOne-Regular.ttf */,
+				17D265491EA0833F0034D691 /* Arcade.ttf */,
 				172AEF2D1E8DB25300154794 /* MenuScene.swift */,
 				172AEF311E8DB79100154794 /* DifficultyScene.swift */,
 				171813101E908BE4002DECED /* CupSelectionScene.swift */,
@@ -362,6 +368,7 @@
 				17D265361E9E1EBB0034D691 /* Dethharmonic.mp3 in Resources */,
 				1782635C1E80992600EBF212 /* Assets.xcassets in Resources */,
 				17D2652C1E9E03A00034D691 /* Bloodrocuted.mp3 in Resources */,
+				17D2654A1EA083450034D691 /* Arcade.ttf in Resources */,
 				1721D26C1E8DD6AC00234D2A /* MyScene.sks in Resources */,
 				17D265381E9E1EC20034D691 /* Deththeme.mp3 in Resources */,
 				17D265421E9E1EEC0034D691 /* The Gears.mp3 in Resources */,
@@ -370,6 +377,7 @@
 				17D265321E9E1E480034D691 /* Bloodlines.mp3 in Resources */,
 				1782635F1E80992600EBF212 /* LaunchScreen.storyboard in Resources */,
 				178263531E80992500EBF212 /* Actions.sks in Resources */,
+				17D265481EA04EB80034D691 /* FasterOne-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
