@@ -69,8 +69,6 @@ class Course: SKScene, SKPhysicsContactDelegate {
     
     let pause_background = SKShapeNode(rectOf: CGSize(width: 500, height: 1000))
     
-    
-    
     var number_of_moves = 0
     
     var number_of_moves_label = SKLabelNode()
@@ -255,33 +253,7 @@ class Course: SKScene, SKPhysicsContactDelegate {
         self.size = CGSize(width: 750, height: 1334)
         crossing_finish_line = false
         addChild(audioooo)
-        //        checkpoint_one = SKSpriteNode(color: SKColor.red, size: CGSize(width: 200, height: 50))
-        //        checkpoint_one.position = (grid?.gridPosition(row:  7, col: 18))!
-        //        checkpoint_one.alpha = 0.0
-        //        checkpoint_one.name = "checkpoint_one"
-        //        //checkpoint_one.zPosition = 1
-        //
-        //        checkpoint_one.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 200, height: 50))
-        //        checkpoint_one.physicsBody?.affectedByGravity = false
-        //        checkpoint_one.physicsBody?.categoryBitMask = physicsCategory.checkpoint_one
-        //        checkpoint_one.physicsBody?.collisionBitMask = 0
-        //        checkpoint_one.physicsBody?.contactTestBitMask = physicsCategory.projected_velocity
-        //        checkpoint_one.physicsBody?.isDynamic = true
-        //        //checkpoint_one.strokeColor = SKColor.red
-        //
-        //        grid?.addChild(checkpoint_one)
-        
-        
-        
-        
-        //        let line_path:CGMutablePath = CGMutablePath()
-        //        line_path.move(to: (grid?.gridPosition(row: 19, col: 25))!)
-        //        line_path.addLine(to: (grid?.gridPosition(row: 19, col: 32))!)
-        //
-        //
-        //        grid?.addChild(finish_line)
-        
-        
+
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
         self.size = CGSize(width: 750, height: 1334)
         
@@ -309,110 +281,15 @@ class Course: SKScene, SKPhysicsContactDelegate {
         
         number_of_moves_label.text = String(number_of_moves)
         number_of_moves_label.fontSize = 85
-        number_of_moves_label.color = SKColor.yellow
+        number_of_moves_label.fontName = "Arcade"
+        number_of_moves_label.fontColor = SKColor.red
         number_of_moves_label.position = CGPoint(x: self.frame.width / 2 - 90, y: self.frame.height / 2 - 90)
         self.addChild(number_of_moves_label)
         
         
         self.physicsWorld.contactDelegate = self
         
-        
-        
-        //1
-//        for j in 20...25{
-//            
-//            for i in 5...15 {
-//                
-//                obstacles.append(x: i, y: j)
-//                
-//            }
-//        }
-//        //2
-//        for j in 12...16{
-//            
-//            for i in 0...11 {
-//                
-//                obstacles.append(x: i, y: j)
-//                
-//            }
-//        }
-//        //3
-//        for j in 5...8{
-//            
-//            for i in 9...15 {
-//                
-//                obstacles.append(x: i, y: j)
-//                
-//            }
-//        }
-//        //4
-//        
-//        for j in 5...25{
-//            
-//            for i in 16...24 {
-//                
-//                obstacles.append(x: i, y: j)
-//                
-//            }
-//        }
-//        //5
-//        for j in 12...25{
-//            
-//            for i in 25...30 {
-//                
-//                obstacles.append(x: i, y: j)
-//                
-//            }
-//        }
-//        //6
-//        for j in 5...16{
-//            
-//            for i in 31...38 {
-//                
-//                obstacles.append(x: i, y: j)
-//                
-//            }
-//        }
-//        //7
-//        for j in 24...27{
-//            
-//            for i in 31...38 {
-//                
-//                obstacles.append(x: i, y: j)
-//                
-//            }
-//        }
-//        //8
-//        for j in 0...8{
-//            
-//            for i in 27...28 {
-//                
-//                obstacles.append(x: i, y: j)
-//                
-//            }
-//        }
-//        //9
-//        for j in 19...20{
-//            
-//            for i in 35...41 {
-//                
-//                obstacles.append(x: i, y: j)
-//                
-//            }
-//        }
-        
-        //        var count = available_locations.count - 2
-        //
-        //        while count > 0 {
-        //
-        //            if obstacles.contains(where: { $0 == available_locations[count] }) {
-        //                available_locations.remove(at: count)
-        //                count += 1
-        //            }
-        //            count -= 1
-        //
-        //        }
-        //
+
         
         x_velocity_display.text = "0"
         x_velocity_display.fontSize = 65
