@@ -14,6 +14,7 @@ import CoreGraphics
 
 
 
+
 class Course: SKScene, SKPhysicsContactDelegate {
 
 
@@ -107,6 +108,12 @@ class Course: SKScene, SKPhysicsContactDelegate {
         let line_path:CGMutablePath = CGMutablePath()
         line_path.move(to: starting_position!)
         line_path.addLine(to: ending_position!)
+        
+        let angle = atan2((ending_position?.y)! - (starting_position?.y)! , (ending_position?.x)! - (starting_position?.x)!)
+        
+        let rotate_action = SKAction.rotate(toAngle: angle - 1.5707963267949, duration: 0)
+        gamePiece.run(rotate_action)
+        print(angle)
         
         
         projected_path.zPosition = 200
@@ -621,6 +628,8 @@ class Course: SKScene, SKPhysicsContactDelegate {
             let ending_x_position = Int(ending_point.x)
             let ending_y_position = Int(ending_point.y)
             
+            
+
             gamePiece.position = (grid?.gridPosition(row:  racecar.y_position , col: racecar.x_position))!
             
             
