@@ -38,7 +38,7 @@ class NewtonCourseTwo: Course {
         
     }
     
-    override func didMove(to view: SKView) {
+    override func create_scene_specs() {
         audioooo = SKAudioNode(fileNamed: "Dethharmonic")
         grid = Grid(blockSize: CGFloat(35.0), rows:42, cols:32)
         racecar = Racecar(x_pos: 29, y_pos: 20)
@@ -138,6 +138,10 @@ class NewtonCourseTwo: Course {
                 
             }
         }
+    }
+    
+    override func didMove(to view: SKView) {
+        create_scene_specs()
         super.didMove(to: view)
         
     }

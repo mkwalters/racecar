@@ -20,7 +20,9 @@ class EinsteinCourseTwo: Course {
         
     }
     
-    override func didMove(to view: SKView) {
+    
+    override func create_scene_specs() {
+        
         audioooo = SKAudioNode(fileNamed: "Murmaider II The Water God")
         grid = Grid(blockSize: CGFloat(35.0), rows: 54, cols: 41)
         racecar = Racecar(x_pos: 38, y_pos: 30)
@@ -299,7 +301,11 @@ class EinsteinCourseTwo: Course {
                 
             }
         }
-
+    }
+    
+    override func didMove(to view: SKView) {
+        
+        create_scene_specs()
         super.didMove(to: view)
         
     }

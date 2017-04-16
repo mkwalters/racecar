@@ -18,7 +18,8 @@ class EinsteinCourseOne: Course {
         
     }
     
-    override func didMove(to view: SKView) {
+    
+    override func create_scene_specs() {
         
         audioooo = SKAudioNode(fileNamed: "Hatredcopter")
         grid = Grid(blockSize: CGFloat(35.0), rows: 53, cols: 41)
@@ -90,6 +91,13 @@ class EinsteinCourseOne: Course {
             }
         }
         
+        
+    }
+    
+    override func didMove(to view: SKView) {
+        
+        
+        create_scene_specs()
         super.didMove(to: view)
         
     }

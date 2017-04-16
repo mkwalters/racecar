@@ -21,7 +21,9 @@ class EinsteinCourseThree: Course {
         
     }
     
-    override func didMove(to view: SKView) {
+    
+    override func create_scene_specs() {
+        
         audioooo = SKAudioNode(fileNamed: "Symmetry")
         grid = Grid(blockSize: CGFloat(35.0), rows: 38, cols: 38)
         racecar = Racecar(x_pos: 31, y_pos: 11)
@@ -291,6 +293,11 @@ class EinsteinCourseThree: Course {
             }
         }
         
+    }
+    
+    override func didMove(to view: SKView) {
+        
+        create_scene_specs()
         
         super.didMove(to: view)
         

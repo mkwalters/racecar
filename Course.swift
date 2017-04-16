@@ -110,8 +110,13 @@ class Course: SKScene, SKPhysicsContactDelegate {
         line_path.addLine(to: ending_position!)
         
         let angle = atan2((ending_position?.y)! - (starting_position?.y)! , (ending_position?.x)! - (starting_position?.x)!)
+
         
         let rotate_action = SKAction.rotate(toAngle: angle - 1.5707963267949, duration: 0)
+        
+
+        
+        
         gamePiece.run(rotate_action)
         print(angle)
         
@@ -251,20 +256,31 @@ class Course: SKScene, SKPhysicsContactDelegate {
         
         grid?.addChild(finish_line)
     }
-
-
-    override func didMove(to view: SKView) {
-        //UserDefaults.standard.setValue(420, forKey: "GalileoCourseTwo")
+    
+    func restart_scene() {
         
+//        grid?.removeAllActions()
+//        grid?.removeAllChildren()
+        
+        self.removeAllActions()
+        self.removeAllChildren()
+        
+        create_scene_specs()
+        create_scene()
+        number_of_moves = 0
+        last_checkpoint = 0
+        crossing_finish_line = false
+    }
+    
+    
+    func create_scene() {
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
         self.size = CGSize(width: 750, height: 1334)
         crossing_finish_line = false
         addChild(audioooo)
-
-        self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
-        self.size = CGSize(width: 750, height: 1334)
         
-
+        
+        
         
         
         let pinchGesture = UIPinchGestureRecognizer(target: self, action: #selector(self.handlePinchFrom(_:)))
@@ -273,7 +289,7 @@ class Course: SKScene, SKPhysicsContactDelegate {
         projected_path.strokeColor = SKColor.green
         
         
-        timer.position = CGPoint(x: -self.frame.width / 2 + timer.size.width , y: -self.frame.height / 2 + x_acceleration_button.size.height / 2)
+        timer.position = CGPoint(x: -375, y: -540)
         timer.zPosition = 20000000
         
         pause.position = CGPoint(x: -self.frame.width /
@@ -284,7 +300,7 @@ class Course: SKScene, SKPhysicsContactDelegate {
         
         self.addChild(pause)
         
-        addChild(timer)
+        self.addChild(timer)
         
         number_of_moves_label.text = String(number_of_moves)
         number_of_moves_label.fontSize = 85
@@ -296,7 +312,7 @@ class Course: SKScene, SKPhysicsContactDelegate {
         
         self.physicsWorld.contactDelegate = self
         
-
+        
         
         x_velocity_display.text = "0"
         x_velocity_display.fontSize = 65
@@ -329,7 +345,7 @@ class Course: SKScene, SKPhysicsContactDelegate {
         y_deacceleration_button.setScale(0.35)
         //y_deacceleration_button.position = CGPoint(x: self.frame.width / 2 - 75, y: -1 * self.frame.height / 2 + 50)
         y_deacceleration_button.name = "y_deacceleration_button"
-
+        
         UIBackground = SKShapeNode(rectOf: CGSize(width: self.frame.width, height: x_acceleration_button.size.height + timer.size.height * 2))
         
         UIBackground.position =  CGPoint(x: 0, y: -1 * self.frame.height / 2 + 70 )
@@ -351,7 +367,7 @@ class Course: SKScene, SKPhysicsContactDelegate {
         y_deacceleration_button.zPosition = 2000001
         
         
-    
+        
         
         
         //        let vroom = SKSpriteNode(color: SKColor.red, size: CGSize(width: 90, height: 90))
@@ -380,9 +396,9 @@ class Course: SKScene, SKPhysicsContactDelegate {
         gamePiece.zPosition = 2002
         
         
-//        opponentGamePiece.position = (grid?.gridPosition(row:  racecar.y_position - 1, col:  racecar.x_position))!
-//        opponentGamePiece.setScale(0.0625)
-//        opponentGamePiece.zPosition = 2002
+        //        opponentGamePiece.position = (grid?.gridPosition(row:  racecar.y_position - 1, col:  racecar.x_position))!
+        //        opponentGamePiece.setScale(0.0625)
+        //        opponentGamePiece.zPosition = 2002
         
         
         grid?.addChild(projected_path)
@@ -406,8 +422,8 @@ class Course: SKScene, SKPhysicsContactDelegate {
         
         for obstacle in obstacles {
             
-
-        
+            
+            
             
             
             let diceRoll = Int(arc4random_uniform(UInt32(colors.count)))
@@ -435,6 +451,17 @@ class Course: SKScene, SKPhysicsContactDelegate {
         
         grid?.addChild(projected_velocity)
         grid?.addChild(gamePiece)
+    }
+
+
+    override func didMove(to view: SKView) {
+        //UserDefaults.standard.setValue(420, forKey: "GalileoCourseTwo")
+        
+        create_scene()
+        
+    }
+    
+    func create_scene_specs() {
         
     }
     
@@ -787,6 +814,25 @@ class Course: SKScene, SKPhysicsContactDelegate {
 //                        resume.removeFromParent()
 //                        exit.removeFromParent()
                     }
+                    
+                }
+                
+                if name == "restart"
+                {
+                    
+                    if let action = action(forKey: "key") {
+                        
+                        action.speed = 1
+                        timer.isPaused = false
+                        
+                        paused_game = false
+                        
+                        pause_background.removeFromParent()
+                        //                        resume.removeFromParent()
+                        //                        exit.removeFromParent()
+                    }
+                    
+                    restart_scene()
                     
                 }
                 

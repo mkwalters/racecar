@@ -23,8 +23,7 @@ class GalileoCourseThree: Course {
         super.init(size: CGSize(), difficulty: "hard")
     }
     
-    override func didMove(to view: SKView) {
-
+    override func create_scene_specs() {
         audioooo = SKAudioNode(fileNamed: "Bloodlines")
         grid = Grid(blockSize: CGFloat(35.0), rows: 34, cols: 28)
         racecar = Racecar(x_pos: 24, y_pos: 18)
@@ -120,6 +119,11 @@ class GalileoCourseThree: Course {
                 
             }
         }
+    }
+    
+    override func didMove(to view: SKView) {
+
+        create_scene_specs()
 
         super.didMove(to: view)
         
