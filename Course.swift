@@ -69,7 +69,8 @@ class Course: SKScene, SKPhysicsContactDelegate {
     var last_checkpoint = 0
     
     let pause_background = SKShapeNode(rectOf: CGSize(width: 500, height: 1000))
-    
+    let crash_background = SKShapeNode(rectOf: CGSize(width: 500, height: 1000))
+
     var number_of_moves = 0
     
     var number_of_moves_label = SKLabelNode()
@@ -81,8 +82,15 @@ class Course: SKScene, SKPhysicsContactDelegate {
     let pause = SKSpriteNode(imageNamed: "pause_button")
     
     var resume = SKLabelNode()
+    
+    
     var restart = SKLabelNode()
+    
+    var crashed_out = SKLabelNode(text: "Crashed out!")
+    
+    var crash_restart = SKLabelNode()
     var exit = SKLabelNode()
+    var crash_exit = SKLabelNode()
 
     var paused_game = false
     var crossing_finish_line = false
@@ -679,10 +687,53 @@ class Course: SKScene, SKPhysicsContactDelegate {
             //grid?.addChild(projected_velocity)
         } else {
             
-            let reveal = SKTransition.doorsOpenVertical(withDuration: 0.5)
-            let menuScene = MenuScene(size: self.size)
-            self.view?.presentScene(menuScene, transition: reveal)
+//            let reveal = SKTransition.doorsOpenVertical(withDuration: 0.5)
+//            let menuScene = MenuScene(size: self.size)
+//            self.view?.presentScene(menuScene, transition: reveal)
+         
             
+            if let action = action(forKey: "key") {
+                
+                action.speed = 0
+                timer.isPaused = true
+                
+                crashed_out.position = CGPoint(x: 0, y: 200)
+                crashed_out.fontSize = 100
+                crashed_out.fontColor = SKColor.red
+                crashed_out.zPosition = 999999999
+                
+                
+                
+                crash_background.position = CGPoint(x: 0, y: 0)
+                crash_background.zPosition = 999999998
+                crash_background.fillColor = SKColor.black
+                
+                
+
+                crash_restart = SKLabelNode(text: "Restart")
+                crash_restart.position = CGPoint(x: 0, y: 0)
+                crash_restart.fontSize = 100
+                crash_restart.fontColor = SKColor.red
+                crash_restart.name = "restart"
+                crash_restart.zPosition = 999999999
+                
+                
+                crash_exit = SKLabelNode(text: "Exit")
+                crash_exit.position = CGPoint(x: 0, y: -200)
+                crash_exit.fontSize = 100
+                crash_exit.fontColor = SKColor.red
+                crash_exit.name = "exit"
+                crash_exit.zPosition = 999999999
+                
+                paused_game = true
+                
+                self.addChild(crash_background)
+                crash_background.addChild(crashed_out)
+                crash_background.addChild(crash_exit)
+                crash_background.addChild(crash_restart)
+                
+            }
+
         }
         
     }
