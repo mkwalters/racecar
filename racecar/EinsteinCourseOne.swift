@@ -15,6 +15,11 @@ import CoreGraphics
 class EinsteinCourseOne: Course {
     init() {
         super.init(size: CGSize(), difficulty: "hard")
+        
+    }
+    
+    override func didMove(to view: SKView) {
+        
         audioooo = SKAudioNode(fileNamed: "Hatredcopter")
         grid = Grid(blockSize: CGFloat(35.0), rows: 53, cols: 41)
         racecar = Racecar(x_pos: 38, y_pos: 39)
@@ -85,7 +90,10 @@ class EinsteinCourseOne: Course {
             }
         }
         
+        super.didMove(to: view)
+        
     }
+
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

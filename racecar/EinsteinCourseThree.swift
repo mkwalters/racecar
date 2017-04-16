@@ -15,6 +15,13 @@ import CoreGraphics
 class EinsteinCourseThree: Course {
     init() {
         super.init(size: CGSize(), difficulty: "hard")
+
+        
+        
+        
+    }
+    
+    override func didMove(to view: SKView) {
         audioooo = SKAudioNode(fileNamed: "Symmetry")
         grid = Grid(blockSize: CGFloat(35.0), rows: 38, cols: 38)
         racecar = Racecar(x_pos: 31, y_pos: 11)
@@ -285,7 +292,7 @@ class EinsteinCourseThree: Course {
         }
         
         
-        
+        super.didMove(to: view)
         
     }
     

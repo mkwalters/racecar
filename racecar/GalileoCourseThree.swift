@@ -21,6 +21,10 @@ class GalileoCourseThree: Course {
     
     init() {
         super.init(size: CGSize(), difficulty: "hard")
+    }
+    
+    override func didMove(to view: SKView) {
+
         audioooo = SKAudioNode(fileNamed: "Bloodlines")
         grid = Grid(blockSize: CGFloat(35.0), rows: 34, cols: 28)
         racecar = Racecar(x_pos: 24, y_pos: 18)
@@ -116,7 +120,12 @@ class GalileoCourseThree: Course {
                 
             }
         }
+
+        super.didMove(to: view)
+        
     }
+    
+    
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

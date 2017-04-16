@@ -33,6 +33,12 @@ class NewtonCourseTwo: Course {
     
     init() {
         super.init(size: CGSize(), difficulty: "hard")
+
+        
+        
+    }
+    
+    override func didMove(to view: SKView) {
         audioooo = SKAudioNode(fileNamed: "Dethharmonic")
         grid = Grid(blockSize: CGFloat(35.0), rows:42, cols:32)
         racecar = Racecar(x_pos: 29, y_pos: 20)
@@ -52,64 +58,64 @@ class NewtonCourseTwo: Course {
         
         //1
         for j in 20...25{
-
+            
             for i in 5...15 {
-
+                
                 obstacles.append(x: i, y: j)
-
+                
             }
         }
         //2
         for j in 12...16{
-
+            
             for i in 0...11 {
-
+                
                 obstacles.append(x: i, y: j)
-
+                
             }
         }
         //3
         for j in 5...8{
-
+            
             for i in 9...15 {
-
+                
                 obstacles.append(x: i, y: j)
-
+                
             }
         }
         //4
-
+        
         for j in 5...25{
-
+            
             for i in 16...24 {
-
+                
                 obstacles.append(x: i, y: j)
-
+                
             }
         }
         //5
         for j in 12...25{
-
+            
             for i in 25...30 {
-
+                
                 obstacles.append(x: i, y: j)
-
+                
             }
         }
         //6
         for j in 5...16{
-
+            
             for i in 31...38 {
-
+                
                 obstacles.append(x: i, y: j)
-
+                
             }
         }
         //7
         for j in 24...27{
-
+            
             for i in 31...38 {
-
+                
                 obstacles.append(x: i, y: j)
                 
             }
@@ -132,7 +138,7 @@ class NewtonCourseTwo: Course {
                 
             }
         }
-        
+        super.didMove(to: view)
         
     }
     

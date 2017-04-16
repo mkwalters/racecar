@@ -22,6 +22,11 @@ class NewtonCourseOne: Course {
     
     init() {
         super.init(size: CGSize(), difficulty: "hard")
+
+
+    }
+    
+    override func didMove(to view: SKView) {
         audioooo = SKAudioNode(fileNamed: "Comet Song")
         grid = Grid(blockSize: CGFloat(35.0), rows: 47, cols: 37)
         racecar = Racecar(x_pos: 33, y_pos: 15)
@@ -29,7 +34,7 @@ class NewtonCourseOne: Course {
         self.draw_checkpoint_one(position: (grid?.gridPosition(row:  23, col: 12))!)
         self.draw_checkpoint_two(position: (grid?.gridPosition(row:  23, col: 24))!)
         self.draw_finish_line(position: (grid?.gridPosition(row:  14, col: 33))!)
-
+        
         
         colors = [
             UIColor(red: 164/255, green: 14/255, blue: 76/255, alpha: 1.0),
@@ -163,7 +168,8 @@ class NewtonCourseOne: Course {
                 
             }
         }
-
+        super.didMove(to: view)
+        
     }
     
     required init?(coder aDecoder: NSCoder) {

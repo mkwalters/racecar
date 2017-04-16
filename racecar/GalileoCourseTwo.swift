@@ -25,6 +25,9 @@ class GalileoCourseTwo: Course {
     
     init() {
         super.init(size: CGSize(), difficulty: "hard")
+    }
+    
+    override func didMove(to view: SKView) {
         audioooo = SKAudioNode(fileNamed: "Black Fire Upon Us")
         grid = Grid(blockSize: CGFloat(35.0), rows: 25, cols: 40)
         racecar = Racecar(x_pos: 37, y_pos: 14)
@@ -48,6 +51,9 @@ class GalileoCourseTwo: Course {
                 
             }
         }
+
+        super.didMove(to: view)
+        
     }
     
     required init?(coder aDecoder: NSCoder) {

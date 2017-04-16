@@ -15,6 +15,12 @@ import CoreGraphics
 class EinsteinCourseTwo: Course {
     init() {
         super.init(size: CGSize(), difficulty: "hard")
+
+        
+        
+    }
+    
+    override func didMove(to view: SKView) {
         audioooo = SKAudioNode(fileNamed: "Murmaider II The Water God")
         grid = Grid(blockSize: CGFloat(35.0), rows: 54, cols: 41)
         racecar = Racecar(x_pos: 38, y_pos: 30)
@@ -93,7 +99,7 @@ class EinsteinCourseTwo: Course {
                 
             }
         }
-
+        
         //8
         for j in 44...45{
             
@@ -103,7 +109,7 @@ class EinsteinCourseTwo: Course {
                 
             }
         }
-
+        
         //9
         for j in 47...50{
             
@@ -113,7 +119,7 @@ class EinsteinCourseTwo: Course {
                 
             }
         }
-
+        
         //10
         for j in 40...50{
             
@@ -123,7 +129,7 @@ class EinsteinCourseTwo: Course {
                 
             }
         }
-
+        
         //11
         for j in 39...39{
             
@@ -133,7 +139,7 @@ class EinsteinCourseTwo: Course {
                 
             }
         }
-
+        
         //12
         for j in 21...39{
             
@@ -143,7 +149,7 @@ class EinsteinCourseTwo: Course {
                 
             }
         }
-
+        
         //13
         for j in 5...20{
             
@@ -153,7 +159,7 @@ class EinsteinCourseTwo: Course {
                 
             }
         }
-
+        
         //14
         for j in 5...13{
             
@@ -163,7 +169,7 @@ class EinsteinCourseTwo: Course {
                 
             }
         }
-
+        
         //15
         for j in 2...36{
             
@@ -173,7 +179,7 @@ class EinsteinCourseTwo: Course {
                 
             }
         }
-
+        
         //16
         for j in 18...36{
             
@@ -183,7 +189,7 @@ class EinsteinCourseTwo: Course {
                 
             }
         }
-
+        
         //17
         for j in 36...36{
             
@@ -193,7 +199,7 @@ class EinsteinCourseTwo: Course {
                 
             }
         }
-
+        
         //18
         for j in 30...41{
             
@@ -203,7 +209,7 @@ class EinsteinCourseTwo: Course {
                 
             }
         }
-
+        
         //19
         for j in 41...41{
             
@@ -213,7 +219,7 @@ class EinsteinCourseTwo: Course {
                 
             }
         }
-
+        
         //20
         for j in 0...1{
             
@@ -223,7 +229,7 @@ class EinsteinCourseTwo: Course {
                 
             }
         }
-
+        
         //21
         for j in 2...20{
             
@@ -233,7 +239,7 @@ class EinsteinCourseTwo: Course {
                 
             }
         }
-
+        
         //22
         for j in 21...41{
             
@@ -243,7 +249,7 @@ class EinsteinCourseTwo: Course {
                 
             }
         }
-
+        
         //23
         for j in 42...44{
             
@@ -253,7 +259,7 @@ class EinsteinCourseTwo: Course {
                 
             }
         }
-
+        
         //24
         for j in 45...53{
             
@@ -263,7 +269,7 @@ class EinsteinCourseTwo: Course {
                 
             }
         }
-
+        
         //25
         for j in 54...54{
             
@@ -273,7 +279,7 @@ class EinsteinCourseTwo: Course {
                 
             }
         }
-
+        
         //26
         for j in 49...54{
             
@@ -283,7 +289,7 @@ class EinsteinCourseTwo: Course {
                 
             }
         }
-
+        
         //27
         for j in 2...54{
             
@@ -294,9 +300,10 @@ class EinsteinCourseTwo: Course {
             }
         }
 
-        
+        super.didMove(to: view)
         
     }
+
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
