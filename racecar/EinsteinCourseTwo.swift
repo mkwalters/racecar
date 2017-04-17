@@ -13,12 +13,7 @@ import CoreGraphics
 
 
 class EinsteinCourseTwo: Course {
-    init() {
-        super.init(size: CGSize(), difficulty: "hard")
 
-        
-        
-    }
     
     
     override func create_scene_specs() {
@@ -310,8 +305,5 @@ class EinsteinCourseTwo: Course {
         
     }
 
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+
 }

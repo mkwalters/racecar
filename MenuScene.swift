@@ -116,11 +116,11 @@ class MenuScene: SKScene {
             
         }
         
-//        if TimeTrialsBackground.contains(touchLocation) {
-//            
-//            TimeTrialsBackground.color = SKColor.white
-//            
-//        }
+        if TimeTrialsBackground.contains(touchLocation) {
+            
+            TimeTrialsBackground.color = SKColor.white
+            
+        }
         
         if HowToPlayBackground.contains(touchLocation) {
             
@@ -135,9 +135,16 @@ class MenuScene: SKScene {
         let touchLocation = touch!.location(in: self)
         
         if GrandPrixBackground.contains(touchLocation) {
+            //CGSize(width: 750, height: 1334)
+            let reveal = SKTransition.doorsOpenHorizontal(withDuration: 0.25)
+            let gameScene = CupSelectionScene(size: CGSize(width: 750, height: 1334), type: "grand_prix")
+            self.view?.presentScene(gameScene, transition: reveal)
+        }
+        
+        if TimeTrialsBackground.contains(touchLocation) {
             
             let reveal = SKTransition.doorsOpenHorizontal(withDuration: 0.25)
-            let gameScene = CupSelectionScene(size: CGSize(width: 750, height: 1334))
+            let gameScene = CupSelectionScene(size: CGSize(width: 750, height: 1334), type: "time_trials")
             self.view?.presentScene(gameScene, transition: reveal)
         }
         

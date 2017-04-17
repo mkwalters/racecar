@@ -28,13 +28,15 @@ class CourseSelectionScene: SKScene {
     let course_four = SKLabelNode()
     let course_four_highscore = SKLabelNode()
     
+    var game_type = String()
     
-    init(name: String) {
+    
+    init(name: String, type: String) {
         super.init(size: CGSize(width: 750, height: 1334))
         
         self.size = CGSize(width: 750, height: 1334)
         backgroundColor = green
-        
+        game_type = type
         //course one
         
         easyButton.fontColor = purple

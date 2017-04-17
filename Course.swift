@@ -95,13 +95,17 @@ class Course: SKScene, SKPhysicsContactDelegate {
     var paused_game = false
     var crossing_finish_line = false
     
+    var game_type = String()
+    
     var audioooo = SKAudioNode(fileNamed: "Bloodrocuted")
     
     var colors = [UIColor]()
     var color1 = UIColor(red: 255/255, green: 230/255, blue: 109/255, alpha: 1.0)
     var color2 = UIColor(red: 47/255, green: 48/255, blue: 97/255, alpha: 1.0)
     var color3 = UIColor(red: 247/255, green: 255/255, blue: 247/255, alpha: 1.0)
-
+    
+    
+    
     func draw_projected_path() {
         
         
@@ -150,24 +154,23 @@ class Course: SKScene, SKPhysicsContactDelegate {
         
     }
 
-    init(size: CGSize, difficulty: String) {
+    init(size: CGSize, type: String) {
         
         super.init(size: size)
         
         self.draw_checkpoint_one(position: (grid?.gridPosition(row:  7, col: 18))!)
         self.draw_checkpoint_two(position: (grid?.gridPosition(row:  36, col: 30))!)
         self.draw_finish_line(position: (grid?.gridPosition(row:  19, col: 28))!)
-        gameDifficulty = difficulty
         
         colors.append(color1)
         colors.append(color2)
         colors.append(color3)
         
-        if difficulty == "hard"{
-            time_between_moves = 1.35
-        } else {
-            time_between_moves = 4
-        }
+        game_type = type
+        
+
+        time_between_moves = 1.35
+
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -483,6 +486,9 @@ class Course: SKScene, SKPhysicsContactDelegate {
                 action.speed = 0
                 timer.isPaused = true
             }
+            
+            
+            
             let ending_background = SKShapeNode(rectOf: CGSize(width: 500, height: 1000))
             
             ending_background.position = CGPoint(x: 0, y: 0)
@@ -490,9 +496,6 @@ class Course: SKScene, SKPhysicsContactDelegate {
             ending_background.fillColor = SKColor.black
             
             self.addChild(ending_background)
-            
-            
-            
             exit = SKLabelNode(text: "Exit")
             exit.position = CGPoint(x: 0, y: -200)
             exit.fontSize = 100
@@ -502,41 +505,56 @@ class Course: SKScene, SKPhysicsContactDelegate {
             
             ending_background.addChild(exit)
             
-            print("recorded")
-        
-        
-            if let current_high_score = UserDefaults.standard.value(forKey: key) as? Int {
-                if current_high_score > number_of_moves {
+            if game_type == "time_trials" {
+            
+                
+                print("recorded")
+            
+            
+                if let current_high_score = UserDefaults.standard.value(forKey: key) as? Int {
+                    if current_high_score > number_of_moves {
+                        UserDefaults.standard.setValue(number_of_moves, forKey: key)
+                    }
+                } else {
+
                     UserDefaults.standard.setValue(number_of_moves, forKey: key)
+
                 }
-            } else {
-
-                UserDefaults.standard.setValue(number_of_moves, forKey: key)
-
+            
+                
+                let score = SKLabelNode(text: "Score: " + String(number_of_moves))
+                
+                score.position = CGPoint(x: 0, y: 200)
+                score.fontSize = 100
+                score.fontColor = SKColor.red
+                //score.name = "exit"
+                score.zPosition = 999999999
+                
+                ending_background.addChild(score)
+                
+                let best = UserDefaults.standard.value(forKey: key) as! Int
+                
+                let best_score = SKLabelNode(text: "High Score: " + String(describing: best))
+                
+                best_score.position = CGPoint(x: 0, y: 100)
+                best_score.fontSize = 80
+                best_score.fontColor = SKColor.red
+                //score.name = "exit"
+                best_score.zPosition = 999999999
+                
+                ending_background.addChild(best_score)
+                
+            } else if game_type == "grand_prix" {
+                let next = SKLabelNode(text: "Next Course")
+                next.position = CGPoint(x: 0, y: 0)
+                next.name = "next"
+                next.fontSize = 100
+                next.fontColor = SKColor.red
+                //score.name = "exit"
+                next.zPosition = 999999999
+                
+                ending_background.addChild(next)
             }
-        
-            
-            let score = SKLabelNode(text: "Score: " + String(number_of_moves))
-            
-            score.position = CGPoint(x: 0, y: 200)
-            score.fontSize = 100
-            score.fontColor = SKColor.red
-            //score.name = "exit"
-            score.zPosition = 999999999
-            
-            ending_background.addChild(score)
-            
-            let best = UserDefaults.standard.value(forKey: key) as! Int
-            
-            let best_score = SKLabelNode(text: "High Score: " + String(describing: best))
-            
-            best_score.position = CGPoint(x: 0, y: 100)
-            best_score.fontSize = 80
-            best_score.fontColor = SKColor.red
-            //score.name = "exit"
-            best_score.zPosition = 999999999
-            
-            ending_background.addChild(best_score)
         }
         
     }
@@ -959,6 +977,8 @@ class Course: SKScene, SKPhysicsContactDelegate {
         
         // Called before each frame is rendered
         //x_velocity_display.color = SKColor.red
+        
+        print(game_type)
         if racecar.x_acceleration == 1 {
             x_velocity_display.fontColor = SKColor.green
         } else if racecar.x_acceleration == -1 {

@@ -31,12 +31,7 @@ var block_size = CGFloat(35.0)
 
 class NewtonCourseTwo: Course {
     
-    init() {
-        super.init(size: CGSize(), difficulty: "hard")
 
-        
-        
-    }
     
     override func create_scene_specs() {
         audioooo = SKAudioNode(fileNamed: "Dethharmonic")
@@ -146,8 +141,6 @@ class NewtonCourseTwo: Course {
         
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+
     
 }

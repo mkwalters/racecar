@@ -19,31 +19,31 @@ class NewtonCourseSelectionScene: CourseSelectionScene {
         
         if easyButton.contains(touchLocation) {
             let reveal = SKTransition.doorsOpenHorizontal(withDuration: 0.25)
-            let gameScene = NewtonCourseOne()
+            let gameScene = NewtonCourseOne(size: CGSize(width: 750, height: 1334), type: self.game_type)
             self.view?.presentScene(gameScene, transition: reveal)
         }
         
         if hardButton.contains(touchLocation){
             let reveal = SKTransition.doorsOpenHorizontal(withDuration: 0.25)
-            let menuScene = CupSelectionScene(size: CGSize(width: 750, height: 1334))
+            let menuScene = CupSelectionScene(size: CGSize(width: 750, height: 1334), type: self.game_type)
             self.view?.presentScene(menuScene, transition: reveal)
         }
         
         if course_two.contains(touchLocation){
             let reveal = SKTransition.doorsOpenHorizontal(withDuration: 0.25)
-            let menuScene = NewtonCourseTwo()
+            let menuScene = NewtonCourseTwo(size: CGSize(width: 750, height: 1334), type: self.game_type)
             self.view?.presentScene(menuScene, transition: reveal)
         }
         
         if course_three.contains(touchLocation){
             let reveal = SKTransition.doorsOpenHorizontal(withDuration: 0.25)
-            let menuScene = NewtonCourseThree()
+            let menuScene = NewtonCourseThree(size: CGSize(width: 750, height: 1334), type: self.game_type)
             self.view?.presentScene(menuScene, transition: reveal)
         }
         
         if course_four.contains(touchLocation){
             let reveal = SKTransition.doorsOpenHorizontal(withDuration: 0.25)
-            let menuScene = NewtonCourseFour()
+            let menuScene = NewtonCourseFour(size: CGSize(width: 750, height: 1334), type: self.game_type)
             self.view?.presentScene(menuScene, transition: reveal)
         }
         

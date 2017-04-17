@@ -18,8 +18,12 @@ class CupSelectionScene: SKScene {
     let backButton = SKLabelNode()
     
     
-    override init(size: CGSize) {
+    var game_type = String()
+    
+    init(size: CGSize, type: String) {
         super.init(size: size)
+        
+        game_type = type
         
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
         
@@ -70,19 +74,19 @@ class CupSelectionScene: SKScene {
         
         if easyButton.contains(touchLocation) {
             let reveal = SKTransition.doorsOpenVertical(withDuration: 0.25)
-            let gameScene = GalileoCourseSelectionScene(name: "Galileo")
+            let gameScene = GalileoCourseSelectionScene(name: "Galileo", type: game_type)
             self.view?.presentScene(gameScene, transition: reveal)
         }
         
         if hardButton.contains(touchLocation) {
             let reveal = SKTransition.doorsOpenVertical(withDuration: 0.25)
-            let gameScene = NewtonCourseSelectionScene(name: "Newton")
+            let gameScene = NewtonCourseSelectionScene(name: "Newton", type: game_type)
             self.view?.presentScene(gameScene, transition: reveal)
         }
         
         if menuButton.contains(touchLocation){
             let reveal = SKTransition.doorsOpenVertical(withDuration: 0.25)
-            let menuScene = EinsteinCourseSelectionScene(name: "Einstein")
+            let menuScene = EinsteinCourseSelectionScene(name: "Einstein", type: game_type)
             self.view?.presentScene(menuScene, transition: reveal)
         }
     

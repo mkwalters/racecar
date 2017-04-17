@@ -13,15 +13,7 @@ import CoreGraphics
 
 
 class EinsteinCourseFour: Course {
-    init() {
-        super.init(size: CGSize(), difficulty: "hard")
-        
-        
-        
-        
-        
-        
-    }
+
     
     
     
@@ -333,8 +325,5 @@ class EinsteinCourseFour: Course {
     }
     
     
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+
 }

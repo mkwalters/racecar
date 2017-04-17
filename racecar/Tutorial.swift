@@ -49,13 +49,7 @@ class Tutorial: SKScene {
         let touch = touches.first
         let touchLocation = touch!.location(in: self)
         
-        if GrandPrix.contains(touchLocation) {
-            
-            let reveal = SKTransition.doorsOpenVertical(withDuration: 0.25)
-            let difficultyScene = DifficultyScene(size: self.size)
-            self.view?.presentScene(difficultyScene, transition: reveal)
-            
-        }
+
         
         if menuButton.contains(touchLocation){
             let reveal = SKTransition.doorsOpenVertical(withDuration: 0.25)

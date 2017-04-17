@@ -13,10 +13,7 @@ import CoreGraphics
 
 
 class NewtonCourseFour: Course {
-    init() {
-        super.init(size: CGSize(), difficulty: "hard")
-        
-    }
+
     
     
     override func create_scene_specs() {
@@ -202,7 +199,4 @@ class NewtonCourseFour: Course {
     }
 
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
 }

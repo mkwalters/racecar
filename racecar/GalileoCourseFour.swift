@@ -13,9 +13,7 @@ import CoreGraphics
 class GalileoCourseFour: Course {
     
     
-    init() {
-        super.init(size: CGSize(), difficulty: "hard")
-    }
+
     override func create_scene_specs() {
         audioooo = SKAudioNode(fileNamed: "Bloodrocuted")
         grid = Grid(blockSize: CGFloat(35.0), rows: 37, cols: 22)
@@ -144,10 +142,5 @@ class GalileoCourseFour: Course {
 
     
     
-    
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     
 }

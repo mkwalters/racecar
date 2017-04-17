@@ -18,10 +18,7 @@ import CoreGraphics
 
 class GalileoCourseThree: Course {
     
-    
-    init() {
-        super.init(size: CGSize(), difficulty: "hard")
-    }
+
     
     override func create_scene_specs() {
         audioooo = SKAudioNode(fileNamed: "Bloodlines")
@@ -131,8 +128,6 @@ class GalileoCourseThree: Course {
     
     
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+
     
 }
