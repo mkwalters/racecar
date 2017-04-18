@@ -73,21 +73,41 @@ class CupSelectionScene: SKScene {
         let touchLocation = touch!.location(in: self)
         
         if easyButton.contains(touchLocation) {
-            let reveal = SKTransition.doorsOpenVertical(withDuration: 0.25)
-            let gameScene = GalileoCourseSelectionScene(name: "Galileo", type: game_type)
-            self.view?.presentScene(gameScene, transition: reveal)
+            
+            if self.game_type == "time_trials" {
+                let reveal = SKTransition.doorsOpenVertical(withDuration: 0.25)
+                let gameScene = GalileoCourseSelectionScene(name: "Galileo", type: game_type)
+                self.view?.presentScene(gameScene, transition: reveal)
+            } else {
+                let reveal = SKTransition.doorsOpenHorizontal(withDuration: 0.25)
+                let gameScene = GalileoCourseOne(size: CGSize(width: 750, height: 1334), type: self.game_type)
+                self.view?.presentScene(gameScene, transition: reveal)
+            }
         }
         
         if hardButton.contains(touchLocation) {
-            let reveal = SKTransition.doorsOpenVertical(withDuration: 0.25)
-            let gameScene = NewtonCourseSelectionScene(name: "Newton", type: game_type)
-            self.view?.presentScene(gameScene, transition: reveal)
+            
+            if self.game_type == "time_trials" {
+                let reveal = SKTransition.doorsOpenVertical(withDuration: 0.25)
+                let gameScene = NewtonCourseSelectionScene(name: "Newton", type: game_type)
+                self.view?.presentScene(gameScene, transition: reveal)
+            } else {
+                let reveal = SKTransition.doorsOpenHorizontal(withDuration: 0.25)
+                let gameScene = NewtonCourseOne(size: CGSize(width: 750, height: 1334), type: self.game_type)
+                self.view?.presentScene(gameScene, transition: reveal)
+            }
         }
         
         if menuButton.contains(touchLocation){
-            let reveal = SKTransition.doorsOpenVertical(withDuration: 0.25)
-            let menuScene = EinsteinCourseSelectionScene(name: "Einstein", type: game_type)
-            self.view?.presentScene(menuScene, transition: reveal)
+            if self.game_type == "time_trials" {
+                let reveal = SKTransition.doorsOpenVertical(withDuration: 0.25)
+                let menuScene = EinsteinCourseSelectionScene(name: "Einstein", type: game_type)
+                self.view?.presentScene(menuScene, transition: reveal)
+            } else {
+                let reveal = SKTransition.doorsOpenHorizontal(withDuration: 0.25)
+                let gameScene = EinsteinCourseOne(size: CGSize(width: 750, height: 1334), type: self.game_type)
+                self.view?.presentScene(gameScene, transition: reveal)
+            }
         }
     
         if backButton.contains(touchLocation){

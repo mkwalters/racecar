@@ -270,8 +270,11 @@ class Course: SKScene, SKPhysicsContactDelegate {
     
     func restart_scene() {
         
-//        grid?.removeAllActions()
-//        grid?.removeAllChildren()
+        grid?.removeAllActions()
+        grid?.removeAllChildren()
+        
+        crash_background.removeAllActions()
+        crash_background.removeAllChildren()
         
         self.removeAllActions()
         self.removeAllChildren()
@@ -896,11 +899,12 @@ class Course: SKScene, SKPhysicsContactDelegate {
                         
                         paused_game = false
                         
-                        pause_background.removeFromParent()
+                        
                         //                        resume.removeFromParent()
                         //                        exit.removeFromParent()
                     }
-                    
+                    pause_background.removeFromParent()
+                    crash_background.removeFromParent()
                     restart_scene()
                     
                 }
@@ -913,6 +917,74 @@ class Course: SKScene, SKPhysicsContactDelegate {
                     self.view?.presentScene(menuScene, transition: reveal)
                     
                 }
+                
+                if name == "next"
+                {
+                    
+                    if key == "GalileoCourseOne" {
+                        let reveal = SKTransition.doorsOpenHorizontal(withDuration: 0.25)
+                        let gameScene = GalileoCourseTwo(size: CGSize(width: 750, height: 1334), type: self.game_type)
+                        self.view?.presentScene(gameScene, transition: reveal)
+                    }
+                    if key == "GalileoCourseTwo" {
+                        let reveal = SKTransition.doorsOpenHorizontal(withDuration: 0.25)
+                        let gameScene = GalileoCourseThree(size: CGSize(width: 750, height: 1334), type: self.game_type)
+                        self.view?.presentScene(gameScene, transition: reveal)
+                    }
+                    if key == "GalileoCourseThree" {
+                        let reveal = SKTransition.doorsOpenHorizontal(withDuration: 0.25)
+                        let gameScene = GalileoCourseFour(size: CGSize(width: 750, height: 1334), type: self.game_type)
+                        self.view?.presentScene(gameScene, transition: reveal)
+                    }
+                    if key == "GalileoCourseFour" {
+                        let reveal = SKTransition.doorsOpenHorizontal(withDuration: 0.25)
+                        let menuScene = MenuScene(size: self.size)
+                        self.view?.presentScene(menuScene, transition: reveal)
+                    }
+                    if key == "NewtonCourseOne" {
+                        let reveal = SKTransition.doorsOpenHorizontal(withDuration: 0.25)
+                        let gameScene = NewtonCourseTwo(size: CGSize(width: 750, height: 1334), type: self.game_type)
+                        self.view?.presentScene(gameScene, transition: reveal)
+                    }
+                    if key == "NewtonCourseTwo" {
+                        let reveal = SKTransition.doorsOpenHorizontal(withDuration: 0.25)
+                        let gameScene = NewtonCourseThree(size: CGSize(width: 750, height: 1334), type: self.game_type)
+                        self.view?.presentScene(gameScene, transition: reveal)
+                    }
+                    if key == "NewtonCourseThree" {
+                        let reveal = SKTransition.doorsOpenHorizontal(withDuration: 0.25)
+                        let gameScene = NewtonCourseFour(size: CGSize(width: 750, height: 1334), type: self.game_type)
+                        self.view?.presentScene(gameScene, transition: reveal)
+                    }
+                    if key == "NewtonCourseFour" {
+                        let reveal = SKTransition.doorsOpenHorizontal(withDuration: 0.25)
+                        let menuScene = MenuScene(size: self.size)
+                        self.view?.presentScene(menuScene, transition: reveal)
+                    }
+                    if key == "EinsteinCourseOne" {
+                        let reveal = SKTransition.doorsOpenHorizontal(withDuration: 0.25)
+                        let gameScene = GalileoCourseOne(size: CGSize(width: 750, height: 1334), type: self.game_type)
+                        self.view?.presentScene(gameScene, transition: reveal)
+                    }
+                    if key == "EinsteinCourseTwo" {
+                        let reveal = SKTransition.doorsOpenHorizontal(withDuration: 0.25)
+                        let gameScene = GalileoCourseOne(size: CGSize(width: 750, height: 1334), type: self.game_type)
+                        self.view?.presentScene(gameScene, transition: reveal)
+                    }
+                    if key == "EinsteinCourseThree" {
+                        let reveal = SKTransition.doorsOpenHorizontal(withDuration: 0.25)
+                        let gameScene = GalileoCourseOne(size: CGSize(width: 750, height: 1334), type: self.game_type)
+                        self.view?.presentScene(gameScene, transition: reveal)
+                    }
+                    if key == "EinsteinCourseFour" {
+                        let reveal = SKTransition.doorsOpenHorizontal(withDuration: 0.25)
+                        let menuScene = MenuScene(size: self.size)
+                        self.view?.presentScene(menuScene, transition: reveal)
+                    }
+                    
+                    
+                }
+                
             }
         }
     }
