@@ -38,8 +38,7 @@ class Course: SKScene, SKPhysicsContactDelegate {
     let y_velocity_display = SKLabelNode()
 
     var grid = Grid(blockSize: CGFloat(35.0), rows:42, cols:32)
-    let gamePiece = SKSpriteNode(imageNamed: "Spaceship")
-    let opponentGamePiece = SKSpriteNode(imageNamed: "Spaceship")
+    let gamePiece = SKSpriteNode(imageNamed: "red_car")
 
     let projected_velocity = SKSpriteNode(imageNamed: "red")
     let vroom = SKSpriteNode(imageNamed: "red")
