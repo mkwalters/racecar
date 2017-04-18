@@ -53,6 +53,9 @@
 		17D265421E9E1EEC0034D691 /* The Gears.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 17D265411E9E1EEC0034D691 /* The Gears.mp3 */; };
 		17D265481EA04EB80034D691 /* FasterOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17D265471EA04C280034D691 /* FasterOne-Regular.ttf */; };
 		17D2654A1EA083450034D691 /* Arcade.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17D265491EA0833F0034D691 /* Arcade.ttf */; };
+		3C18F4D8971A77C95FFE0625 /* Pods_racecarTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6E2E807EB6BA89D571DD796 /* Pods_racecarTests.framework */; };
+		440A1F16C19316BFC577AFB9 /* Pods_racecar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82B980C1E70747888774FB62 /* Pods_racecar.framework */; };
+		F82F34243AAD56798A5AC0CF /* Pods_racecarUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C16BC2E28BB4A5EF0BDF7269 /* Pods_racecarUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -126,6 +129,15 @@
 		17D265411E9E1EEC0034D691 /* The Gears.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "The Gears.mp3"; sourceTree = "<group>"; };
 		17D265471EA04C280034D691 /* FasterOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FasterOne-Regular.ttf"; sourceTree = "<group>"; };
 		17D265491EA0833F0034D691 /* Arcade.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Arcade.ttf; sourceTree = "<group>"; };
+		376848D43A6BB324454FE68B /* Pods-racecarUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-racecarUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-racecarUITests/Pods-racecarUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		73ACD8994B94EF7B9D339B55 /* Pods-racecar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-racecar.release.xcconfig"; path = "Pods/Target Support Files/Pods-racecar/Pods-racecar.release.xcconfig"; sourceTree = "<group>"; };
+		81AAB8B0714FDB94B14323F6 /* Pods-racecarTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-racecarTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-racecarTests/Pods-racecarTests.debug.xcconfig"; sourceTree = "<group>"; };
+		82B980C1E70747888774FB62 /* Pods_racecar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_racecar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0F94726119C8CEF7127F0EE /* Pods-racecarUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-racecarUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-racecarUITests/Pods-racecarUITests.release.xcconfig"; sourceTree = "<group>"; };
+		B0256A9F25BC999184AA0891 /* Pods-racecar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-racecar.debug.xcconfig"; path = "Pods/Target Support Files/Pods-racecar/Pods-racecar.debug.xcconfig"; sourceTree = "<group>"; };
+		C16BC2E28BB4A5EF0BDF7269 /* Pods_racecarUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_racecarUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E442961A6F2D70085133CF07 /* Pods-racecarTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-racecarTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-racecarTests/Pods-racecarTests.release.xcconfig"; sourceTree = "<group>"; };
+		F6E2E807EB6BA89D571DD796 /* Pods_racecarTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_racecarTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +145,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				440A1F16C19316BFC577AFB9 /* Pods_racecar.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,6 +153,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C18F4D8971A77C95FFE0625 /* Pods_racecarTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,6 +161,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F82F34243AAD56798A5AC0CF /* Pods_racecarUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -160,6 +175,8 @@
 				178263681E80992600EBF212 /* racecarTests */,
 				178263731E80992600EBF212 /* racecarUITests */,
 				1782634C1E80992500EBF212 /* Products */,
+				8AA73D57A3FD359A240B907E /* Pods */,
+				AFD0879CC63B85EB7FEF7359 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -244,6 +261,29 @@
 			path = racecarUITests;
 			sourceTree = "<group>";
 		};
+		8AA73D57A3FD359A240B907E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B0256A9F25BC999184AA0891 /* Pods-racecar.debug.xcconfig */,
+				73ACD8994B94EF7B9D339B55 /* Pods-racecar.release.xcconfig */,
+				81AAB8B0714FDB94B14323F6 /* Pods-racecarTests.debug.xcconfig */,
+				E442961A6F2D70085133CF07 /* Pods-racecarTests.release.xcconfig */,
+				376848D43A6BB324454FE68B /* Pods-racecarUITests.debug.xcconfig */,
+				A0F94726119C8CEF7127F0EE /* Pods-racecarUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		AFD0879CC63B85EB7FEF7359 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				82B980C1E70747888774FB62 /* Pods_racecar.framework */,
+				F6E2E807EB6BA89D571DD796 /* Pods_racecarTests.framework */,
+				C16BC2E28BB4A5EF0BDF7269 /* Pods_racecarUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -251,9 +291,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 178263791E80992600EBF212 /* Build configuration list for PBXNativeTarget "racecar" */;
 			buildPhases = (
+				939638AFC4F14E0B50E7DE2E /* [CP] Check Pods Manifest.lock */,
 				178263471E80992400EBF212 /* Sources */,
 				178263481E80992400EBF212 /* Frameworks */,
 				178263491E80992400EBF212 /* Resources */,
+				C66C94BA0BD9B397D25C0021 /* [CP] Embed Pods Frameworks */,
+				341460ADA877D80AB60B0C5F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -268,9 +311,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1782637C1E80992600EBF212 /* Build configuration list for PBXNativeTarget "racecarTests" */;
 			buildPhases = (
+				2DA285BFA8F7392187D160E9 /* [CP] Check Pods Manifest.lock */,
 				178263611E80992600EBF212 /* Sources */,
 				178263621E80992600EBF212 /* Frameworks */,
 				178263631E80992600EBF212 /* Resources */,
+				B9161621CFD8AC2A5186F0AB /* [CP] Embed Pods Frameworks */,
+				9D2AFEEF7ACA9F2767310500 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -286,9 +332,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1782637F1E80992600EBF212 /* Build configuration list for PBXNativeTarget "racecarUITests" */;
 			buildPhases = (
+				DC1310B8CD3E27F720A82EFF /* [CP] Check Pods Manifest.lock */,
 				1782636C1E80992600EBF212 /* Sources */,
 				1782636D1E80992600EBF212 /* Frameworks */,
 				1782636E1E80992600EBF212 /* Resources */,
+				D0AAF9B7FD6CC03C56D0ED99 /* [CP] Embed Pods Frameworks */,
+				538DEFDDC342EDFA733E5CA1 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -396,6 +445,144 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2DA285BFA8F7392187D160E9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		341460ADA877D80AB60B0C5F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-racecar/Pods-racecar-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		538DEFDDC342EDFA733E5CA1 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-racecarUITests/Pods-racecarUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		939638AFC4F14E0B50E7DE2E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		9D2AFEEF7ACA9F2767310500 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-racecarTests/Pods-racecarTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B9161621CFD8AC2A5186F0AB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-racecarTests/Pods-racecarTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C66C94BA0BD9B397D25C0021 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-racecar/Pods-racecar-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D0AAF9B7FD6CC03C56D0ED99 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-racecarUITests/Pods-racecarUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DC1310B8CD3E27F720A82EFF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		178263471E80992400EBF212 /* Sources */ = {
@@ -576,6 +763,7 @@
 		};
 		1782637A1E80992600EBF212 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B0256A9F25BC999184AA0891 /* Pods-racecar.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = racecar/racecar.entitlements;
@@ -591,6 +779,7 @@
 		};
 		1782637B1E80992600EBF212 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 73ACD8994B94EF7B9D339B55 /* Pods-racecar.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = racecar/racecar.entitlements;
@@ -606,6 +795,7 @@
 		};
 		1782637D1E80992600EBF212 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 81AAB8B0714FDB94B14323F6 /* Pods-racecarTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -621,6 +811,7 @@
 		};
 		1782637E1E80992600EBF212 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E442961A6F2D70085133CF07 /* Pods-racecarTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -636,6 +827,7 @@
 		};
 		178263801E80992600EBF212 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 376848D43A6BB324454FE68B /* Pods-racecarUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 7QH98TGAP8;
@@ -650,6 +842,7 @@
 		};
 		178263811E80992600EBF212 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A0F94726119C8CEF7127F0EE /* Pods-racecarUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 7QH98TGAP8;

@@ -15,6 +15,7 @@ let purple = UIColor(red: 51/255, green: 0/255, blue: 54/255, alpha: 1.0)
 
 
 import SpriteKit
+
 class MenuScene: SKScene {
     
     let GrandPrix = SKLabelNode()
@@ -28,7 +29,7 @@ class MenuScene: SKScene {
     
     let velocity_title = SKLabelNode(text: "Velocity")
     let vector_title = SKLabelNode(text: "Vector")
-    
+
 
     override init(size: CGSize) {
         super.init(size: size)
