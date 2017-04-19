@@ -78,7 +78,7 @@ class GalileoCourseOne: Course {
         
         create_scene_specs()
         super.didMove(to: view)
-                
+        //backgroundColor = UIColor(red: 252 / 255, green: 222 / 255, blue: 156 / 255, alpha: 0)
     }
 
 }

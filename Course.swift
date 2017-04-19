@@ -50,6 +50,8 @@ class Course: SKScene, SKPhysicsContactDelegate {
     var previous_locations:[(x: Int, y: Int)] = []
 
     var available_locations:[(x: Int, y: Int)] = []
+    
+    var obstacles_nodes = [SKSpriteNode]()
 
     let projected_path = SKShapeNode()
 
@@ -110,7 +112,6 @@ class Course: SKScene, SKPhysicsContactDelegate {
         
         projected_path.removeFromParent()
         
-        self.backgroundColor = SKColor.black
         let starting_position = grid?.gridPosition(row:  racecar.y_position, col: racecar.x_position)
         
         
@@ -285,10 +286,21 @@ class Course: SKScene, SKPhysicsContactDelegate {
         crossing_finish_line = false
     }
     
+    func repaint_obstacles() {
+        
+        for obstacle in obstacles_nodes {
+            obstacle.color = colors[ Int(arc4random_uniform(UInt32(colors.count))) ]
+        }
+        
+    }
+    
+
+    
     
     func create_scene() {
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
         self.size = CGSize(width: 750, height: 1334)
+        self.backgroundColor = SKColor.black
         crossing_finish_line = false
         addChild(audioooo)
         
@@ -455,6 +467,8 @@ class Course: SKScene, SKPhysicsContactDelegate {
             
             
             grid?.addChild(current_obstacle)
+            
+            obstacles_nodes.append(current_obstacle)
             
         }
         
@@ -651,7 +665,7 @@ class Course: SKScene, SKPhysicsContactDelegate {
             timer.removeAllActions()
             timer.size = CGSize(width: 0, height: 30)
             
-            
+            repaint_obstacles()
             let timing = SKAction.resize(toWidth: 2 * self.frame.width, duration: TimeInterval(time_between_moves))
 
             timer.run(timing)
@@ -1049,7 +1063,6 @@ class Course: SKScene, SKPhysicsContactDelegate {
         // Called before each frame is rendered
         //x_velocity_display.color = SKColor.red
         
-        print(game_type)
         if racecar.x_acceleration == 1 {
             x_velocity_display.fontColor = SKColor.green
         } else if racecar.x_acceleration == -1 {
