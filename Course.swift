@@ -10,7 +10,7 @@ import Foundation
 import SpriteKit
 import GameplayKit
 import CoreGraphics
-
+import SAConfettiView
 
 
 
@@ -99,6 +99,8 @@ class Course: SKScene, SKPhysicsContactDelegate {
     var game_type = String()
     
     var audioooo = SKAudioNode(fileNamed: "Bloodrocuted")
+    
+    var confettiView = SAConfettiView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
     
     var colors = [UIColor]()
     var color1 = UIColor(red: 255/255, green: 230/255, blue: 109/255, alpha: 1.0)
@@ -496,7 +498,12 @@ class Course: SKScene, SKPhysicsContactDelegate {
     
     func cross_finish_line() {
         
+        
+        
         if last_checkpoint == 2 {
+            
+            
+            
             last_checkpoint = 0
             paused_game = true
             if let action = action(forKey: "key") {
@@ -551,6 +558,14 @@ class Course: SKScene, SKPhysicsContactDelegate {
                 ending_background.addChild(score)
                 
                 let best = UserDefaults.standard.value(forKey: key) as! Int
+                
+                if number_of_moves <= best && game_type == "time_trials" {
+                    confettiView = SAConfettiView(frame: (self.view?.bounds)!)
+                    self.view?.addSubview(confettiView)
+                    confettiView.startConfetti()
+                }
+                
+                
                 
                 let best_score = SKLabelNode(text: "High Score: " + String(describing: best))
                 
@@ -906,7 +921,7 @@ class Course: SKScene, SKPhysicsContactDelegate {
                 
                 if name == "restart"
                 {
-                    
+                    confettiView.stopConfetti()
                     if let action = action(forKey: "key") {
                         
                         action.speed = 1
@@ -926,7 +941,7 @@ class Course: SKScene, SKPhysicsContactDelegate {
                 
                 if name == "exit"
                 {
-                    
+                    confettiView.stopConfetti()
                     let reveal = SKTransition.doorsOpenHorizontal(withDuration: 0.25)
                     let menuScene = MenuScene(size: self.size)
                     self.view?.presentScene(menuScene, transition: reveal)
@@ -935,6 +950,7 @@ class Course: SKScene, SKPhysicsContactDelegate {
                 
                 if name == "next"
                 {
+                    confettiView.stopConfetti()
                     
                     if key == "GalileoCourseOne" {
                         let reveal = SKTransition.doorsOpenHorizontal(withDuration: 0.25)

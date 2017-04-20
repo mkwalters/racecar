@@ -7,6 +7,8 @@ target 'racecar' do
   
   pod 'Firebase/Core'
   pod 'Firebase/AdMob'
+  
+  pod 'SAConfettiView'
 
   # Pods for racecar
 
