@@ -105,7 +105,7 @@ class Course: SKScene, SKPhysicsContactDelegate {
     var color2 = UIColor(red: 47/255, green: 48/255, blue: 97/255, alpha: 1.0)
     var color3 = UIColor(red: 247/255, green: 255/255, blue: 247/255, alpha: 1.0)
     
-    
+    var par = 0
     
     func draw_projected_path() {
         
@@ -1062,7 +1062,7 @@ class Course: SKScene, SKPhysicsContactDelegate {
         
         // Called before each frame is rendered
         //x_velocity_display.color = SKColor.red
-        
+        print(TrophySystem.par_values())
         if racecar.x_acceleration == 1 {
             x_velocity_display.fontColor = SKColor.green
         } else if racecar.x_acceleration == -1 {
