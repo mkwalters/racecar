@@ -49,6 +49,41 @@ class GalileoCourseTwo: Course {
                 
             }
         }
+        
+        
+        for j in 0...0{
+            
+            for i in 0...25 {
+                
+                obstacles.append(x: i, y: j)
+                
+            }
+        }
+        
+        for j in 0...40{
+            
+            for i in 25...25 {
+                
+                obstacles.append(x: i, y: j)
+                
+            }
+        }
+        for j in 40...40{
+            
+            for i in 0...25 {
+                
+                obstacles.append(x: i, y: j)
+                
+            }
+        }
+        for j in 0...40{
+            
+            for i in 0...0 {
+                
+                obstacles.append(x: i, y: j)
+                
+            }
+        }
     }
     
     override func didMove(to view: SKView) {

@@ -33,6 +33,41 @@ class EinsteinCourseOne: Course {
             UIColor(red: 93/255, green: 74/255, blue: 102/255, alpha: 1.0)
         ]
         
+        for j in 0...41{
+            
+            for i in 0...0 {
+                
+                obstacles.append(x: i, y: j)
+                
+            }
+        }
+        
+        for j in 41...41{
+            
+            for i in 0...53 {
+                
+                obstacles.append(x: i, y: j)
+                
+            }
+        }
+        for j in 0...41{
+            
+            for i in 53...53 {
+                
+                obstacles.append(x: i, y: j)
+                
+            }
+        }
+        for j in 0...0{
+            
+            for i in 0...53 {
+                
+                obstacles.append(x: i, y: j)
+                
+            }
+        }
+
+        
         //1
         for j in 4...5{
             

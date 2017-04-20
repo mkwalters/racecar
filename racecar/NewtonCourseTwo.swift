@@ -50,6 +50,40 @@ class NewtonCourseTwo: Course {
         
         obstacles = []
         
+        for j in 0...32{
+            
+            for i in 0...0 {
+                
+                obstacles.append(x: i, y: j)
+                
+            }
+        }
+        
+        for j in 32...32{
+            
+            for i in 0...42 {
+                
+                obstacles.append(x: i, y: j)
+                
+            }
+        }
+        for j in 0...32{
+            
+            for i in 42...42 {
+                
+                obstacles.append(x: i, y: j)
+                
+            }
+        }
+        for j in 0...0{
+            
+            for i in 0...42 {
+                
+                obstacles.append(x: i, y: j)
+                
+            }
+        }
+        
         
         //1
         for j in 20...25{

@@ -47,7 +47,7 @@ class Grid:SKSpriteNode {
             bezierPath.move(to: CGPoint(x: 0, y: y))
             bezierPath.addLine(to: CGPoint(x: size.width, y: y))
         }
-        SKColor.black.setStroke()
+        SKColor.white.setStroke()
         bezierPath.lineWidth = 1.0
         bezierPath.stroke()
         context.addPath(bezierPath.cgPath)
