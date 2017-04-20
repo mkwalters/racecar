@@ -19,7 +19,7 @@ class EinsteinCourseSelectionScene: CourseSelectionScene {
         
         if easyButton.contains(touchLocation) {
             let reveal = SKTransition.doorsOpenHorizontal(withDuration: 0.25)
-            let gameScene = EinsteinCourseOne(type: "time_trials", previous_move_count: 0)
+            let gameScene = EinsteinCourseOne(type: "time_trials", previous_move_count: 0, number_of_lives: 0)
             self.view?.presentScene(gameScene, transition: reveal)
         }
         
@@ -31,19 +31,19 @@ class EinsteinCourseSelectionScene: CourseSelectionScene {
         
         if course_two.contains(touchLocation){
             let reveal = SKTransition.doorsOpenHorizontal(withDuration: 0.25)
-            let menuScene = EinsteinCourseTwo(type: "time_trials", previous_move_count: 0)
+            let menuScene = EinsteinCourseTwo(type: "time_trials", previous_move_count: 0, number_of_lives: 0)
             self.view?.presentScene(menuScene, transition: reveal)
         }
         
         if course_three.contains(touchLocation){
             let reveal = SKTransition.doorsOpenHorizontal(withDuration: 0.25)
-            let menuScene = EinsteinCourseThree(type: "time_trials", previous_move_count: 0)
+            let menuScene = EinsteinCourseThree(type: "time_trials", previous_move_count: 0, number_of_lives: 0)
             self.view?.presentScene(menuScene, transition: reveal)
         }
         
         if course_four.contains(touchLocation){
             let reveal = SKTransition.doorsOpenHorizontal(withDuration: 0.25)
-            let menuScene = EinsteinCourseFour(type: "time_trials", previous_move_count: 0)
+            let menuScene = EinsteinCourseFour(type: "time_trials", previous_move_count: 0, number_of_lives: 0)
             self.view?.presentScene(menuScene, transition: reveal)
         }
         

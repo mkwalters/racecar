@@ -109,6 +109,8 @@ class Course: SKScene, SKPhysicsContactDelegate {
     
     var par = 0
     
+    var remaining_lives = 0
+    
     func draw_projected_path() {
         
         
@@ -156,11 +158,12 @@ class Course: SKScene, SKPhysicsContactDelegate {
         
     }
 
-    init( type: String, previous_move_count: Int) {
+    init( type: String, previous_move_count: Int, number_of_lives: Int) {
         
         super.init(size: CGSize(width: 750, height: 1334))
         
         number_of_moves = previous_move_count
+        remaining_lives = number_of_lives
         
         self.draw_checkpoint_one(position: (grid?.gridPosition(row:  7, col: 18))!)
         self.draw_checkpoint_two(position: (grid?.gridPosition(row:  36, col: 30))!)
@@ -748,40 +751,134 @@ class Course: SKScene, SKPhysicsContactDelegate {
                 action.speed = 0
                 timer.isPaused = true
                 
-                crashed_out.position = CGPoint(x: 0, y: 200)
-                crashed_out.fontSize = 100
-                crashed_out.fontColor = SKColor.red
-                crashed_out.zPosition = 999999999
+                if game_type == "time_trials" {
                 
-                
-                
-                crash_background.position = CGPoint(x: 0, y: 0)
-                crash_background.zPosition = 999999998
-                crash_background.fillColor = SKColor.black
-                
-                
+                    crashed_out.position = CGPoint(x: 0, y: 200)
+                    crashed_out.fontSize = 100
+                    crashed_out.fontColor = SKColor.red
+                    crashed_out.zPosition = 999999999
+                    
+                    
+                    
+                    crash_background.position = CGPoint(x: 0, y: 0)
+                    crash_background.zPosition = 999999998
+                    crash_background.fillColor = SKColor.black
+                    
+                    
 
-                crash_restart = SKLabelNode(text: "Restart")
-                crash_restart.position = CGPoint(x: 0, y: 0)
-                crash_restart.fontSize = 100
-                crash_restart.fontColor = SKColor.red
-                crash_restart.name = "restart"
-                crash_restart.zPosition = 999999999
-                
-                
-                crash_exit = SKLabelNode(text: "Exit")
-                crash_exit.position = CGPoint(x: 0, y: -200)
-                crash_exit.fontSize = 100
-                crash_exit.fontColor = SKColor.red
-                crash_exit.name = "exit"
-                crash_exit.zPosition = 999999999
-                
-                paused_game = true
-                
-                self.addChild(crash_background)
-                crash_background.addChild(crashed_out)
-                crash_background.addChild(crash_exit)
-                crash_background.addChild(crash_restart)
+                    crash_restart = SKLabelNode(text: "Restart")
+                    crash_restart.position = CGPoint(x: 0, y: 0)
+                    crash_restart.fontSize = 100
+                    crash_restart.fontColor = SKColor.red
+                    crash_restart.name = "restart"
+                    crash_restart.zPosition = 999999999
+                    
+                    
+                    crash_exit = SKLabelNode(text: "Exit")
+                    crash_exit.position = CGPoint(x: 0, y: -200)
+                    crash_exit.fontSize = 100
+                    crash_exit.fontColor = SKColor.red
+                    crash_exit.name = "exit"
+                    crash_exit.zPosition = 999999999
+                    
+                    paused_game = true
+                    
+                    self.addChild(crash_background)
+                    crash_background.addChild(crashed_out)
+                    crash_background.addChild(crash_exit)
+                    crash_background.addChild(crash_restart)
+                    
+                } else {
+                    
+                    remaining_lives -= 1
+                    
+                    if remaining_lives > 0 {
+                        
+                        
+                        crashed_out.position = CGPoint(x: 0, y: 200)
+                        crashed_out.fontSize = 100
+                        crashed_out.fontColor = SKColor.red
+                        crashed_out.zPosition = 999999999
+                        
+                        
+                        
+                        crash_background.position = CGPoint(x: 0, y: 0)
+                        crash_background.zPosition = 999999998
+                        crash_background.fillColor = SKColor.black
+                        
+                        
+                        let remaining_lives_label = SKLabelNode(text: "Remaining lives: " + String(remaining_lives))
+                        remaining_lives_label.position = CGPoint(x: 0, y: 100)
+                        remaining_lives_label.fontSize = 60
+                        remaining_lives_label.fontColor = SKColor.red
+                        remaining_lives_label.name = "restart"
+                        remaining_lives_label.zPosition = 999999999
+                        
+                        
+                        crash_restart = SKLabelNode(text: "Restart")
+                        crash_restart.position = CGPoint(x: 0, y: 0)
+                        crash_restart.fontSize = 100
+                        crash_restart.fontColor = SKColor.red
+                        crash_restart.name = "restart"
+                        crash_restart.zPosition = 999999999
+                        
+                        
+                        crash_exit = SKLabelNode(text: "Exit")
+                        crash_exit.position = CGPoint(x: 0, y: -200)
+                        crash_exit.fontSize = 100
+                        crash_exit.fontColor = SKColor.red
+                        crash_exit.name = "exit"
+                        crash_exit.zPosition = 999999999
+                        
+                        paused_game = true
+                        
+                        self.addChild(crash_background)
+                        crash_background.addChild(remaining_lives_label)
+                        crash_background.addChild(crashed_out)
+                        crash_background.addChild(crash_exit)
+                        crash_background.addChild(crash_restart)
+                        
+                        
+                    } else {
+                        
+                        crashed_out.position = CGPoint(x: 0, y: 200)
+                        crashed_out.text = "Game Over"
+                        crashed_out.fontSize = 100
+                        crashed_out.fontColor = SKColor.red
+                        crashed_out.zPosition = 999999999
+                        
+                        
+                        
+                        crash_background.position = CGPoint(x: 0, y: 0)
+                        crash_background.zPosition = 999999998
+                        crash_background.fillColor = SKColor.black
+                        
+                        
+                        
+                        
+                        
+                        crash_exit = SKLabelNode(text: "Exit")
+                        crash_exit.position = CGPoint(x: 0, y: -200)
+                        crash_exit.fontSize = 100
+                        crash_exit.fontColor = SKColor.red
+                        crash_exit.name = "exit"
+                        crash_exit.zPosition = 999999999
+                        
+                        paused_game = true
+                        
+                        self.addChild(crash_background)
+                        crash_background.addChild(crashed_out)
+                        crash_background.addChild(crash_exit)
+                        
+                        
+                        
+                        
+                    }
+                    
+                    
+                    
+                    
+                }
                 
             }
 
@@ -955,17 +1052,17 @@ class Course: SKScene, SKPhysicsContactDelegate {
                     if key == "GalileoCourseOne" {
                         let reveal = SKTransition.doorsOpenHorizontal(withDuration: 0.25)
                         //let gameScene = GalileoCourseTwo(size: CGSize(width: 750, height: 1334), type: self.game_type)
-                        let gameScene = GalileoCourseTwo( type: self.game_type, previous_move_count: number_of_moves)
+                        let gameScene = GalileoCourseTwo( type: self.game_type, previous_move_count: number_of_moves, number_of_lives: remaining_lives)
                         self.view?.presentScene(gameScene, transition: reveal)
                     }
                     if key == "GalileoCourseTwo" {
                         let reveal = SKTransition.doorsOpenHorizontal(withDuration: 0.25)
-                        let gameScene = GalileoCourseThree( type: self.game_type , previous_move_count: number_of_moves)
+                        let gameScene = GalileoCourseThree( type: self.game_type , previous_move_count: number_of_moves, number_of_lives: remaining_lives)
                         self.view?.presentScene(gameScene, transition: reveal)
                     }
                     if key == "GalileoCourseThree" {
                         let reveal = SKTransition.doorsOpenHorizontal(withDuration: 0.25)
-                        let gameScene = GalileoCourseFour(type: self.game_type, previous_move_count: number_of_moves)
+                        let gameScene = GalileoCourseFour(type: self.game_type, previous_move_count: number_of_moves, number_of_lives: remaining_lives)
                         self.view?.presentScene(gameScene, transition: reveal)
                     }
                     if key == "GalileoCourseFour" {
@@ -975,17 +1072,17 @@ class Course: SKScene, SKPhysicsContactDelegate {
                     }
                     if key == "NewtonCourseOne" {
                         let reveal = SKTransition.doorsOpenHorizontal(withDuration: 0.25)
-                        let gameScene = NewtonCourseTwo(type: self.game_type, previous_move_count: number_of_moves)
+                        let gameScene = NewtonCourseTwo(type: self.game_type, previous_move_count: number_of_moves, number_of_lives: remaining_lives)
                         self.view?.presentScene(gameScene, transition: reveal)
                     }
                     if key == "NewtonCourseTwo" {
                         let reveal = SKTransition.doorsOpenHorizontal(withDuration: 0.25)
-                        let gameScene = NewtonCourseThree(type: self.game_type, previous_move_count: number_of_moves)
+                        let gameScene = NewtonCourseThree(type: self.game_type, previous_move_count: number_of_moves, number_of_lives: remaining_lives)
                         self.view?.presentScene(gameScene, transition: reveal)
                     }
                     if key == "NewtonCourseThree" {
                         let reveal = SKTransition.doorsOpenHorizontal(withDuration: 0.25)
-                        let gameScene = NewtonCourseFour(type: self.game_type, previous_move_count: number_of_moves)
+                        let gameScene = NewtonCourseFour(type: self.game_type, previous_move_count: number_of_moves, number_of_lives: remaining_lives)
                         self.view?.presentScene(gameScene, transition: reveal)
                     }
                     if key == "NewtonCourseFour" {
@@ -995,17 +1092,17 @@ class Course: SKScene, SKPhysicsContactDelegate {
                     }
                     if key == "EinsteinCourseOne" {
                         let reveal = SKTransition.doorsOpenHorizontal(withDuration: 0.25)
-                        let gameScene = EinsteinCourseTwo(type: self.game_type, previous_move_count: number_of_moves)
+                        let gameScene = EinsteinCourseTwo(type: self.game_type, previous_move_count: number_of_moves, number_of_lives: remaining_lives)
                         self.view?.presentScene(gameScene, transition: reveal)
                     }
                     if key == "EinsteinCourseTwo" {
                         let reveal = SKTransition.doorsOpenHorizontal(withDuration: 0.25)
-                        let gameScene = EinsteinCourseThree(type: self.game_type, previous_move_count: number_of_moves)
+                        let gameScene = EinsteinCourseThree(type: self.game_type, previous_move_count: number_of_moves, number_of_lives: remaining_lives)
                         self.view?.presentScene(gameScene, transition: reveal)
                     }
                     if key == "EinsteinCourseThree" {
                         let reveal = SKTransition.doorsOpenHorizontal(withDuration: 0.25)
-                        let gameScene = EinsteinCourseFour(type: self.game_type, previous_move_count: number_of_moves)
+                        let gameScene = EinsteinCourseFour(type: self.game_type, previous_move_count: number_of_moves, number_of_lives: remaining_lives)
                         self.view?.presentScene(gameScene, transition: reveal)
                     }
                     if key == "EinsteinCourseFour" {
