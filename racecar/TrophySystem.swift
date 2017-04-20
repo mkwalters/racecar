@@ -11,6 +11,8 @@ import Foundation
 
 class TrophySystem {
     
+    
+    
     class func par_values() -> [String: Int] {
         return (
             
@@ -35,4 +37,21 @@ class TrophySystem {
         
         )
     }
+    
+    
+    class func cup_par_values() -> [String: Int] {
+        return (
+            
+            [
+                //make these reference course par values
+                "GalileoCup":   220,
+                "NewtonCup":   400,
+                "EinsteinCup": 600
+
+                
+                ]
+            
+        )
+    }
+
 }

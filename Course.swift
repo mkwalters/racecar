@@ -1062,7 +1062,7 @@ class Course: SKScene, SKPhysicsContactDelegate {
         
         // Called before each frame is rendered
         //x_velocity_display.color = SKColor.red
-        print(TrophySystem.par_values())
+        
         if racecar.x_acceleration == 1 {
             x_velocity_display.fontColor = SKColor.green
         } else if racecar.x_acceleration == -1 {
