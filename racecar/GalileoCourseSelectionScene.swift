@@ -21,7 +21,7 @@ class GalileoCourseSelectionScene: CourseSelectionScene {
         //
         if easyButton.contains(touchLocation) {
             let reveal = SKTransition.doorsOpenHorizontal(withDuration: 0.25)
-            let gameScene = GalileoCourseOne(size: CGSize(width: 750, height: 1334), type: self.game_type)
+            let gameScene = GalileoCourseOne(type: "time_trials", previous_move_count: 0)
             self.view?.presentScene(gameScene, transition: reveal)
         }
         //CGSize(width: 750, height: 1334)
@@ -33,19 +33,19 @@ class GalileoCourseSelectionScene: CourseSelectionScene {
         
         if course_two.contains(touchLocation){
             let reveal = SKTransition.doorsOpenHorizontal(withDuration: 0.25)
-            let menuScene = GalileoCourseTwo(size: CGSize(width: 750, height: 1334), type: self.game_type)
+            let menuScene = GalileoCourseTwo(type: "time_trials", previous_move_count: 0)
             self.view?.presentScene(menuScene, transition: reveal)
         }
         
         if course_three.contains(touchLocation){
             let reveal = SKTransition.doorsOpenHorizontal(withDuration: 0.25)
-            let menuScene = GalileoCourseThree(size: CGSize(width: 750, height: 1334), type: self.game_type)
+            let menuScene = GalileoCourseThree(type: "time_trials", previous_move_count: 0)
             self.view?.presentScene(menuScene, transition: reveal)
         }
         
         if course_four.contains(touchLocation){
             let reveal = SKTransition.doorsOpenHorizontal(withDuration: 0.25)
-            let menuScene = GalileoCourseFour(size: CGSize(width: 750, height: 1334), type: self.game_type)
+            let menuScene = GalileoCourseFour(type: "time_trials", previous_move_count: 0)
             self.view?.presentScene(menuScene, transition: reveal)
         }
         

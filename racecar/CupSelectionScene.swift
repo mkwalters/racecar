@@ -80,7 +80,7 @@ class CupSelectionScene: SKScene {
                 self.view?.presentScene(gameScene, transition: reveal)
             } else {
                 let reveal = SKTransition.doorsOpenHorizontal(withDuration: 0.25)
-                let gameScene = GalileoCourseOne(size: CGSize(width: 750, height: 1334), type: self.game_type)
+                let gameScene = GalileoCourseOne(type: "grand_prix", previous_move_count: 0)
                 self.view?.presentScene(gameScene, transition: reveal)
             }
         }
@@ -93,7 +93,7 @@ class CupSelectionScene: SKScene {
                 self.view?.presentScene(gameScene, transition: reveal)
             } else {
                 let reveal = SKTransition.doorsOpenHorizontal(withDuration: 0.25)
-                let gameScene = NewtonCourseOne(size: CGSize(width: 750, height: 1334), type: self.game_type)
+                let gameScene = NewtonCourseOne(type: "grand_prix", previous_move_count: 0)
                 self.view?.presentScene(gameScene, transition: reveal)
             }
         }
@@ -105,7 +105,7 @@ class CupSelectionScene: SKScene {
                 self.view?.presentScene(menuScene, transition: reveal)
             } else {
                 let reveal = SKTransition.doorsOpenHorizontal(withDuration: 0.25)
-                let gameScene = EinsteinCourseOne(size: CGSize(width: 750, height: 1334), type: self.game_type)
+                let gameScene = EinsteinCourseOne(type: "grand_prix", previous_move_count: 0)
                 self.view?.presentScene(gameScene, transition: reveal)
             }
         }
