@@ -115,6 +115,18 @@ class Course: SKScene, SKPhysicsContactDelegate {
     
     var starting_move_number = 0
     
+    
+    func pause_music() {
+        let pause_music = SKAction.pause()
+        audioooo.run(pause_music)
+    }
+    
+    
+    func resume_music() {
+        let resume_music = SKAction.play()
+        audioooo.run(resume_music)
+    }
+    
     func draw_projected_path() {
         
         
@@ -329,8 +341,10 @@ class Course: SKScene, SKPhysicsContactDelegate {
         crossing_finish_line = false
         addChild(audioooo)
         
-        
-        
+//        let lucio = SKAction.playSoundFileNamed("bloodrocuted", waitForCompletion: false)
+//        run(lucio)
+//        let pause_lucio = SKAction.pause()
+//
         
         
         let pinchGesture = UIPinchGestureRecognizer(target: self, action: #selector(self.handlePinchFrom(_:)))
@@ -520,7 +534,7 @@ class Course: SKScene, SKPhysicsContactDelegate {
     func cross_finish_line() {
         
         
-        
+        pause_music()
         if last_checkpoint == 2 {
             
             
@@ -800,11 +814,13 @@ class Course: SKScene, SKPhysicsContactDelegate {
             //grid?.addChild(projected_velocity)
         } else {
             
+            // WIPE OUT
+            
 //            let reveal = SKTransition.doorsOpenVertical(withDuration: 0.5)
 //            let menuScene = MenuScene(size: self.size)
 //            self.view?.presentScene(menuScene, transition: reveal)
          
-            
+            pause_music()
             if let action = action(forKey: "key") {
                 
                 action.speed = 0
@@ -1011,8 +1027,9 @@ class Course: SKScene, SKPhysicsContactDelegate {
                 
                 if name == "pause"
                 {
-                    if paused_game == false {
                     
+                    if paused_game == false {
+                        pause_music()
                         if let action = action(forKey: "key") {
                             
                             action.speed = 0
@@ -1060,7 +1077,7 @@ class Course: SKScene, SKPhysicsContactDelegate {
                 
                 if name == "resume"
                 {
-                    
+                    resume_music()
                     if let action = action(forKey: "key") {
                         
                         action.speed = 1
