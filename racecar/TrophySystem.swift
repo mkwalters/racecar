@@ -44,9 +44,9 @@ class TrophySystem {
             
             [
                 //make these reference course par values
-                "GalileoCup":   220,
-                "NewtonCup":   400,
-                "EinsteinCup": 600
+                "GalileoCourseFour":   250,
+                "NewtonCourseFour":   600,
+                "EinsteinCourseFour": 800
 
                 
                 ]

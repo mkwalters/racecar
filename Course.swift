@@ -47,8 +47,7 @@ class Course: SKScene, SKPhysicsContactDelegate {
 
     var bot_path:[(x: Int, y: Int)] = []
 
-    var previous_locations:[(x: Int, y: Int)] = []
-
+    var previous_locations = [SKShapeNode]()
     var available_locations:[(x: Int, y: Int)] = []
     
     var obstacles_nodes = [SKSpriteNode]()
@@ -111,6 +110,11 @@ class Course: SKScene, SKPhysicsContactDelegate {
     
     var remaining_lives = 0
     
+    var last_course_in_cup = false
+    
+    
+    var starting_move_number = 0
+    
     func draw_projected_path() {
         
         
@@ -163,6 +167,7 @@ class Course: SKScene, SKPhysicsContactDelegate {
         super.init(size: CGSize(width: 750, height: 1334))
         
         number_of_moves = previous_move_count
+        starting_move_number = previous_move_count
         remaining_lives = number_of_lives
         
         self.draw_checkpoint_one(position: (grid?.gridPosition(row:  7, col: 18))!)
@@ -193,9 +198,19 @@ class Course: SKScene, SKPhysicsContactDelegate {
         let shape = SKShapeNode()
         shape.zPosition = 210
         shape.path = line_path
-        shape.strokeColor = SKColor.white
+        shape.strokeColor = colors[Int(arc4random_uniform(UInt32(colors.count)))]
         shape.lineWidth = 2
+        
+        previous_locations.append(shape)
         grid?.addChild(shape)
+    }
+    
+    func repaint_previous_locations() {
+        
+        
+        for prev_loc in previous_locations {
+            prev_loc.strokeColor = colors[Int(arc4random_uniform(UInt32(colors.count)))]
+        }
     }
 
     func handlePinchFrom(_ sender: UIPinchGestureRecognizer) {
@@ -286,9 +301,12 @@ class Course: SKScene, SKPhysicsContactDelegate {
         self.removeAllActions()
         self.removeAllChildren()
         
+        if game_type == "time_trials" {
+            number_of_moves = 0
+        }
         create_scene_specs()
         create_scene()
-        number_of_moves = 0
+        
         last_checkpoint = 0
         crossing_finish_line = false
     }
@@ -581,15 +599,55 @@ class Course: SKScene, SKPhysicsContactDelegate {
                 ending_background.addChild(best_score)
                 
             } else if game_type == "grand_prix" {
-                let next = SKLabelNode(text: "Next Course")
-                next.position = CGPoint(x: 0, y: 0)
-                next.name = "next"
-                next.fontSize = 100
-                next.fontColor = SKColor.red
-                //score.name = "exit"
-                next.zPosition = 999999999
                 
-                ending_background.addChild(next)
+                if last_course_in_cup == false {
+                    let next = SKLabelNode(text: "Next Course")
+                    next.position = CGPoint(x: 0, y: 0)
+                    next.name = "next"
+                    next.fontSize = 100
+                    next.fontColor = SKColor.red
+                    //score.name = "exit"
+                    next.zPosition = 999999999
+                    
+                    ending_background.addChild(next)
+                    
+                } else {
+                    
+                    
+                    if number_of_moves < TrophySystem.cup_par_values()[key]! {
+                        
+                        confettiView = SAConfettiView(frame: (self.view?.bounds)!)
+                        self.view?.addSubview(confettiView)
+                        confettiView.startConfetti()
+                        
+                        let next = SKLabelNode(text: "Gold medal awarded!")
+                        next.position = CGPoint(x: 0, y: 0)
+                        //next.name = "next"
+                        next.fontSize = 100
+                        next.fontColor = SKColor.red
+                        //score.name = "exit"
+                        next.zPosition = 999999999
+                        
+                        ending_background.addChild(next)
+                    } else {
+                        
+                        
+                        let next = SKLabelNode(text: "Over Par")
+                        next.position = CGPoint(x: 0, y: 0)
+                        //next.name = "next"
+                        next.fontSize = 100
+                        next.fontColor = SKColor.red
+                        //score.name = "exit"
+                        next.zPosition = 999999999
+                        
+                        ending_background.addChild(next)
+                        
+                        
+                    }
+                    
+                    
+                    
+                }
             }
         }
         
@@ -686,6 +744,7 @@ class Course: SKScene, SKPhysicsContactDelegate {
             timer.size = CGSize(width: 0, height: 30)
             
             repaint_obstacles()
+            repaint_previous_locations()
             let timing = SKAction.resize(toWidth: 2 * self.frame.width, duration: TimeInterval(time_between_moves))
 
             timer.run(timing)
@@ -697,7 +756,7 @@ class Course: SKScene, SKPhysicsContactDelegate {
             let starting_x_position = Int(starting_point.x)
             let starting_y_position = Int(starting_point.y)
             
-            previous_locations.append((x: racecar.x_position, y: racecar.y_position))
+            
             
             let previous_location_node = SKSpriteNode(color: SKColor.green, size: CGSize(width: 10, height: 10))
             previous_location_node.position = (grid?.gridPosition(row: racecar.y_position, col: racecar.x_position))!
@@ -1029,6 +1088,10 @@ class Course: SKScene, SKPhysicsContactDelegate {
                         
                         //                        resume.removeFromParent()
                         //                        exit.removeFromParent()
+                    }
+                    
+                    if game_type == "grand_prix" {
+                        number_of_moves = starting_move_number
                     }
                     pause_background.removeFromParent()
                     crash_background.removeFromParent()
