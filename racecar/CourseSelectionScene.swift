@@ -41,7 +41,7 @@ class CourseSelectionScene: SKScene {
         //course one
         
         easyButton.fontColor = purple
-        easyButton.text = name + " Course #1"
+        easyButton.text = "Course #1"
         easyButton.fontSize = 70
         // + "/" + "\(Int( TrophySystem.par_values()[ name + "CourseOne" ]! ))"
         
@@ -59,7 +59,7 @@ class CourseSelectionScene: SKScene {
         //course two
         
         course_two.fontColor = purple
-        course_two.text = name + " Course #2"
+        course_two.text = "Course #2"
         course_two.fontSize = 70
         
         course_two_highscore.text = "_"
@@ -75,7 +75,7 @@ class CourseSelectionScene: SKScene {
         //course_three
         
         course_three.fontColor = purple
-        course_three.text = name + " Course #3"
+        course_three.text = "Course #3"
         course_three.fontSize = 70
         
         course_three_highscore.text = "_"
@@ -89,7 +89,7 @@ class CourseSelectionScene: SKScene {
         //course four
         
         course_four.fontColor = purple
-        course_four.text = name + " Course #4"
+        course_four.text = "Course #4"
         course_four.fontSize = 70
         
         course_four_highscore.text = "_"
@@ -108,20 +108,20 @@ class CourseSelectionScene: SKScene {
         
         
         
-        easyButton.position = CGPoint(x: size.width / 2 - 100, y:  size.height / 3 + 400)
-        easyButtonHighScore.position = CGPoint(x: size.width - 100, y: size.height / 3 + 400)
+        easyButton.position = CGPoint(x: size.width / 2 - 180, y:  size.height / 3 + 400)
+        easyButtonHighScore.position = CGPoint(x: size.width / 2 + 50, y: size.height / 3 + 400)
         easyButton.fontName = "Arcade"
-        course_two.position = CGPoint(x: size.width / 2 - 100, y: size.height / 3 + 300)
-        course_two_highscore.position = CGPoint(x: size.width - 100, y: size.height / 3 + 300)
+        course_two.position = CGPoint(x: size.width / 2 - 180, y: size.height / 3 + 300)
+        course_two_highscore.position = CGPoint(x: size.width / 2 + 50, y: size.height / 3 + 300)
         course_two.fontName = "Arcade"
         
-        course_three.position = CGPoint(x: size.width / 2 - 100, y: size.height / 3 + 200)
-        course_three_highscore.position = CGPoint(x: size.width - 100 , y: size.height / 3 + 200)
+        course_three.position = CGPoint(x: size.width / 2 - 180, y: size.height / 3 + 200)
+        course_three_highscore.position = CGPoint(x: size.width / 2 + 50 , y: size.height / 3 + 200)
         
         course_three.fontName = "Arcade"
         
-        course_four.position = CGPoint(x: size.width / 2 - 100, y: size.height / 3 + 100)
-        course_four_highscore.position = CGPoint(x: size.width - 100, y: size.height / 3 + 100)
+        course_four.position = CGPoint(x: size.width / 2 - 180, y: size.height / 3 + 100)
+        course_four_highscore.position = CGPoint(x: size.width / 2 + 50, y: size.height / 3 + 100)
         
         course_four.fontName = "Arcade"
         

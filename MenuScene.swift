@@ -135,6 +135,10 @@ class MenuScene: SKScene {
         let touch = touches.first
         let touchLocation = touch!.location(in: self)
         
+        GrandPrixBackground.color = purple
+        TimeTrialsBackground.color = purple
+        HowToPlayBackground.color = purple
+        
         if GrandPrixBackground.contains(touchLocation) {
             //CGSize(width: 750, height: 1334)
             let reveal = SKTransition.doorsOpenHorizontal(withDuration: 0.25)

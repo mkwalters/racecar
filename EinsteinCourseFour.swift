@@ -30,11 +30,19 @@ class EinsteinCourseFour: Course {
         
         last_course_in_cup = true
         
+//        colors = [
+//            UIColor(red: 233/255, green: 217/255, blue: 133/255, alpha: 1.0),
+//            UIColor(red: 116/255, green: 156/255, blue: 117/255, alpha: 1.0),
+//            UIColor(red: 93/255, green: 74/255, blue: 102/255, alpha: 1.0)
+//        ]]
+        
+            
         colors = [
-            UIColor(red: 233/255, green: 217/255, blue: 133/255, alpha: 1.0),
-            UIColor(red: 116/255, green: 156/255, blue: 117/255, alpha: 1.0),
-            UIColor(red: 93/255, green: 74/255, blue: 102/255, alpha: 1.0)
+            UIColor(red: 8/255, green: 103/255, blue: 136/255, alpha: 1.0),
+            UIColor(red: 240/255, green: 200/255, blue: 8/255, alpha: 1.0),
+            UIColor(red: 221/255, green: 28/255, blue: 26/255, alpha: 1.0)
         ]
+        
         
         //1
         for j in 4...6{
