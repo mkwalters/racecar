@@ -29,11 +29,11 @@ class GalileoCourseThree: Course {
         self.draw_checkpoint_two(position: (grid?.gridPosition(row:  25, col: 14))!)
         self.draw_finish_line(position: (grid?.gridPosition(row:  17, col: 23))!)
         
-        colors = [
-            UIColor(red: 72/255, green: 172/255, blue: 240/255, alpha: 1.0),
-            UIColor(red: 89/255, green: 66/255, blue: 54/255, alpha: 1.0),
-            UIColor(red: 255/255, green: 165/255, blue: 82/255, alpha: 1.0)
-        ]
+//        colors = [
+//            UIColor(red: 72/255, green: 172/255, blue: 240/255, alpha: 1.0),
+//            UIColor(red: 89/255, green: 66/255, blue: 54/255, alpha: 1.0),
+//            UIColor(red: 255/255, green: 165/255, blue: 82/255, alpha: 1.0)
+//        ]
         
         obstacles = []
         

@@ -18,11 +18,14 @@ class CupSelectionScene: SKScene {
     let backButton = SKLabelNode()
     
     
+    let title_first_word = SKLabelNode()
+    let title_second_word = SKLabelNode()
     
-    var easyBackground = SKSpriteNode(color: UIColor(red: 51/255, green: 0/255, blue: 54/255, alpha: 1.0), size: CGSize(width: 370, height: 115)  )
-    var hardBackground = SKSpriteNode(color: UIColor(red: 51/255, green: 0/255, blue: 54/255, alpha: 1.0), size: CGSize(width: 370, height: 115)  )
-    var menuBackground = SKSpriteNode(color: UIColor(red: 51/255, green: 0/255, blue: 54/255, alpha: 1.0), size: CGSize(width: 370, height: 115)  )
-    var backBackground = SKSpriteNode(color: UIColor(red: 51/255, green: 0/255, blue: 54/255, alpha: 1.0), size: CGSize(width: 250, height: 115)  )
+    
+    var easyBackground = SKSpriteNode(color: blue, size: CGSize(width: 370, height: 115)  )
+    var hardBackground = SKSpriteNode(color: blue, size: CGSize(width: 370, height: 115)  )
+    var menuBackground = SKSpriteNode(color: blue, size: CGSize(width: 370, height: 115)  )
+    var backBackground = SKSpriteNode(color: blue, size: CGSize(width: 250, height: 115)  )
     
     
     var game_type = String()
@@ -33,12 +36,94 @@ class CupSelectionScene: SKScene {
         game_type = type
         
         
+        title_first_word.text = "Time"
+        title_first_word.fontSize = 100
+        title_first_word.fontColor = yellow
+        title_first_word.position = CGPoint(x: 0, y: 450)
+        title_first_word.fontName = "FasterOne-Regular"
+        
+        
+        title_second_word.text = "Trials"
+        title_second_word.fontSize = 100
+        title_second_word.fontColor = yellow
+        title_second_word.position = CGPoint(x: 0, y: 350)
+        title_second_word.fontName = "FasterOne-Regular"
+        
+        addChild(title_first_word)
+        addChild(title_second_word)
+        
         if game_type == "grand_prix" {
             
-            easyBackground = SKSpriteNode(color: UIColor(red: 51/255, green: 0/255, blue: 54/255, alpha: 1.0), size: CGSize(width: 630, height: 115)  )
-            hardBackground = SKSpriteNode(color: UIColor(red: 51/255, green: 0/255, blue: 54/255, alpha: 1.0), size: CGSize(width: 630, height: 115)  )
-            menuBackground = SKSpriteNode(color: UIColor(red: 51/255, green: 0/255, blue: 54/255, alpha: 1.0), size: CGSize(width: 630, height: 115)  )
-            backBackground = SKSpriteNode(color: UIColor(red: 51/255, green: 0/255, blue: 54/255, alpha: 1.0), size: CGSize(width: 250, height: 115)  )
+            title_first_word.text = "Grand"
+            title_second_word.text = "Prix"
+            
+            
+            let galileo_gold_medal_background = SKSpriteNode(color: blue, size: CGSize(width: 115, height: 115))
+            galileo_gold_medal_background.position = CGPoint(x: 240, y: 180)
+            galileo_gold_medal_background.scale(to: CGSize(width: 115, height: 115))
+            galileo_gold_medal_background.zPosition = 4
+            
+            let newton_gold_medal_background = SKSpriteNode(color: blue, size: CGSize(width: 115, height: 115))
+            newton_gold_medal_background.position = CGPoint(x: 240, y: 0)
+            newton_gold_medal_background.scale(to: CGSize(width: 115, height: 115))
+            newton_gold_medal_background.zPosition = 4
+            
+            let einstein_gold_medal_background = SKSpriteNode(color: blue, size: CGSize(width: 115, height: 115))
+            einstein_gold_medal_background.position = CGPoint(x: 240, y: -180)
+            einstein_gold_medal_background.scale(to: CGSize(width: 115, height: 115))
+            einstein_gold_medal_background.zPosition = 4
+            
+            
+            addChild(galileo_gold_medal_background)
+            addChild(newton_gold_medal_background)
+            addChild(einstein_gold_medal_background)
+            ///
+            var galileo_gold_medal = SKSpriteNode(imageNamed: "gold_medal_outline")
+
+            if let _ = UserDefaults.standard.value(forKey: "GalileoCourseFourGold") {
+                
+                galileo_gold_medal = SKSpriteNode(imageNamed: "gold_medal")
+            }
+            ////
+            
+            var newton_gold_medal = SKSpriteNode(imageNamed: "gold_medal_outline")
+            
+            if let _ = UserDefaults.standard.value(forKey: "NewtonCourseFourGold") {
+                
+                newton_gold_medal = SKSpriteNode(imageNamed: "gold_medal")
+            }
+            ////
+            var einstein_gold_medal = SKSpriteNode(imageNamed: "gold_medal_outline")
+            
+            if let _ = UserDefaults.standard.value(forKey: "EinsteinCourseFourGold") {
+                
+                einstein_gold_medal = SKSpriteNode(imageNamed: "gold_medal")
+            }
+            
+            
+            galileo_gold_medal.position = CGPoint(x: 240, y: 180)
+            galileo_gold_medal.scale(to: CGSize(width: 115, height: 115))
+            galileo_gold_medal.zPosition = 5
+            
+            newton_gold_medal.position = CGPoint(x: 240, y: 0)
+            newton_gold_medal.scale(to: CGSize(width: 115, height: 115))
+            newton_gold_medal.zPosition = 5
+            
+            einstein_gold_medal.position = CGPoint(x: 240, y: -180)
+            einstein_gold_medal.scale(to: CGSize(width: 115, height: 115))
+            einstein_gold_medal.zPosition = 5
+            
+            
+            addChild(galileo_gold_medal)
+            addChild(newton_gold_medal)
+            addChild(einstein_gold_medal)
+            
+            
+            easyBackground = SKSpriteNode(color: blue, size: CGSize(width: 430, height: 115)  )
+            hardBackground = SKSpriteNode(color: blue, size: CGSize(width: 430, height: 115)  )
+            menuBackground = SKSpriteNode(color: blue, size: CGSize(width: 430, height: 115)  )
+            backBackground = SKSpriteNode(color: blue, size: CGSize(width: 250, height: 115)  )
+            
             
         }
         
@@ -46,7 +131,7 @@ class CupSelectionScene: SKScene {
         
         self.size = CGSize(width: 750, height: 1334)
         
-        backgroundColor = green
+        backgroundColor = SKColor.black
         
         //'s Cup
         
@@ -68,26 +153,26 @@ class CupSelectionScene: SKScene {
         backBackground.zPosition = 4
         addChild(backBackground)
         
-        easyButton.fontColor = green
+        easyButton.fontColor = yellow
         easyButton.text = "Galileo"
         easyButton.fontSize = 100
         easyButton.fontName = "Arcade"
         easyButton.zPosition = 5
         
-        hardButton.fontColor = green
+        hardButton.fontColor = yellow
         hardButton.text = "Newton"
         hardButton.fontSize = 100
         hardButton.fontName = "Arcade"
         hardButton.zPosition = 5
         
-        menuButton.fontColor = green
+        menuButton.fontColor = yellow
         menuButton.text = "Einstein"
         menuButton.fontSize = 100
         menuButton.fontName = "Arcade"
         menuButton.zPosition = 5
         
         
-        backButton.fontColor = green
+        backButton.fontColor = yellow
         backButton.text = "Back"
         backButton.fontSize = 100
         backButton.fontName = "Arcade"
@@ -96,9 +181,23 @@ class CupSelectionScene: SKScene {
         
         if game_type == "grand_prix" {
             
+            easyButton.fontSize = 70
+            hardButton.fontSize = 70
+            menuButton.fontSize = 70
+            
+            
+            
             easyButton.text = easyButton.text! + "'s Cup"
             hardButton.text = hardButton.text! + "'s Cup"
             menuButton.text = menuButton.text! + "'s Cup"
+            
+            easyBackground.position = CGPoint(x: -60, y: 180)
+            hardBackground.position = CGPoint(x: -60, y: 0)
+            menuBackground.position = CGPoint(x: -60, y: -180)
+            
+            
+            
+            
         }
         
         easyButton.position = CGPoint(x: 0, y: -50)
@@ -148,10 +247,10 @@ class CupSelectionScene: SKScene {
         let touch = touches.first
         let touchLocation = touch!.location(in: self)
         
-        easyBackground.color = purple
-        hardBackground.color = purple
-        menuBackground.color = purple
-        backBackground.color = purple
+        easyBackground.color = blue
+        hardBackground.color = blue
+        menuBackground.color = blue
+        backBackground.color = blue
         
         if easyBackground.contains(touchLocation) {
             

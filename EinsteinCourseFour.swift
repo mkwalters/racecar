@@ -37,11 +37,11 @@ class EinsteinCourseFour: Course {
 //        ]]
         
             
-        colors = [
-            UIColor(red: 8/255, green: 103/255, blue: 136/255, alpha: 1.0),
-            UIColor(red: 240/255, green: 200/255, blue: 8/255, alpha: 1.0),
-            UIColor(red: 221/255, green: 28/255, blue: 26/255, alpha: 1.0)
-        ]
+//        colors = [
+//            UIColor(red: 8/255, green: 103/255, blue: 136/255, alpha: 1.0),
+//            UIColor(red: 240/255, green: 200/255, blue: 8/255, alpha: 1.0),
+//            UIColor(red: 221/255, green: 28/255, blue: 26/255, alpha: 1.0)
+//        ]
         
         
         //1

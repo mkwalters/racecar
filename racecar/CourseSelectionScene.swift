@@ -36,17 +36,17 @@ class CourseSelectionScene: SKScene {
         super.init(size: CGSize(width: 750, height: 1334))
         
         self.size = CGSize(width: 750, height: 1334)
-        backgroundColor = green
+        backgroundColor = SKColor.black
         game_type = type
         //course one
         
-        easyButton.fontColor = purple
+        easyButton.fontColor = yellow
         easyButton.text = "Course #1"
         easyButton.fontSize = 70
         // + "/" + "\(Int( TrophySystem.par_values()[ name + "CourseOne" ]! ))"
         
         easyButtonHighScore.text = "_"
-        easyButtonHighScore.fontColor = purple
+        easyButtonHighScore.fontColor = yellow
         easyButtonHighScore.fontName = "Arcade"
         if let score = UserDefaults.standard.value(forKey: name + "CourseOne") {
             easyButtonHighScore.text = "\(score)"
@@ -58,12 +58,12 @@ class CourseSelectionScene: SKScene {
         
         //course two
         
-        course_two.fontColor = purple
+        course_two.fontColor = yellow
         course_two.text = "Course #2"
         course_two.fontSize = 70
         
         course_two_highscore.text = "_"
-        course_two_highscore.fontColor = purple
+        course_two_highscore.fontColor = yellow
         course_two_highscore.fontName = "Arcade"
         if let score = UserDefaults.standard.value(forKey: name + "CourseTwo") {
             course_two_highscore.text = "\(score)"
@@ -74,12 +74,12 @@ class CourseSelectionScene: SKScene {
         
         //course_three
         
-        course_three.fontColor = purple
+        course_three.fontColor = yellow
         course_three.text = "Course #3"
         course_three.fontSize = 70
         
         course_three_highscore.text = "_"
-        course_three_highscore.fontColor = purple
+        course_three_highscore.fontColor = yellow
         course_three_highscore.fontSize = 40
         course_three_highscore.fontName = "Arcade"
         if let score = UserDefaults.standard.value(forKey: name + "CourseThree") {
@@ -88,12 +88,12 @@ class CourseSelectionScene: SKScene {
         course_three_highscore.text = course_three_highscore.text! + "/" + "\(Int( TrophySystem.par_values()[ name + "CourseThree" ]! ))"
         //course four
         
-        course_four.fontColor = purple
+        course_four.fontColor = yellow
         course_four.text = "Course #4"
         course_four.fontSize = 70
         
         course_four_highscore.text = "_"
-        course_four_highscore.fontColor = purple
+        course_four_highscore.fontColor = yellow
         course_four_highscore.fontSize = 40
         course_four_highscore.fontName = "Arcade"
         if let score = UserDefaults.standard.value(forKey: name + "CourseFour") {
@@ -102,7 +102,7 @@ class CourseSelectionScene: SKScene {
         course_four_highscore.text = course_four_highscore.text! + "/" + "\(Int( TrophySystem.par_values()[ name + "CourseFour" ]! ))"
         
         
-        hardButton.fontColor = purple
+        hardButton.fontColor = yellow
         hardButton.text = "Back"
         hardButton.fontSize = 70
         

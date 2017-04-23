@@ -186,9 +186,7 @@ class Course: SKScene, SKPhysicsContactDelegate {
         self.draw_checkpoint_two(position: (grid?.gridPosition(row:  36, col: 30))!)
         self.draw_finish_line(position: (grid?.gridPosition(row:  19, col: 28))!)
         
-        colors.append(color1)
-        colors.append(color2)
-        colors.append(color3)
+        colors = [ blue, yellow, red ]
         
         game_type = type
         
@@ -413,7 +411,8 @@ class Course: SKScene, SKPhysicsContactDelegate {
         UIBackground = SKShapeNode(rectOf: CGSize(width: self.frame.width, height: x_acceleration_button.size.height + timer.size.height * 2))
         
         UIBackground.position =  CGPoint(x: 0, y: -1 * self.frame.height / 2 + 170 )
-        UIBackground.fillColor = SKColor.darkGray
+        UIBackground.fillColor = white
+        UIBackground.alpha = 0.75
         UIBackground.zPosition = 200000
         
         
@@ -630,6 +629,8 @@ class Course: SKScene, SKPhysicsContactDelegate {
                     
                     if number_of_moves < TrophySystem.cup_par_values()[key]! {
                         
+                        
+                        UserDefaults.standard.setValue(true, forKey: key + "Gold")
                         confettiView = SAConfettiView(frame: (self.view?.bounds)!)
                         self.view?.addSubview(confettiView)
                         confettiView.startConfetti()
