@@ -74,6 +74,8 @@ class Course: SKScene, SKPhysicsContactDelegate {
     var number_of_moves = 0
     
     var number_of_moves_label = SKLabelNode()
+    let number_of_moves_label_background = SKSpriteNode(color: SKColor.darkGray, size: CGSize(width: 100, height: 70) )
+    
     
     var key = "GalileoCourseOne"
     
@@ -117,6 +119,7 @@ class Course: SKScene, SKPhysicsContactDelegate {
     
     let speedometer = SKSpriteNode(imageNamed: "Counter_01")
     let speedometer_pin = SKSpriteNode(imageNamed: "Needle_01")
+    
     
     
     func pause_music() {
@@ -395,9 +398,17 @@ class Course: SKScene, SKPhysicsContactDelegate {
         number_of_moves_label.text = String(number_of_moves)
         number_of_moves_label.fontSize = 85
         number_of_moves_label.fontName = "Arcade"
-        number_of_moves_label.fontColor = SKColor.red
+        number_of_moves_label.fontColor = red
         number_of_moves_label.position = CGPoint(x: self.frame.width / 2 - 90, y: self.frame.height / 2 - 90)
+        number_of_moves_label.zPosition = 20000000
         self.addChild(number_of_moves_label)
+        
+        
+
+        number_of_moves_label_background.position = CGPoint(x: self.frame.width / 2 - 90, y: self.frame.height / 2 - 50)
+        
+        number_of_moves_label_background.zPosition = 20000001
+        self.addChild(number_of_moves_label_background)
         
         
         self.physicsWorld.contactDelegate = self
