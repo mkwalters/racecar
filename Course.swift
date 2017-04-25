@@ -289,7 +289,7 @@ class Course: SKScene, SKPhysicsContactDelegate {
     }
 
     func draw_finish_line(position: CGPoint) {
-        finish_line = SKSpriteNode(color: SKColor.red, size: CGSize(width: 230, height: 30))
+        finish_line = SKSpriteNode(color: SKColor.red, size: CGSize(width: 250, height: 20))
         finish_line.position = position
         //checkpoint_one.alpha = 0.0
         finish_line.name = "finish_line"
@@ -344,7 +344,7 @@ class Course: SKScene, SKPhysicsContactDelegate {
         
         let starting_angle = ((40.0 / 34.0) * 3.1415) - 1.57079
         let angle = starting_angle - ( (speed * ( 1.0 / 7.0 )) * 3.1415   )
-        let rotate = SKAction.rotate(toAngle: CGFloat(angle), duration: 0)
+        let rotate = SKAction.rotate(toAngle: CGFloat(angle), duration: 0.1)
         speedometer_pin.run(rotate)
     }
     
@@ -596,7 +596,8 @@ class Course: SKScene, SKPhysicsContactDelegate {
             exit = SKLabelNode(text: "Exit")
             exit.position = CGPoint(x: 0, y: -200)
             exit.fontSize = 100
-            exit.fontColor = SKColor.red
+            exit.fontName = "Arcade"
+            exit.fontColor = red
             exit.name = "exit"
             exit.zPosition = 999999999
             
@@ -623,6 +624,7 @@ class Course: SKScene, SKPhysicsContactDelegate {
                 
                 score.position = CGPoint(x: 0, y: 200)
                 score.fontSize = 100
+                score.fontName = "Arcade"
                 score.fontColor = SKColor.red
                 //score.name = "exit"
                 score.zPosition = 999999999
@@ -643,6 +645,7 @@ class Course: SKScene, SKPhysicsContactDelegate {
                 
                 best_score.position = CGPoint(x: 0, y: 100)
                 best_score.fontSize = 80
+                best_score.fontName = "Arcade"
                 best_score.fontColor = SKColor.red
                 //score.name = "exit"
                 best_score.zPosition = 999999999
@@ -652,11 +655,12 @@ class Course: SKScene, SKPhysicsContactDelegate {
             } else if game_type == "grand_prix" {
                 
                 if last_course_in_cup == false {
-                    let next = SKLabelNode(text: "Next Course")
+                    let next = SKLabelNode(text: "Next")
                     next.position = CGPoint(x: 0, y: 0)
                     next.name = "next"
+                    next.fontName = "Arcade"
                     next.fontSize = 100
-                    next.fontColor = SKColor.red
+                    next.fontColor = red
                     //score.name = "exit"
                     next.zPosition = 999999999
                     
@@ -673,10 +677,11 @@ class Course: SKScene, SKPhysicsContactDelegate {
                         self.view?.addSubview(confettiView)
                         confettiView.startConfetti()
                         
-                        let next = SKLabelNode(text: "Gold medal awarded!")
+                        let next = SKLabelNode(text: "Gold medal!!")
                         next.position = CGPoint(x: 0, y: 0)
                         //next.name = "next"
                         next.fontSize = 100
+                        next.fontName = "Arcade"
                         next.fontColor = SKColor.red
                         //score.name = "exit"
                         next.zPosition = 999999999
@@ -689,6 +694,7 @@ class Course: SKScene, SKPhysicsContactDelegate {
                         next.position = CGPoint(x: 0, y: 0)
                         //next.name = "next"
                         next.fontSize = 100
+                        next.fontName = "Arcade"
                         next.fontColor = SKColor.red
                         //score.name = "exit"
                         next.zPosition = 999999999
