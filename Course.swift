@@ -74,7 +74,7 @@ class Course: SKScene, SKPhysicsContactDelegate {
     var number_of_moves = 0
     
     var number_of_moves_label = SKLabelNode()
-    let number_of_moves_label_background = SKSpriteNode(color: SKColor.darkGray, size: CGSize(width: 100, height: 70) )
+    let number_of_moves_label_background = SKSpriteNode(color: SKColor.darkGray, size: CGSize(width: 120, height: 70) )
     
     
     var key = "GalileoCourseOne"

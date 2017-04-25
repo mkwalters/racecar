@@ -26,11 +26,11 @@ class NewtonCourseThree: Course {
         self.draw_finish_line(position: (grid?.gridPosition(row:  21, col: 32))!)
         obstacles = []
         
-//        colors = [
-//            UIColor(red: 164/255, green: 14/255, blue: 76/255, alpha: 1.0),
-//            UIColor(red: 44/255, green: 44/255, blue: 84/255, alpha: 1.0),
-//            UIColor(red: 172/255, green: 195/255, blue: 166/255, alpha: 1.0)
-//        ]
+        colors = [
+            UIColor(red: 164/255, green: 14/255, blue: 76/255, alpha: 1.0),
+            UIColor(red: 44/255, green: 44/255, blue: 84/255, alpha: 1.0),
+            UIColor(red: 172/255, green: 195/255, blue: 166/255, alpha: 1.0)
+        ]
         
         //1
         for j in 6...23{
