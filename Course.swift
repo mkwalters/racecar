@@ -68,8 +68,8 @@ class Course: SKScene, SKPhysicsContactDelegate {
 
     var last_checkpoint = 0
     
-    let pause_background = SKShapeNode(rectOf: CGSize(width: 500, height: 1000))
-    let crash_background = SKShapeNode(rectOf: CGSize(width: 500, height: 1000))
+    let pause_background = SKShapeNode(rectOf: CGSize(width: 650, height: 1100))
+    let crash_background = SKShapeNode(rectOf: CGSize(width: 650, height: 1100))
 
     var number_of_moves = 0
     
@@ -86,7 +86,7 @@ class Course: SKScene, SKPhysicsContactDelegate {
     
     var restart = SKLabelNode()
     
-    var crashed_out = SKLabelNode(text: "Crashed out!")
+    var crashed_out = SKLabelNode(text: "Crashed Out")
     
     var crash_restart = SKLabelNode()
     var exit = SKLabelNode()
@@ -114,6 +114,9 @@ class Course: SKScene, SKPhysicsContactDelegate {
     
     
     var starting_move_number = 0
+    
+    let speedometer = SKSpriteNode(imageNamed: "Counter_01")
+    let speedometer_pin = SKSpriteNode(imageNamed: "Needle_01")
     
     
     func pause_music() {
@@ -305,6 +308,10 @@ class Course: SKScene, SKPhysicsContactDelegate {
         grid?.removeAllActions()
         grid?.removeAllChildren()
         
+        
+        speedometer.removeAllActions()
+        speedometer.removeAllChildren()
+        
         crash_background.removeAllActions()
         crash_background.removeAllChildren()
         
@@ -329,7 +336,14 @@ class Course: SKScene, SKPhysicsContactDelegate {
         
     }
     
-
+    func move_speedometer_pin(speed: Double) {
+        
+        
+        let starting_angle = ((40.0 / 34.0) * 3.1415) - 1.57079
+        let angle = starting_angle - ( (speed * ( 1.0 / 7.0 )) * 3.1415   )
+        let rotate = SKAction.rotate(toAngle: CGFloat(angle), duration: 0)
+        speedometer_pin.run(rotate)
+    }
     
     
     func create_scene() {
@@ -342,7 +356,21 @@ class Course: SKScene, SKPhysicsContactDelegate {
 //        let lucio = SKAction.playSoundFileNamed("bloodrocuted", waitForCompletion: false)
 //        run(lucio)
 //        let pause_lucio = SKAction.pause()
-//
+//      
+        
+        addChild(speedometer)
+        speedometer_pin.anchorPoint = CGPoint(x: 0.5, y: 0.0)
+        speedometer.addChild(speedometer_pin)
+        
+        let rotate = SKAction.rotate(toAngle: ((40.0 / 34.0) * 3.1415) - 1.57079 , duration: 0)
+        speedometer_pin.run(rotate)
+
+        
+        speedometer.position = CGPoint(x: -self.frame.width / 2 + 100, y: -self.frame.height / 2 + 150)
+        speedometer.scale(to: CGSize(width: 115, height: 115))
+        speedometer.zPosition = 200001
+        
+        
         
         
         let pinchGesture = UIPinchGestureRecognizer(target: self, action: #selector(self.handlePinchFrom(_:)))
@@ -411,8 +439,7 @@ class Course: SKScene, SKPhysicsContactDelegate {
         UIBackground = SKShapeNode(rectOf: CGSize(width: self.frame.width, height: x_acceleration_button.size.height + timer.size.height * 2))
         
         UIBackground.position =  CGPoint(x: 0, y: -1 * self.frame.height / 2 + 170 )
-        UIBackground.fillColor = white
-        UIBackground.alpha = 0.75
+        UIBackground.fillColor = SKColor.darkGray
         UIBackground.zPosition = 200000
         
         
@@ -438,8 +465,8 @@ class Course: SKScene, SKPhysicsContactDelegate {
         //        vroom.name = "vroom"
         
         addChild(UIBackground)
-        addChild(x_velocity_display)
-        addChild(y_velocity_display)
+//        addChild(x_velocity_display)
+//        addChild(y_velocity_display)
         addChild(x_acceleration_button)
         addChild(x_deacceleration_button)
         addChild(y_acceleration_button)
@@ -753,6 +780,7 @@ class Course: SKScene, SKPhysicsContactDelegate {
         number_of_moves += 1
         number_of_moves_label.text = String(number_of_moves)
         
+        
         if projected_path.strokeColor == SKColor.green {
             
             timer.removeAllActions()
@@ -831,7 +859,8 @@ class Course: SKScene, SKPhysicsContactDelegate {
                 
                     crashed_out.position = CGPoint(x: 0, y: 200)
                     crashed_out.fontSize = 100
-                    crashed_out.fontColor = SKColor.red
+                    crashed_out.fontName = "Arcade"
+                    crashed_out.fontColor = red
                     crashed_out.zPosition = 999999999
                     
                     
@@ -845,7 +874,8 @@ class Course: SKScene, SKPhysicsContactDelegate {
                     crash_restart = SKLabelNode(text: "Restart")
                     crash_restart.position = CGPoint(x: 0, y: 0)
                     crash_restart.fontSize = 100
-                    crash_restart.fontColor = SKColor.red
+                    crash_restart.fontName = "Arcade"
+                    crash_restart.fontColor = blue
                     crash_restart.name = "restart"
                     crash_restart.zPosition = 999999999
                     
@@ -853,7 +883,8 @@ class Course: SKScene, SKPhysicsContactDelegate {
                     crash_exit = SKLabelNode(text: "Exit")
                     crash_exit.position = CGPoint(x: 0, y: -200)
                     crash_exit.fontSize = 100
-                    crash_exit.fontColor = SKColor.red
+                    crash_exit.fontName = "Arcade"
+                    crash_exit.fontColor = blue
                     crash_exit.name = "exit"
                     crash_exit.zPosition = 999999999
                     
@@ -871,9 +902,10 @@ class Course: SKScene, SKPhysicsContactDelegate {
                     if remaining_lives > 0 {
                         
                         
-                        crashed_out.position = CGPoint(x: 0, y: 200)
+                        crashed_out.position = CGPoint(x: 0, y: 300)
                         crashed_out.fontSize = 100
-                        crashed_out.fontColor = SKColor.red
+                        crashed_out.fontName = "Arcade"
+                        crashed_out.fontColor = red
                         crashed_out.zPosition = 999999999
                         
                         
@@ -884,25 +916,28 @@ class Course: SKScene, SKPhysicsContactDelegate {
                         
                         
                         let remaining_lives_label = SKLabelNode(text: "Remaining lives: " + String(remaining_lives))
-                        remaining_lives_label.position = CGPoint(x: 0, y: 100)
-                        remaining_lives_label.fontSize = 60
-                        remaining_lives_label.fontColor = SKColor.red
+                        remaining_lives_label.position = CGPoint(x: 0, y: 125)
+                        remaining_lives_label.fontSize = 70
+                        remaining_lives_label.fontName = "Arcade"
+                        remaining_lives_label.fontColor = blue
                         remaining_lives_label.name = "restart"
                         remaining_lives_label.zPosition = 999999999
                         
                         
                         crash_restart = SKLabelNode(text: "Restart")
-                        crash_restart.position = CGPoint(x: 0, y: 0)
+                        crash_restart.position = CGPoint(x: 0, y: -150)
                         crash_restart.fontSize = 100
-                        crash_restart.fontColor = SKColor.red
+                        crash_restart.fontName = "Arcade"
+                        crash_restart.fontColor = blue
                         crash_restart.name = "restart"
                         crash_restart.zPosition = 999999999
                         
                         
                         crash_exit = SKLabelNode(text: "Exit")
-                        crash_exit.position = CGPoint(x: 0, y: -200)
+                        crash_exit.position = CGPoint(x: 0, y: -300)
                         crash_exit.fontSize = 100
-                        crash_exit.fontColor = SKColor.red
+                        crash_exit.fontName = "Arcade"
+                        crash_exit.fontColor = blue
                         crash_exit.name = "exit"
                         crash_exit.zPosition = 999999999
                         
@@ -920,7 +955,6 @@ class Course: SKScene, SKPhysicsContactDelegate {
                         crashed_out.position = CGPoint(x: 0, y: 200)
                         crashed_out.text = "Game Over"
                         crashed_out.fontSize = 100
-                        crashed_out.fontColor = SKColor.red
                         crashed_out.zPosition = 999999999
                         
                         
@@ -936,7 +970,8 @@ class Course: SKScene, SKPhysicsContactDelegate {
                         crash_exit = SKLabelNode(text: "Exit")
                         crash_exit.position = CGPoint(x: 0, y: -200)
                         crash_exit.fontSize = 100
-                        crash_exit.fontColor = SKColor.red
+                        crash_exit.fontName = "Arcade"
+                        crash_exit.fontColor = blue
                         crash_exit.name = "exit"
                         crash_exit.zPosition = 999999999
                         
@@ -985,7 +1020,7 @@ class Course: SKScene, SKPhysicsContactDelegate {
                             racecar.x_acceleration += 1
                             
                             draw_projected_path()
-                        
+                            move_speedometer_pin(speed: racecar.projected_speed())
                         }
                     
                     }
@@ -995,7 +1030,7 @@ class Course: SKScene, SKPhysicsContactDelegate {
                         
                         if racecar.x_acceleration > -1 {
                             racecar.x_acceleration -= 1
-                            
+                            move_speedometer_pin(speed: racecar.projected_speed())
                             draw_projected_path()
                             
                         }
@@ -1006,7 +1041,7 @@ class Course: SKScene, SKPhysicsContactDelegate {
                         
                         if racecar.y_acceleration < 1 {
                             racecar.y_acceleration += 1
-                            
+                            move_speedometer_pin(speed: racecar.projected_speed())
                             draw_projected_path()
                             
                         }
@@ -1017,7 +1052,7 @@ class Course: SKScene, SKPhysicsContactDelegate {
                         
                         if racecar.y_acceleration > -1 {
                             racecar.y_acceleration -= 1
-                            
+                            move_speedometer_pin(speed: racecar.projected_speed())
                             draw_projected_path()
                             
                         }
@@ -1044,23 +1079,26 @@ class Course: SKScene, SKPhysicsContactDelegate {
                             
                             resume = SKLabelNode(text: "Resume")
                             resume.position = CGPoint(x: 0, y: 200)
-                            resume.fontSize = 100
-                            resume.fontColor = SKColor.red
+                            resume.fontName = "Arcade"
+                            resume.fontSize = 150
+                            resume.fontColor = blue
                             resume.name = "resume"
                             resume.zPosition = 999999999
                             
                             restart = SKLabelNode(text: "Restart")
                             restart.position = CGPoint(x: 0, y: 0)
-                            restart.fontSize = 100
-                            restart.fontColor = SKColor.red
+                            restart.fontName = "Arcade"
+                            restart.fontSize = 150
+                            restart.fontColor = blue
                             restart.name = "restart"
                             restart.zPosition = 999999999
                             
                             
                             exit = SKLabelNode(text: "Exit")
                             exit.position = CGPoint(x: 0, y: -200)
-                            exit.fontSize = 100
-                            exit.fontColor = SKColor.red
+                            exit.fontName = "Arcade"
+                            exit.fontSize = 125
+                            exit.fontColor = blue
                             exit.name = "exit"
                             exit.zPosition = 999999999
                             

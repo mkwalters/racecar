@@ -40,4 +40,20 @@ class Racecar {
         y_acceleration = 0
     }
     
+    func speed() -> Double {
+        
+        return( sqrt( Double(( x_velocity * x_velocity )) + Double(( y_velocity * y_velocity )) ) )
+        
+    }
+    
+    
+    func projected_speed() -> Double {
+        
+        let x_squared = Double( ( (x_velocity + x_acceleration) * (x_velocity + x_acceleration)))
+        let y_squared = Double( ( (y_velocity + y_acceleration) * (y_velocity + y_acceleration)))
+        
+        return( sqrt( x_squared  +  y_squared  ) )
+        
+    }
+    
 }
