@@ -269,26 +269,39 @@ class CupSelectionScene: SKScene {
         
         if hardBackground.contains(touchLocation) {
             
-            if self.game_type == "time_trials" {
-                let reveal = SKTransition.doorsOpenVertical(withDuration: 0.25)
-                let gameScene = NewtonCourseSelectionScene(name: "Newton", type: game_type)
-                self.view?.presentScene(gameScene, transition: reveal)
-            } else {
-                let reveal = SKTransition.doorsOpenHorizontal(withDuration: 0.25)
-                let gameScene = NewtonCourseOne(type: "grand_prix", previous_move_count: 0, number_of_lives: 3)
-                self.view?.presentScene(gameScene, transition: reveal)
+            if let _ = UserDefaults.standard.value(forKey: "GalileoCourseFourGold") {
+            
+                if self.game_type == "time_trials" {
+                    let reveal = SKTransition.doorsOpenVertical(withDuration: 0.25)
+                    let gameScene = NewtonCourseSelectionScene(name: "Newton", type: game_type)
+                    self.view?.presentScene(gameScene, transition: reveal)
+                } else {
+                    let reveal = SKTransition.doorsOpenHorizontal(withDuration: 0.25)
+                    let gameScene = NewtonCourseOne(type: "grand_prix", previous_move_count: 0, number_of_lives: 3)
+                    self.view?.presentScene(gameScene, transition: reveal)
+                }
+            
             }
         }
         
         if menuBackground.contains(touchLocation){
-            if self.game_type == "time_trials" {
-                let reveal = SKTransition.doorsOpenVertical(withDuration: 0.25)
-                let menuScene = EinsteinCourseSelectionScene(name: "Einstein", type: game_type)
-                self.view?.presentScene(menuScene, transition: reveal)
-            } else {
-                let reveal = SKTransition.doorsOpenHorizontal(withDuration: 0.25)
-                let gameScene = EinsteinCourseOne(type: "grand_prix", previous_move_count: 0, number_of_lives: 3)
-                self.view?.presentScene(gameScene, transition: reveal)
+            
+            if let _ = UserDefaults.standard.value(forKey: "GalileoCourseFourGold") {
+                
+                if let _ = UserDefaults.standard.value(forKey: "NewtonCourseFourGold") {
+            
+                    if self.game_type == "time_trials" {
+                        let reveal = SKTransition.doorsOpenVertical(withDuration: 0.25)
+                        let menuScene = EinsteinCourseSelectionScene(name: "Einstein", type: game_type)
+                        self.view?.presentScene(menuScene, transition: reveal)
+                    } else {
+                        let reveal = SKTransition.doorsOpenHorizontal(withDuration: 0.25)
+                        let gameScene = EinsteinCourseOne(type: "grand_prix", previous_move_count: 0, number_of_lives: 3)
+                        self.view?.presentScene(gameScene, transition: reveal)
+                    }
+                    
+                }
+                
             }
         }
     
