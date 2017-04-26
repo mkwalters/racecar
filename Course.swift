@@ -44,6 +44,7 @@ class Course: SKScene, SKPhysicsContactDelegate {
     let vroom = SKSpriteNode(imageNamed: "red")
 
     var obstacles:[(x: Int, y: Int)] = []
+    var available_moves:[(x: Int, y: Int)] = []
 
     var bot_path:[(x: Int, y: Int)] = []
 
@@ -51,6 +52,8 @@ class Course: SKScene, SKPhysicsContactDelegate {
     var available_locations:[(x: Int, y: Int)] = []
     
     var obstacles_nodes = [SKSpriteNode]()
+    
+    var available_moves_nodes = [SKSpriteNode]()
 
     let projected_path = SKShapeNode()
 
@@ -131,6 +134,48 @@ class Course: SKScene, SKPhysicsContactDelegate {
     func resume_music() {
         let resume_music = SKAction.play()
         audioooo.run(resume_music)
+    }
+    
+    func draw_available_moves() {
+        
+        
+        for available_move in available_moves_nodes {
+            available_move.removeFromParent()
+        }
+        
+        build_available_moves(x: racecar.x_position + racecar.x_velocity + racecar.x_acceleration  , y: racecar.y_position  - racecar.y_velocity - racecar.y_acceleration )
+        for i in 0...8 {
+            
+            let current_node = SKSpriteNode(color: SKColor.green , size: CGSize(width: 30, height: 30))
+            current_node.position = (grid?.gridPosition(row:  available_moves[i].y , col: available_moves[i].x ))!
+            current_node.alpha = 0.25
+            current_node.name = "available_move"
+            
+            available_moves_nodes.append(current_node)
+            grid?.addChild(current_node)
+        }
+        
+    }
+    
+    
+    func build_available_moves(x: Int, y: Int) {
+        // probably a smarter way to do this but theres ony nine
+        available_moves = []
+        
+        available_moves.append( (x: x - 1, y: y + 1) )
+        available_moves.append( (x: x, y: y + 1) )
+        available_moves.append( (x: x + 1, y: y + 1) )
+
+        available_moves.append( (x: x - 1, y: y) )
+        available_moves.append( (x: x, y: y) )
+        available_moves.append( (x: x + 1, y: y) )
+        
+        available_moves.append( (x: x - 1, y: y - 1) )
+        available_moves.append( (x: x, y: y - 1) )
+        available_moves.append( (x: x + 1, y: y - 1) )
+
+
+        
     }
     
     func draw_projected_path() {
@@ -853,7 +898,7 @@ class Course: SKScene, SKPhysicsContactDelegate {
             grid?.addChild(gamePiece)
             
             draw_projected_path()
-            
+            draw_available_moves()
             if crossing_finish_line == true {
                 cross_finish_line()
             }
