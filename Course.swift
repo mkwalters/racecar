@@ -27,7 +27,8 @@ class Course: SKScene, SKPhysicsContactDelegate {
 
     let y_deacceleration_button = SKSpriteNode(imageNamed: "down_blue")
     
-    var UIBackground = SKShapeNode(rectOf: CGSize(width: 1334 , height: 150))
+    var UIBackground = SKShapeNode(rectOf: CGSize(width: 250 , height: 250))
+    var speedometerUIBackground = SKShapeNode(rectOf: CGSize(width: 250 , height: 250))
 
     var gameDifficulty = String()
 
@@ -57,7 +58,7 @@ class Course: SKScene, SKPhysicsContactDelegate {
 
     let projected_path = SKShapeNode()
 
-    let timer = SKSpriteNode(color: SKColor.blue, size: CGSize(width: 30, height: 30))
+    let timer = SKSpriteNode(color: SKColor.white , size: CGSize(width: 30, height: 30))
 
     var time_between_moves = CGFloat()
 
@@ -101,6 +102,8 @@ class Course: SKScene, SKPhysicsContactDelegate {
     var crossing_finish_line = false
     
     var game_type = String()
+    var cup_membership = String()
+    
     
     var audioooo = SKAudioNode(fileNamed: "Bloodrocuted")
     
@@ -387,7 +390,7 @@ class Course: SKScene, SKPhysicsContactDelegate {
     func move_speedometer_pin(speed: Double) {
         
         
-        let starting_angle = ((40.0 / 34.0) * 3.1415) - 1.57079
+        let starting_angle = ((41.0 / 34.0) * 3.1415) - 1.57079
         let angle = starting_angle - ( (speed * ( 1.0 / 7.0 )) * 3.1415   )
         let rotate = SKAction.rotate(toAngle: CGFloat(angle), duration: 0.1)
         speedometer_pin.run(rotate)
@@ -410,12 +413,12 @@ class Course: SKScene, SKPhysicsContactDelegate {
         speedometer_pin.anchorPoint = CGPoint(x: 0.5, y: 0.0)
         speedometer.addChild(speedometer_pin)
         
-        let rotate = SKAction.rotate(toAngle: ((40.0 / 34.0) * 3.1415) - 1.57079 , duration: 0)
+        let rotate = SKAction.rotate(toAngle: ((41.0 / 34.0) * 3.1415) - 1.57079 , duration: 0)
         speedometer_pin.run(rotate)
 
         
-        speedometer.position = CGPoint(x: -self.frame.width / 2 + 100, y: -self.frame.height / 2 + 150)
-        speedometer.scale(to: CGSize(width: 115, height: 115))
+        speedometer.position = CGPoint(x: -1 * self.frame.width / 2 + 125  ,y: -1 * self.frame.height / 2 + 225)
+        speedometer.scale(to: CGSize(width: 225 , height: 225))
         speedometer.zPosition = 200001
         
         
@@ -427,7 +430,9 @@ class Course: SKScene, SKPhysicsContactDelegate {
         projected_path.strokeColor = SKColor.green
         
         
-        timer.position = CGPoint(x: -375, y: -440)
+        //timer.position = CGPoint(x: -375, y: -440)
+        timer.position = CGPoint(x: -5, y: -1 * self.frame.height / 2 + 225)
+        
         timer.zPosition = 20000000
         
         pause.position = CGPoint(x: -self.frame.width /
@@ -492,24 +497,28 @@ class Course: SKScene, SKPhysicsContactDelegate {
         //y_deacceleration_button.position = CGPoint(x: self.frame.width / 2 - 75, y: -1 * self.frame.height / 2 + 50)
         y_deacceleration_button.name = "y_deacceleration_button"
         
-        UIBackground = SKShapeNode(rectOf: CGSize(width: self.frame.width, height: x_acceleration_button.size.height + timer.size.height * 2))
+//        UIBackground = SKShapeNode(rectOf: CGSize(width: self.frame.width, height: x_acceleration_button.size.height + timer.size.height * 2))
         
-        UIBackground.position =  CGPoint(x: 0, y: -1 * self.frame.height / 2 + 170 )
+        UIBackground.position =  CGPoint(x: self.frame.width / 2 - 135  ,y: -1 * self.frame.height / 2 + 225)
+        //UIBackground.position = CGPoint(x: 0, y: 0)
         UIBackground.fillColor = SKColor.darkGray
         UIBackground.zPosition = 200000
         
+        speedometerUIBackground.position =  CGPoint(x: -1 * self.frame.width / 2 + 125  ,y: -1 * self.frame.height / 2 + 225)
+        //UIBackground.position = CGPoint(x: 0, y: 0)
+        speedometerUIBackground.fillColor = SKColor.darkGray
+        speedometerUIBackground.zPosition = 200000
         
-        
-        x_acceleration_button.position = CGPoint(x: -self.frame.width / 12, y: -1 * self.frame.height / 2 + 150)
+        x_acceleration_button.position = CGPoint(x: self.frame.width / 2 - 50, y: -1 * self.frame.height / 2 + 225)
         x_acceleration_button.zPosition = 2000001
         
-        x_deacceleration_button.position = CGPoint(x: self.frame.width / 12 , y: -1 * self.frame.height / 2 + 150)
+        x_deacceleration_button.position = CGPoint(x: self.frame.width / 2 - 220 , y: -1 * self.frame.height / 2 + 225)
         x_deacceleration_button.zPosition = 2000001
         
-        y_acceleration_button.position = CGPoint(x: self.frame.width / 4, y: -1 * self.frame.height / 2 + 150)
+        y_acceleration_button.position = CGPoint(x: self.frame.width / 2 - 135, y: -1 * self.frame.height / 2 + 310)
         y_acceleration_button.zPosition = 2000001
         
-        y_deacceleration_button.position = CGPoint(x: self.frame.width / 2 - 75, y: -1 * self.frame.height / 2 + 150)
+        y_deacceleration_button.position = CGPoint(x: self.frame.width / 2 - 135, y: -1 * self.frame.height / 2 + 140)
         y_deacceleration_button.zPosition = 2000001
         
         
@@ -519,7 +528,7 @@ class Course: SKScene, SKPhysicsContactDelegate {
         //        let vroom = SKSpriteNode(color: SKColor.red, size: CGSize(width: 90, height: 90))
         //        vroom.position = CGPoint(x: 0, y: self.frame.height / 2 - 50)
         //        vroom.name = "vroom"
-        
+        addChild(speedometerUIBackground)
         addChild(UIBackground)
 //        addChild(x_velocity_display)
 //        addChild(y_velocity_display)
@@ -846,14 +855,15 @@ class Course: SKScene, SKPhysicsContactDelegate {
         if projected_path.strokeColor == SKColor.green {
             
             timer.removeAllActions()
-            timer.size = CGSize(width: 0, height: 30)
+            timer.size = CGSize(width: 0, height: 0)
             
             repaint_obstacles()
             repaint_previous_locations()
-            let timing = SKAction.resize(toWidth: 2 * self.frame.width, duration: TimeInterval(time_between_moves))
-
-            timer.run(timing)
+            let timing = SKAction.resize(toWidth: 250, duration: TimeInterval(time_between_moves))
+            let timing_height = SKAction.resize(toHeight: 250, duration: TimeInterval(time_between_moves))
             
+            timer.run(timing)
+            timer.run(timing_height)
             
             let starting_point = (grid?.gridPosition(row:  racecar.y_position , col: racecar.x_position))!
             
@@ -863,7 +873,7 @@ class Course: SKScene, SKPhysicsContactDelegate {
             
             
             
-            let previous_location_node = SKSpriteNode(color: SKColor.green, size: CGSize(width: 10, height: 10))
+            let previous_location_node = SKSpriteNode(color: SKColor.white, size: CGSize(width: 10, height: 10))
             previous_location_node.position = (grid?.gridPosition(row: racecar.y_position, col: racecar.x_position))!
             previous_location_node.zPosition = 40
             
