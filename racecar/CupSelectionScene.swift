@@ -281,6 +281,19 @@ class CupSelectionScene: SKScene {
                     self.view?.presentScene(gameScene, transition: reveal)
                 }
             
+            } else {
+                
+                let locked_out = SKSpriteNode(imageNamed: "lock")
+                
+                locked_out.position = CGPoint(x: 0, y: 0)
+                locked_out.zPosition = 2000000
+                
+                let fade_out = SKAction.fadeOut(withDuration: 1.0)
+                
+                addChild(locked_out)
+                
+                locked_out.run(fade_out)
+                
             }
         }
         
@@ -301,7 +314,33 @@ class CupSelectionScene: SKScene {
                     }
                     
                 }
+                else {
+                    
+                    let locked_out = SKSpriteNode(imageNamed: "lock")
+                    
+                    locked_out.position = CGPoint(x: 0, y: 0)
+                    locked_out.zPosition = 2000000
+                    
+                    let fade_out = SKAction.fadeOut(withDuration: 1.0)
+                    
+                    addChild(locked_out)
+                    
+                    locked_out.run(fade_out)
+                }
                 
+            } else {
+                
+                
+                let locked_out = SKSpriteNode(imageNamed: "lock")
+                
+                locked_out.position = CGPoint(x: 0, y: 0)
+                locked_out.zPosition = 2000000
+                
+                let fade_out = SKAction.fadeOut(withDuration: 1.0)
+                
+                addChild(locked_out)
+                
+                locked_out.run(fade_out)
             }
         }
     
