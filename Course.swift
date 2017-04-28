@@ -78,7 +78,7 @@ class Course: SKScene, SKPhysicsContactDelegate {
     var number_of_moves = 0
     
     var number_of_moves_label = SKLabelNode()
-    let number_of_moves_label_background = SKSpriteNode(color: SKColor.darkGray, size: CGSize(width: 120, height: 70) )
+    let number_of_moves_label_background = SKSpriteNode(color: SKColor.darkGray, size: CGSize(width: 320, height: 70) )
     
     
     var key = "GalileoCourseOne"
@@ -449,13 +449,13 @@ class Course: SKScene, SKPhysicsContactDelegate {
         number_of_moves_label.fontSize = 85
         number_of_moves_label.fontName = "Arcade"
         number_of_moves_label.fontColor = red
-        number_of_moves_label.position = CGPoint(x: self.frame.width / 2 - 90, y: self.frame.height / 2 - 90)
+        number_of_moves_label.position = CGPoint(x: self.frame.width / 2 - 190, y: self.frame.height / 2 - 90)
         number_of_moves_label.zPosition = 20000000
         self.addChild(number_of_moves_label)
         
         
 
-        number_of_moves_label_background.position = CGPoint(x: self.frame.width / 2 - 90, y: self.frame.height / 2 - 50)
+        number_of_moves_label_background.position = CGPoint(x: self.frame.width / 2 - 190, y: self.frame.height / 2 - 50)
         
         number_of_moves_label_background.zPosition = 20000001
         self.addChild(number_of_moves_label_background)
@@ -723,7 +723,7 @@ class Course: SKScene, SKPhysicsContactDelegate {
                 } else {
                     
                     
-                    if number_of_moves < TrophySystem.cup_par_values()[key]! {
+                    if number_of_moves < TrophySystem.cup_par_values()[cup_membership]! {
                         
                         
                         UserDefaults.standard.setValue(true, forKey: key + "Gold")
@@ -847,9 +847,40 @@ class Course: SKScene, SKPhysicsContactDelegate {
     func move() {
         
         
-        turn_number += 1
+        //turn_number += 1
         number_of_moves += 1
-        number_of_moves_label.text = String(number_of_moves)
+        
+        if game_type == "time_trials" {
+            
+            
+            
+            let course_par = TrophySystem.par_values()[key]!
+            var best_score = course_par
+            
+            
+            if let high = UserDefaults.standard.value(forKey: key) as! Int! {
+                
+                
+            
+            
+                if high < course_par {
+                    
+                    best_score = high
+                }
+                
+            }
+            
+            number_of_moves_label.text = String(number_of_moves) + "/" + String(describing: best_score)
+            
+            
+        } else {
+            
+            let best_score = TrophySystem.cup_par_values()[cup_membership]
+            
+            number_of_moves_label.text = String(number_of_moves) + "/" + String(describing: best_score!)
+        }
+        
+        
         
         
         if projected_path.strokeColor == SKColor.green {

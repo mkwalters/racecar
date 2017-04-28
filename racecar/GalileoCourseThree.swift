@@ -25,6 +25,7 @@ class GalileoCourseThree: Course {
         grid = Grid(blockSize: CGFloat(35.0), rows: 34, cols: 28)
         racecar = Racecar(x_pos: 24, y_pos: 18)
         self.key = "GalileoCourseThree"
+        cup_membership = "Galileo"
         self.draw_checkpoint_one(position: (grid?.gridPosition(row:  7, col: 14))!)
         self.draw_checkpoint_two(position: (grid?.gridPosition(row:  25, col: 14))!)
         self.draw_finish_line(position: (grid?.gridPosition(row:  17, col: 23))!)

@@ -22,6 +22,7 @@ class EinsteinCourseTwo: Course {
         grid = Grid(blockSize: CGFloat(35.0), rows: 54, cols: 41)
         racecar = Racecar(x_pos: 38, y_pos: 30)
         self.key = "EinsteinCourseTwo"
+        cup_membership = "Einstein"
         self.draw_checkpoint_one(position: (grid?.gridPosition(row:  8, col: 10))!)
         self.draw_checkpoint_two(position: (grid?.gridPosition(row:  20, col: 2))!)
         self.draw_finish_line(position: (grid?.gridPosition(row:  28, col: 38))!)

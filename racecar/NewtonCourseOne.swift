@@ -26,6 +26,7 @@ class NewtonCourseOne: Course {
         grid = Grid(blockSize: CGFloat(35.0), rows: 47, cols: 37)
         racecar = Racecar(x_pos: 33, y_pos: 15)
         self.key = "NewtonCourseOne"
+        cup_membership = "Newton"
         self.draw_checkpoint_one(position: (grid?.gridPosition(row:  23, col: 12))!)
         self.draw_checkpoint_two(position: (grid?.gridPosition(row:  23, col: 24))!)
         self.draw_finish_line(position: (grid?.gridPosition(row:  14, col: 33))!)
