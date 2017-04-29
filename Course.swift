@@ -11,8 +11,8 @@ import SpriteKit
 import GameplayKit
 import CoreGraphics
 import SAConfettiView
-
-
+import AudioToolbox
+import UIKit
 
 
 class Course: SKScene, SKPhysicsContactDelegate {
@@ -151,6 +151,8 @@ class Course: SKScene, SKPhysicsContactDelegate {
             
             let current_node = SKSpriteNode(color: SKColor.green , size: CGSize(width: 30, height: 30))
             current_node.position = (grid?.gridPosition(row:  available_moves[i].y , col: available_moves[i].x ))!
+            // this zposition is just here to force it to go underneath the obstacles
+            current_node.zPosition = 49
             current_node.alpha = 0.25
             current_node.name = "available_move"
             
@@ -584,6 +586,9 @@ class Course: SKScene, SKPhysicsContactDelegate {
             let diceRoll = Int(arc4random_uniform(UInt32(colors.count)))
             let current_obstacle = SKSpriteNode(color: colors[diceRoll], size: CGSize(width: 30, height: 30))
             current_obstacle.position = (grid?.gridPosition(row:  obstacle.x, col:  obstacle.y))!
+            
+            current_obstacle.zPosition = 50
+            
             current_obstacle.name = "obstacle"
             
             current_obstacle.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 30, height: 30))
@@ -1120,6 +1125,10 @@ class Course: SKScene, SKPhysicsContactDelegate {
                     {
                         
                         if racecar.x_acceleration < 1 {
+                            
+                            let generator = UIImpactFeedbackGenerator(style: .heavy )
+                            generator.impactOccurred()
+                            
                             racecar.x_acceleration += 1
                             
                             draw_projected_path()
@@ -1132,6 +1141,10 @@ class Course: SKScene, SKPhysicsContactDelegate {
                     {
                         
                         if racecar.x_acceleration > -1 {
+                            
+                            let generator = UIImpactFeedbackGenerator(style: .heavy )
+                            generator.impactOccurred()
+                            
                             racecar.x_acceleration -= 1
                             move_speedometer_pin(speed: racecar.projected_speed())
                             draw_projected_path()
@@ -1143,6 +1156,10 @@ class Course: SKScene, SKPhysicsContactDelegate {
                     {
                         
                         if racecar.y_acceleration < 1 {
+                            
+                            let generator = UIImpactFeedbackGenerator(style: .heavy )
+                            generator.impactOccurred()
+                            
                             racecar.y_acceleration += 1
                             move_speedometer_pin(speed: racecar.projected_speed())
                             draw_projected_path()
@@ -1154,6 +1171,11 @@ class Course: SKScene, SKPhysicsContactDelegate {
                     {
                         
                         if racecar.y_acceleration > -1 {
+                            
+                            
+                            let generator = UIImpactFeedbackGenerator(style: .heavy )
+                            generator.impactOccurred()
+                            
                             racecar.y_acceleration -= 1
                             move_speedometer_pin(speed: racecar.projected_speed())
                             draw_projected_path()
