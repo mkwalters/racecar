@@ -433,7 +433,7 @@ class Course: SKScene, SKPhysicsContactDelegate {
         
         
         //timer.position = CGPoint(x: -375, y: -440)
-        timer.position = CGPoint(x: -5, y: -1 * self.frame.height / 2 + 225)
+        timer.position = CGPoint(x: 0, y: -1 * self.frame.height / 2 + 225)
         
         timer.zPosition = 20000000
         
@@ -501,7 +501,7 @@ class Course: SKScene, SKPhysicsContactDelegate {
         
 //        UIBackground = SKShapeNode(rectOf: CGSize(width: self.frame.width, height: x_acceleration_button.size.height + timer.size.height * 2))
         
-        UIBackground.position =  CGPoint(x: self.frame.width / 2 - 135  ,y: -1 * self.frame.height / 2 + 225)
+        UIBackground.position =  CGPoint(x: self.frame.width / 2 - 125  ,y: -1 * self.frame.height / 2 + 225)
         //UIBackground.position = CGPoint(x: 0, y: 0)
         UIBackground.fillColor = SKColor.darkGray
         UIBackground.zPosition = 200000
@@ -511,16 +511,16 @@ class Course: SKScene, SKPhysicsContactDelegate {
         speedometerUIBackground.fillColor = SKColor.darkGray
         speedometerUIBackground.zPosition = 200000
         
-        x_acceleration_button.position = CGPoint(x: self.frame.width / 2 - 50, y: -1 * self.frame.height / 2 + 225)
+        x_acceleration_button.position = CGPoint(x: self.frame.width / 2 - 40, y: -1 * self.frame.height / 2 + 225)
         x_acceleration_button.zPosition = 2000001
         
-        x_deacceleration_button.position = CGPoint(x: self.frame.width / 2 - 220 , y: -1 * self.frame.height / 2 + 225)
+        x_deacceleration_button.position = CGPoint(x: self.frame.width / 2 - 210 , y: -1 * self.frame.height / 2 + 225)
         x_deacceleration_button.zPosition = 2000001
         
-        y_acceleration_button.position = CGPoint(x: self.frame.width / 2 - 135, y: -1 * self.frame.height / 2 + 310)
+        y_acceleration_button.position = CGPoint(x: self.frame.width / 2 - 125, y: -1 * self.frame.height / 2 + 310)
         y_acceleration_button.zPosition = 2000001
         
-        y_deacceleration_button.position = CGPoint(x: self.frame.width / 2 - 135, y: -1 * self.frame.height / 2 + 140)
+        y_deacceleration_button.position = CGPoint(x: self.frame.width / 2 - 125, y: -1 * self.frame.height / 2 + 140)
         y_deacceleration_button.zPosition = 2000001
         
         
