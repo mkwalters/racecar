@@ -398,6 +398,17 @@ class Course: SKScene, SKPhysicsContactDelegate {
         speedometer_pin.run(rotate)
     }
     
+    func drop_confetti() {
+        
+        
+        confettiView = SAConfettiView(frame: (self.view?.bounds)!)
+        confettiView.type = .Diamond
+        confettiView.colors = colors
+        self.view?.addSubview(confettiView)
+        confettiView.startConfetti()
+        
+    }
+    
     
     func create_scene() {
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
@@ -693,9 +704,8 @@ class Course: SKScene, SKPhysicsContactDelegate {
                 let best = UserDefaults.standard.value(forKey: key) as! Int
                 
                 if number_of_moves <= best && game_type == "time_trials" {
-                    confettiView = SAConfettiView(frame: (self.view?.bounds)!)
-                    self.view?.addSubview(confettiView)
-                    confettiView.startConfetti()
+                    drop_confetti()
+                    
                 }
                 
                 
@@ -732,9 +742,7 @@ class Course: SKScene, SKPhysicsContactDelegate {
                         
                         
                         UserDefaults.standard.setValue(true, forKey: key + "Gold")
-                        confettiView = SAConfettiView(frame: (self.view?.bounds)!)
-                        self.view?.addSubview(confettiView)
-                        confettiView.startConfetti()
+                        drop_confetti()
                         
                         let next = SKLabelNode(text: "Gold medal!!")
                         next.position = CGPoint(x: 0, y: 0)
