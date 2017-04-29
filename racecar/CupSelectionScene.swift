@@ -241,6 +241,12 @@ class CupSelectionScene: SKScene {
             
         }
         
+        if backBackground.contains(touchLocation) {
+            
+            backBackground.color = SKColor.white
+            
+        }
+        
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
