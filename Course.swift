@@ -20,12 +20,12 @@ class Course: SKScene, SKPhysicsContactDelegate {
 
     let x_acceleration_button = SKSpriteNode(imageNamed: "right_red")
 
-    let x_deacceleration_button = SKSpriteNode(imageNamed: "left_blue")
+    let x_deacceleration_button = SKSpriteNode(imageNamed: "left_red")
 
 
     let y_acceleration_button = SKSpriteNode(imageNamed: "up_red")
 
-    let y_deacceleration_button = SKSpriteNode(imageNamed: "down_blue")
+    let y_deacceleration_button = SKSpriteNode(imageNamed: "down_red")
     
     var UIBackground = SKShapeNode(rectOf: CGSize(width: 250 , height: 250))
     var speedometerUIBackground = SKShapeNode(rectOf: CGSize(width: 250 , height: 250))
