@@ -50,6 +50,10 @@ class Course: SKScene, SKPhysicsContactDelegate {
     var bot_path:[(x: Int, y: Int)] = []
 
     var previous_locations = [SKShapeNode]()
+    
+    var racecar_path:[(x: Int, y: Int)] = []
+    var racecar_velocities:[(x: Int, y: Int)] = []
+    
     var available_locations:[(x: Int, y: Int)] = []
     
     var obstacles_nodes = [SKSpriteNode]()
@@ -89,6 +93,8 @@ class Course: SKScene, SKPhysicsContactDelegate {
     
     var resume = SKLabelNode()
     
+    var starting_racecar_x_position = 0
+    var starting_racecar_y_position = 0
     
     var restart = SKLabelNode()
     
@@ -183,6 +189,19 @@ class Course: SKScene, SKPhysicsContactDelegate {
         
     }
     
+    
+    func rotate_car(starting_position: CGPoint, ending_position: CGPoint ) {
+        
+        
+        
+        let angle = atan2((ending_position.y) - (starting_position.y) , (ending_position.x) - (starting_position.x))
+        
+        let rotate_action = SKAction.rotate(toAngle: angle - 1.5707963267949, duration: 0)
+        
+        gamePiece.run(rotate_action)
+        
+    }
+    
     func draw_projected_path() {
         
         
@@ -192,21 +211,20 @@ class Course: SKScene, SKPhysicsContactDelegate {
         
         
         let ending_position = grid?.gridPosition(row:  racecar.y_position - racecar.y_velocity - racecar.y_acceleration, col: racecar.x_position + racecar.x_velocity + racecar.x_acceleration)
-        
+//
         let line_path:CGMutablePath = CGMutablePath()
         line_path.move(to: starting_position!)
         line_path.addLine(to: ending_position!)
+//
+//        let angle = atan2((ending_position?.y)! - (starting_position?.y)! , (ending_position?.x)! - (starting_position?.x)!)
+//
+//        
+//        let rotate_action = SKAction.rotate(toAngle: angle - 1.5707963267949, duration: 0)
         
-        let angle = atan2((ending_position?.y)! - (starting_position?.y)! , (ending_position?.x)! - (starting_position?.x)!)
-
-        
-        let rotate_action = SKAction.rotate(toAngle: angle - 1.5707963267949, duration: 0)
-        
-
+        rotate_car(starting_position: (grid?.gridPosition(row:  racecar.y_position, col: racecar.x_position))!, ending_position: (grid?.gridPosition(row:  racecar.y_position - racecar.y_velocity - racecar.y_acceleration, col: racecar.x_position + racecar.x_velocity + racecar.x_acceleration))!)
         
         
-        gamePiece.run(rotate_action)
-        print(angle)
+        
         
         
         projected_path.zPosition = 200
@@ -630,6 +648,11 @@ class Course: SKScene, SKPhysicsContactDelegate {
     override func didMove(to view: SKView) {
         //UserDefaults.standard.setValue(420, forKey: "GalileoCourseTwo")
         
+        
+        starting_racecar_x_position = racecar.x_position
+        starting_racecar_y_position = racecar.y_position
+        
+        
         create_scene()
         
     }
@@ -854,6 +877,76 @@ class Course: SKScene, SKPhysicsContactDelegate {
         
         
     }
+    
+    
+    
+    func play_back_race() {
+        
+        self.removeAllActions()
+        timer.removeFromParent()
+        
+        projected_path.removeFromParent()
+        projected_velocity.removeFromParent()
+        
+        racecar.x_position = starting_racecar_x_position
+        racecar.y_position = starting_racecar_y_position
+        
+        
+        
+        for i in available_moves_nodes {
+            i.removeFromParent()
+        }
+        
+        for i in previous_locations {
+            
+            i.removeFromParent()
+        }
+        
+        var car_movements:[SKAction] = []
+        
+        for point in 0...racecar_path.count - 1 {
+            
+            let true_point = grid?.gridPosition(row: racecar_path[point].y, col: racecar_path[point].x)
+            var ending_true_point = grid?.gridPosition(row: racecar_path[point].y, col: racecar_path[point].x)
+            if point < racecar_path.count - 1 {
+                ending_true_point = grid?.gridPosition(row: racecar_path[point + 1].y, col: racecar_path[point + 1].x)
+            }
+            let movement = SKAction.move(to: CGPoint(x: (true_point?.x)!  , y: (true_point?.y)!  ) , duration: 0.2)
+            car_movements.append(movement)
+            
+            
+            let x_speed_squared = racecar_velocities[point].x * racecar_velocities[point].x
+            let y_speed_squared = racecar_velocities[point].y * racecar_velocities[point].y
+            
+            let speed =  sqrt( Double(x_speed_squared + y_speed_squared) )
+            
+            let rotate = SKAction.run {
+                
+                if point < self.racecar_path.count - 1 {
+                
+                self.rotate_car(starting_position: true_point! , ending_position: ending_true_point!  )
+                    
+                }
+            }
+            car_movements.append(rotate)
+            
+        }
+        
+        
+        let cross = SKAction.run { 
+            self.cross_finish_line()
+        }
+        
+        
+        car_movements.append(cross)
+        
+        let race = SKAction.sequence(car_movements)
+        
+        
+        
+        gamePiece.run(race)
+    }
+    
 
 
 
@@ -862,6 +955,10 @@ class Course: SKScene, SKPhysicsContactDelegate {
         
         //turn_number += 1
         number_of_moves += 1
+        
+        
+        
+        //lol okay this definitely shouldn't be here
         
         if game_type == "time_trials" {
             
@@ -953,8 +1050,12 @@ class Course: SKScene, SKPhysicsContactDelegate {
             
             draw_projected_path()
             draw_available_moves()
+            
+            racecar_path.append( (racecar.x_position, racecar.y_position) )
+            racecar_velocities.append( (racecar.x_position, racecar.y_position) )
+            
             if crossing_finish_line == true {
-                cross_finish_line()
+                play_back_race()
             }
             //grid?.addChild(projected_velocity)
         } else {
