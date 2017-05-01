@@ -18,20 +18,20 @@ class TrophySystem {
             
             [
                 
-            "GalileoCourseOne":   40,
-            "GalileoCourseTwo":   40,
-            "GalileoCourseThree": 60,
-            "GalileoCourseFour":  80,
+            "GalileoCourseOne":   35,
+            "GalileoCourseTwo":   35,
+            "GalileoCourseThree": 40,
+            "GalileoCourseFour":  45,
             
-            "NewtonCourseOne":   90,
-            "NewtonCourseTwo":   100,
-            "NewtonCourseThree": 110,
-            "NewtonCourseFour":  120,
+            "NewtonCourseOne":   80,
+            "NewtonCourseTwo":   70,
+            "NewtonCourseThree": 85,
+            "NewtonCourseFour":  70,
             
-            "EinsteinCourseOne":   120,
-            "EinsteinCourseTwo":   130,
-            "EinsteinCourseThree": 140,
-            "EinsteinCourseFour":  150,
+            "EinsteinCourseOne":   100,
+            "EinsteinCourseTwo":   135,
+            "EinsteinCourseThree": 125,
+            "EinsteinCourseFour":  200,
             
             ]
         
@@ -44,9 +44,9 @@ class TrophySystem {
             
             [
                 //make these reference course par values
-                "Galileo":   250,
-                "Newton":   600,
-                "Einstein": 800
+                "Galileo":   200,
+                "Newton":   330,
+                "Einstein": 575
 
                 
             ]

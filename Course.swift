@@ -930,7 +930,7 @@ class Course: SKScene, SKPhysicsContactDelegate {
             if point < racecar_path.count - 1 {
                 ending_true_point = grid?.gridPosition(row: racecar_path[point + 1].y, col: racecar_path[point + 1].x)
             }
-            let movement = SKAction.move(to: CGPoint(x: (true_point?.x)!  , y: (true_point?.y)!  ) , duration: 0.4)
+            let movement = SKAction.move(to: CGPoint(x: (true_point?.x)!  , y: (true_point?.y)!  ) , duration: 0.35)
             car_movements.append(movement)
             
             
