@@ -24,6 +24,7 @@ class NewtonCourseOne: Course {
     override func create_scene_specs() {
         audioooo = SKAudioNode(fileNamed: "Comet Song")
         grid = Grid(blockSize: CGFloat(35.0), rows: 47, cols: 37)
+        grid?.position = CGPoint(x: -300, y: 0)
         racecar = Racecar(x_pos: 33, y_pos: 15)
         self.key = "NewtonCourseOne"
         cup_membership = "Newton"

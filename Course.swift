@@ -578,7 +578,7 @@ class Course: SKScene, SKPhysicsContactDelegate {
         //self.addChild(vroom)
         
         
-        grid?.position = CGPoint(x: -300, y: 0)
+        
         
         grid?.zPosition = 10
         addChild(grid!)

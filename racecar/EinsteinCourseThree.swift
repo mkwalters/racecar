@@ -20,6 +20,7 @@ class EinsteinCourseThree: Course {
         
         audioooo = SKAudioNode(fileNamed: "Symmetry")
         grid = Grid(blockSize: CGFloat(35.0), rows: 38, cols: 38)
+        grid?.position = CGPoint(x: -300, y: 0)
         racecar = Racecar(x_pos: 31, y_pos: 11)
         self.key = "EinsteinCourseThree"
         cup_membership = "Einstein"

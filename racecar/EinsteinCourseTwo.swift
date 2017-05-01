@@ -20,6 +20,7 @@ class EinsteinCourseTwo: Course {
         
         audioooo = SKAudioNode(fileNamed: "Murmaider II The Water God")
         grid = Grid(blockSize: CGFloat(35.0), rows: 54, cols: 41)
+        grid?.position = CGPoint(x: -300, y: 0)
         racecar = Racecar(x_pos: 38, y_pos: 30)
         self.key = "EinsteinCourseTwo"
         cup_membership = "Einstein"

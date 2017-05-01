@@ -17,6 +17,7 @@ class GalileoCourseFour: Course {
     override func create_scene_specs() {
         audioooo = SKAudioNode(fileNamed: "Bloodrocuted")
         grid = Grid(blockSize: CGFloat(35.0), rows: 37, cols: 22)
+        grid?.position = CGPoint(x: -300, y: 0)
         racecar = Racecar(x_pos: 19, y_pos: 15)
         self.key = "GalileoCourseFour"
         cup_membership = "Galileo"

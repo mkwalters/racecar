@@ -28,6 +28,7 @@ class GalileoCourseTwo: Course {
     override func create_scene_specs() {
         audioooo = SKAudioNode(fileNamed: "Black Fire Upon Us")
         grid = Grid(blockSize: CGFloat(35.0), rows: 25, cols: 40)
+        grid?.position = CGPoint(x: -300, y: 0)
         racecar = Racecar(x_pos: 37, y_pos: 14)
         key = "GalileoCourseTwo"
         cup_membership = "Galileo"

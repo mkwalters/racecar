@@ -51,6 +51,7 @@ class GalileoCourseOne: Course {
     override func create_scene_specs() {
         audioooo = SKAudioNode(fileNamed: "Deththeme")
         grid = Grid(blockSize: CGFloat(35.0), rows: 40, cols: 25)
+        grid?.position = CGPoint(x: -300, y: 0)
         racecar = Racecar(x_pos: 22, y_pos: 22)
         key = "GalileoCourseOne"
         cup_membership = "Galileo"

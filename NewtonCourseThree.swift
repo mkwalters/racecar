@@ -19,6 +19,7 @@ class NewtonCourseThree: Course {
     override func create_scene_specs() {
         audioooo = SKAudioNode(fileNamed: "Awaken")
         grid = Grid(blockSize: CGFloat(35.0), rows: 53, cols: 42)
+        grid?.position = CGPoint(x: -300, y: 0)
         racecar = Racecar(x_pos: 33, y_pos: 22)
         self.key = "NewtonCourseThree"
         cup_membership = "Newton"

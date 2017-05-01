@@ -20,6 +20,7 @@ class NewtonCourseFour: Course {
         
         audioooo = SKAudioNode(fileNamed: "Fansong")
         grid = Grid(blockSize: CGFloat(35.0), rows: 42, cols: 30)
+        grid?.position = CGPoint(x: -300, y: 0)
         racecar = Racecar(x_pos: 27, y_pos: 22)
         self.key = "NewtonCourseFour"
         cup_membership = "Newton"
