@@ -726,7 +726,7 @@ class Course: SKScene, SKPhysicsContactDelegate {
                 score.position = CGPoint(x: 0, y: 200)
                 score.fontSize = 100
                 score.fontName = "Arcade"
-                score.fontColor = SKColor.red
+                score.fontColor = blue
                 //score.name = "exit"
                 score.zPosition = 999999999
                 
@@ -746,7 +746,7 @@ class Course: SKScene, SKPhysicsContactDelegate {
                 best_score.position = CGPoint(x: 0, y: 100)
                 best_score.fontSize = 70
                 best_score.fontName = "Arcade"
-                best_score.fontColor = SKColor.red
+                best_score.fontColor = blue
                 //score.name = "exit"
                 best_score.zPosition = 999999999
                 
@@ -930,7 +930,7 @@ class Course: SKScene, SKPhysicsContactDelegate {
             if point < racecar_path.count - 1 {
                 ending_true_point = grid?.gridPosition(row: racecar_path[point + 1].y, col: racecar_path[point + 1].x)
             }
-            let movement = SKAction.move(to: CGPoint(x: (true_point?.x)!  , y: (true_point?.y)!  ) , duration: 0.35)
+            let movement = SKAction.move(to: CGPoint(x: (true_point?.x)!  , y: (true_point?.y)!  ) , duration: 0.4)
             car_movements.append(movement)
             
             
