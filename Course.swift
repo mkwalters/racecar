@@ -82,7 +82,7 @@ class Course: SKScene, SKPhysicsContactDelegate {
     var number_of_moves = 0
     
     var number_of_moves_label = SKLabelNode()
-    let number_of_moves_label_background = SKSpriteNode(color: SKColor.darkGray, size: CGSize(width: 320, height: 70) )
+    let number_of_moves_label_background = SKSpriteNode(color: SKColor.darkGray, size: CGSize(width: 350, height: 70) )
     
     
     var key = "GalileoCourseOne"
@@ -379,12 +379,13 @@ class Course: SKScene, SKPhysicsContactDelegate {
         grid?.removeAllActions()
         grid?.removeAllChildren()
         
-        
         speedometer.removeAllActions()
         speedometer.removeAllChildren()
         
         crash_background.removeAllActions()
         crash_background.removeAllChildren()
+        
+        
         
         self.removeAllActions()
         self.removeAllChildren()
@@ -397,6 +398,9 @@ class Course: SKScene, SKPhysicsContactDelegate {
         
         last_checkpoint = 0
         crossing_finish_line = false
+        
+        
+        available_locations = []
     }
     
     func repaint_obstacles() {
@@ -476,17 +480,20 @@ class Course: SKScene, SKPhysicsContactDelegate {
         
         self.addChild(timer)
         
+        
+        
+        
         number_of_moves_label.text = String(number_of_moves)
         number_of_moves_label.fontSize = 85
         number_of_moves_label.fontName = "Arcade"
         number_of_moves_label.fontColor = red
-        number_of_moves_label.position = CGPoint(x: self.frame.width / 2 - 190, y: self.frame.height / 2 - 90)
+        number_of_moves_label.position = CGPoint(x: self.frame.width / 2 - 210, y: self.frame.height / 2 - 90)
         number_of_moves_label.zPosition = 20000000
         self.addChild(number_of_moves_label)
         
         
 
-        number_of_moves_label_background.position = CGPoint(x: self.frame.width / 2 - 190, y: self.frame.height / 2 - 50)
+        number_of_moves_label_background.position = CGPoint(x: self.frame.width / 2 - 210, y: self.frame.height / 2 - 50)
         
         number_of_moves_label_background.zPosition = 20000001
         self.addChild(number_of_moves_label_background)
@@ -888,9 +895,14 @@ class Course: SKScene, SKPhysicsContactDelegate {
         projected_path.removeFromParent()
         projected_velocity.removeFromParent()
         
-        racecar.x_position = starting_racecar_x_position
-        racecar.y_position = starting_racecar_y_position
+//        racecar.x_position = starting_racecar_x_position
+//        racecar.y_position = starting_racecar_y_position
+//        
         
+        move_speedometer_pin(speed: 0)
+        
+        
+        gamePiece.position = (grid?.gridPosition(row: starting_racecar_x_position, col: starting_racecar_y_position))!
         
         
         for i in available_moves_nodes {
@@ -904,6 +916,9 @@ class Course: SKScene, SKPhysicsContactDelegate {
         
         var car_movements:[SKAction] = []
         
+        
+        print(racecar_path)
+        
         for point in 0...racecar_path.count - 1 {
             
             let true_point = grid?.gridPosition(row: racecar_path[point].y, col: racecar_path[point].x)
@@ -911,7 +926,7 @@ class Course: SKScene, SKPhysicsContactDelegate {
             if point < racecar_path.count - 1 {
                 ending_true_point = grid?.gridPosition(row: racecar_path[point + 1].y, col: racecar_path[point + 1].x)
             }
-            let movement = SKAction.move(to: CGPoint(x: (true_point?.x)!  , y: (true_point?.y)!  ) , duration: 0.2)
+            let movement = SKAction.move(to: CGPoint(x: (true_point?.x)!  , y: (true_point?.y)!  ) , duration: 0.35)
             car_movements.append(movement)
             
             
@@ -1367,6 +1382,8 @@ class Course: SKScene, SKPhysicsContactDelegate {
                 
                 if name == "restart"
                 {
+                    
+                    
                     confettiView.stopConfetti()
                     if let action = action(forKey: "key") {
                         

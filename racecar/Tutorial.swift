@@ -10,7 +10,7 @@ import Foundation
 import SpriteKit
 class Tutorial: SKScene {
     
-    let GrandPrix = SKLabelNode()
+    
     let TimeTrials = SKLabelNode()
     let menuButton = SKLabelNode()
     
