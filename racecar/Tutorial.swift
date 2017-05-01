@@ -8,13 +8,21 @@
 
 import Foundation
 import SpriteKit
+
 class Tutorial: SKScene {
     
     
-    let TimeTrials = SKLabelNode()
+    let rule_one = SKLabelNode()
+    let rule_two = SKLabelNode()
+    let rule_three = SKLabelNode()
+    
+    
+    let fontsize = CGFloat(50.0)
+    
     let menuButton = SKLabelNode()
     
-    let HowToPlay = SKLabelNode()
+    
+    let fontname = "Arcade"
     
     override init(size: CGSize) {
         super.init(size: size)
@@ -24,18 +32,37 @@ class Tutorial: SKScene {
         backgroundColor = SKColor.black
         
         
-        TimeTrials.fontColor = SKColor.purple
-        TimeTrials.text = "It's only physics! -Winston"
-        TimeTrials.fontSize = 65
+        rule_one.fontColor = yellow
+        rule_one.text = "Tap D-pad to change velocity"
+        rule_one.fontSize = fontsize
+        rule_one.fontName = fontname
         
-        menuButton.fontColor = SKColor.purple
+        rule_two.fontColor = yellow
+        rule_two.text = "Finish Cups quickly to unlock new courses"
+        rule_two.fontSize = fontsize
+        rule_two.fontName = fontname
+        
+        rule_three.fontColor = red
+        rule_three.text = "Don't Crash"
+        rule_three.fontSize = fontsize + 20
+        rule_three.fontName = fontname
+        
+        
+        
+        menuButton.fontColor = blue
         menuButton.text = "Main Menu"
-        menuButton.fontSize = 40
+        menuButton.fontSize = fontsize + 30
+        menuButton.fontName = fontname
         
-        TimeTrials.position = CGPoint(x: 0, y: 0)
-        menuButton.position = CGPoint(x: 0, y: -200)
         
-        addChild(TimeTrials)
+        rule_one.position = CGPoint(x: 0, y: 250)
+        //rule_two.position = CGPoint(x: 0, y: 50)
+        rule_three.position = CGPoint(x: 0, y: 50)
+        menuButton.position = CGPoint(x: 0, y: -350)
+        
+        addChild(rule_one)
+        //addChild(rule_two)
+        addChild(rule_three)
         addChild(menuButton)
         
     }
