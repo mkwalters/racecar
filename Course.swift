@@ -620,14 +620,14 @@ class Course: SKScene, SKPhysicsContactDelegate {
             
             
             let diceRoll = Int(arc4random_uniform(UInt32(colors.count)))
-            let current_obstacle = SKSpriteNode(color: colors[diceRoll], size: CGSize(width: 30, height: 30))
+            let current_obstacle = SKSpriteNode(color: colors[diceRoll], size: CGSize(width: 25, height: 25))
             current_obstacle.position = (grid?.gridPosition(row:  obstacle.x, col:  obstacle.y))!
             
             current_obstacle.zPosition = 50
             
             current_obstacle.name = "obstacle"
             
-            current_obstacle.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 30, height: 30))
+            current_obstacle.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 25, height: 25))
             current_obstacle.physicsBody?.categoryBitMask = physicsCategory.obstacle
             current_obstacle.physicsBody?.collisionBitMask = 0
             current_obstacle.physicsBody?.contactTestBitMask = physicsCategory.projected_velocity
