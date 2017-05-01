@@ -132,7 +132,7 @@ class Course: SKScene, SKPhysicsContactDelegate {
     let speedometer = SKSpriteNode(imageNamed: "Counter_01")
     let speedometer_pin = SKSpriteNode(imageNamed: "Needle_01")
     
-    
+    var active_controls = true
     
     func pause_music() {
         let pause_music = SKAction.pause()
@@ -399,8 +399,9 @@ class Course: SKScene, SKPhysicsContactDelegate {
         last_checkpoint = 0
         crossing_finish_line = false
         
+        racecar_path = []
+        racecar_velocities = []
         
-        available_locations = []
     }
     
     func repaint_obstacles() {
@@ -438,7 +439,7 @@ class Course: SKScene, SKPhysicsContactDelegate {
         self.backgroundColor = SKColor.black
         crossing_finish_line = false
         addChild(audioooo)
-        
+        active_controls = true
 //        let lucio = SKAction.playSoundFileNamed("bloodrocuted", waitForCompletion: false)
 //        run(lucio)
 //        let pause_lucio = SKAction.pause()
@@ -743,7 +744,7 @@ class Course: SKScene, SKPhysicsContactDelegate {
                 let best_score = SKLabelNode(text: "High Score: " + String(describing: best))
                 
                 best_score.position = CGPoint(x: 0, y: 100)
-                best_score.fontSize = 80
+                best_score.fontSize = 70
                 best_score.fontName = "Arcade"
                 best_score.fontColor = SKColor.red
                 //score.name = "exit"
@@ -888,6 +889,9 @@ class Course: SKScene, SKPhysicsContactDelegate {
     
     
     func play_back_race() {
+        
+        
+        active_controls = false
         
         self.removeAllActions()
         timer.removeFromParent()
@@ -1244,7 +1248,7 @@ class Course: SKScene, SKPhysicsContactDelegate {
             let touchedNode = atPoint(positionInScene)
             if let name = touchedNode.name
             {
-                if paused_game == false {
+                if paused_game == false && active_controls == true {
                     if name == "x_acceleration_button"
                     {
                         
