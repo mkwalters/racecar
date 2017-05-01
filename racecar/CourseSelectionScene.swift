@@ -49,13 +49,16 @@ class CourseSelectionScene: SKScene {
         
         
         addChild(title)
+        
+        
+        //these should be in a set and looped over. 
     
         easyButton.fontColor = blue
         easyButton.text = "Course #1"
         easyButton.fontSize = 100
         // + "/" + "\(Int( TrophySystem.par_values()[ name + "CourseOne" ]! ))"
         
-        easyButtonHighScore.text = "_ "
+        easyButtonHighScore.text = "--"
         easyButtonHighScore.fontColor = yellow
         easyButtonHighScore.fontName = "Arcade"
         if let score = UserDefaults.standard.value(forKey: name + "CourseOne") {
