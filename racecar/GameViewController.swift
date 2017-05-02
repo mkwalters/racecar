@@ -59,10 +59,11 @@ class GameViewController: UIViewController {
         super.viewWillLayoutSubviews()
         
         googleBannerView = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait)
-        googleBannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        googleBannerView.adUnitID = "ca-app-pub-7570294198997787/3091494959"
         
         googleBannerView.rootViewController = self
         let request: GADRequest = GADRequest()
+        request.testDevices = ["25c0bcb0d1bc91ac3a3e7ff59a1216f7"]
         googleBannerView.load(request)
         
 //        googleBannerView.frame = CGRect(0, view.bounds.height - googleBannerView.frame.size.height, googleBannerView.frame.size.width, googleBannerView.frame.size.height)
