@@ -40,6 +40,9 @@ class MenuScene: SKScene {
     
     let ads = SKLabelNode(text: "ADS")
     
+    var viewController : UIViewController!
+    
+    
     
     let red_circle_with_slash = SKSpriteNode(imageNamed: "RedCircle")
 
@@ -47,6 +50,7 @@ class MenuScene: SKScene {
         super.init(size: size)
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
         self.size = CGSize(width: 750, height: 1334)
+        
         
         backgroundColor = SKColor.black
         
@@ -188,6 +192,32 @@ class MenuScene: SKScene {
             let reveal = SKTransition.doorsOpenVertical(withDuration: 0.25)
             let difficultyScene = Tutorial(size: self.size)
             self.view?.presentScene(difficultyScene, transition: reveal)
+            
+        }
+        
+        if red_circle_with_slash.contains(touchLocation) {
+//            let AlertController = UIAlertController(title: "Bll Starting Position", message: "Please Enter a X Coordinate Value IN Range 0 to 345 ", preferredStyle: .alert)
+            
+            
+            SwiftyStoreKit.purchaseProduct("com.musevisions.SwiftyStoreKit.Purchase1", atomically: true) { result in
+                switch result {
+                case .success(let product):
+                    print("Purchase Success: \(product.productId)")
+                case .error(let error):
+                    switch error.code {
+                    case .unknown: print("Unknown error. Please contact support")
+                    case .clientInvalid: print("Not allowed to make the payment")
+                    case .paymentCancelled: break
+                    case .paymentInvalid: print("The purchase identifier was invalid")
+                    case .paymentNotAllowed: print("The device is not allowed to make the payment")
+                    case .storeProductNotAvailable: print("The product is not available in the current storefront")
+                    case .cloudServicePermissionDenied: print("Access to cloud service information is not allowed")
+                    case .cloudServiceNetworkConnectionFailed: print("Could not connect to the network")
+                    }
+                }
+            }
+            
+            //self.viewController.present(AlertController, animated: true, completion: nil)
             
         }
         
