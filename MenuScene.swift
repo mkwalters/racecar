@@ -199,7 +199,7 @@ class MenuScene: SKScene {
 //            let AlertController = UIAlertController(title: "Bll Starting Position", message: "Please Enter a X Coordinate Value IN Range 0 to 345 ", preferredStyle: .alert)
             
             
-            SwiftyStoreKit.purchaseProduct("com.musevisions.SwiftyStoreKit.Purchase1", atomically: true) { result in
+            SwiftyStoreKit.purchaseProduct("12345", atomically: true) { result in
                 switch result {
                 case .success(let product):
                     print("Purchase Success: \(product.productId)")
@@ -216,6 +216,18 @@ class MenuScene: SKScene {
                     }
                 }
             }
+            
+//            SwiftyStoreKit.restorePurchases(atomically: true) { results in
+//                if results.restoreFailedProducts.count > 0 {
+//                    print("Restore Failed: \(results.restoreFailedProducts)")
+//                }
+//                else if results.restoredProducts.count > 0 {
+//                    print("Restore Success: \(results.restoredProducts)")
+//                }
+//                else {
+//                    print("Nothing to Restore")
+//                }
+//            }
             
             //self.viewController.present(AlertController, animated: true, completion: nil)
             
