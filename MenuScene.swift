@@ -21,6 +21,8 @@ let red = UIColor(red: 221/255, green: 28/255, blue: 26/255, alpha: 1.0)
 
 
 import SpriteKit
+import SwiftyStoreKit
+import StoreKit
 
 class MenuScene: SKScene {
     

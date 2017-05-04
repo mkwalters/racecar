@@ -9,6 +9,8 @@ target 'racecar' do
   pod 'Firebase/AdMob'
   
   pod 'SAConfettiView'
+  
+  pod 'SwiftyStoreKit'
 
   # Pods for racecar
 
