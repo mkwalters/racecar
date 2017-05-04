@@ -117,21 +117,55 @@ class MenuScene: SKScene {
         
         
         
-        ads.position = CGPoint(x: 0, y: -525)
-        ads.fontName = "Arcade"
-        ads.fontSize = 50
-        ads.zPosition = 4
+        SwiftyStoreKit.restorePurchases(atomically: true) { results in
+            if results.restoreFailedProducts.count > 0 {
+                print("Restore Failed: \(results.restoreFailedProducts)")
+            }
+            else if results.restoredProducts.count > 0 {
+                print("Restore Success: \(results.restoredProducts)")
+            }
+            else {
+                print("Nothing to Restore")
+                
+                
+                self.ads.position = CGPoint(x: 0, y: -525)
+                self.ads.fontName = "Arcade"
+                self.ads.fontSize = 50
+                self.ads.zPosition = 4
+                
+                
+                self.addChild(self.ads)
+                
+                
+                
+                self.red_circle_with_slash.position = CGPoint(x: 0, y: -500)
+                self.red_circle_with_slash.scale(to: CGSize(width: 100, height: 100))
+                self.red_circle_with_slash.zPosition = 5
+                
+                self.addChild(self.red_circle_with_slash)
+
+            }
+            
+        }
         
         
-        addChild(ads)
         
         
-        
-        red_circle_with_slash.position = CGPoint(x: 0, y: -500)
-        red_circle_with_slash.scale(to: CGSize(width: 100, height: 100))
-        red_circle_with_slash.zPosition = 5
-        
-        addChild(red_circle_with_slash)
+//        ads.position = CGPoint(x: 0, y: -525)
+//        ads.fontName = "Arcade"
+//        ads.fontSize = 50
+//        ads.zPosition = 4
+//        
+//        
+//        addChild(ads)
+//        
+//        
+//        
+//        red_circle_with_slash.position = CGPoint(x: 0, y: -500)
+//        red_circle_with_slash.scale(to: CGSize(width: 100, height: 100))
+//        red_circle_with_slash.zPosition = 5
+//        
+//        addChild(red_circle_with_slash)
         
     }
     
