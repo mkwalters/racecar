@@ -35,6 +35,7 @@
 		178263751E80992600EBF212 /* racecarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178263741E80992600EBF212 /* racecarUITests.swift */; };
 		178263851E809EF500EBF212 /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178263841E809EF500EBF212 /* Grid.swift */; };
 		178263891E81D58100EBF212 /* Racecar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178263881E81D58100EBF212 /* Racecar.swift */; };
+		17CA26011EBAB1900080682F /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17CA26001EBAB1900080682F /* StoreKit.framework */; };
 		17D265161E9A13990034D691 /* NewtonCourseFour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D265151E9A13990034D691 /* NewtonCourseFour.swift */; };
 		17D265181E9A22470034D691 /* GalileoCourseFour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D265171E9A22470034D691 /* GalileoCourseFour.swift */; };
 		17D265251E9B27E00034D691 /* EinsteinCourseFour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D265241E9B27E00034D691 /* EinsteinCourseFour.swift */; };
@@ -111,6 +112,7 @@
 		178263761E80992600EBF212 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		178263841E809EF500EBF212 /* Grid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Grid.swift; path = ../Grid.swift; sourceTree = "<group>"; };
 		178263881E81D58100EBF212 /* Racecar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Racecar.swift; path = ../Racecar.swift; sourceTree = "<group>"; };
+		17CA26001EBAB1900080682F /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		17D265151E9A13990034D691 /* NewtonCourseFour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewtonCourseFour.swift; sourceTree = "<group>"; };
 		17D265171E9A22470034D691 /* GalileoCourseFour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalileoCourseFour.swift; sourceTree = "<group>"; };
 		17D265241E9B27E00034D691 /* EinsteinCourseFour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EinsteinCourseFour.swift; path = ../EinsteinCourseFour.swift; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				440A1F16C19316BFC577AFB9 /* Pods_racecar.framework in Frameworks */,
+				17CA26011EBAB1900080682F /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,6 +283,7 @@
 		AFD0879CC63B85EB7FEF7359 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				17CA26001EBAB1900080682F /* StoreKit.framework */,
 				82B980C1E70747888774FB62 /* Pods_racecar.framework */,
 				F6E2E807EB6BA89D571DD796 /* Pods_racecarTests.framework */,
 				C16BC2E28BB4A5EF0BDF7269 /* Pods_racecarUITests.framework */,
@@ -367,6 +371,9 @@
 						DevelopmentTeam = 7QH98TGAP8;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 1;
+							};
 							com.apple.iCloud = {
 								enabled = 1;
 							};

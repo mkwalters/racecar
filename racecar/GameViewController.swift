@@ -64,7 +64,7 @@ class GameViewController: UIViewController {
         googleBannerView.rootViewController = self
         let request: GADRequest = GADRequest()
         request.testDevices = ["25c0bcb0d1bc91ac3a3e7ff59a1216f7"]
-        googleBannerView.load(request)
+        //googleBannerView.load(request)
         
 //        googleBannerView.frame = CGRect(0, view.bounds.height - googleBannerView.frame.size.height, googleBannerView.frame.size.width, googleBannerView.frame.size.height)
         

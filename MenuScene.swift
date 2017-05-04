@@ -35,7 +35,11 @@ class MenuScene: SKScene {
     
     let velocity_title = SKLabelNode(text: "Velocity")
     let vector_title = SKLabelNode(text: "Vector")
-
+    
+    let ads = SKLabelNode(text: "ADS")
+    
+    
+    let red_circle_with_slash = SKSpriteNode(imageNamed: "RedCircle")
 
     override init(size: CGSize) {
         super.init(size: size)
@@ -104,6 +108,24 @@ class MenuScene: SKScene {
         HowToPlay.position = CGPoint(x: 0, y: -50)
         
         HowToPlayBackground.addChild(HowToPlay)
+        
+        
+        
+        ads.position = CGPoint(x: 0, y: -525)
+        ads.fontName = "Arcade"
+        ads.fontSize = 50
+        ads.zPosition = 4
+        
+        
+        addChild(ads)
+        
+        
+        
+        red_circle_with_slash.position = CGPoint(x: 0, y: -500)
+        red_circle_with_slash.scale(to: CGSize(width: 100, height: 100))
+        red_circle_with_slash.zPosition = 5
+        
+        addChild(red_circle_with_slash)
         
     }
     
