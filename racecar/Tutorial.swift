@@ -8,6 +8,8 @@
 
 import Foundation
 import SpriteKit
+import SwiftyStoreKit
+import StoreKit
 
 class Tutorial: SKScene {
     
@@ -20,6 +22,9 @@ class Tutorial: SKScene {
     let fontsize = CGFloat(50.0)
     
     let menuButton = SKLabelNode()
+    
+    
+    let restore_purchase = SKLabelNode()
     
     
     let fontname = "Arcade"
@@ -55,15 +60,27 @@ class Tutorial: SKScene {
         menuButton.fontName = fontname
         
         
+        restore_purchase.fontColor = blue
+        restore_purchase.text = "Restore Premium"
+        restore_purchase.fontSize = fontsize + 30
+        restore_purchase.fontName = fontname
+        
+        
+        
+
+        
         rule_one.position = CGPoint(x: 0, y: 250)
         //rule_two.position = CGPoint(x: 0, y: 50)
         rule_three.position = CGPoint(x: 0, y: 50)
-        menuButton.position = CGPoint(x: 0, y: -350)
+        menuButton.position = CGPoint(x: 0, y: -250)
+        restore_purchase.position = CGPoint(x: 0, y: -400)
         
         addChild(rule_one)
         //addChild(rule_two)
         addChild(rule_three)
         addChild(menuButton)
+        
+        addChild(restore_purchase)
         
     }
     
@@ -82,6 +99,24 @@ class Tutorial: SKScene {
             let reveal = SKTransition.doorsOpenVertical(withDuration: 0.25)
             let menuScene = MenuScene(size: self.size)
             self.view?.presentScene(menuScene, transition: reveal)
+        }
+        
+        if restore_purchase.contains(touchLocation){
+            
+            SwiftyStoreKit.restorePurchases(atomically: true) { results in
+                if results.restoreFailedProducts.count > 0 {
+                    print("Restore Failed: \(results.restoreFailedProducts)")
+                }
+                else if results.restoredProducts.count > 0 {
+                    print("Restore Success: \(results.restoredProducts)")
+                    UserDefaults.standard.set(true, forKey: "paid_version")
+                    self.view?.subviews.forEach({ $0.removeFromSuperview() })
+                }
+                else {
+                    print("Nothing to Restore")
+                }
+            }
+            
         }
         
     }
