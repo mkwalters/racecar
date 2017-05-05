@@ -62,52 +62,55 @@ class GameViewController: UIViewController {
         super.viewWillLayoutSubviews()
         
         
-        SwiftyStoreKit.restorePurchases(atomically: true) { results in
-            if results.restoreFailedProducts.count > 0 {
-                print("Restore Failed: \(results.restoreFailedProducts)")
-            }
-            else if results.restoredProducts.count > 0 {
-                print("Restore Success: \(results.restoredProducts)")
-            }
-            else {
-                print("Nothing to Restore")
-                
-                
-                
-                self.googleBannerView = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait)
-                self.googleBannerView.adUnitID = "ca-app-pub-7570294198997787/3091494959"
-                
-                self.googleBannerView.rootViewController = self
-                let request: GADRequest = GADRequest()
-                request.testDevices = ["25c0bcb0d1bc91ac3a3e7ff59a1216f7"]
-                self.googleBannerView.load(request)
-                
-                //googleBannerView.frame = CGRect(0, view.bounds.height - googleBannerView.frame.size.height, googleBannerView.frame.size.width, googleBannerView.frame.size.height)
-                
-                self.googleBannerView.frame = CGRect(x: 0, y: self.view.bounds.height - self.googleBannerView.frame.size.height, width: self.googleBannerView.frame.size.width, height: self.googleBannerView.frame.size.height)
-                
-                
-                
-                self.view.addSubview(self.googleBannerView!)
-            }
+//        SwiftyStoreKit.restorePurchases(atomically: true) { results in
+//            if results.restoreFailedProducts.count > 0 {
+//                print("Restore Failed: \(results.restoreFailedProducts)")
+//            }
+//            else if results.restoredProducts.count > 0 {
+//                print("Restore Success: \(results.restoredProducts)")
+//            }
+//            else {
+//                print("Nothing to Restore")
+//                
+//                
+//                
+//                self.googleBannerView = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait)
+//                self.googleBannerView.adUnitID = "ca-app-pub-7570294198997787/3091494959"
+//                
+//                self.googleBannerView.rootViewController = self
+//                let request: GADRequest = GADRequest()
+//                request.testDevices = ["25c0bcb0d1bc91ac3a3e7ff59a1216f7"]
+//                self.googleBannerView.load(request)
+//                
+//                //googleBannerView.frame = CGRect(0, view.bounds.height - googleBannerView.frame.size.height, googleBannerView.frame.size.width, googleBannerView.frame.size.height)
+//                
+//                self.googleBannerView.frame = CGRect(x: 0, y: self.view.bounds.height - self.googleBannerView.frame.size.height, width: self.googleBannerView.frame.size.width, height: self.googleBannerView.frame.size.height)
+//                
+//                
+//                
+//                self.view.addSubview(self.googleBannerView!)
+//            }
+//        }
+        
+        guard let _ = UserDefaults.standard.value(forKey: "paid_version") else {
+        
+            googleBannerView = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait)
+            googleBannerView.adUnitID = "ca-app-pub-7570294198997787/3091494959"
+            
+            googleBannerView.rootViewController = self
+            let request: GADRequest = GADRequest()
+            request.testDevices = ["25c0bcb0d1bc91ac3a3e7ff59a1216f7"]
+            googleBannerView.load(request)
+            
+            //googleBannerView.frame = CGRect(0, view.bounds.height - googleBannerView.frame.size.height, googleBannerView.frame.size.width, googleBannerView.frame.size.height)
+            
+            googleBannerView.frame = CGRect(x: 0, y: view.bounds.height - googleBannerView.frame.size.height, width: googleBannerView.frame.size.width, height: googleBannerView.frame.size.height)
+            
+            
+            
+            self.view.addSubview(googleBannerView!)
+            return
         }
-        
-//        googleBannerView = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait)
-//        googleBannerView.adUnitID = "ca-app-pub-7570294198997787/3091494959"
-//        
-//        googleBannerView.rootViewController = self
-//        let request: GADRequest = GADRequest()
-//        request.testDevices = ["25c0bcb0d1bc91ac3a3e7ff59a1216f7"]
-//        googleBannerView.load(request)
-//        
-//        //googleBannerView.frame = CGRect(0, view.bounds.height - googleBannerView.frame.size.height, googleBannerView.frame.size.width, googleBannerView.frame.size.height)
-//        
-//        googleBannerView.frame = CGRect(x: 0, y: view.bounds.height - googleBannerView.frame.size.height, width: googleBannerView.frame.size.width, height: googleBannerView.frame.size.height)
-//        
-//        
-//        
-//        self.view.addSubview(googleBannerView!)
-        
         
         if let skView = self.view as? SKView {  //cast root as SKView
             if skView.scene == nil {

@@ -562,6 +562,35 @@ class Course: SKScene, SKPhysicsContactDelegate {
         
         
         
+        if let _ = UserDefaults.standard.value(forKey: "paid_version") {
+            
+            UIBackground.position = CGPoint(x: self.frame.width / 2 - 125  ,y: -1 * self.frame.height / 2 + 125)
+            x_acceleration_button.position = CGPoint(x: self.frame.width / 2 - 40, y: -1 * self.frame.height / 2 + 125)
+            
+            
+            x_deacceleration_button.position = CGPoint(x: self.frame.width / 2 - 210 , y: -1 * self.frame.height / 2 + 125)
+            
+            
+            y_acceleration_button.position = CGPoint(x: self.frame.width / 2 - 125, y: -1 * self.frame.height / 2 + 210)
+            
+            
+            y_deacceleration_button.position = CGPoint(x: self.frame.width / 2 - 125, y: -1 * self.frame.height / 2 + 40)
+            
+            
+            
+            speedometerUIBackground.position =  CGPoint(x: -1 * self.frame.width / 2 + 125  ,y: -1 * self.frame.height / 2 + 125)
+            
+            
+            
+            speedometer.position = CGPoint(x: -1 * self.frame.width / 2 + 125  ,y: -1 * self.frame.height / 2 + 125)
+            
+            timer.position = CGPoint(x: 0, y: -1 * self.frame.height / 2 + 125)
+            
+            
+            
+        }
+        
+        
         
         
         //        let vroom = SKSpriteNode(color: SKColor.red, size: CGSize(width: 90, height: 90))

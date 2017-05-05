@@ -35,8 +35,8 @@ class MenuScene: SKScene {
     let HowToPlay = SKLabelNode()
     let HowToPlayBackground = SKSpriteNode(color: blue, size: CGSize(width: 250, height: 115)  )
     
-    let velocity_title = SKLabelNode(text: "Velocity")
-    let vector_title = SKLabelNode(text: "Vector")
+    let velocity_title = SKLabelNode(text: "Bit")
+    let vector_title = SKLabelNode(text: "Crawler")
     
     let ads = SKLabelNode(text: "ADS")
     
@@ -54,13 +54,13 @@ class MenuScene: SKScene {
         
         backgroundColor = SKColor.black
         
-        vector_title.position = CGPoint(x: CGFloat(100), y: self.frame.height / 2 - 400)
+        vector_title.position = CGPoint(x: CGFloat(0), y: self.frame.height / 2 - 400)
         vector_title.fontName = "FasterOne-Regular"
         vector_title.fontColor = yellow
         vector_title.fontSize = 110
         addChild(vector_title)
         
-        velocity_title.position = CGPoint(x: CGFloat(-60), y: self.frame.height / 2 - 250)
+        velocity_title.position = CGPoint(x: CGFloat(0), y: self.frame.height / 2 - 250)
         velocity_title.fontName = "FasterOne-Regular"
         velocity_title.fontColor = yellow
         velocity_title.fontSize = 110
@@ -117,55 +117,59 @@ class MenuScene: SKScene {
         
         
         
-        SwiftyStoreKit.restorePurchases(atomically: true) { results in
-            if results.restoreFailedProducts.count > 0 {
-                print("Restore Failed: \(results.restoreFailedProducts)")
-            }
-            else if results.restoredProducts.count > 0 {
-                print("Restore Success: \(results.restoredProducts)")
-            }
-            else {
-                print("Nothing to Restore")
-                
-                
-                self.ads.position = CGPoint(x: 0, y: -525)
-                self.ads.fontName = "Arcade"
-                self.ads.fontSize = 50
-                self.ads.zPosition = 4
-                
-                
-                self.addChild(self.ads)
-                
-                
-                
-                self.red_circle_with_slash.position = CGPoint(x: 0, y: -500)
-                self.red_circle_with_slash.scale(to: CGSize(width: 100, height: 100))
-                self.red_circle_with_slash.zPosition = 5
-                
-                self.addChild(self.red_circle_with_slash)
-
-            }
-            
+//        SwiftyStoreKit.restorePurchases(atomically: true) { results in
+//            if results.restoreFailedProducts.count > 0 {
+//                print("Restore Failed: \(results.restoreFailedProducts)")
+//            }
+//            else if results.restoredProducts.count > 0 {
+//                print("Restore Success: \(results.restoredProducts)")
+//            }
+//            else {
+//                print("Nothing to Restore")
+//                
+//                
+//                self.ads.position = CGPoint(x: 0, y: -525)
+//                self.ads.fontName = "Arcade"
+//                self.ads.fontSize = 50
+//                self.ads.zPosition = 4
+//                
+//                
+//                self.addChild(self.ads)
+//                
+//                
+//                
+//                self.red_circle_with_slash.position = CGPoint(x: 0, y: -500)
+//                self.red_circle_with_slash.scale(to: CGSize(width: 100, height: 100))
+//                self.red_circle_with_slash.zPosition = 5
+//                
+//                self.addChild(self.red_circle_with_slash)
+//
+//            }
+//            
+//        }
+        
+        
+        ads.position = CGPoint(x: 0, y: -525)
+        ads.fontName = "Arcade"
+        ads.fontSize = 50
+        ads.zPosition = 4
+        
+        
+        addChild(ads)
+        
+        
+        
+        red_circle_with_slash.position = CGPoint(x: 0, y: -500)
+        red_circle_with_slash.scale(to: CGSize(width: 100, height: 100))
+        red_circle_with_slash.zPosition = 5
+        
+        addChild(red_circle_with_slash)
+        
+        
+        if let _ = UserDefaults.standard.value(forKey: "paid_version") {
+            ads.removeFromParent()
+            red_circle_with_slash.removeFromParent()
         }
-        
-        
-        
-        
-//        ads.position = CGPoint(x: 0, y: -525)
-//        ads.fontName = "Arcade"
-//        ads.fontSize = 50
-//        ads.zPosition = 4
-//        
-//        
-//        addChild(ads)
-//        
-//        
-//        
-//        red_circle_with_slash.position = CGPoint(x: 0, y: -500)
-//        red_circle_with_slash.scale(to: CGSize(width: 100, height: 100))
-//        red_circle_with_slash.zPosition = 5
-//        
-//        addChild(red_circle_with_slash)
         
     }
     
@@ -237,6 +241,15 @@ class MenuScene: SKScene {
                 switch result {
                 case .success(let product):
                     print("Purchase Success: \(product.productId)")
+                    
+                    UserDefaults.standard.set(true, forKey: "paid_version")
+                    
+                    
+                    self.ads.removeFromParent()
+                    self.red_circle_with_slash.removeFromParent()
+                    
+                    self.view?.subviews.forEach({ $0.removeFromSuperview() })
+                    
                 case .error(let error):
                     switch error.code {
                     case .unknown: print("Unknown error. Please contact support")
