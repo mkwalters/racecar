@@ -66,7 +66,7 @@ class MenuScene: SKScene {
         velocity_title.fontSize = 110
         addChild(velocity_title)
         
-        GrandPrixBackground.position = CGPoint(x: 0, y: 0)
+        GrandPrixBackground.position = CGPoint(x: 0, y: 75)
         GrandPrixBackground.zPosition = 4
         addChild(GrandPrixBackground)
         
@@ -91,7 +91,7 @@ class MenuScene: SKScene {
         
         TimeTrials.position = CGPoint(x: 0, y: -50)
         
-        TimeTrialsBackground.position = CGPoint(x: 0, y: -180)
+        TimeTrialsBackground.position = CGPoint(x: 0, y: -105)
         TimeTrialsBackground.zPosition = 4
         
         addChild(TimeTrialsBackground)
@@ -100,7 +100,7 @@ class MenuScene: SKScene {
         
         
         
-        HowToPlayBackground.position = CGPoint(x: 0, y: -360)
+        HowToPlayBackground.position = CGPoint(x: 0, y: -285)
         HowToPlayBackground.zPosition = 4
         
         addChild(HowToPlayBackground)
@@ -149,7 +149,7 @@ class MenuScene: SKScene {
 //        }
         
         
-        ads.position = CGPoint(x: 0, y: -525)
+        ads.position = CGPoint(x: 0, y: -475)
         ads.fontName = "Arcade"
         ads.fontSize = 50
         ads.zPosition = 4
@@ -159,7 +159,7 @@ class MenuScene: SKScene {
         
         
         
-        red_circle_with_slash.position = CGPoint(x: 0, y: -500)
+        red_circle_with_slash.position = CGPoint(x: 0, y: -450)
         red_circle_with_slash.scale(to: CGSize(width: 100, height: 100))
         red_circle_with_slash.zPosition = 5
         
