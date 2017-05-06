@@ -60,7 +60,7 @@ class CourseSelectionScene: SKScene {
         
         easyButtonHighScore.text = "--"
         easyButtonHighScore.fontColor = yellow
-        easyButtonHighScore.fontName = "Arcade"
+        easyButtonHighScore.fontName = "PressStart2P"
         if let score = UserDefaults.standard.value(forKey: name + "CourseOne") {
             easyButtonHighScore.text = "\(score)"
         }
@@ -77,7 +77,7 @@ class CourseSelectionScene: SKScene {
         
         course_two_highscore.text = "--"
         course_two_highscore.fontColor = blue
-        course_two_highscore.fontName = "Arcade"
+        course_two_highscore.fontName = "PressStart2P"
         if let score = UserDefaults.standard.value(forKey: name + "CourseTwo") {
             course_two_highscore.text = "\(score)"
         }
@@ -94,7 +94,7 @@ class CourseSelectionScene: SKScene {
         course_three_highscore.text = "--"
         course_three_highscore.fontColor = yellow
         course_three_highscore.fontSize = 60
-        course_three_highscore.fontName = "Arcade"
+        course_three_highscore.fontName = "PressStart2P"
         if let score = UserDefaults.standard.value(forKey: name + "CourseThree") {
             course_three_highscore.text = "\(score)"
         }
@@ -108,7 +108,7 @@ class CourseSelectionScene: SKScene {
         course_four_highscore.text = "--"
         course_four_highscore.fontColor = blue
         course_four_highscore.fontSize = 60
-        course_four_highscore.fontName = "Arcade"
+        course_four_highscore.fontName = "PressStart2P"
         if let score = UserDefaults.standard.value(forKey: name + "CourseFour") {
             course_four_highscore.text = "\(score)"
         }
@@ -123,23 +123,23 @@ class CourseSelectionScene: SKScene {
         //CGPoint(x: -120, y:  220)
         easyButton.position = CGPoint(x: -120, y:  250)
         easyButtonHighScore.position = CGPoint(x: 230, y: 265)
-        easyButton.fontName = "Arcade"
+        easyButton.fontName = "PressStart2P"
         course_two.position = CGPoint(x: -120, y: 100 )
         course_two_highscore.position = CGPoint(x: 230, y: 115)
-        course_two.fontName = "Arcade"
+        course_two.fontName = "PressStart2P"
         
         course_three.position = CGPoint(x: -120, y: -50 )
         course_three_highscore.position = CGPoint(x: 230, y: -35)
         
-        course_three.fontName = "Arcade"
+        course_three.fontName = "PressStart2P"
         
         course_four.position = CGPoint(x: -120, y: -200 )
         course_four_highscore.position = CGPoint(x: 230, y: -185)
         
-        course_four.fontName = "Arcade"
+        course_four.fontName = "PressStart2P"
         
         hardButton.position = CGPoint(x: 0, y: -400 )
-        hardButton.fontName = "Arcade"
+        hardButton.fontName = "PressStart2P"
         
         addChild(easyButton)
         addChild(easyButtonHighScore)

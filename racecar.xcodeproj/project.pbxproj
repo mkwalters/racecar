@@ -36,6 +36,7 @@
 		178263851E809EF500EBF212 /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178263841E809EF500EBF212 /* Grid.swift */; };
 		178263891E81D58100EBF212 /* Racecar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178263881E81D58100EBF212 /* Racecar.swift */; };
 		17CA26011EBAB1900080682F /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17CA26001EBAB1900080682F /* StoreKit.framework */; };
+		17CA260A1EBDB5530080682F /* PressStart2P.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17CA26091EBDB5530080682F /* PressStart2P.ttf */; };
 		17D265161E9A13990034D691 /* NewtonCourseFour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D265151E9A13990034D691 /* NewtonCourseFour.swift */; };
 		17D265181E9A22470034D691 /* GalileoCourseFour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D265171E9A22470034D691 /* GalileoCourseFour.swift */; };
 		17D265251E9B27E00034D691 /* EinsteinCourseFour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D265241E9B27E00034D691 /* EinsteinCourseFour.swift */; };
@@ -113,6 +114,7 @@
 		178263841E809EF500EBF212 /* Grid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Grid.swift; path = ../Grid.swift; sourceTree = "<group>"; };
 		178263881E81D58100EBF212 /* Racecar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Racecar.swift; path = ../Racecar.swift; sourceTree = "<group>"; };
 		17CA26001EBAB1900080682F /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		17CA26091EBDB5530080682F /* PressStart2P.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = PressStart2P.ttf; path = ../../../PressStart2P.ttf; sourceTree = "<group>"; };
 		17D265151E9A13990034D691 /* NewtonCourseFour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewtonCourseFour.swift; sourceTree = "<group>"; };
 		17D265171E9A22470034D691 /* GalileoCourseFour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalileoCourseFour.swift; sourceTree = "<group>"; };
 		17D265241E9B27E00034D691 /* EinsteinCourseFour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EinsteinCourseFour.swift; path = ../EinsteinCourseFour.swift; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 				1782634E1E80992500EBF212 /* AppDelegate.swift */,
 				17D265471EA04C280034D691 /* FasterOne-Regular.ttf */,
 				17D265491EA0833F0034D691 /* Arcade.ttf */,
+				17CA26091EBDB5530080682F /* PressStart2P.ttf */,
 				172AEF2D1E8DB25300154794 /* MenuScene.swift */,
 				172AEF311E8DB79100154794 /* DifficultyScene.swift */,
 				171813101E908BE4002DECED /* CupSelectionScene.swift */,
@@ -423,6 +426,7 @@
 				17D2653E1E9E1EDE0034D691 /* Murmaider II The Water God.mp3 in Resources */,
 				17D265341E9E1E9B0034D691 /* Comet Song.mp3 in Resources */,
 				17D265401E9E1EE60034D691 /* Symmetry.mp3 in Resources */,
+				17CA260A1EBDB5530080682F /* PressStart2P.ttf in Resources */,
 				17D265301E9E1E320034D691 /* Black Fire Upon Us.mp3 in Resources */,
 				17D265361E9E1EBB0034D691 /* Dethharmonic.mp3 in Resources */,
 				1782635C1E80992600EBF212 /* Assets.xcassets in Resources */,

@@ -27,7 +27,7 @@ class Tutorial: SKScene {
     let restore_purchase = SKLabelNode()
     
     
-    let fontname = "Arcade"
+    let fontname = "PressStart2P"
     
     override init(size: CGSize) {
         super.init(size: size)

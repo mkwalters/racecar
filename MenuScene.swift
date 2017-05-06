@@ -71,10 +71,10 @@ class MenuScene: SKScene {
         addChild(GrandPrixBackground)
         
         GrandPrix.fontColor = yellow
-        GrandPrix.fontName = "Arcade"
+        GrandPrix.fontName = "PressStart2P"
         GrandPrix.text = "Grand Prix"
-        GrandPrix.fontSize = 100
-        GrandPrix.position = CGPoint(x: 0, y: -50 )
+        GrandPrix.fontSize = 40
+        GrandPrix.position = CGPoint(x: 0, y: -30 )
         GrandPrix.zPosition = 5
         
         GrandPrixBackground.addChild(GrandPrix)
@@ -84,12 +84,12 @@ class MenuScene: SKScene {
         
         
         TimeTrials.fontColor = yellow
-        TimeTrials.fontName = "Arcade"
+        TimeTrials.fontName = "PressStart2P"
         TimeTrials.text = "Time Trials"
-        TimeTrials.fontSize = 100
+        TimeTrials.fontSize = 40
         TimeTrials.zPosition = 5
         
-        TimeTrials.position = CGPoint(x: 0, y: -50)
+        TimeTrials.position = CGPoint(x: 0, y: -30)
         
         TimeTrialsBackground.position = CGPoint(x: 0, y: -105)
         TimeTrialsBackground.zPosition = 4
@@ -106,12 +106,12 @@ class MenuScene: SKScene {
         addChild(HowToPlayBackground)
         
         HowToPlay.fontColor = yellow
-        HowToPlay.fontName = "Arcade"
+        HowToPlay.fontName = "PressStart2P"
         HowToPlay.text = "Help"
-        HowToPlay.fontSize = 100
+        HowToPlay.fontSize = 40
         HowToPlay.zPosition = 5
         
-        HowToPlay.position = CGPoint(x: 0, y: -50)
+        HowToPlay.position = CGPoint(x: 0, y: -30)
         
         HowToPlayBackground.addChild(HowToPlay)
         
@@ -129,7 +129,7 @@ class MenuScene: SKScene {
 //                
 //                
 //                self.ads.position = CGPoint(x: 0, y: -525)
-//                self.ads.fontName = "Arcade"
+//                self.ads.fontName = "PressStart2P"
 //                self.ads.fontSize = 50
 //                self.ads.zPosition = 4
 //                
@@ -150,8 +150,8 @@ class MenuScene: SKScene {
         
         
         ads.position = CGPoint(x: 0, y: -475)
-        ads.fontName = "Arcade"
-        ads.fontSize = 50
+        ads.fontName = "PressStart2P"
+        ads.fontSize = 20
         ads.zPosition = 4
         
         
@@ -159,8 +159,8 @@ class MenuScene: SKScene {
         
         
         
-        red_circle_with_slash.position = CGPoint(x: 0, y: -450)
-        red_circle_with_slash.scale(to: CGSize(width: 100, height: 100))
+        red_circle_with_slash.position = CGPoint(x: 0, y: -460)
+        red_circle_with_slash.scale(to: CGSize(width: 75, height: 75))
         red_circle_with_slash.zPosition = 5
         
         addChild(red_circle_with_slash)

@@ -156,26 +156,26 @@ class CupSelectionScene: SKScene {
         easyButton.fontColor = yellow
         easyButton.text = "Galileo"
         easyButton.fontSize = 100
-        easyButton.fontName = "Arcade"
+        easyButton.fontName = "PressStart2P"
         easyButton.zPosition = 5
         
         hardButton.fontColor = yellow
         hardButton.text = "Newton"
         hardButton.fontSize = 100
-        hardButton.fontName = "Arcade"
+        hardButton.fontName = "PressStart2P"
         hardButton.zPosition = 5
         
         menuButton.fontColor = yellow
         menuButton.text = "Einstein"
         menuButton.fontSize = 100
-        menuButton.fontName = "Arcade"
+        menuButton.fontName = "PressStart2P"
         menuButton.zPosition = 5
         
         
         backButton.fontColor = yellow
         backButton.text = "Back"
         backButton.fontSize = 100
-        backButton.fontName = "Arcade"
+        backButton.fontName = "PressStart2P"
         backButton.zPosition = 5
         
         
