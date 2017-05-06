@@ -96,6 +96,28 @@ class Tutorial: SKScene {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
+    func give_message(message: String) {
+        
+        let message_label = SKLabelNode(text: message)
+        message_label.fontColor = blue
+        message_label.position = CGPoint(x: 0, y: -500)
+        message_label.fontName = fontname
+        message_label.fontSize = fontsize
+        
+        
+        self.addChild(message_label)
+        
+        
+        let wait = SKAction.wait(forDuration: 1.0)
+        
+        let fade_out = SKAction.fadeOut(withDuration: 1.0)
+        
+        let sequence = SKAction.sequence([ wait, fade_out ])
+        
+        message_label.run(sequence)
+    }
+    
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         let touch = touches.first
         let touchLocation = touch!.location(in: self)
@@ -108,11 +130,15 @@ class Tutorial: SKScene {
             self.view?.presentScene(menuScene, transition: reveal)
         }
         
+        
+        
+        
         if restore_purchase.contains(touchLocation){
             
             SwiftyStoreKit.restorePurchases(atomically: true) { results in
                 if results.restoreFailedProducts.count > 0 {
                     print("Restore Failed: \(results.restoreFailedProducts)")
+                    self.give_message(message: "Restore Failed")
                 }
                 else if results.restoredProducts.count > 0 {
                     print("Restore Success: \(results.restoredProducts)")
@@ -120,7 +146,9 @@ class Tutorial: SKScene {
                     self.view?.subviews.forEach({ $0.removeFromSuperview() })
                 }
                 else {
-                    print("Nothing to Restore")
+                    //print("Nothing to Restore")
+                    self.give_message(message: "Nothing to restore")
+                    
                 }
             }
             
