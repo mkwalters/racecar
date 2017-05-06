@@ -38,18 +38,18 @@ class Tutorial: SKScene {
         
         
         rule_one.fontColor = yellow
-        rule_one.text = "Tap D-pad to change velocity"
+        rule_one.text = "Tap D-pad to accelerate."
         rule_one.fontSize = fontsize
         rule_one.fontName = fontname
         
         rule_two.fontColor = yellow
-        rule_two.text = "Finish Cups quickly to unlock new courses"
+        rule_two.text = "Manage velocity carefully"
         rule_two.fontSize = fontsize
         rule_two.fontName = fontname
         
-        rule_three.fontColor = red
-        rule_three.text = "Don't Crash"
-        rule_three.fontSize = fontsize + 20
+        rule_three.fontColor = yellow
+        rule_three.text = "to avoid crashing."
+        rule_three.fontSize = fontsize
         rule_three.fontName = fontname
         
         
@@ -69,18 +69,25 @@ class Tutorial: SKScene {
         
 
         
-        rule_one.position = CGPoint(x: 0, y: 250)
-        //rule_two.position = CGPoint(x: 0, y: 50)
+        rule_one.position = CGPoint(x: 0, y: 300)
+        rule_two.position = CGPoint(x: 0, y: 100)
         rule_three.position = CGPoint(x: 0, y: 50)
         menuButton.position = CGPoint(x: 0, y: -250)
         restore_purchase.position = CGPoint(x: 0, y: -400)
         
         addChild(rule_one)
-        //addChild(rule_two)
+        addChild(rule_two)
         addChild(rule_three)
         addChild(menuButton)
-        
         addChild(restore_purchase)
+        
+        if let _ = UserDefaults.standard.value(forKey: "paid_version") {
+            restore_purchase.removeFromParent()
+            
+            
+        }
+        
+        
         
     }
     
