@@ -485,10 +485,10 @@ class Course: SKScene, SKPhysicsContactDelegate {
         
         
         number_of_moves_label.text = String(number_of_moves)
-        number_of_moves_label.fontSize = 85
+        number_of_moves_label.fontSize = 40
         number_of_moves_label.fontName = "PressStart2P"
         number_of_moves_label.fontColor = red
-        number_of_moves_label.position = CGPoint(x: self.frame.width / 2 - 210, y: self.frame.height / 2 - 90)
+        number_of_moves_label.position = CGPoint(x: self.frame.width / 2 - 210, y: self.frame.height / 2 - 78)
         number_of_moves_label.zPosition = 20000000
         self.addChild(number_of_moves_label)
         
