@@ -155,35 +155,38 @@ class CupSelectionScene: SKScene {
         
         easyButton.fontColor = yellow
         easyButton.text = "Galileo"
-        easyButton.fontSize = 100
+        easyButton.fontSize = 43
         easyButton.fontName = "PressStart2P"
         easyButton.zPosition = 5
         
         hardButton.fontColor = yellow
         hardButton.text = "Newton"
-        hardButton.fontSize = 100
+        hardButton.fontSize = 43
         hardButton.fontName = "PressStart2P"
         hardButton.zPosition = 5
         
         menuButton.fontColor = yellow
         menuButton.text = "Einstein"
-        menuButton.fontSize = 100
+        menuButton.fontSize = 43
         menuButton.fontName = "PressStart2P"
         menuButton.zPosition = 5
         
         
         backButton.fontColor = yellow
         backButton.text = "Back"
-        backButton.fontSize = 100
+        backButton.fontSize = 43
         backButton.fontName = "PressStart2P"
         backButton.zPosition = 5
         
         
         if game_type == "grand_prix" {
             
-            easyButton.fontSize = 70
-            hardButton.fontSize = 70
-            menuButton.fontSize = 70
+            easyButton.fontSize = 30
+            hardButton.fontSize = 30
+            menuButton.fontSize = 30
+            
+            
+            
             
             
             
@@ -200,10 +203,10 @@ class CupSelectionScene: SKScene {
             
         }
         
-        easyButton.position = CGPoint(x: 0, y: -50)
-        hardButton.position = CGPoint(x: 0, y:  -50)
-        menuButton.position = CGPoint(x: 0, y:  -50)
-        backButton.position = CGPoint(x: 0, y:  -50)
+        easyButton.position = CGPoint(x: 0, y: -30)
+        hardButton.position = CGPoint(x: 0, y:  -30)
+        menuButton.position = CGPoint(x: 0, y:  -30)
+        backButton.position = CGPoint(x: 0, y:  -30)
         
         
         

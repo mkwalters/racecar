@@ -55,7 +55,7 @@ class CourseSelectionScene: SKScene {
     
         easyButton.fontColor = blue
         easyButton.text = "Course #1"
-        easyButton.fontSize = 100
+        easyButton.fontSize = 45
         // + "/" + "\(Int( TrophySystem.par_values()[ name + "CourseOne" ]! ))"
         
         easyButtonHighScore.text = "--"
@@ -66,14 +66,13 @@ class CourseSelectionScene: SKScene {
         }
         
         easyButtonHighScore.text = easyButtonHighScore.text! + "/" + "\(Int( TrophySystem.par_values()[ name + "CourseOne" ]! ))"
-        easyButtonHighScore.fontSize = 60
-        
+        easyButtonHighScore.fontSize = 30
         
         //course two
         
         course_two.fontColor = yellow
         course_two.text = "Course #2"
-        course_two.fontSize = 100
+        course_two.fontSize = 45
         
         course_two_highscore.text = "--"
         course_two_highscore.fontColor = blue
@@ -82,18 +81,18 @@ class CourseSelectionScene: SKScene {
             course_two_highscore.text = "\(score)"
         }
         course_two_highscore.text = course_two_highscore.text! + "/" + "\(Int( TrophySystem.par_values()[ name + "CourseTwo" ]! ))"
-        course_two_highscore.fontSize = 60
+        course_two_highscore.fontSize = 30
         
         
         //course_three
         
         course_three.fontColor = blue
         course_three.text = "Course #3"
-        course_three.fontSize = 100
+        course_three.fontSize = 45
         
         course_three_highscore.text = "--"
         course_three_highscore.fontColor = yellow
-        course_three_highscore.fontSize = 60
+        course_three_highscore.fontSize = 30
         course_three_highscore.fontName = "PressStart2P"
         if let score = UserDefaults.standard.value(forKey: name + "CourseThree") {
             course_three_highscore.text = "\(score)"
@@ -103,11 +102,11 @@ class CourseSelectionScene: SKScene {
         
         course_four.fontColor = yellow
         course_four.text = "Course #4"
-        course_four.fontSize = 100
+        course_four.fontSize = 45
         
         course_four_highscore.text = "--"
         course_four_highscore.fontColor = blue
-        course_four_highscore.fontSize = 60
+        course_four_highscore.fontSize = 30
         course_four_highscore.fontName = "PressStart2P"
         if let score = UserDefaults.standard.value(forKey: name + "CourseFour") {
             course_four_highscore.text = "\(score)"
@@ -117,24 +116,24 @@ class CourseSelectionScene: SKScene {
         
         hardButton.fontColor = blue
         hardButton.text = "Back"
-        hardButton.fontSize = 80
+        hardButton.fontSize = 55
         
         
         //CGPoint(x: -120, y:  220)
         easyButton.position = CGPoint(x: -120, y:  250)
-        easyButtonHighScore.position = CGPoint(x: 230, y: 265)
+        easyButtonHighScore.position = CGPoint(x: 220, y: 250)
         easyButton.fontName = "PressStart2P"
         course_two.position = CGPoint(x: -120, y: 100 )
-        course_two_highscore.position = CGPoint(x: 230, y: 115)
+        course_two_highscore.position = CGPoint(x: 220, y: 100)
         course_two.fontName = "PressStart2P"
         
         course_three.position = CGPoint(x: -120, y: -50 )
-        course_three_highscore.position = CGPoint(x: 230, y: -35)
+        course_three_highscore.position = CGPoint(x: 220, y: -50)
         
         course_three.fontName = "PressStart2P"
         
         course_four.position = CGPoint(x: -120, y: -200 )
-        course_four_highscore.position = CGPoint(x: 230, y: -185)
+        course_four_highscore.position = CGPoint(x: 220, y: -200)
         
         course_four.fontName = "PressStart2P"
         
