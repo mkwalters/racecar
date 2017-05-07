@@ -725,7 +725,7 @@ class Course: SKScene, SKPhysicsContactDelegate {
             self.addChild(ending_background)
             exit = SKLabelNode(text: "Exit")
             exit.position = CGPoint(x: 0, y: -200)
-            exit.fontSize = 100
+            exit.fontSize = 50
             exit.fontName = "PressStart2P"
             exit.fontColor = red
             exit.name = "exit"
@@ -753,7 +753,7 @@ class Course: SKScene, SKPhysicsContactDelegate {
                 let score = SKLabelNode(text: "Score: " + String(number_of_moves))
                 
                 score.position = CGPoint(x: 0, y: 200)
-                score.fontSize = 100
+                score.fontSize = 50
                 score.fontName = "PressStart2P"
                 score.fontColor = blue
                 //score.name = "exit"
@@ -773,7 +773,7 @@ class Course: SKScene, SKPhysicsContactDelegate {
                 let best_score = SKLabelNode(text: "High Score: " + String(describing: best))
                 
                 best_score.position = CGPoint(x: 0, y: 100)
-                best_score.fontSize = 70
+                best_score.fontSize = 30
                 best_score.fontName = "PressStart2P"
                 best_score.fontColor = blue
                 //score.name = "exit"
@@ -783,12 +783,16 @@ class Course: SKScene, SKPhysicsContactDelegate {
                 
             } else if game_type == "grand_prix" {
                 
+                
+                
+                
+                
                 if last_course_in_cup == false {
                     let next = SKLabelNode(text: "Next")
-                    next.position = CGPoint(x: 0, y: 0)
+                    next.position = CGPoint(x: 0, y: 50)
                     next.name = "next"
                     next.fontName = "PressStart2P"
-                    next.fontSize = 100
+                    next.fontSize = 50
                     next.fontColor = red
                     //score.name = "exit"
                     next.zPosition = 999999999
@@ -798,16 +802,26 @@ class Course: SKScene, SKPhysicsContactDelegate {
                 } else {
                     
                     
+                    
                     if number_of_moves < TrophySystem.cup_par_values()[cup_membership]! {
                         
+                        
+                        if key == "EinsteinCourseFour" {
+                            
+                            let reveal = SKTransition.doorsOpenVertical(withDuration: 0.25)
+                            let difficultyScene = Credits()
+                            self.view?.presentScene(difficultyScene, transition: reveal)
+                            
+                            
+                        }
                         
                         UserDefaults.standard.setValue(true, forKey: key + "Gold")
                         drop_confetti()
                         
                         let next = SKLabelNode(text: "Gold medal!!")
-                        next.position = CGPoint(x: 0, y: 0)
+                        next.position = CGPoint(x: 0, y: 50)
                         //next.name = "next"
-                        next.fontSize = 100
+                        next.fontSize = 30
                         next.fontName = "PressStart2P"
                         next.fontColor = SKColor.red
                         //score.name = "exit"
@@ -818,9 +832,9 @@ class Course: SKScene, SKPhysicsContactDelegate {
                         
                         
                         let next = SKLabelNode(text: "Over Par")
-                        next.position = CGPoint(x: 0, y: 0)
+                        next.position = CGPoint(x: 0, y: 50)
                         //next.name = "next"
-                        next.fontSize = 100
+                        next.fontSize = 45
                         next.fontName = "PressStart2P"
                         next.fontColor = SKColor.red
                         //score.name = "exit"
@@ -1123,7 +1137,7 @@ class Course: SKScene, SKPhysicsContactDelegate {
                 if game_type == "time_trials" {
                 
                     crashed_out.position = CGPoint(x: 0, y: 200)
-                    crashed_out.fontSize = 100
+                    crashed_out.fontSize = 50
                     crashed_out.fontName = "PressStart2P"
                     crashed_out.fontColor = red
                     crashed_out.zPosition = 999999999
@@ -1138,7 +1152,7 @@ class Course: SKScene, SKPhysicsContactDelegate {
 
                     crash_restart = SKLabelNode(text: "Restart")
                     crash_restart.position = CGPoint(x: 0, y: 0)
-                    crash_restart.fontSize = 100
+                    crash_restart.fontSize = 50
                     crash_restart.fontName = "PressStart2P"
                     crash_restart.fontColor = blue
                     crash_restart.name = "restart"
@@ -1147,7 +1161,7 @@ class Course: SKScene, SKPhysicsContactDelegate {
                     
                     crash_exit = SKLabelNode(text: "Exit")
                     crash_exit.position = CGPoint(x: 0, y: -200)
-                    crash_exit.fontSize = 100
+                    crash_exit.fontSize = 50
                     crash_exit.fontName = "PressStart2P"
                     crash_exit.fontColor = blue
                     crash_exit.name = "exit"
@@ -1168,7 +1182,7 @@ class Course: SKScene, SKPhysicsContactDelegate {
                         
                         
                         crashed_out.position = CGPoint(x: 0, y: 300)
-                        crashed_out.fontSize = 100
+                        crashed_out.fontSize = 50
                         crashed_out.fontName = "PressStart2P"
                         crashed_out.fontColor = red
                         crashed_out.zPosition = 999999999
@@ -1182,7 +1196,7 @@ class Course: SKScene, SKPhysicsContactDelegate {
                         
                         let remaining_lives_label = SKLabelNode(text: "Remaining lives: " + String(remaining_lives))
                         remaining_lives_label.position = CGPoint(x: 0, y: 125)
-                        remaining_lives_label.fontSize = 70
+                        remaining_lives_label.fontSize = 30
                         remaining_lives_label.fontName = "PressStart2P"
                         remaining_lives_label.fontColor = blue
                         remaining_lives_label.name = "restart"
@@ -1191,7 +1205,7 @@ class Course: SKScene, SKPhysicsContactDelegate {
                         
                         crash_restart = SKLabelNode(text: "Restart")
                         crash_restart.position = CGPoint(x: 0, y: -150)
-                        crash_restart.fontSize = 100
+                        crash_restart.fontSize = 50
                         crash_restart.fontName = "PressStart2P"
                         crash_restart.fontColor = blue
                         crash_restart.name = "restart"
@@ -1200,7 +1214,7 @@ class Course: SKScene, SKPhysicsContactDelegate {
                         
                         crash_exit = SKLabelNode(text: "Exit")
                         crash_exit.position = CGPoint(x: 0, y: -300)
-                        crash_exit.fontSize = 100
+                        crash_exit.fontSize = 50
                         crash_exit.fontName = "PressStart2P"
                         crash_exit.fontColor = blue
                         crash_exit.name = "exit"
@@ -1219,7 +1233,7 @@ class Course: SKScene, SKPhysicsContactDelegate {
                         
                         crashed_out.position = CGPoint(x: 0, y: 200)
                         crashed_out.text = "Game Over"
-                        crashed_out.fontSize = 100
+                        crashed_out.fontSize = 50
                         crashed_out.zPosition = 999999999
                         
                         
@@ -1234,7 +1248,7 @@ class Course: SKScene, SKPhysicsContactDelegate {
                         
                         crash_exit = SKLabelNode(text: "Exit")
                         crash_exit.position = CGPoint(x: 0, y: -200)
-                        crash_exit.fontSize = 100
+                        crash_exit.fontSize = 50
                         crash_exit.fontName = "PressStart2P"
                         crash_exit.fontColor = blue
                         crash_exit.name = "exit"
@@ -1362,7 +1376,7 @@ class Course: SKScene, SKPhysicsContactDelegate {
                             resume = SKLabelNode(text: "Resume")
                             resume.position = CGPoint(x: 0, y: 200)
                             resume.fontName = "PressStart2P"
-                            resume.fontSize = 150
+                            resume.fontSize = 70
                             resume.fontColor = blue
                             resume.name = "resume"
                             resume.zPosition = 999999999
@@ -1370,7 +1384,7 @@ class Course: SKScene, SKPhysicsContactDelegate {
                             restart = SKLabelNode(text: "Restart")
                             restart.position = CGPoint(x: 0, y: 0)
                             restart.fontName = "PressStart2P"
-                            restart.fontSize = 150
+                            restart.fontSize = 70
                             restart.fontColor = blue
                             restart.name = "restart"
                             restart.zPosition = 999999999
@@ -1379,7 +1393,7 @@ class Course: SKScene, SKPhysicsContactDelegate {
                             exit = SKLabelNode(text: "Exit")
                             exit.position = CGPoint(x: 0, y: -200)
                             exit.fontName = "PressStart2P"
-                            exit.fontSize = 125
+                            exit.fontSize = 60
                             exit.fontColor = blue
                             exit.name = "exit"
                             exit.zPosition = 999999999

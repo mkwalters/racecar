@@ -37,6 +37,7 @@
 		178263891E81D58100EBF212 /* Racecar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178263881E81D58100EBF212 /* Racecar.swift */; };
 		17CA26011EBAB1900080682F /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17CA26001EBAB1900080682F /* StoreKit.framework */; };
 		17CA260A1EBDB5530080682F /* PressStart2P.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17CA26091EBDB5530080682F /* PressStart2P.ttf */; };
+		17CA260C1EBEC4B30080682F /* Credits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CA260B1EBEC4B30080682F /* Credits.swift */; };
 		17D265161E9A13990034D691 /* NewtonCourseFour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D265151E9A13990034D691 /* NewtonCourseFour.swift */; };
 		17D265181E9A22470034D691 /* GalileoCourseFour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D265171E9A22470034D691 /* GalileoCourseFour.swift */; };
 		17D265251E9B27E00034D691 /* EinsteinCourseFour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D265241E9B27E00034D691 /* EinsteinCourseFour.swift */; };
@@ -115,6 +116,7 @@
 		178263881E81D58100EBF212 /* Racecar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Racecar.swift; path = ../Racecar.swift; sourceTree = "<group>"; };
 		17CA26001EBAB1900080682F /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		17CA26091EBDB5530080682F /* PressStart2P.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = PressStart2P.ttf; path = ../../../PressStart2P.ttf; sourceTree = "<group>"; };
+		17CA260B1EBEC4B30080682F /* Credits.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credits.swift; sourceTree = "<group>"; };
 		17D265151E9A13990034D691 /* NewtonCourseFour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewtonCourseFour.swift; sourceTree = "<group>"; };
 		17D265171E9A22470034D691 /* GalileoCourseFour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalileoCourseFour.swift; sourceTree = "<group>"; };
 		17D265241E9B27E00034D691 /* EinsteinCourseFour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EinsteinCourseFour.swift; path = ../EinsteinCourseFour.swift; sourceTree = "<group>"; };
@@ -211,6 +213,7 @@
 				172AEF311E8DB79100154794 /* DifficultyScene.swift */,
 				171813101E908BE4002DECED /* CupSelectionScene.swift */,
 				1718130E1E9073EA002DECED /* Course.swift */,
+				17CA260B1EBEC4B30080682F /* Credits.swift */,
 				17D265261E9B30720034D691 /* Tutorial.swift */,
 				178263841E809EF500EBF212 /* Grid.swift */,
 				178263881E81D58100EBF212 /* Racecar.swift */,
@@ -610,6 +613,7 @@
 				17D265161E9A13990034D691 /* NewtonCourseFour.swift in Sources */,
 				1718130F1E9073EA002DECED /* Course.swift in Sources */,
 				171813111E908BE4002DECED /* CupSelectionScene.swift in Sources */,
+				17CA260C1EBEC4B30080682F /* Credits.swift in Sources */,
 				178263551E80992500EBF212 /* NewtonCourseTwo.swift in Sources */,
 				17D265251E9B27E00034D691 /* EinsteinCourseFour.swift in Sources */,
 				1706F6A11E96FB1D00FC6B26 /* EinsteinCourseTwo.swift in Sources */,

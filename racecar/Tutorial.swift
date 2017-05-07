@@ -19,7 +19,7 @@ class Tutorial: SKScene {
     let rule_three = SKLabelNode()
     
     
-    let fontsize = CGFloat(50.0)
+    let fontsize = CGFloat(27.0)
     
     let menuButton = SKLabelNode()
     

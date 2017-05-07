@@ -231,6 +231,10 @@ class MenuScene: SKScene {
             let difficultyScene = Tutorial(size: self.size)
             self.view?.presentScene(difficultyScene, transition: reveal)
             
+//            let reveal = SKTransition.doorsOpenVertical(withDuration: 0.25)
+//            let difficultyScene = Credits()
+//            self.view?.presentScene(difficultyScene, transition: reveal)
+            
         }
         
         if red_circle_with_slash.contains(touchLocation) {
