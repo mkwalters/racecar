@@ -18,7 +18,7 @@ class EinsteinCourseThree: Course {
     
     override func create_scene_specs() {
         
-        audioooo = SKAudioNode(fileNamed: "Symmetry")
+        audioooo = SKAudioNode(fileNamed: "11LavaFlowStressampTurboPulse")
         grid = Grid(blockSize: CGFloat(35.0), rows: 38, cols: 38)
         grid?.position = CGPoint(x: -300, y: 0)
         racecar = Racecar(x_pos: 31, y_pos: 11)

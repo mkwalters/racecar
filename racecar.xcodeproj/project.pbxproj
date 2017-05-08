@@ -37,23 +37,24 @@
 		17CA26011EBAB1900080682F /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17CA26001EBAB1900080682F /* StoreKit.framework */; };
 		17CA260A1EBDB5530080682F /* PressStart2P.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17CA26091EBDB5530080682F /* PressStart2P.ttf */; };
 		17CA260C1EBEC4B30080682F /* Credits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CA260B1EBEC4B30080682F /* Credits.swift */; };
+		17CA260E1EC03B6A0080682F /* 01KnockYourselfIn.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 17CA260D1EC03B6A0080682F /* 01KnockYourselfIn.mp3 */; };
+		17CA26101EC03B740080682F /* 02HereComesthe8-bitEmpire.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 17CA260F1EC03B740080682F /* 02HereComesthe8-bitEmpire.mp3 */; };
+		17CA26121EC03BC10080682F /* 03ILikeJumpRope.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 17CA26111EC03BC10080682F /* 03ILikeJumpRope.mp3 */; };
+		17CA26141EC03BE00080682F /* 04BoktipsetFranHelvetet.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 17CA26131EC03BE00080682F /* 04BoktipsetFranHelvetet.mp3 */; };
+		17CA26161EC03BFF0080682F /* 05Termosdynamik.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 17CA26151EC03BFF0080682F /* 05Termosdynamik.mp3 */; };
+		17CA26181EC03C090080682F /* 06Satisfucktion.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 17CA26171EC03C090080682F /* 06Satisfucktion.mp3 */; };
+		17CA261A1EC03C160080682F /* 07WaterskiMe.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 17CA26191EC03C160080682F /* 07WaterskiMe.mp3 */; };
+		17CA261C1EC03C250080682F /* 08AWellWorkedAnalogy.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 17CA261B1EC03C250080682F /* 08AWellWorkedAnalogy.mp3 */; };
+		17CA261E1EC03C390080682F /* 09TheDayTimeRanAway.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 17CA261D1EC03C390080682F /* 09TheDayTimeRanAway.mp3 */; };
+		17CA26201EC03C4C0080682F /* 108-bitParty.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 17CA261F1EC03C4C0080682F /* 108-bitParty.mp3 */; };
+		17CA26221EC03C610080682F /* 11LavaFlowStressampTurboPulse.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 17CA26211EC03C610080682F /* 11LavaFlowStressampTurboPulse.mp3 */; };
+		17CA26241EC03C7B0080682F /* 12TheFinalEnd.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 17CA26231EC03C7B0080682F /* 12TheFinalEnd.mp3 */; };
+		17CA26261EC03C8D0080682F /* 13StuffRole.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 17CA26251EC03C8D0080682F /* 13StuffRole.mp3 */; };
 		17D265161E9A13990034D691 /* NewtonCourseFour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D265151E9A13990034D691 /* NewtonCourseFour.swift */; };
 		17D265181E9A22470034D691 /* GalileoCourseFour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D265171E9A22470034D691 /* GalileoCourseFour.swift */; };
 		17D265251E9B27E00034D691 /* EinsteinCourseFour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D265241E9B27E00034D691 /* EinsteinCourseFour.swift */; };
 		17D265271E9B30720034D691 /* Tutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D265261E9B30720034D691 /* Tutorial.swift */; };
 		17D2652A1E9C9DA80034D691 /* CourseSelectionScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D265291E9C9DA80034D691 /* CourseSelectionScene.swift */; };
-		17D2652C1E9E03A00034D691 /* Bloodrocuted.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 17D2652B1E9E03A00034D691 /* Bloodrocuted.mp3 */; };
-		17D2652E1E9E1E280034D691 /* Awaken.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 17D2652D1E9E1E280034D691 /* Awaken.mp3 */; };
-		17D265301E9E1E320034D691 /* Black Fire Upon Us.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 17D2652F1E9E1E320034D691 /* Black Fire Upon Us.mp3 */; };
-		17D265321E9E1E480034D691 /* Bloodlines.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 17D265311E9E1E480034D691 /* Bloodlines.mp3 */; };
-		17D265341E9E1E9B0034D691 /* Comet Song.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 17D265331E9E1E9B0034D691 /* Comet Song.mp3 */; };
-		17D265361E9E1EBB0034D691 /* Dethharmonic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 17D265351E9E1EBB0034D691 /* Dethharmonic.mp3 */; };
-		17D265381E9E1EC20034D691 /* Deththeme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 17D265371E9E1EC20034D691 /* Deththeme.mp3 */; };
-		17D2653A1E9E1ECD0034D691 /* Fansong.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 17D265391E9E1ECD0034D691 /* Fansong.mp3 */; };
-		17D2653C1E9E1ED20034D691 /* Hatredcopter.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 17D2653B1E9E1ED20034D691 /* Hatredcopter.mp3 */; };
-		17D2653E1E9E1EDE0034D691 /* Murmaider II The Water God.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 17D2653D1E9E1EDE0034D691 /* Murmaider II The Water God.mp3 */; };
-		17D265401E9E1EE60034D691 /* Symmetry.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 17D2653F1E9E1EE60034D691 /* Symmetry.mp3 */; };
-		17D265421E9E1EEC0034D691 /* The Gears.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 17D265411E9E1EEC0034D691 /* The Gears.mp3 */; };
 		17D265481EA04EB80034D691 /* FasterOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17D265471EA04C280034D691 /* FasterOne-Regular.ttf */; };
 		17D2654A1EA083450034D691 /* Arcade.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17D265491EA0833F0034D691 /* Arcade.ttf */; };
 		3C18F4D8971A77C95FFE0625 /* Pods_racecarTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6E2E807EB6BA89D571DD796 /* Pods_racecarTests.framework */; };
@@ -115,24 +116,25 @@
 		17CA26001EBAB1900080682F /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		17CA26091EBDB5530080682F /* PressStart2P.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = PressStart2P.ttf; path = ../../../PressStart2P.ttf; sourceTree = "<group>"; };
 		17CA260B1EBEC4B30080682F /* Credits.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credits.swift; sourceTree = "<group>"; };
+		17CA260D1EC03B6A0080682F /* 01KnockYourselfIn.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = 01KnockYourselfIn.mp3; path = ../../../Ozzed/01KnockYourselfIn.mp3; sourceTree = "<group>"; };
+		17CA260F1EC03B740080682F /* 02HereComesthe8-bitEmpire.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "02HereComesthe8-bitEmpire.mp3"; path = "../../../Ozzed/02HereComesthe8-bitEmpire.mp3"; sourceTree = "<group>"; };
+		17CA26111EC03BC10080682F /* 03ILikeJumpRope.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = 03ILikeJumpRope.mp3; path = ../../../Ozzed/03ILikeJumpRope.mp3; sourceTree = "<group>"; };
+		17CA26131EC03BE00080682F /* 04BoktipsetFranHelvetet.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = 04BoktipsetFranHelvetet.mp3; path = ../../../Ozzed/04BoktipsetFranHelvetet.mp3; sourceTree = "<group>"; };
+		17CA26151EC03BFF0080682F /* 05Termosdynamik.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = 05Termosdynamik.mp3; path = ../../../Ozzed/05Termosdynamik.mp3; sourceTree = "<group>"; };
+		17CA26171EC03C090080682F /* 06Satisfucktion.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = 06Satisfucktion.mp3; path = ../../../Ozzed/06Satisfucktion.mp3; sourceTree = "<group>"; };
+		17CA26191EC03C160080682F /* 07WaterskiMe.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = 07WaterskiMe.mp3; path = ../../../Ozzed/07WaterskiMe.mp3; sourceTree = "<group>"; };
+		17CA261B1EC03C250080682F /* 08AWellWorkedAnalogy.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = 08AWellWorkedAnalogy.mp3; path = ../../../Ozzed/08AWellWorkedAnalogy.mp3; sourceTree = "<group>"; };
+		17CA261D1EC03C390080682F /* 09TheDayTimeRanAway.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = 09TheDayTimeRanAway.mp3; path = ../../../Ozzed/09TheDayTimeRanAway.mp3; sourceTree = "<group>"; };
+		17CA261F1EC03C4C0080682F /* 108-bitParty.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "108-bitParty.mp3"; path = "../../../Ozzed/108-bitParty.mp3"; sourceTree = "<group>"; };
+		17CA26211EC03C610080682F /* 11LavaFlowStressampTurboPulse.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = 11LavaFlowStressampTurboPulse.mp3; path = ../../../Ozzed/11LavaFlowStressampTurboPulse.mp3; sourceTree = "<group>"; };
+		17CA26231EC03C7B0080682F /* 12TheFinalEnd.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = 12TheFinalEnd.mp3; path = ../../../Ozzed/12TheFinalEnd.mp3; sourceTree = "<group>"; };
+		17CA26251EC03C8D0080682F /* 13StuffRole.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = 13StuffRole.mp3; path = ../../../Ozzed/13StuffRole.mp3; sourceTree = "<group>"; };
 		17D265151E9A13990034D691 /* NewtonCourseFour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewtonCourseFour.swift; sourceTree = "<group>"; };
 		17D265171E9A22470034D691 /* GalileoCourseFour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalileoCourseFour.swift; sourceTree = "<group>"; };
 		17D265241E9B27E00034D691 /* EinsteinCourseFour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EinsteinCourseFour.swift; path = ../EinsteinCourseFour.swift; sourceTree = "<group>"; };
 		17D265261E9B30720034D691 /* Tutorial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tutorial.swift; sourceTree = "<group>"; };
 		17D265281E9C67250034D691 /* racecar.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = racecar.entitlements; sourceTree = "<group>"; };
 		17D265291E9C9DA80034D691 /* CourseSelectionScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseSelectionScene.swift; sourceTree = "<group>"; };
-		17D2652B1E9E03A00034D691 /* Bloodrocuted.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Bloodrocuted.mp3; sourceTree = "<group>"; };
-		17D2652D1E9E1E280034D691 /* Awaken.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Awaken.mp3; sourceTree = "<group>"; };
-		17D2652F1E9E1E320034D691 /* Black Fire Upon Us.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Black Fire Upon Us.mp3"; sourceTree = "<group>"; };
-		17D265311E9E1E480034D691 /* Bloodlines.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Bloodlines.mp3; sourceTree = "<group>"; };
-		17D265331E9E1E9B0034D691 /* Comet Song.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Comet Song.mp3"; sourceTree = "<group>"; };
-		17D265351E9E1EBB0034D691 /* Dethharmonic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Dethharmonic.mp3; sourceTree = "<group>"; };
-		17D265371E9E1EC20034D691 /* Deththeme.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Deththeme.mp3; sourceTree = "<group>"; };
-		17D265391E9E1ECD0034D691 /* Fansong.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Fansong.mp3; sourceTree = "<group>"; };
-		17D2653B1E9E1ED20034D691 /* Hatredcopter.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Hatredcopter.mp3; sourceTree = "<group>"; };
-		17D2653D1E9E1EDE0034D691 /* Murmaider II The Water God.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Murmaider II The Water God.mp3"; sourceTree = "<group>"; };
-		17D2653F1E9E1EE60034D691 /* Symmetry.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Symmetry.mp3; sourceTree = "<group>"; };
-		17D265411E9E1EEC0034D691 /* The Gears.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "The Gears.mp3"; sourceTree = "<group>"; };
 		17D265471EA04C280034D691 /* FasterOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FasterOne-Regular.ttf"; sourceTree = "<group>"; };
 		17D265491EA0833F0034D691 /* Arcade.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Arcade.ttf; sourceTree = "<group>"; };
 		376848D43A6BB324454FE68B /* Pods-racecarUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-racecarUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-racecarUITests/Pods-racecarUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -232,18 +234,19 @@
 				1706F6A41E97684400FC6B26 /* EinsteinCourseThree.swift */,
 				17D265241E9B27E00034D691 /* EinsteinCourseFour.swift */,
 				178263561E80992500EBF212 /* GameViewController.swift */,
-				17D2652D1E9E1E280034D691 /* Awaken.mp3 */,
-				17D2652F1E9E1E320034D691 /* Black Fire Upon Us.mp3 */,
-				17D265311E9E1E480034D691 /* Bloodlines.mp3 */,
-				17D2652B1E9E03A00034D691 /* Bloodrocuted.mp3 */,
-				17D265331E9E1E9B0034D691 /* Comet Song.mp3 */,
-				17D265351E9E1EBB0034D691 /* Dethharmonic.mp3 */,
-				17D265371E9E1EC20034D691 /* Deththeme.mp3 */,
-				17D265391E9E1ECD0034D691 /* Fansong.mp3 */,
-				17D2653B1E9E1ED20034D691 /* Hatredcopter.mp3 */,
-				17D2653D1E9E1EDE0034D691 /* Murmaider II The Water God.mp3 */,
-				17D2653F1E9E1EE60034D691 /* Symmetry.mp3 */,
-				17D265411E9E1EEC0034D691 /* The Gears.mp3 */,
+				17CA260D1EC03B6A0080682F /* 01KnockYourselfIn.mp3 */,
+				17CA260F1EC03B740080682F /* 02HereComesthe8-bitEmpire.mp3 */,
+				17CA26111EC03BC10080682F /* 03ILikeJumpRope.mp3 */,
+				17CA26131EC03BE00080682F /* 04BoktipsetFranHelvetet.mp3 */,
+				17CA26151EC03BFF0080682F /* 05Termosdynamik.mp3 */,
+				17CA26171EC03C090080682F /* 06Satisfucktion.mp3 */,
+				17CA26191EC03C160080682F /* 07WaterskiMe.mp3 */,
+				17CA261B1EC03C250080682F /* 08AWellWorkedAnalogy.mp3 */,
+				17CA261D1EC03C390080682F /* 09TheDayTimeRanAway.mp3 */,
+				17CA261F1EC03C4C0080682F /* 108-bitParty.mp3 */,
+				17CA26211EC03C610080682F /* 11LavaFlowStressampTurboPulse.mp3 */,
+				17CA26231EC03C7B0080682F /* 12TheFinalEnd.mp3 */,
+				17CA26251EC03C8D0080682F /* 13StuffRole.mp3 */,
 				178263581E80992500EBF212 /* Main.storyboard */,
 				1782635B1E80992600EBF212 /* Assets.xcassets */,
 				1782635D1E80992600EBF212 /* LaunchScreen.storyboard */,
@@ -424,25 +427,26 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				17D2653A1E9E1ECD0034D691 /* Fansong.mp3 in Resources */,
+				17CA26141EC03BE00080682F /* 04BoktipsetFranHelvetet.mp3 in Resources */,
 				1782635A1E80992500EBF212 /* Main.storyboard in Resources */,
-				17D2653E1E9E1EDE0034D691 /* Murmaider II The Water God.mp3 in Resources */,
-				17D265341E9E1E9B0034D691 /* Comet Song.mp3 in Resources */,
-				17D265401E9E1EE60034D691 /* Symmetry.mp3 in Resources */,
 				17CA260A1EBDB5530080682F /* PressStart2P.ttf in Resources */,
-				17D265301E9E1E320034D691 /* Black Fire Upon Us.mp3 in Resources */,
-				17D265361E9E1EBB0034D691 /* Dethharmonic.mp3 in Resources */,
+				17CA26201EC03C4C0080682F /* 108-bitParty.mp3 in Resources */,
+				17CA26121EC03BC10080682F /* 03ILikeJumpRope.mp3 in Resources */,
 				1782635C1E80992600EBF212 /* Assets.xcassets in Resources */,
-				17D2652C1E9E03A00034D691 /* Bloodrocuted.mp3 in Resources */,
+				17CA261A1EC03C160080682F /* 07WaterskiMe.mp3 in Resources */,
+				17CA26241EC03C7B0080682F /* 12TheFinalEnd.mp3 in Resources */,
 				17D2654A1EA083450034D691 /* Arcade.ttf in Resources */,
 				1721D26C1E8DD6AC00234D2A /* MyScene.sks in Resources */,
-				17D265381E9E1EC20034D691 /* Deththeme.mp3 in Resources */,
-				17D265421E9E1EEC0034D691 /* The Gears.mp3 in Resources */,
-				17D2653C1E9E1ED20034D691 /* Hatredcopter.mp3 in Resources */,
-				17D2652E1E9E1E280034D691 /* Awaken.mp3 in Resources */,
-				17D265321E9E1E480034D691 /* Bloodlines.mp3 in Resources */,
+				17CA26181EC03C090080682F /* 06Satisfucktion.mp3 in Resources */,
+				17CA261E1EC03C390080682F /* 09TheDayTimeRanAway.mp3 in Resources */,
+				17CA26261EC03C8D0080682F /* 13StuffRole.mp3 in Resources */,
+				17CA260E1EC03B6A0080682F /* 01KnockYourselfIn.mp3 in Resources */,
 				1782635F1E80992600EBF212 /* LaunchScreen.storyboard in Resources */,
+				17CA26161EC03BFF0080682F /* 05Termosdynamik.mp3 in Resources */,
 				178263531E80992500EBF212 /* Actions.sks in Resources */,
+				17CA26101EC03B740080682F /* 02HereComesthe8-bitEmpire.mp3 in Resources */,
+				17CA26221EC03C610080682F /* 11LavaFlowStressampTurboPulse.mp3 in Resources */,
+				17CA261C1EC03C250080682F /* 08AWellWorkedAnalogy.mp3 in Resources */,
 				17D265481EA04EB80034D691 /* FasterOne-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

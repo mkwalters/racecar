@@ -167,6 +167,7 @@ class MenuScene: SKScene {
         
         
         if let _ = UserDefaults.standard.value(forKey: "paid_version") {
+            
             ads.removeFromParent()
             red_circle_with_slash.removeFromParent()
         }
@@ -202,6 +203,25 @@ class MenuScene: SKScene {
         }
         
     }
+    
+    
+    
+//    
+//    override func didMove(to view: SKView) {
+//        //UserDefaults.standard.setValue(420, forKey: "GalileoCourseTwo")
+//        
+//        
+////        starting_racecar_x_position = racecar.x_position
+////        starting_racecar_y_position = racecar.y_position
+////        
+////        
+////        create_scene()
+//        if let _ = UserDefaults.standard.value(forKey: "paid_version") {
+//            
+//            ads.removeFromParent()
+//            red_circle_with_slash.removeFromParent()
+//        }
+//    }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         let touch = touches.first

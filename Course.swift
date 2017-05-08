@@ -1237,6 +1237,7 @@ class Course: SKScene, SKPhysicsContactDelegate {
                         
                         crashed_out.position = CGPoint(x: 0, y: 200)
                         crashed_out.text = "Game Over"
+                        crashed_out.name = "PressStart2P"
                         crashed_out.fontSize = 50
                         crashed_out.zPosition = 999999999
                         

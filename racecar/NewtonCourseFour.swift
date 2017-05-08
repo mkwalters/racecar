@@ -18,7 +18,7 @@ class NewtonCourseFour: Course {
     
     override func create_scene_specs() {
         
-        audioooo = SKAudioNode(fileNamed: "Fansong")
+        audioooo = SKAudioNode(fileNamed: "08AWellWorkedAnalogy")
         grid = Grid(blockSize: CGFloat(35.0), rows: 42, cols: 30)
         grid?.position = CGPoint(x: -300, y: 0)
         racecar = Racecar(x_pos: 27, y_pos: 22)

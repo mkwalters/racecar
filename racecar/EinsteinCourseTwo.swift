@@ -18,7 +18,7 @@ class EinsteinCourseTwo: Course {
     
     override func create_scene_specs() {
         
-        audioooo = SKAudioNode(fileNamed: "Murmaider II The Water God")
+        audioooo = SKAudioNode(fileNamed: "108-bitParty")
         grid = Grid(blockSize: CGFloat(35.0), rows: 54, cols: 41)
         grid?.position = CGPoint(x: -300, y: 0)
         racecar = Racecar(x_pos: 38, y_pos: 30)
