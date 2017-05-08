@@ -62,7 +62,7 @@ class Tutorial: SKScene {
         
         restore_purchase.fontColor = blue
         restore_purchase.text = "Restore Premium"
-        restore_purchase.fontSize = fontsize + 30
+        restore_purchase.fontSize = fontsize
         restore_purchase.fontName = fontname
         
         

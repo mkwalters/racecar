@@ -799,6 +799,10 @@ class Course: SKScene, SKPhysicsContactDelegate {
                     
                     ending_background.addChild(next)
                     
+
+                    
+                    
+                    
                 } else {
                     
                     

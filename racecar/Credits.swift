@@ -164,7 +164,7 @@ class Credits: SKScene {
         let tester1 = SKLabelNode(text: "Maitland Bobst")
         let tester2 = SKLabelNode(text: "Noah Ashford")
         let tester3 = SKLabelNode(text: "Chris Viscarra")
-        let tester4 = SKLabelNode(text: "Swayze")
+        let tester4 = SKLabelNode(text: "Patrick Lewis")
         let tester5 = SKLabelNode(text: "Matt Walters")
         let tester6 = SKLabelNode(text: "Chris Sittaphone")
         
@@ -222,10 +222,10 @@ class Credits: SKScene {
         background.addChild(mama)
         
         
-        let bro = SKLabelNode(text: "Matthew Walters")
+        let bro = SKLabelNode(text: "Matt Walters")
         bro.position = CGPoint(x: 0, y: titles[5].position.y - 600)
         bro.fontName = "PressStart2P"
-        bro.fontSize = content_fontsize - 25
+        bro.fontSize = content_fontsize - 5
         
         
         background.addChild(bro)
@@ -233,6 +233,15 @@ class Credits: SKScene {
         //// Go Jacks
         
         //let go_jacks = SKLabelNode(text: "GO JACKS")
+        
+        
+        let humboldt_logo = SKSpriteNode(imageNamed: "hsu_stacked")
+        
+        humboldt_logo.position = CGPoint(x: 0, y: titles[6].position.y - 200)
+//        humboldt_logo.fontName = "PressStart2P"
+//        humboldt_logo.fontSize = content_fontsize - 5
+        
+        background.addChild(humboldt_logo)
 
         
         let roll_credits = SKAction.moveBy(x: 0, y: 8500, duration: 40)
@@ -263,15 +272,6 @@ class Credits: SKScene {
                     {
                         
                         
-                            
-//                            let generator = UIImpactFeedbackGenerator(style: .heavy )
-//                            generator.impactOccurred()
-//                            
-//                            racecar.x_acceleration += 1
-//                            
-//                            draw_projected_path()
-//                            move_speedometer_pin(speed: racecar.projected_speed())
-                        
                         let reveal = SKTransition.doorsOpenVertical(withDuration: 0.25)
                         let menuScene = MenuScene(size: CGSize(width: 750, height: 1334))
                         self.view?.presentScene(menuScene, transition: reveal)
@@ -285,64 +285,7 @@ class Credits: SKScene {
     
     
     
-    
-//        //// music
-//        
-//        let music_label = SKLabelNode(text: "Music")
-//        music_label.fontName = title_font
-//        music_label.fontSize = title_size
-//        
-//        
-//        background.addChild(music_label)
-//        
-//        //// fonts
-//        
-//        let fonts_label = SKLabelNode(text: "Fonts")
-//        fonts_label.fontName = title_font
-//        fonts_label.fontSize = title_size
-//        
-//        background.addChild(fonts_label)
-//        
-//        
-//        //// inspired by
-//        
-//        let inspired_by_label = SKLabelNode(text: "Inspired by")
-//        inspired_by_label.fontName = title_font
-//        inspired_by_label.fontSize = title_size
-//        
-//        background.addChild(inspired_by_label)
-//        
-//        
-//        //// testers
-//        
-//        let testers_label = SKLabelNode(text: "Testers")
-//        testers_label.fontName = title_font
-//        testers_label.fontSize = title_size
-//        
-//        background.addChild(testers_label)
-//        
-//        
-//        //// programmed by
-//        
-//        let programmer_label = SKLabelNode(text: "Programmer")
-//        programmer_label.fontName = title_font
-//        programmer_label.fontSize = title_size
-//        
-//        background.addChild(programmer_label)
-//        //// special thanks
-//        
-//        
-//        let special_thanks_label = SKLabelNode(text: "Special Thanks")
-//        special_thanks_label.fontName = title_font
-//        special_thanks_label.fontSize = title_size
-//        
-//        background.addChild(special_thanks_label)
-//        
-//        //// Go Jacks
-//        
-//        let go_jacks = SKLabelNode(text: "GO JACKS")
-//        music_label.fontName = title_font
-//        music_label.fontSize = title_size
+
         
         
     

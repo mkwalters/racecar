@@ -278,7 +278,7 @@ class CupSelectionScene: SKScene {
         
         if hardBackground.contains(touchLocation) {
             
-            //if let _ = UserDefaults.standard.value(forKey: "GalileoCourseFourGold") {
+            if let _ = UserDefaults.standard.value(forKey: "GalileoCourseFourGold") {
             
                 if self.game_type == "time_trials" {
                     let reveal = SKTransition.doorsOpenVertical(withDuration: 0.25)
@@ -290,27 +290,27 @@ class CupSelectionScene: SKScene {
                     self.view?.presentScene(gameScene, transition: reveal)
                 }
             
-//            } else {
-//                
-//                let locked_out = SKSpriteNode(imageNamed: "lock")
-//                
-//                locked_out.position = CGPoint(x: 0, y: 0)
-//                locked_out.zPosition = 2000000
-//                
-//                let fade_out = SKAction.fadeOut(withDuration: 1.0)
-//                
-//                addChild(locked_out)
-//                
-//                locked_out.run(fade_out)
-//                
-//            }
+            } else {
+                
+                let locked_out = SKSpriteNode(imageNamed: "lock")
+                
+                locked_out.position = CGPoint(x: 0, y: 0)
+                locked_out.zPosition = 2000000
+                
+                let fade_out = SKAction.fadeOut(withDuration: 1.0)
+                
+                addChild(locked_out)
+                
+                locked_out.run(fade_out)
+                
+            }
         }
         
         if menuBackground.contains(touchLocation){
             
-//            if let _ = UserDefaults.standard.value(forKey: "GalileoCourseFourGold") {
-//                
-//                if let _ = UserDefaults.standard.value(forKey: "NewtonCourseFourGold") {
+            if let _ = UserDefaults.standard.value(forKey: "GalileoCourseFourGold") {
+                
+                if let _ = UserDefaults.standard.value(forKey: "NewtonCourseFourGold") {
             
                     if self.game_type == "time_trials" {
                         let reveal = SKTransition.doorsOpenVertical(withDuration: 0.25)
@@ -322,35 +322,35 @@ class CupSelectionScene: SKScene {
                         self.view?.presentScene(gameScene, transition: reveal)
                     }
                     
-//                }
-//                else {
-//                    
-//                    let locked_out = SKSpriteNode(imageNamed: "lock")
-//                    
-//                    locked_out.position = CGPoint(x: 0, y: 0)
-//                    locked_out.zPosition = 2000000
-//                    
-//                    let fade_out = SKAction.fadeOut(withDuration: 1.0)
-//                    
-//                    addChild(locked_out)
-//                    
-//                    locked_out.run(fade_out)
-//                }
-//                
-//            } else {
-//                
-//                
-//                let locked_out = SKSpriteNode(imageNamed: "lock")
-//                
-//                locked_out.position = CGPoint(x: 0, y: 0)
-//                locked_out.zPosition = 2000000
-//                
-//                let fade_out = SKAction.fadeOut(withDuration: 1.0)
-//                
-//                addChild(locked_out)
-//                
-//                locked_out.run(fade_out)
-//            }
+                }
+                else {
+                    
+                    let locked_out = SKSpriteNode(imageNamed: "lock")
+                    
+                    locked_out.position = CGPoint(x: 0, y: 0)
+                    locked_out.zPosition = 2000000
+                    
+                    let fade_out = SKAction.fadeOut(withDuration: 1.0)
+                    
+                    addChild(locked_out)
+                    
+                    locked_out.run(fade_out)
+                }
+                
+            } else {
+                
+                
+                let locked_out = SKSpriteNode(imageNamed: "lock")
+                
+                locked_out.position = CGPoint(x: 0, y: 0)
+                locked_out.zPosition = 2000000
+                
+                let fade_out = SKAction.fadeOut(withDuration: 1.0)
+                
+                addChild(locked_out)
+                
+                locked_out.run(fade_out)
+            }
         }
     
         if backBackground.contains(touchLocation){
