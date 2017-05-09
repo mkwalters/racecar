@@ -797,14 +797,14 @@ class Course: SKScene, SKPhysicsContactDelegate {
                     ending_background.addChild(next)
                     
                     
-                    if key == "GalileoCourseOne" {
-                        
-                        let reveal = SKTransition.doorsOpenVertical(withDuration: 0.25)
-                        let difficultyScene = Credits()
-                        self.view?.presentScene(difficultyScene, transition: reveal)
-                        
-                        
-                    }
+//                    if key == "GalileoCourseOne" {
+//                        
+//                        let reveal = SKTransition.doorsOpenVertical(withDuration: 0.25)
+//                        let difficultyScene = Credits()
+//                        self.view?.presentScene(difficultyScene, transition: reveal)
+//                        
+//                        
+//                    }
                     
                     
                     
