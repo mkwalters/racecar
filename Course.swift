@@ -440,10 +440,7 @@ class Course: SKScene, SKPhysicsContactDelegate {
         crossing_finish_line = false
         addChild(audioooo)
         active_controls = true
-//        let lucio = SKAction.playSoundFileNamed("bloodrocuted", waitForCompletion: false)
-//        run(lucio)
-//        let pause_lucio = SKAction.pause()
-//      
+      
         
         addChild(speedometer)
         speedometer_pin.anchorPoint = CGPoint(x: 0.5, y: 0.0)
@@ -799,7 +796,15 @@ class Course: SKScene, SKPhysicsContactDelegate {
                     
                     ending_background.addChild(next)
                     
-
+                    
+                    if key == "GalileoCourseOne" {
+                        
+                        let reveal = SKTransition.doorsOpenVertical(withDuration: 0.25)
+                        let difficultyScene = Credits()
+                        self.view?.presentScene(difficultyScene, transition: reveal)
+                        
+                        
+                    }
                     
                     
                     
@@ -981,10 +986,10 @@ class Course: SKScene, SKPhysicsContactDelegate {
             car_movements.append(movement)
             
             
-            let x_speed_squared = racecar_velocities[point].x * racecar_velocities[point].x
-            let y_speed_squared = racecar_velocities[point].y * racecar_velocities[point].y
+//            let x_speed_squared = racecar_velocities[point].x * racecar_velocities[point].x
+//            let y_speed_squared = racecar_velocities[point].y * racecar_velocities[point].y
             
-            let speed =  sqrt( Double(x_speed_squared + y_speed_squared) )
+            //let speed =  sqrt( Double(x_speed_squared + y_speed_squared) )
             
             let rotate = SKAction.run {
                 

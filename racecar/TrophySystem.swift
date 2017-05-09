@@ -74,25 +74,6 @@ class TrophySystem {
     
     }
     
-    
-//    class func gold_trophies() ->  [String: Bool] {
-//        
-//        
-//        let galileo_gold = UserDefaults.standard.value(forKey: "GalileoCourseFourGold") as? Bool
-//        let newton_gold = UserDefaults.standard.value(forKey: "NewtonCourseFourGold") as? Bool
-//        let einstein_gold = UserDefaults.standard.value(forKey: "EinsteinCourseFourGold") as? Bool
-//        
-//        return([
-//            
-//            
-//            //make these reference course par values
-//            "Galileo":   galileo_gold!,
-//            "Newton":   newton_gold!,
-//            "Einstein": einstein_gold!
-//            
-//            
-//        ])
-//        
-//    }
+
 
 }

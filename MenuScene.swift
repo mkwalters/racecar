@@ -257,7 +257,7 @@ class MenuScene: SKScene {
             
         }
         
-        if red_circle_with_slash.contains(touchLocation) {
+        if red_circle_with_slash.contains(touchLocation) && red_circle_with_slash.parent != nil {
 //            let AlertController = UIAlertController(title: "Bll Starting Position", message: "Please Enter a X Coordinate Value IN Range 0 to 345 ", preferredStyle: .alert)
             
             
@@ -287,20 +287,6 @@ class MenuScene: SKScene {
                     }
                 }
             }
-            
-//            SwiftyStoreKit.restorePurchases(atomically: true) { results in
-//                if results.restoreFailedProducts.count > 0 {
-//                    print("Restore Failed: \(results.restoreFailedProducts)")
-//                }
-//                else if results.restoredProducts.count > 0 {
-//                    print("Restore Success: \(results.restoredProducts)")
-//                }
-//                else {
-//                    print("Nothing to Restore")
-//                }
-//            }
-            
-            //self.viewController.present(AlertController, animated: true, completion: nil)
             
         }
         

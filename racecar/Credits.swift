@@ -53,7 +53,8 @@ class Credits: SKScene {
         
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
         
-        
+        let audioooo = SKAudioNode(fileNamed: "13StuffRole")
+        addChild(audioooo)
         
         drop_confetti()
         
@@ -163,10 +164,11 @@ class Credits: SKScene {
 
         let tester1 = SKLabelNode(text: "Maitland Bobst")
         let tester2 = SKLabelNode(text: "Noah Ashford")
-        let tester3 = SKLabelNode(text: "Chris Viscarra")
-        let tester4 = SKLabelNode(text: "Patrick Lewis")
-        let tester5 = SKLabelNode(text: "Matt Walters")
-        let tester6 = SKLabelNode(text: "Chris Sittaphone")
+        let tester3 = SKLabelNode(text: "Christopher Viscarra")
+        let tester4 = SKLabelNode(text: "J Patrick Lewis")
+        let tester5 = SKLabelNode(text: "Matthew Walters")
+        let tester6 = SKLabelNode(text: "C. Sittaphone")
+        let tester7 = SKLabelNode(text: "Leah Dungo")
         
         
         tester1.position = CGPoint(x: 0, y: titles[3].position.y - 100)
@@ -200,6 +202,13 @@ class Credits: SKScene {
         tester6.fontName = "PressStart2P"
         tester6.fontSize = content_fontsize - 20
         background.addChild(tester6)
+        
+        
+        
+        tester7.position = CGPoint(x: 0, y: titles[3].position.y - 700)
+        tester7.fontName = "PressStart2P"
+        tester7.fontSize = content_fontsize - 20
+        background.addChild(tester7)
         //// programmed by
 
         let programmed_by = SKLabelNode(text: "Mitchell Walters")
@@ -222,10 +231,10 @@ class Credits: SKScene {
         background.addChild(mama)
         
         
-        let bro = SKLabelNode(text: "Matt Walters")
+        let bro = SKLabelNode(text: "Matthew Walters")
         bro.position = CGPoint(x: 0, y: titles[5].position.y - 600)
         bro.fontName = "PressStart2P"
-        bro.fontSize = content_fontsize - 5
+        bro.fontSize = content_fontsize - 10
         
         
         background.addChild(bro)

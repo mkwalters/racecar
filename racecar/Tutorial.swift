@@ -133,7 +133,7 @@ class Tutorial: SKScene {
         
         
         
-        if restore_purchase.contains(touchLocation){
+        if restore_purchase.contains(touchLocation) && restore_purchase.parent != nil {
             
             SwiftyStoreKit.restorePurchases(atomically: true) { results in
                 if results.restoreFailedProducts.count > 0 {
