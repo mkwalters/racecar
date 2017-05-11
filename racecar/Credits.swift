@@ -152,10 +152,10 @@ class Credits: SKScene {
 //        //// inspired by
 
         
-        let inspiration = SKLabelNode(text: "Eric Gardner")
+        let inspiration = SKLabelNode(text: "Martin Gardner")
         inspiration.position = CGPoint(x: 0, y: titles[2].position.y - 400)
         inspiration.fontName = "PressStart2P"
-        inspiration.fontSize = content_fontsize
+        inspiration.fontSize = content_fontsize - 5
 
         background.addChild(inspiration)
 
