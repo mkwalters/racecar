@@ -136,12 +136,12 @@ class Tutorial: SKScene {
         if restore_purchase.contains(touchLocation) && restore_purchase.parent != nil {
             
             SwiftyStoreKit.restorePurchases(atomically: true) { results in
-                if results.restoreFailedProducts.count > 0 {
-                    print("Restore Failed: \(results.restoreFailedProducts)")
+                if results.restoreFailedPurchases.count > 0 {
+                    print("Restore Failed: \(results.restoreFailedPurchases)")
                     self.give_message(message: "Restore Failed")
                 }
-                else if results.restoredProducts.count > 0 {
-                    print("Restore Success: \(results.restoredProducts)")
+                else if results.restoredPurchases.count > 0 {
+                    print("Restore Success: \(results.restoredPurchases)")
                     UserDefaults.standard.set(true, forKey: "paid_version")
                     self.view?.subviews.forEach({ $0.removeFromSuperview() })
                 }

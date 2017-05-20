@@ -10,6 +10,7 @@ import Foundation
 import SpriteKit
 import GameplayKit
 import CoreGraphics
+import Firebase
 import SAConfettiView
 import AudioToolbox
 import UIKit
@@ -814,6 +815,11 @@ class Course: SKScene, SKPhysicsContactDelegate {
                     
                     if number_of_moves < TrophySystem.cup_par_values()[cup_membership]! {
                         
+                        Analytics.logEvent(AnalyticsEventSelectContent, parameters: [
+//                            AnalyticsParameterItemID: "id-\(title!)" as NSObject,
+//                            AnalyticsParameterItemName: title! as NSObject,
+//                            AnalyticsParameterContentType: "cont" as NSObject
+                            :])
                         
                         if key == "EinsteinCourseFour" {
                             
